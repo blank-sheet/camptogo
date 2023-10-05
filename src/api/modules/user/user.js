@@ -1,22 +1,44 @@
 // 商户端相关的接口
 export const userApi = {
   // 获取基础信息
-  basicInfo:
-    'api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/provider/insurance/info/get',
-  // 商品提交审核
-  productSubmit:
-    'api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/workticketaudit/submit',
+  basicInfo: 'api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/provider/insurance/info/get',
   // 提交静态文件
   video: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/base/funcs/image/upload',
   // 获取商品列表
   getList: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/product/all/provider',
   // 基础信息提交审核
-  basicInfoSubmit:
-    '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/provider/insurance/info/create',
+  basicInfoSubmit: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/provider/basic_info/save',
   // 获取基础信息
-  getBasiInfo:
-    '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/provider/insurance/info/get',
-  // 立即上架
-  upShalve:
-    '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/workticketaudit/submit'
+  getBasiInfo: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/provider/basic_info/get',
+  // 商品提交审核,立即上架
+  product: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/workticketaudit/submit',
+  // 新版:创建商品
+  createProduct: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/create',
+  // 新版:提交修改
+  updateProduct: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/create',
+  // 新版:获取优势列表
+  getFeatures: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/feature/list',
+  // 新版:获取列表列表
+  getCategories: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/category/list',
+  // 新版：商品详情
+  getProduct: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/get',
+  // 获取上架时的核保信息
+  getInsurceAudit: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/insurance/info',
+  // 频道
+  channel: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/channel/all',
+  preview: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/product/create/img',
+  // 订单状态数量统计
+  ordersInfo: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/order/status/count',
+  //提交报名表
+  submitTable: '/api/e9b849a515a84327b424af7ccdbf2949/mobile/v1_0_0/enroll/create',
+  //获取报名表信息
+  getTable: '/api/e9b849a515a84327b424af7ccdbf2949/mobile/v1_0_0/enroll/get',
+  //订单的分页查询
+  ordersSearch: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/order/page',
+  confirmOrder: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/order/confirm',
+  refuseOrder: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/order/refuse',
+  //订单审核状态修改
+  ordersChange: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/order/update/status',
+  // 删除商品
+  deleteProduct: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/delete'
 }

@@ -6,17 +6,23 @@
 
 <style lang="scss" scoped>
 footer {
+  button {
+    font-weight: 400;
+  }
+
   position: fixed;
   background-color: white;
-  width: 100%;
-  height: 80px;
+  width: 100vw;
+  height: 60px;
   bottom: 0;
   display: flex;
-  justify-content: start;
-  padding-left: 30px;
+  padding-left: 800px;
+  justify-content: flex-start;
+  padding-right: 84px;
   align-items: center;
   z-index: 99;
-  box-shadow: -1px -3px 5px 2px rgb(0 0 0 / 4%);
+  box-shadow: 7px -1px 5px 2px rgba(0, 0, 0, 0.1);
+
   .el-button {
     margin: 0 20px;
   }

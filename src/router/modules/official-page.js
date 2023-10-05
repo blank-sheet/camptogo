@@ -1,7 +1,7 @@
 export const officialRoutes = [
   {
     path: '/',
-    redirect: '/login',
+    // redirect: '/login',
     component: () => import('../../../src/view/official-page/index/index.vue'),
   },
   {
@@ -12,5 +12,10 @@ export const officialRoutes = [
   {
     path: '/settle-in',
     component: () => import('../../view/official-page/settle-in/settle-in.vue')
+  },
+  // 招商平台
+  {
+    path: '/merchant',
+    component: () => import('../../view/official-page/merchant/merchant.vue')
   }
 ]

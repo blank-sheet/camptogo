@@ -2,21 +2,46 @@
   <div class="product-card" @click="() => emits('goToDetail')">
     <div class="image">
       <img :src="imageUrl" />
-      <el-tag class="price" type="success">${{ getPrice(price) }}</el-tag>
+      <el-tag class="price" type="success">{{ getPrice(price) }}￥</el-tag>
     </div>
 
     <p class="desc">{{ desc }}</p>
-    <div class="small">{{ getTime(startTime) }}-{{ getTime(endTime) }}</div>
+    <div class="small">
+      <span v-if="!period?.length">{{ getTime(startTime) + '-' + getTime(endTime) }}</span>
+      <div v-else style="display: flex; position: relative">
+        <span>多团期商品</span>
+        <span style="margin-left: auto" @click.stop="showPeriod = !showPeriod">查看团期</span>
+      </div>
+      <div style="position: relative" v-show="showPeriod">
+        <ul style="position: absolute; right: 187px; top: 60px">
+          <el-card class="box-card">
+            <template #header>
+              <div class="card-header">
+                <span>查看团期</span>
+                <el-icon @click.stop="showPeriod = !showPeriod" class="close"
+                  ><CircleCloseFilled
+                /></el-icon>
+              </div>
+            </template>
+            <div class="list">
+              <li v-for="i in period">
+                <span :key="i">{{
+                  getTime(i.activity_start_time) + ' - ' + getTime(i.activity_end_time)
+                }}</span>
+              </li>
+            </div>
+          </el-card>
+        </ul>
+      </div>
+    </div>
     <div class="small">{{ area }}</div>
-    <el-tag class="ml-2" type="warning">{{
-      showStatusStr(lunchStatus)
-    }}</el-tag>
+    <el-tag class="ml-2" type="warning">{{ showStatusStr(lunchStatus) }}</el-tag>
   </div>
 </template>
 
 <script setup>
 import { showStatusStr } from '../../../../../utils/getStatus'
-import { defineEmits } from 'vue'
+import { defineEmits, ref } from 'vue'
 defineProps({
   imageUrl: {
     default:
@@ -42,18 +67,64 @@ defineProps({
   },
   lunchStatus: {
     default: '修改审核中'
+  },
+  period: {
+    default: []
   }
 })
-const getTime = (t = '2023-02-02T00:00:00Z') => t.slice(5, 10).replace('-', '/')
+const getTime = (t = '2023-02-02T00:00:00Z') => t?.slice(0, 10).replace('-', '/')
 const getPrice = (p = 100) => p / 100
+const showPeriod = ref(false)
 const emits = defineEmits(['goToDetail'])
 </script>
 
 <style lang="scss">
+.box-card {
+  position: absolute;
+  z-index: 99;
+  width: 200px;
+  height: 224px;
+  .close {
+    position: relative;
+    margin-left: 90px;
+    margin-top: 4px;
+  }
+  .card-header {
+    :nth-child(1) {
+      font-family: PingFang SC;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      text-align: left;
+      margin: 0;
+    }
+  }
+
+  .list {
+    margin-left: -10px;
+    overflow-y: scroll;
+    height: 154px;
+    margin-top: -15px;
+    margin-right: -10px;
+    li {
+      list-style: none;
+      color: #8a8a8a;
+      font-family: PingFang SC;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 31px;
+      text-align: center;
+      &:hover {
+        background-color: #eff9d9;
+        color: #93d500;
+      }
+    }
+  }
+}
 .product-card {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 8px;
   align-items: center;
   min-width: 192px;
   margin: 10px;

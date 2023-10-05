@@ -1,29 +1,28 @@
 import { defineStore } from 'pinia'
+import { ElLoading } from 'element-plus'
 export const useStore = defineStore('global', {
   state: () => {
     return {
       // 用户登录后的数据
-      userInfo: {},
-      // 商品详情数据,
-      product: {}
+      userInfo: null,
+      isLoading: false
     }
   },
   actions: {
     setUserInfo(userInfo) {
-      window.localStorage.setItem('camptogo-user', JSON.stringify(userInfo))
+      window.localStorage.setItem('userInfo', JSON.stringify(userInfo))
       this.userInfo = userInfo
     },
-    setProduct(p) {
-      this.product = p
+    setLoading(isLoading = false) {
+      this.isLoading = isLoading
     }
   },
   getters: {
     user() {
-      return JSON.parse(window.localStorage.getItem('camptogo-user'))
+      return this.userInfo || JSON.parse(window.localStorage.getItem('userInfo'))
     },
     providerId() {
-      return JSON.parse(window.localStorage.getItem('camptogo-user')).provider
-        .id
+      return this.user?.provider?.id || null
     }
   }
 })

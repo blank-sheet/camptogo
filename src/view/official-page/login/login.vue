@@ -2,45 +2,20 @@
   <div id="login">
     <div class="left">
       <div class="title">
-        <p>拥抱营探</p>
+        <p class="text-4xl">拥抱营探</p>
         <p style="margin-bottom: 20px">共创营地教育新生态</p>
-        <p class="subtitle" style="margin-bottom: 50px">
-          更多新活动、新权益等你来领取
-        </p>
-        <el-button @click="() => router.push('/settle-in')">
-          0 元 入 驻</el-button
-        >
+        <p class="subtitle" style="margin-bottom: 50px">更多新活动、新权益等你来领取</p>
+        <el-button @click="() => router.push('/settle-in')"> 0 元 入 驻</el-button>
       </div>
     </div>
     <div class="right">
       <div class="content">
         <img class="logo" src="../../../assets/camptogoLogo.png" />
-        <el-form label-position="top" ref="loginForm" label-width="100px">
-          <el-form-item label="请输入用户名">
-            <el-input
-              style="width: 300px"
-              v-model="loginData.username"></el-input>
-          </el-form-item>
-          <el-form-item label="请输入密码">
-            <el-input
-              style="width: 300px"
-              type="password"
-              v-model="loginData.password"></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button
-              type="primary"
-              @click="submitForm"
-              style="margin-top: 20px"
-              >立即登录</el-button
-            >
-          </el-form-item>
-        </el-form>
+        <camp-login />
         <div class="risknotice">
           <div class="innerrisk">
             登录即视为您已同意
-            <a href="#">《营探用户协议》</a>、<a href="#">《营探隐私政策》</a
-            >、<a href="#">《风险知情书》</a>
+            <a href="#">《营探用户协议》</a>、<a href="#">《营探隐私政策》</a>、<a href="#">《风险知情书》</a>
           </div>
         </div>
       </div>
@@ -51,40 +26,10 @@
   </div>
 </template>
 
-<script setup>
-import { reactive } from 'vue'
-import { request } from '../../../api'
-import { ElMessage } from 'element-plus'
+<script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { useStore } from '../../../store'
+import CampLogin from '../../../component/camp-login.vue'
 const router = useRouter()
-const loginData = reactive({
-  username: 'user-275-5003',
-  password: '13610245003'
-  // username: '18078961400',
-  // password: 'Ts330687'
-})
-const submitForm = () => {
-  request
-    .post('/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/user/get', {
-      username: loginData.username,
-      password: encode_ez(loginData.password)
-    })
-    .then(res => {
-      if (res.data.Code == 200) {
-        useStore().setUserInfo(res.data.details)
-        console.log('登录成功的数据\n', res.data)
-        router.push('/workbench/basicInfo')
-      } else ElMessage.error('请输入正确的用户名和密码')
-    })
-}
-var __ENCRYPTION_KEY =
-  '                                 "$_#(=[>+.&\']|~Ts2W5lzy0w!}*-;\\<bad7ouxHOZXvrjCQ9fp1NPnmRB@?^,`{YUASKigtMeGEL8hkIV4cJD36Fq)/%: '
-function encode_ez(_) {
-  let res = ''
-  for (const v in ((res = ''), _)) res += __ENCRYPTION_KEY[_[v].charCodeAt(0)]
-  return res
-}
 </script>
 
 <style scoped lang="scss">
@@ -95,17 +40,20 @@ function encode_ez(_) {
     height: 50px;
     font-size: large;
     margin: 0 auto;
+
     &:hover {
       background-color: #fff;
     }
   }
 }
+
 .risknotice {
   width: 200px;
   padding: 0 auto;
   margin-top: 30px;
   color: #bbb;
 }
+
 .innerrisk {
   display: flex;
   flex-direction: row;
@@ -114,12 +62,15 @@ function encode_ez(_) {
 
   width: 530px;
 }
+
 .innerrisk a {
   color: #bbb;
 }
+
 .innerrisk a:hover {
   color: #93d500;
 }
+
 #login {
   position: absolute;
   width: 100%;
@@ -129,6 +80,7 @@ function encode_ez(_) {
   align-items: center;
   justify-content: center;
 }
+
 #login .left {
   position: relative;
   display: flex;
@@ -153,6 +105,7 @@ function encode_ez(_) {
   font-weight: 800;
   color: #fff;
 }
+
 #login .left .title .subtitle {
   display: flex;
   font-size: 18px;
@@ -167,6 +120,7 @@ function encode_ez(_) {
   justify-content: center;
   align-items: center;
 }
+
 #login .content {
   width: 70%;
   height: 60%;
@@ -176,31 +130,39 @@ function encode_ez(_) {
   margin-top: -6%;
   padding: 50px 60px;
 }
+
 #login .content p {
   margin-bottom: 0;
 }
+
 #login .content img.logo {
   width: 200px;
   margin-bottom: 50px;
 }
+
 #login .content .form {
   margin-top: 40px;
 }
+
 #login .content .form .form-item {
   position: relative;
 }
+
 #login .content .form .form-item:first-child {
   margin-bottom: 10px;
 }
+
 #login .content .form .form-item:nth-child(2) {
   margin-bottom: 40px;
 }
+
 #login .content .form .form-item p {
   font-size: 14px;
   color: var(--color-text-grey);
   margin-bottom: 8px;
   /* margin-left: 16px; */
 }
+
 #login .content .form .form-item input {
   border: none;
   outline: none;
@@ -217,9 +179,11 @@ function encode_ez(_) {
   font-size: 21px;
   font-weight: lighter;
 }
+
 #login .content .form .form-item input#password {
   padding-right: 48px;
 }
+
 /* #login .content .form .buttonZone {
   text-align: right;
 } */
@@ -240,6 +204,7 @@ function encode_ez(_) {
   outline: none;
   transition: all 0.5s ease;
 }
+
 #login .content .form .buttonZone button#loginBtn:hover {
   transform: translateZ(0) scale(1.08);
   -webkit-transform: translateZ(0) scale(1.08);
@@ -256,6 +221,7 @@ img.showPassword {
   width: 34px;
   height: 34px;
 }
+
 .fixedFullLoading {
   position: fixed;
   left: 0;
@@ -270,6 +236,7 @@ img.showPassword {
   justify-content: center;
   align-items: center;
 }
+
 #login .backButton {
   position: absolute;
   right: 80px;
@@ -278,9 +245,11 @@ img.showPassword {
   color: grey;
   cursor: pointer;
 }
+
 .risknotice {
   font-size: 11px;
 }
+
 .frog {
   position: absolute;
   left: 20px;

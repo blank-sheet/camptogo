@@ -1,6 +1,70 @@
 :root {
   --primary-color: #93d900;
   --el-color-primary: var(--primary-color);
+  --el-font-size-base: 16px;
+  --el-color-success: #93d900;
+}
+.el-aside {
+  min-width: 200px !important;
+}
+@tailwind components;
+@tailwind utilities;
+.el-table {
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  .el-table__header-wrapper {
+    width: 100%;
+  }
+
+  .el-table__header {
+    width: 100% !important;
+  }
+
+  .el-table__body {
+    width: 100% !important;
+  }
+
+  .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.btn-text {
+  border: none;
+  background: none;
+  color: var(--primary-color);
+  padding: 0px;
+}
+/* 修改placeholder字体颜色 */
+::placeholder {
+  // color: #bfbfbf; /* 这里可以替换为你想要的颜色值 */
+  color: rgba($color: #000000, $alpha: 0.25) !important;
+}
+.el-input {
+  min-height: 32px;
+}
+li {
+  list-style: none;
+}
+.el-button {
+  font-weight: 400;
+}
+label {
+  font-size: 14px;
+}
+p {
+  text-align: justify;
+}
+.grayLabel {
+  color: black !important;
+  opacity: 45%;
+}
+.el-form-item__label {
+  width: 130px;
+  justify-content: flex-start;
 }
 .el-button--primary:focus,
 .el-button--primary:hover {

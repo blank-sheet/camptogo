@@ -13,9 +13,8 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "types": ["element-plus/global"],
-    "allowJs": true,
-    
+    "allowJs": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/api/index.js"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

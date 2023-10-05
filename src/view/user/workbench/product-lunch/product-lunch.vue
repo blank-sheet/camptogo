@@ -1,108 +1,145 @@
 <template>
-  <div class="overview">
+  <!-- 添加数据展示栏，添加已删除 -->
+  <div class="overview" v-loading="isLoading">
+    <div class="title">商品发布</div>
+    <!-- data-show组件 -->
+    <CampDataShow :datas="datas" />
     <div class="tool-bar">
       <el-tabs v-model="activeTab">
-        <el-tab-pane label="全部商品" name="all"></el-tab-pane>
+        <el-tab-pane class="text" label="全部商品" name="all"></el-tab-pane>
         <el-tab-pane label="草稿" name="5100"></el-tab-pane>
-        <el-tab-pane label="审核中" name="5200 5310"></el-tab-pane>
+        <el-tab-pane label="审核中" name="5200/5310/7000"></el-tab-pane>
         <el-tab-pane label="待上架" name="5300"></el-tab-pane>
+        <el-tab-pane label="已上架" name="5400"></el-tab-pane>
       </el-tabs>
-      <div class="search-bar" style="display: flex; margin-top: 10px">
-        <el-input
-          style="width: 400px"
-          v-model="searchWord"
-          placeholder="请输入"
-          class="input-with-select">
+      <div class="search-bar " style="display: flex; margin-top: 10px">
+        <el-input style="width: 400px" v-model="searchWord" placeholder="请输入" class="input-with-select">
           <template #prepend>
-            <el-select
-              v-model="selectTag"
-              style="width: 115px">
-              <el-option label="商品状态" value="1" />
-              <el-option label="商品ID" value="2" />
+            <el-select v-model="selectTag" style="width: 115px" clearable :multiple="false">
+              <el-option label="商品状态" value="status" />
+              <el-option label="商品ID" value="id" />
             </el-select>
           </template>
           <template #append>
-            <el-button :icon="Search" />
+            <el-button :icon="Search" @click="handleSearch" />
           </template>
         </el-input>
         <div class="buttons" style="margin-left: 40px">
-          <el-button @click="searchWord=''">重置</el-button>
+          <el-button @click="searchWord = ''">重置</el-button>
           <el-button type="primary">查询</el-button>
-          <el-button type="primary" @click="() => goPublishProduct()"
-            >发布商品</el-button
-          >
+          <el-button type="primary" @click="() => goPublishProduct()">发布商品</el-button>
+          <span class="desc" style="color: gray; font-size: small; margin-left: 20px">*已上架商品请前往商品管理模块进行操作</span>
         </div>
       </div>
     </div>
-    <div class="cards">
-      <product-card
-        v-for="(p, index) in producets"
-        :key="p.id"
-        :desc="p.short_name"
-        :price="p.price_selling"
-        :start-time="p.product_launching_time"
-        :end-time="p.product_expiration_time"
-        :area="p.location_city"
-        :lunch-status="p.status"
-        :image-url="p.horizontal_shows[0].url"
-        @go-to-detail="() => gotoDetail(index)"
-        :status="p.status">
+    <div class="cards" v-if="producets.length">
+      <product-card v-for="p in producets" :key="p.id" :desc="p.full_name" :price="p.price_selling"
+        :start-time="p.product_launching_time" :end-time="p.product_expiration_time" :area="p.location_city"
+        :lunch-status="p.status" :image-url="p.horizontal_shows?.[0]?.url || 'xxx'" @go-to-detail="() => gotoDetail(p)"
+        :period="p?.group_period || []" :status="p.status">
       </product-card>
     </div>
+    <p v-else class=" text-center">
+      暂无数据
+    </p>
   </div>
 </template>
 
 <script setup>
-import ProductCard from './components/product-card.vue'
-import { Search } from '@element-plus/icons-vue'
-import { ref, onMounted, watch } from 'vue'
-import { userApi } from '../../../../api/modules/user/user'
-import { request } from '../../../../api'
-import { useStore } from '../../../../store'
-import { useRouter } from 'vue-router'
-const router = useRouter()
-const activeTab = ref('all')
-const searchWord = ref('')
-const selectTag = ref('')
-const store = useStore()
-const producets = ref([])
-const totalProducts = ref([])
+import ProductCard from "./components/product-card.vue";
+import { Search } from "@element-plus/icons-vue";
+import { ref, onMounted, watch, computed } from "vue";
+import { userApi } from "../../../../api/modules/user/user";
+import { request } from "../../../../api";
+import { useStore } from "../../../../store";
+import { useRouter } from "vue-router";
+import { showStatusStr } from "../../../../utils/getStatus";
+import CampDataShow from "../../../../component/camp-data-show.vue";
+const router = useRouter();
+const activeTab = ref("all");
+const searchWord = ref("");
+const selectTag = ref("");
+const store = useStore();
+let producets = ref([]);
+const isLoading = ref(false)
+const totalProducts = ref([]);
+const datas = computed(() => {
+  return [
+    {
+      label: "全部商品",
+      value: totalProducts.value.length,
+    },
+    {
+      label: "草稿",
+      value: totalProducts.value.filter((p) => p.status == "5100").length,
+    },
+    {
+      label: "待上架",
+      value: totalProducts.value.filter((p) => p.status == "5300").length,
+    },
+    {
+      label: "待审核",
+      value: 0,
+    },
+    {
+      label: "已删除",
+      value: 0,
+    },
+  ];
+});
+const handleSearch = () => {
+  producets.value = totalProducts.value.filter((p) => {
+    if (!searchWord.value) return true;
+    if (selectTag.value === "id") {
+      return String(p.id || "").includes(searchWord.value);
+    }
+    if (selectTag.value === "status") {
+      return showStatusStr(p.status).includes(searchWord.value);
+    }
+  });
+};
 watch(activeTab, () => {
-  console.log('📕', activeTab.value)
-  if (activeTab.value === 'all') producets.value = totalProducts.value
+  if (activeTab.value === "all") producets.value = totalProducts.value;
   else
-    producets.value = producets.value.filter(p => {
-      if (activeTab.value.includes(p.status)) return p
-    })
-})
+    producets.value = totalProducts.value.filter((p) => {
+      if (activeTab.value.includes(p.status)) return p;
+    });
+});
 const goPublishProduct = () => {
-  router.push('/workbench/product/new')
-}
-const gotoDetail = (index = 0) => {
-  store.setProduct(producets.value[index])
-  router.push('/workbench/product/' + index)
-}
+  router.push("/user/workbench/product/new");
+};
+const gotoDetail = (p = 0) => {
+  router.push("/user/workbench/product/" + p.id);
+};
 onMounted(() => {
+  isLoading.value = true
   request
     .post(userApi.getList, {
-      user_id: store.user.id
+      user_id: store.user.id,
     })
-    .then(res => {
-      producets.value = res.data.details?.products || producets.value
-      totalProducts.value = producets.value
+    .then((res) => {
+      producets.value = res.details?.products;
+      totalProducts.value = res.details?.products;
+    }).finally(() => {
+      isLoading.value = false
     })
-})
+
+});
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .overview {
   height: 100%;
+  width: 99%;
+
   .tool-bar {
     background-color: white;
     padding: 20px;
     margin-bottom: 20px;
+    margin-left: 24px;
   }
-  > header {
+
+  >header {
     height: 50px;
     display: flex;
     justify-content: center;
@@ -111,14 +148,27 @@ onMounted(() => {
     background-color: white;
     margin-bottom: 30px;
   }
+
   .cards {
     background-color: white;
-    overflow: scroll;
-    padding: 30px;
+    padding: 15px;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
+    margin-left: 24px;
   }
+}
+
+.title {
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  margin-left: 24px;
 }
 </style>
