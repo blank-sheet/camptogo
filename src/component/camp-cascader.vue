@@ -34,6 +34,7 @@ const props = defineProps({
 })
 const value = ref(props._value)
 watch(value, () => {
+  console.log(value);
   emits('update:value', value)
 })
 </script>

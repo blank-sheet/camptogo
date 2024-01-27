@@ -4,7 +4,7 @@
     type="date"
     style="margin-right: 10px"
     v-model="_date"
-    placeholder="开始日期" />
+    :placeholder="placeholder" />
 </template>
 
 <script setup>

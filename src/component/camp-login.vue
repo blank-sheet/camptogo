@@ -39,12 +39,13 @@ const submitForm = () => {
       {
         username: loginData.username,
         password: encode_ez(loginData.password)
+        // password: loginData.password
       },
       { message: true, loading: true }
     )
     .then(res => {
       useStore().setUserInfo(res.details)
-      router.push(props.loginTo)
+      router.push(res.details.role == 'AUDITOR' ? '/audit' : props.loginTo)
       window.localStorage.setItem(
         window.location.href,
         JSON.stringify({

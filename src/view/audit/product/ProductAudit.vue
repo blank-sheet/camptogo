@@ -21,7 +21,7 @@
         </el-select>
         <div>
           <el-button>重置</el-button>
-          <el-button type="primary" @click="updateList()">查询</el-button>
+          <el-button type="primary" @click="updateList(pageNum)">查询</el-button>
         </div>
       </div>
     </header>
@@ -83,16 +83,17 @@
         </template>
       </el-table-column>
     </el-table>
-    <camp-pagination @change-page="updateList" :total="tableData.length"> </camp-pagination>
+    <camp-pagination @change-page="updateList" :total="total"></camp-pagination>
   </div>
 </template>
 
 <script setup>
-import { onMounted, reactive, ref, watch } from 'vue'
+import { onMounted, reactive, ref, watch, h } from 'vue'
 import { request } from '../../../api'
 import { auditApi } from '../../../api/modules/audit'
 import CampPagination from '../../../component/camp-pagination.vue'
 import { getProductStatus, PRODUCT_STATUS } from '../../../utils/getProductStatus'
+import { ElMessage, ElMessageBox } from 'element-plus'
 const tableData = ref([
   {
     workTicketId: 2,
@@ -123,6 +124,10 @@ const tableData = ref([
     }
   }
 ])
+const total = ref(0)
+const pageNum = ref(1)
+const pageSize = ref(10)
+const reviewRemark = ref('')
 const activeTab = ref('')
 const searchInfo = reactive({
   operation: undefined,
@@ -135,7 +140,7 @@ const searchInfo = reactive({
 })
 watch(activeTab, () => {
   searchInfo.statuses = [activeTab.value].filter(Boolean)
-  updateList()
+  updateList(pageNum.value)
 })
 const updateList = (currentPage = 1, pageSize = 10) => {
   request
@@ -145,36 +150,115 @@ const updateList = (currentPage = 1, pageSize = 10) => {
       ...searchInfo
     })
     .then(v => {
-      tableData.value = v.details.list?.map((l, i) => ({ ...l, index: i + 1 }))
+      total.value = v.details.total
+      tableData.value = v.details.list?.map((l, i) => ({ ...l, index: i + 1 })),
+      pageNum.value = v.details.pageNum
     })
 }
 const approve = (id = 0) => {
-  request
-    .post(
-      auditApi.productApprove,
-      {
-        workTicketId: id,
-        reviewRemark: '通过'
-      },
-      {
-        message: true
-      }
-    )
-    .then(() => updateList())
+  ElMessageBox.confirm(
+    '确认通过该商品吗?',
+    '提示',
+    {
+      confirmButtonText: '确认',
+      cancelButtonText: '取消',
+      type: 'warning',
+    }
+  )
+    .then(() => {
+      request
+      .post(
+        auditApi.productApprove,
+        {
+          workTicketId: id,
+          reviewRemark: '通过'
+        },
+        {
+          message: true
+        }
+      )
+      .then(() => updateList(pageNum.value))
+    })
+    .catch(() => {
+      
+    })
 }
 const reject = (id = 0) => {
-  request
-    .post(
-      auditApi.productOrInsurenceReject,
+  // ElMessageBox.prompt(
+  //   '确认拒绝该商品吗?',
+  //   '提示',
+  //   {
+  //     confirmButtonText: '确认',
+  //     cancelButtonText: '取消',
+  //     type: 'warning',
+  //   }
+  // )
+  //   .then((value) => {
+  //     request
+  //     .post(
+  //       auditApi.productOrInsurenceReject,
+  //       {
+  //         workTicketId: id,
+  //         reviewRemark: value
+  //       },
+  //       {
+  //         message: true
+  //       }
+  //     )
+  //     .then(() => updateList())
+  //   })
+  //   .catch(() => {
+      
+  //   })
+  ElMessageBox({
+    title: '拒绝',
+    message: h(
+      "div",
       {
-        workTicketId: id,
-        reviewRemark: '拒绝'
+        class: "el-textarea"
       },
-      {
-        message: true
+      [
+        h("textarea", {
+          placeholder: "请输入审核建议",
+          class: "el-textarea__inner",
+          autocomplete: "off",
+          rows: 5,
+          id: "commentContent",
+          value: reviewRemark.value,
+          onInput: onCommentInputChange
+        })
+      ]
+    ),
+    showCancelButton: true,
+    confirmButtonText: '确认',
+    cancelButtonText: '取消',
+    beforeClose: (action, instance, done) => {
+      if (action === 'confirm') {
+        request
+        .post(
+          auditApi.productOrInsurenceReject,
+          {
+            workTicketId: id,
+            reviewRemark: reviewRemark.value
+          },
+          {
+            message: true
+          }
+        )
+        .then(() => {
+          done()
+        })
+      } else {
+        done()
       }
-    )
-    .then(() => updateList())
+    },
+  }).then(() => {
+    reviewRemark.value = ''
+    updateList(pageNum.value)
+  })
+}
+const onCommentInputChange = () => {
+  reviewRemark.value = document.getElementById("commentContent").value;
 }
 onMounted(() => {
   updateList()
@@ -189,7 +273,7 @@ var OPERATION_TYPES = {
 </script>
 
 <style lang="scss">
-.product-audit {
-  width: 1180px;
-}
+// .product-audit {
+//   width: 1180px;
+// }
 </style>

@@ -11,8 +11,8 @@
     <div class="Pageonetitle">
       <h1 class="pageTitle"><span>营地奇遇</span><span>探手可得</span></h1>
       <h2 class="content">
-        <span>亲子活动</span>|<span>营地活动</span>|<span>营地活动</span>|<span>游学</span>|<span>研学</span>|<span>系列特训</span>
-        | <span>赛事活动</span>
+        <span>亲子营</span>|<span>独立日间营</span>|<span>冬夏令营</span>|<span>游学</span>|<span>研学</span>|<span>产融实践</span>
+        | <span>竞赛集训</span>
       </h2>
     </div>
 
@@ -20,15 +20,15 @@
       <el-button @click="() => router.push('./login')" class="gotoworkbench">登录工作台</el-button>
       <el-button class="gotInvestplatform" @click="() => router.push('./merchant')">招商平台</el-button>
       <div>
-        <div class="eggBg"></div>
+        <div class="eggBg" :style="imgSize"></div>
       </div>
-      <div class="flogBg mousePointer"></div>
-      <div class="spaceBox mousePointer">
+      <div class="flogBg mousePointer" :style="flogStyle"></div>
+      <div class="spaceBox mousePointer" :style="spaceStyle">
         <div class="spaceBg"></div>
-        <div class="lightBg mousePointer"></div>
+        <div class="lightBg mousePointer" :style="lightStyle"></div>
       </div>
-      <div class="spacemanBg mousePointer"></div>
-      <div class="planetBg mousePointer"></div>
+      <div class="spacemanBg mousePointer" :style="spacemanStyle"></div>
+      <div class="planetBg mousePointer" :style="planetstyle"></div>
       <div class="starLight">
         <div class="starBg"></div>
       </div>
@@ -215,19 +215,166 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import WordCircleVue from './components/CircleWords/index.vue'
-import { ref } from 'vue'
+import { gReactiveImgAnimation, gSizeAndP, gSize } from "../../../utils/gStyle"
+import { ideaScreen } from "../../../utils/ideaScreen"
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 
-const currentSectionIndex = ref(0)
-const sections = ['section-1', 'section-2', 'section-3', 'section-4', 'section-5']
-const scrollToNextSection = () => {
-  currentSectionIndex.value = (currentSectionIndex.value + 1) % sections.length
-  const targetSection = document.getElementById(sections[currentSectionIndex.value])
-  if (targetSection) {
-    targetSection.scrollIntoView({ behavior: 'smooth' })
-  }
-  console.log(currentSectionIndex.value)
-}
-const router = useRouter()
+// const currentSectionIndex = ref(0)
+// const sections = ['section-1', 'section-2', 'section-3', 'section-4', 'section-5']
+// const scrollToNextSection = () => {
+//   currentSectionIndex.value = (currentSectionIndex.value + 1) % sections.length
+//   const targetSection = document.getElementById(sections[currentSectionIndex.value])
+//   if (targetSection) {
+//     targetSection.scrollIntoView({ behavior: 'smooth' })
+//   }
+//   console.log(currentSectionIndex.value)
+// }
+// const router = useRouter()
+
+    const currentSectionIndex = ref(0);
+    const sections = ['section-1', 'section-2', 'section-3', 'section-4', 'section-5'];
+    // const isPhone = ref(false);
+    let screenH = ref(window.innerHeight);
+    let screenW = ref(window.innerWidth);
+    const router = useRouter()
+
+    const scrollToNextSection = () => {
+      currentSectionIndex.value = (currentSectionIndex.value + 1) % sections.length;
+      const targetSection = document.getElementById(sections[currentSectionIndex.value]);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    const isPhone = ref(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent))
+
+    // 添加resize事件监听器
+    const handleResize = () => {
+      if (!isPhone.value) {
+        // 解决苹果浏览器下滑导航栏消失引起的页面resize
+        screenH.value = window.innerHeight;
+        screenW.value = window.innerWidth;
+      }
+      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        isPhone.value = true;
+      } else {
+        isPhone.value = false;
+      }
+    }
+
+    const reactive = computed(() => {
+      const device = isPhone.value ? "phone" : "window";
+      const wpx = screenW.value / ideaScreen[device].width;
+      const hpx = screenH.value / ideaScreen[device].height;
+      const ipx = Math.min(wpx, hpx);
+      return {
+        wpx,
+        hpx,
+        ipx,
+      };
+    })
+    const gSection = computed(() => `height:${window.innerHeight}px`);
+    const imgSize = computed(() => {
+      return isPhone.value
+        ? gSizeAndP(
+            782 * reactive.value.ipx,
+            130 * reactive.value.ipx,
+            148 * reactive.value.wpx,
+            screenH.value * 0.5
+            // 1352 * reactive.value.hpx
+          )
+        : {
+            // height: window.innerHeight / 2 + "px",
+            height: screenH.value * 0.5 + "px",
+            width: 1078 * reactive.value.wpx + "px",
+          };
+    });
+    const starLightStyle = computed(() => {
+      return isPhone.value
+        ? gSizeAndP(
+            291 * reactive.value.ipx,
+            283 * reactive.value.ipx,
+            356 * reactive.value.wpx,
+            771 * reactive.value.hpx
+          )
+        : gSizeAndP(
+            291 * reactive.value.ipx,
+            283 * reactive.value.ipx,
+            863 * reactive.value.wpx,
+            467 * reactive.value.hpx
+          );
+    });
+    const lightStyle = computed(() => gSize(142 * reactive.value.ipx, 180 * reactive.value.ipx));
+    const spaceStyle = computed(() => {
+      return isPhone.value
+        ? gSizeAndP(
+            202 * reactive.value.ipx,
+            160 * reactive.value.ipx,
+            757 * reactive.value.wpx,
+            918 * reactive.value.hpx
+          )
+        : gSizeAndP(
+            202 * reactive.value.ipx,
+            160 * reactive.value.ipx,
+            1221 * reactive.value.wpx,
+            523 * reactive.value.hpx
+          );
+    });
+    const planetstyle = computed(() => {
+      return isPhone.value
+        ? gSizeAndP(
+            182 * reactive.value.ipx,
+            130 * reactive.value.ipx,
+            98 * reactive.value.wpx,
+            933 * reactive.value.hpx
+          )
+        : gSizeAndP(
+            182 * reactive.value.ipx,
+            130 * reactive.value.ipx,
+            506 * reactive.value.wpx,
+            599 * reactive.value.hpx
+          );
+    });
+    const starStyle = computed(() => gSize(74 * reactive.value.ipx, 75 * reactive.value.ipx));
+    const flogStyle = computed(() => {
+      return isPhone.value
+        ? gSizeAndP(
+            150 * reactive.value.ipx,
+            237 * reactive.value.ipx,
+            577 * reactive.value.wpx,
+            1040 * reactive.value.hpx
+          )
+        : gSizeAndP(
+            150 * reactive.value.ipx,
+            237 * reactive.value.ipx,
+            995 * reactive.value.wpx,
+            668 * reactive.value.hpx
+          );
+    });
+    const spacemanStyle = computed(() => {
+      return isPhone.value
+        ? gSizeAndP(
+            307 * reactive.value.ipx,
+            452 * reactive.value.ipx,
+            254 * reactive.value.wpx,
+            953 * reactive.value.hpx
+          )
+        : gSizeAndP(
+            314 * reactive.value.ipx,
+            445 * reactive.value.ipx,
+            672 * reactive.value.wpx,
+            581 * reactive.value.hpx
+          );
+    });
+
+    onMounted(() => {
+      window.addEventListener('resize', handleResize);
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleResize);
+    })
+
 </script>
 
 <style lang="scss" scoped>
@@ -373,8 +520,10 @@ body {
 
   .spaceBg {
     position: absolute;
-    width: 10.5vw;
-    height: 14.8vh;
+    // width: 10.5vw;
+    // height: 14.8vh;
+    width: 100%;
+    height: 100%;
     background-image: url(../../../assets/OfficialWebsiteImgs/space.png);
     background-size: 1400% 100%;
     background-position: 0 0;

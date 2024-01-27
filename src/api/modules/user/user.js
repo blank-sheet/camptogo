@@ -6,6 +6,7 @@ export const userApi = {
   video: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/base/funcs/image/upload',
   // 获取商品列表
   getList: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/product/all/provider',
+  getProductList: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/page_get',
   // 基础信息提交审核
   basicInfoSubmit: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/provider/basic_info/save',
   // 获取基础信息
@@ -40,5 +41,9 @@ export const userApi = {
   //订单审核状态修改
   ordersChange: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/order/update/status',
   // 删除商品
-  deleteProduct: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/delete'
+  deleteProduct: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/delete',
+  // 获取保险挡位列表
+  getInsuranceGrade: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/insurance_grade/get',
+  // 获取商品计数
+  getCount: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/count'
 }

@@ -7,7 +7,6 @@
     <el-icon class="camp-uploader-icon">
       <div class="relative full">
         <Plus /><br /><span style="font-size: 14px; font-style: normal">{{ placeHolder }}</span>
-
       </div>
     </el-icon>
     <div class="absolute w-[100%] h-full bg-cover flex justify-center items-center"
@@ -64,24 +63,37 @@ const handleSuccess = (r, f) => {
 }
 const update = () => {
   window.queueMicrotask(() => {
-    if (!isArr.value) {
-      const imgStr = fileList.value[0]?.response.details.image_url || ''
-      const imgObj = {
-        name: props.images?.name || ' ',
-        url: fileList.value[0]?.response.details.image_url || ''
-      }
-      emits('update:images', !props.images?.length ? imgObj : imgStr)
-    } else {
-      const imageArrs = fileList.value.map(f => {
-        if (f.response?.details.image_url) {
-          return {
-            url: f.response.details.image_url,
-            name: f.name
-          }
-        } else return f
-      })
-      emits('update:images', imageArrs)
-    }
+    const imageArrs = fileList.value.map(f => {
+      if (f.response?.details.image_url) {
+        return {
+          url: f.response.details.image_url,
+          name: f.name
+        }
+      } else return f
+    })
+    emits('update:images', imageArrs)
+    // if (!isArr.value) {
+    //   const imgStr = fileList.value[0]?.response.details.image_url || ''
+    //   const imgObj = {
+    //     name: props.images?.name || ' ',
+    //     url: fileList.value[0]?.response.details.image_url || ''
+    //   }
+    //   console.log(fileList.value);
+    //   console.log(imgStr);
+    //   console.log(imgObj);
+    //   emits('update:images', !props.images?.length ? imgObj : imgStr)
+    // } else {
+    //   const imageArrs = fileList.value.map(f => {
+    //     if (f.response?.details.image_url) {
+    //       return {
+    //         url: f.response.details.image_url,
+    //         name: f.name
+    //       }
+    //     } else return f
+    //   })
+    //   console.log(imageArrs);
+    //   emits('update:images', imageArrs)
+    // }
   })
   hasChange.value = true
 }

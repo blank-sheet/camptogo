@@ -288,6 +288,7 @@ h2 {
 }
 
 div.commodity {
+  margin-right: 20px;
   border-radius: 5px;
 
   .el-table {

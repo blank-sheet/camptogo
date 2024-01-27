@@ -131,7 +131,8 @@ const handleCurrentChange = (val) => {
 .progress-card {
   .box-card {
     margin-left: 24px;
-    width: 1000px;
+    // width: 1000px;
+    width: calc(100% - 250px);
     height: auto;
   }
 }

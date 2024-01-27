@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="feed-back">
     <!-- 标题 -->
     <div class="title">使用反馈</div>
     <!-- 主体 -->
@@ -38,6 +38,9 @@
 <script setup></script>
 
 <style lang="scss" scoped>
+.feed-back {
+  width: calc(100% - 100px);
+}
 .title {
   font-family: PingFang SC;
   font-size: 16px;
@@ -51,7 +54,7 @@
 }
 
 .block {
-  width: 80%;
+  // width: 80%;
   margin-left: 24px;
   margin-bottom: 16px;
   min-width: 1000px;

@@ -425,7 +425,9 @@ const goToPosition = id => {
 <style lang="scss">
 .basic-info {
   .el-card {
-    width: 1000px;
+    // width: 1000px;
+    width: calc(100% - 200px);
+    min-width: 1000px;
   }
 
   span {
@@ -620,7 +622,9 @@ const goToPosition = id => {
 
 .product-nav {
   position: fixed;
-  left: 1300px;
+  // left: 1300px;
+  // right: 50px;
+  left: calc(100% - 150px);
   top: 130px;
   border-left: 2px solid lightgray;
 

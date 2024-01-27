@@ -8,14 +8,15 @@
   <File11 v-if="index === '1-1'" />
   <File12 v-if="index === '1-2'" />
   <File13 v-if="index === '1-3'" />
-  <File14 v-if="index === '1-4'" />
-  <File15 v-if="index === '1-5'" />
-  <File16 v-if="index === '1-6'" />
-  <File17 v-if="index === '1-7'" />
-  <File18 v-if="index === '1-8'" />
-  <File19 v-if="index === '1-9'" />
-  <File110 v-if="index === '1-10'" />
-  <File111 v-if="index === '1-11'" />
+  <File15 v-if="index === '1-4'" />
+  <File16 v-if="index === '1-5'" />
+  <File17 v-if="index === '1-6'" />
+  <File18 v-if="index === '1-7'" />
+  <File19 v-if="index === '1-8'" />
+  <File110 v-if="index === '1-9'" />
+  <File111 v-if="index === '1-10'" />
+  <File112 v-if="index === '1-11'" />
+  <File113 v-if="index === '1-12'" />
   <File20 v-if="index === '2-0'" />
   <File21 v-if="index === '2-1'" />
   <File22 v-if="index === '2-2'" />
@@ -60,7 +61,6 @@ import File10 from './components/File10.vue'
 import File11 from './components/File11.vue'
 import File12 from './components/File12.vue'
 import File13 from './components/File13.vue'
-import File14 from './components/File14.vue'
 import File15 from './components/File15.vue'
 import File16 from './components/File16.vue'
 import File17 from './components/File17.vue'
@@ -68,6 +68,8 @@ import File18 from './components/File18.vue'
 import File19 from './components/File19.vue'
 import File110 from './components/File110.vue'
 import File111 from './components/File111.vue'
+import File112 from './components/File112.vue'
+import File113 from './components/File113.vue'
 import File20 from './components/File20.vue'
 import File21 from './components/File21.vue'
 import File22 from './components/File22.vue'

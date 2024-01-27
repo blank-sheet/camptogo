@@ -5,27 +5,27 @@
     <!-- data-show组件 -->
     <CampDataShow :datas="datas" />
     <div class="tool-bar">
-      <el-tabs v-model="activeTab">
-        <el-tab-pane class="text" label="全部商品" name="all"></el-tab-pane>
-        <el-tab-pane label="草稿" name="5100"></el-tab-pane>
-        <el-tab-pane label="审核中" name="5200/5310/7000"></el-tab-pane>
-        <el-tab-pane label="待上架" name="5300"></el-tab-pane>
-        <el-tab-pane label="已上架" name="5400"></el-tab-pane>
+      <el-tabs v-model="activeTab" @tab-change="tabChange">
+        <el-tab-pane class="text" label="全部商品" name=""></el-tab-pane>
+        <el-tab-pane label="草稿" name="DRAFT"></el-tab-pane>
+        <el-tab-pane label="审核中" name="CREATED_WAIT_REVIEW/CREATED_REVIEWED/UNDERWRITING_REVIEWED"></el-tab-pane>
+        <el-tab-pane label="待上架" name="ONLINE_WAIT_REVIEW"></el-tab-pane>
+        <el-tab-pane label="已上架" name="ONLINE/WAIT_SALE/ON_SALE/HALTED_SALES/ONGOING/CANCELLED/COMPLETE"></el-tab-pane>
       </el-tabs>
       <div class="search-bar " style="display: flex; margin-top: 10px">
-        <el-input style="width: 400px" v-model="searchWord" placeholder="请输入" class="input-with-select">
-          <template #prepend>
+        <el-input style="width: 320px" v-model="keyword" placeholder="请输入关键词" class="input-with-select">
+          <!-- <template #prepend>
             <el-select v-model="selectTag" style="width: 115px" clearable :multiple="false">
               <el-option label="商品状态" value="status" />
               <el-option label="商品ID" value="id" />
             </el-select>
-          </template>
+          </template> -->
           <template #append>
             <el-button :icon="Search" @click="handleSearch" />
           </template>
         </el-input>
         <div class="buttons" style="margin-left: 40px">
-          <el-button @click="searchWord = ''">重置</el-button>
+          <el-button @click="keyword = ''">重置</el-button>
           <el-button type="primary">查询</el-button>
           <el-button type="primary" @click="() => goPublishProduct()">发布商品</el-button>
           <span class="desc" style="color: gray; font-size: small; margin-left: 20px">*已上架商品请前往商品管理模块进行操作</span>
@@ -33,15 +33,14 @@
       </div>
     </div>
     <div class="cards" v-if="producets.length">
-      <product-card v-for="p in producets" :key="p.id" :desc="p.full_name" :price="p.price_selling"
-        :start-time="p.product_launching_time" :end-time="p.product_expiration_time" :area="p.location_city"
-        :lunch-status="p.status" :image-url="p.horizontal_shows?.[0]?.url || 'xxx'" @go-to-detail="() => gotoDetail(p)"
-        :period="p?.group_period || []" :status="p.status">
+      <product-card v-for="p in producets" :key="p.productId" :desc="p.fullName" :price="p.priceSelling"
+        :start-time="p?.saleStartTime" :end-time="p?.saleEndTime" :area="p.activityLocation?.startLocationDetailed"
+        :lunch-status="p.productStatus" :image-url="p.horizontalShowsResourceList?.[0]?.url || 'xxx'" @go-to-detail="() => gotoDetail(p)"
+        :period="p?.group_period || []" :status="p.productStatus">
       </product-card>
     </div>
-    <p v-else class=" text-center">
-      暂无数据
-    </p>
+    <p v-else class=" text-center">暂无数据</p>
+    <CampPagination :total="totalPage" @change-page="handleCurrentChange" />
   </div>
 </template>
 
@@ -55,75 +54,111 @@ import { useStore } from "../../../../store";
 import { useRouter } from "vue-router";
 import { showStatusStr } from "../../../../utils/getStatus";
 import CampDataShow from "../../../../component/camp-data-show.vue";
+import CampPagination from '../../../../component/camp-pagination.vue'
 const router = useRouter();
-const activeTab = ref("all");
-const searchWord = ref("");
+const activeTab = ref("");
+const keyword = ref("");
 const selectTag = ref("");
+const selectStatus = ref(null);
 const store = useStore();
 let producets = ref([]);
 const isLoading = ref(false)
 const totalProducts = ref([]);
+const totalPage = ref(10);
+const DRAFT = ref(0)
+const ONLINE = ref(0)
+const WAIT_ONLINE = ref(0)
+const WAIT_REVIEW = ref(0)
 const datas = computed(() => {
   return [
     {
       label: "全部商品",
-      value: totalProducts.value.length,
+      value: totalPage,
     },
     {
       label: "草稿",
-      value: totalProducts.value.filter((p) => p.status == "5100").length,
+      value: DRAFT,
     },
     {
       label: "待上架",
-      value: totalProducts.value.filter((p) => p.status == "5300").length,
+      value: WAIT_ONLINE,
     },
     {
       label: "待审核",
-      value: 0,
+      value: WAIT_REVIEW,
     },
     {
-      label: "已删除",
-      value: 0,
+      label: "已上架",
+      value: ONLINE,
     },
   ];
 });
 const handleSearch = () => {
-  producets.value = totalProducts.value.filter((p) => {
-    if (!searchWord.value) return true;
-    if (selectTag.value === "id") {
-      return String(p.id || "").includes(searchWord.value);
-    }
-    if (selectTag.value === "status") {
-      return showStatusStr(p.status).includes(searchWord.value);
-    }
-  });
+  handleCurrentChange(1);
+  // producets.value = totalProducts.value.filter((p) => {
+  //   if (!keyword.value) return true;
+  //   if (selectTag.value === "id") {
+  //     return String(p.id || "").includes(keyword.value);
+  //   }
+  //   if (selectTag.value === "status") {
+  //     return showStatusStr(p.status).includes(keyword.value);
+  //   }
+  // });
 };
-watch(activeTab, () => {
-  if (activeTab.value === "all") producets.value = totalProducts.value;
-  else
-    producets.value = totalProducts.value.filter((p) => {
-      if (activeTab.value.includes(p.status)) return p;
-    });
-});
+// watch(activeTab, () => {
+//   if (activeTab.value === "all") producets.value = totalProducts.value;
+//   else
+//     producets.value = totalProducts.value.filter((p) => {
+//       if (activeTab.value.includes(p.status)) return p;
+//     });
+// });
 const goPublishProduct = () => {
   router.push("/user/workbench/product/new");
 };
 const gotoDetail = (p = 0) => {
-  router.push("/user/workbench/product/" + p.id);
+  router.push("/user/workbench/product/" + p.productId);
 };
-onMounted(() => {
+const tabChange = (name) => {
+  let activeTabList = name == "" ? null : name.split("/")
+  selectStatus.value = activeTabList
+  handleCurrentChange(1);
+}
+// 分页查询
+const handleCurrentChange = (next = 1, pageSize = 10) => {
   isLoading.value = true
   request
-    .post(userApi.getList, {
-      user_id: store.user.id,
+    .post(userApi.getProductList, {
+      providerId: store.providerId,
+      multigroupProductTypes: ['MULTIGROUP_PARENT','NOT_MULTIGROUP'],
+      statuses: selectStatus.value,
+      currentPage: next,
+      pageSize: pageSize,
+      keyword: keyword.value
     })
     .then((res) => {
-      producets.value = res.details?.products;
-      totalProducts.value = res.details?.products;
+      producets.value = res.details?.list;
+      totalProducts.value = res.details?.list;
+      totalPage.value = res.details.total;
     }).finally(() => {
       isLoading.value = false
     })
-
+}
+// 获取商品计数
+const getCountNum = () => {
+  request
+    .post(userApi.getCount, {
+      providerId: store.providerId
+    })
+    .then(res => {
+      DRAFT.value = res.details.DRAFT
+      ONLINE.value = res.details.ONLINE
+      WAIT_ONLINE.value = res.details.WAIT_ONLINE
+      WAIT_REVIEW.value = res.details.WAIT_REVIEW
+    })
+}
+onMounted(() => {
+  getCountNum()
+  handleCurrentChange()
 });
 </script>
 

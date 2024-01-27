@@ -23,7 +23,7 @@ const emits = defineEmits(['changePage'])
 const handleCurrentChange = () => {
   emits('changePage', currentPage.value, pageSize.value)
 }
-watch(pageSize, () => {
+watch(currentPage, () => {
   emits('changePage', currentPage.value, pageSize.value)
 })
 </script>

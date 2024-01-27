@@ -50,6 +50,7 @@ const submit = () => {
   }
 
   request
+    // /api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/provider/register
     .post('/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/provider/register', {
       mobile: encode_ez(useInfo.mobile),
       email: useInfo.email,

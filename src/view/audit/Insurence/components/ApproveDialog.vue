@@ -1,5 +1,5 @@
 <template>
-  <ElDialog title="通过审核" v-model="showDialog" @close="emits('update:show', false)">
+  <ElDialog title="通过审核" v-if="showDialog" v-model="showDialog" @close="emits('update:show', false)">
     <div>
       <h3>保险价格</h3>
       <div class="part">
@@ -33,7 +33,7 @@
     </div>
     <div class="part">
       <span>意外险: ''</span>
-      <CampCheckBox v-model:check="form.liabilityInsuranceConfirm" />
+      <CampCheckBox v-model:check="form.accidentInsuranceConfirm" />
     </div>
     <div v-if="form.accidentInsuranceConfirm" class=" flex justify-start items-center">
       <el-input-number v-model="form.accidentInsurancePrice" placeholder="请输入数字" :controls="false"></el-input-number>
@@ -43,7 +43,7 @@
       placeholder="请输入拒绝承担的原因或须补充提供的材料" />
     <template #footer>
       <ElButton type="primary" @click="approve">确认</ElButton>
-      <ElButton @close="emits('update:show', false)">取消</ElButton>
+      <ElButton @click="emits('update:show', false)">取消</ElButton>
     </template>
   </ElDialog>
 </template>
@@ -84,7 +84,7 @@ watch(
       request.post(auditApi.insurenceApproveInfo, {
         productId: props.productId
       }).then((res: any) => {
-        if(res.details)
+        if(res.details && res.details.liabilityInsurances)
         liabilityInsurances.value = res.details.liabilityInsurances
       })
     }
@@ -101,12 +101,14 @@ const tableData = computed(() => {
 })
 const ratioOptions = computed(() => liabilityInsurances.value.map(l => {
   return {
-    label:l.ratio,
+    label:l.title,
     value:l.ratio
   }
 }))
 // 基础费率
-const basicValue = computed(() => liabilityInsurances.value.find(l => l.ratio === 1)?.premium)
+const basicValue = computed(() => {
+  liabilityInsurances.value.find(l => l.ratio === 1)?.premium
+})
 const ageMap = {
   0: 'lessThanSixLiabilityInsuranceId',
   1: 'sixToElevenLiabilityInsuranceId',
@@ -144,6 +146,7 @@ const approve = () => {
     } as any
   ).then(() => {
     emits('update:show', false)
+    emits('reset-table')
   })
 }
 

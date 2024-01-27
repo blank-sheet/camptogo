@@ -225,6 +225,7 @@ const actionOptions = ["立即成团", "申请结算", "商品下架", "立即�
 }
 
 div.commodity {
+  width: calc(100% - 30px);
   .el-table {
     --el-table-header-bg-color: #f5f5f5;
     margin-left: 24px;

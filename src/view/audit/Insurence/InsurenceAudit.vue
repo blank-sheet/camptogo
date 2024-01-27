@@ -13,7 +13,7 @@
       </el-select>
       <div>
         <el-button>重置</el-button>
-        <el-button type="primary" @click="updateList()">查询</el-button>
+        <el-button type="primary" @click="updateList(pageNum)">查询</el-button>
       </div>
     </div>
     <el-table :data="tableData" style="width: 100%">
@@ -68,7 +68,7 @@
               </template>
             </el-popover>
            
-            <el-button  :disabled="scope.row.status !== 'REVIEW'" type="success" @click="approveInsurence(scope.row)"
+            <el-button  :disabled="scope.row.snapshot.productStatus !== 'CREATED_REVIEWED'" type="success" @click="approveInsurence(scope.row)"
               >审核</el-button>
           </div>
 
@@ -83,11 +83,11 @@
         </template>
       </el-table-column>
     </el-table>
-    <reject-dialog v-model:show="dialogInfo.reject" @reset-table="updateList()" />
-    <approve-dialog v-model:show="dialogInfo.approve" @reset-table="updateList()" :product-id="currentTableRow.entityId"
+    <reject-dialog v-model:show="dialogInfo.reject" @reset-table="updateList(pageNum)" />
+    <approve-dialog v-model:show="dialogInfo.approve" @reset-table="updateList(pageNum)" :product-id="currentTableRow.entityId"
       :work-ticket-id="currentTableRow.workTicketId" />
     <reject-reason v-model:show="dialogInfo.reason" />
-    <camp-pagination :total="tableData.length" @change-page="updateList" />
+    <camp-pagination :total="total" @change-page="updateList" />
   </div>
 </template>
 
@@ -102,6 +102,9 @@ import RejectReason from './components/RejectReason.vue'
 import { getProductStatus, PRODUCT_STATUS } from '../../../utils/getProductStatus'
 
 const activeTab = ref('')
+const total = ref(0)
+const pageNum = ref(1)
+const pageSize = ref(10)
 const tableData = ref([
   {
     workTicketId: 2,
@@ -159,7 +162,9 @@ const updateList = (currentPage = 1, pageSize = 10) => {
       ...searchInfo
     }, { loading: true })
     .then(v => {
-      tableData.value = v.details.list.map((l, i) => ({ ...l, index: i + 1 }))
+      total.value = v.details.total
+      tableData.value = v.details.list
+      pageNum.value = v.details.pageNum
     })
 }
 const rejectInsurence = (id = 0) => {

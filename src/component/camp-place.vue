@@ -29,9 +29,14 @@ const cRef = ref(null)
 watch(selectedOptions, () => {
   var loc = ''
   for (let i = 0; i < selectedOptions.value.length; i++) {
-    loc += CodeToText[selectedOptions.value[i]] + '\/'
+    if (i !== selectedOptions.value.length - 1) {
+      loc += CodeToText[selectedOptions.value[i]] + '\/'
+    } else {
+      loc += CodeToText[selectedOptions.value[i]]
+    }
   }
-  emits('update:location', isArr.value ? loc.split('\/').filter(Boolean) : loc.replace(/\//g, ''))
+  emits('update:location', loc.split('\/').filter(Boolean))
+  // emits('update:location', isArr.value ? loc.split('\/').filter(Boolean) : loc.replace(/\//g, ''))
 })
 watch(() => props.location, useInitial)
 

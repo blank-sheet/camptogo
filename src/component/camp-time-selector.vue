@@ -7,7 +7,7 @@
       start="00:00"
       end="24:00"
       step="00:15"
-      :placeholder="placeholder" />
+      :placeholder="placeholder" />   
   </div>
 </template>
 

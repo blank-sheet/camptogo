@@ -28,7 +28,8 @@ onMounted(() => {
   props.initial && useInitial()
 })
 function useInitial() {
-  timeRef.value.querySelector('input')?.setAttribute('value', props.initial)
+  time.value = props.initial
+  // timeRef.value.querySelector('input')?.setAttribute('value', props.initial)
 }
 </script>
 

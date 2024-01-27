@@ -35,12 +35,12 @@
       </div>
     </div>
     <div class="small">{{ area }}</div>
-    <el-tag class="ml-2" type="warning">{{ showStatusStr(lunchStatus) }}</el-tag>
+    <el-tag class="ml-2" type="warning">{{ getProductStatus(lunchStatus) }}</el-tag>
   </div>
 </template>
 
 <script setup>
-import { showStatusStr } from '../../../../../utils/getStatus'
+import { getProductStatus } from '../../../../../utils/getProductStatus'
 import { defineEmits, ref } from 'vue'
 defineProps({
   imageUrl: {
