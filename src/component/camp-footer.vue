@@ -10,14 +10,15 @@ footer {
     font-weight: 400;
   }
 
+  box-sizing: border-box;
   position: fixed;
   background-color: white;
-  width: 100vw;
+  width: calc(100vw - 200px);
   height: 60px;
   bottom: 0;
   display: flex;
-  padding-left: 800px;
-  justify-content: flex-start;
+  padding-left: 40px;
+  justify-content: flex-end;
   padding-right: 84px;
   align-items: center;
   z-index: 99;

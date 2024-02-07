@@ -4,6 +4,7 @@
     type="date"
     style="margin-right: 10px"
     v-model="_date"
+    :disabled="disabled"
     :placeholder="placeholder" />
 </template>
 
@@ -19,6 +20,9 @@ const props = defineProps({
   },
   valueFormat: {
     default: 'YYYY-MM-DDTHH:mm'
+  },
+  disabled: {
+    default: false
   }
 })
 

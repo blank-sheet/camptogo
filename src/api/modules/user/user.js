@@ -12,7 +12,7 @@ export const userApi = {
   // 获取基础信息
   getBasiInfo: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/provider/basic_info/get',
   // 商品提交审核,立即上架
-  product: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/workticketaudit/submit',
+  product: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/online',
   // 新版:创建商品
   createProduct: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/create',
   // 新版:提交修改
@@ -45,5 +45,7 @@ export const userApi = {
   // 获取保险挡位列表
   getInsuranceGrade: '/api/e9b849a515a84327b424af7ccdbf2949/v1_0_0/insurance_grade/get',
   // 获取商品计数
-  getCount: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/count'
+  getCount: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/count',
+  // 新增商品团期
+  addSchedule: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/group_period/create'
 }

@@ -4,6 +4,7 @@
       format="HH:mm"
       style="margin-right: 10px;width: 150px;"
       v-model="time"
+      :disabled="disabled"
       :placeholder="placeholder" />
   </div>
 </template>
@@ -18,6 +19,9 @@ const props = defineProps({
   },
   placeholder: {
     default: '开始时间'
+  },
+  disabled: {
+    default: false
   }
 })
 const emits = defineEmits(['update:time'])
