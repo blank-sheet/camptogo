@@ -1424,7 +1424,6 @@ const confirmUpShalve = () => {
   active.value = active.value === 0 ? 1 : 0
 }
 const onUploadSuccess = (r, key) => {
-  console.log(r);
   console.log(key);
   form.value[key] = {
     url: ''
@@ -1693,7 +1692,6 @@ onMounted(() => {
         loading: true
       })
       .then(r => {
-        console.log(r);
         const product = r.details
         if (!product) return
         Reflect.ownKeys(product).forEach(key => {
@@ -1748,7 +1746,6 @@ onMounted(() => {
           ]
         }
         form.value = product
-        console.log(product);
       })
       .finally(e => (isLoading.value = false))
     request.post(userApi.channel).then(r => {

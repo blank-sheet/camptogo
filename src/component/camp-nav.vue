@@ -12,9 +12,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { onMounted, ref, watch, watchEffect } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 const router = useRouter()
+const route = useRoute()
 const props = defineProps({
   column: {
     default: false
@@ -22,7 +23,7 @@ const props = defineProps({
   navOptions: {
     default: [
       {
-        label: '文字',
+        label: '',
         navTo: ''
       }
     ]
@@ -35,10 +36,21 @@ const activeNav = ref(0)
 const changeRoute = (index, url) => {
   router.push(url)
   activeNav.value = index
-  window.sessionStorage.setItem(JSON.stringify(props.navOptions), index)
 }
+//监听路由变化 立即改变activeNav当前index
+watch(route, (newV) => {
+  if (props.navOptions) {
+    props.navOptions.forEach((item, index) => {
+      if (newV.fullPath == item.navTo) {
+        activeNav.value = index
+        return
+      }
+    })
+  }
+}, { immediate: true })
+
 onMounted(() => {
-  activeNav.value = window.sessionStorage.getItem(JSON.stringify(props.navOptions)) || 0
+
 })
 </script>
 

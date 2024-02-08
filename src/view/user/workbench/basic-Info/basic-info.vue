@@ -31,7 +31,7 @@
             </div>
             <div class="bind_email">
               <span style="margin-right: 50px; font-weight: 400">绑定邮箱：</span>
-              <span style="color: #999">{{ store.user?.provider.email }}</span>
+              <span style="color: #999">{{ store.user?.provider?.email || "" }}</span>
               <span class="alarm">*该邮箱为系统默认邮箱之后用于收平台通知，请及时查看邮件</span>
             </div>
             <div class="certified_statu">
@@ -321,6 +321,10 @@ const showMobile = ref(false)
 //隐藏电话中间4位
 const userMobile = computed(() => {
   if (!store.user) return {}
+  const provider = store.user.provider
+  if(!provider){
+    return ''
+  }
   const mobile = store.user.provider?.mobile
   if (!showMobile.value) {
     return mobile.slice(0, 3) + '****' + mobile.slice(7)
@@ -328,6 +332,10 @@ const userMobile = computed(() => {
 })
 //隐藏姓名后两位
 const userName = computed(() => {
+  const provider = store.user.provider
+  if(!provider){
+    return ''
+  }
   const name = store.user.provider?.name
   if (!showMobile.value) {
     return name.slice(0, 2) + '**'

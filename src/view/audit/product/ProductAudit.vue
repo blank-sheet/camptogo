@@ -59,7 +59,7 @@
           <el-button type="primary" v-show="scope.row.snapshot.productId">
             <a
               :href="
-                'http://123.57.13.5:82/#/user/workbench/product/' + scope.row.snapshot.productId
+                'http://localhost:5173/#/user/workbench/product/' + scope.row.snapshot.productId
               "
               target="_blank"
               >查看</a
