@@ -1493,7 +1493,7 @@ const createProduct = async (formEl) => {
       form.value.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
       form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
       //dateindex 与 dailyIndex置换
-      form.value.dailyScheduleList.map((a, b) => {
+      form.value.dailyScheduleList.map((a) => {
         a.dailyIndex = a.dateIndex || 0
         return a
       })
@@ -1528,8 +1528,8 @@ const saveDraft = () => {
   form.value.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
   form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
   //dateindex 与 dailyIndex置换
-  form.value.dailyScheduleList.map((a, b) => {
-    a.dailyIndex = a.dateIndex
+  form.value.dailyScheduleList.map((a) => {
+    a.dailyIndex = a.dateIndex || 0
     return a
   })
   request
@@ -1568,7 +1568,7 @@ const copyProduct = () => {
   form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
   //dateindex 与 dailyIndex置换
   form.value.dailyScheduleList.map((a, b) => {
-    a.dailyIndex = a.dateIndex
+    a.dailyIndex = a.dateIndex || 0
     return a
   })
   request

@@ -1,20 +1,33 @@
 <template>
   <camp-body :side-width="23.5">
     <template #side>
+      <div class="title-yt">营探·规则协议</div>
+      <el-input placeholder="搜索" class="searchInput" size="small">
+        <template #prefix>
+          <el-icon class="el-input__icon">
+            <search />
+          </el-icon>
+        </template>
+      </el-input>
+      <div class="title-sy">
+        <el-icon class="el-input__icon">
+          <House />
+        </el-icon>
+        首页
+      </div>
+      <div class="title-sy">
+        <el-icon class="el-input__icon">
+          <House />
+        </el-icon>
+        目录
+      </div>
       <el-menu @select="handleOpen">
-        <el-sub-menu
-          :index="i.toString()"
-          v-for="(f, i) in files"
-          :key="i"
+        <el-sub-menu :index="i.toString()" v-for="(f, i) in files" :key="i"
           :class="{ 'selected-submenu': selectedSubmenu.value === i }">
           <template #title>
             <span>{{ f[0] }}</span>
           </template>
-          <el-menu-item
-            v-for="(n, j) in f[1]"
-            :index="i + '-' + j"
-            :key="j"
-            @click="updateSelectedSubmenu(i)">
+          <el-menu-item v-for="(n, j) in f[1]" :index="i + '-' + j" :key="j" @click="updateSelectedSubmenu(i)">
             {{ n }}
           </el-menu-item>
         </el-sub-menu>
@@ -113,9 +126,49 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .is-opened {
   background: #93d500;
   color: white;
+}
+
+.title-yt {
+  color: #93d500;
+  font-family: PingFang SC;
+  font-size: 22px;
+  width: 100%;
+  padding-left: 20px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.title-sy {
+  padding-left: 20px;
+  height: 35px;
+  line-height: 35px;
+  display: flex;
+  font-size: 14px;
+
+  .el-input__icon {
+    color: #707070;
+    margin: auto 15px auto 0;
+  }
+}
+
+.searchInput {
+  width: 80%;
+  margin-left: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+::v-deep(.el-input__wrapper) {
+  background-color: rgb(244, 246, 245) !important;
+}
+
+::v-deep(.el-aside)::-webkit-scrollbar {
+  display: none;
+  /* Chrome Safari */
 }
 </style>
