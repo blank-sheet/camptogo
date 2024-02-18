@@ -35,7 +35,10 @@
       </div>
     </div>
     <div class="small">{{ area }}</div>
-    <el-tag class="ml-2" type="warning">{{ getProductStatus(lunchStatus) }}</el-tag>
+    <div class="tags">
+      <el-tag class="ml-2" type="warning">{{ getProductStatus(lunchStatus) }}</el-tag>
+      <el-tag class="ml-2" type="success" @click.stop="() => emits('changeSchedule')">管理排期</el-tag>
+    </div>
   </div>
 </template>
 
@@ -75,7 +78,10 @@ defineProps({
 const getTime = (t = '2023-02-02T00:00:00Z') => t?.slice(0, 10).replace('-', '/')
 const getPrice = (p = 100) => p / 100
 const showPeriod = ref(false)
-const emits = defineEmits(['goToDetail'])
+const emits = defineEmits(['goToDetail', 'changeSchedule'])
+const changeSchedule = () => {
+  
+}
 </script>
 
 <style lang="scss">
@@ -165,6 +171,12 @@ const emits = defineEmits(['goToDetail'])
   }
   .ml-2 {
     align-self: end;
+  }
+  .tags {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>

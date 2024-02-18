@@ -67,11 +67,16 @@
           </el-button>
         </template>
       </el-table-column>
-      <el-table-column label="申请类型" width="160">
+      <el-table-column label="审核意见" width="120">
+        <template #default="scope">
+          <p>{{ scope.row.reviewRemark || '暂无' }}</p>
+        </template>
+      </el-table-column>
+      <!-- <el-table-column label="申请类型" width="160">
         <template #default="scope">
           <span>{{ OPERATION_TYPES[scope.row.operation] }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="操作" width="180" fixed="right">
         <template #default="scope">
           <template v-if="scope.row.status === 'REVIEW'">

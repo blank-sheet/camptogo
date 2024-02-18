@@ -50,11 +50,11 @@
           </el-button>
         </template>
       </el-table-column>
-      <el-table-column label="审核意见" width="160">
+      <!-- <el-table-column label="审核意见" width="160">
         <template #default="scope">
           <p>{{ scope.row.reviewUserId }}</p>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="操作" width="150" fixed="right">
         <template #default="scope">
           <div class=" w-full flex justify-between">
@@ -72,9 +72,9 @@
               >审核</el-button>
           </div>
 
-          <div class=" w-full">
+          <!-- <div class=" w-full">
             <el-button v-if="'法务登录'" @click="rejectInsurence(scope.row)">法务添加审核意见</el-button>
-          </div>
+          </div> -->
         </template>
       </el-table-column>
       <el-table-column label="审核时间" width="180">

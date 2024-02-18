@@ -18,6 +18,9 @@ const props = defineProps({
   },
   valueFormat: {
     default: 'YYYY-MM-DDTHH:mm'
+  },
+  disabled: {
+    default: false
   }
 })
 

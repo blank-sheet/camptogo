@@ -22,6 +22,10 @@ export const userRoutes = [
             path: 'product/:id',
             component: () => import('../../view/user/workbench/product-lunch/product-detail.vue')
           },
+          {
+            path: 'schedule/:id',
+            component: () => import('../../view/user/workbench/product-lunch/change-schedule.vue')
+          },
           // 商品管理
           {
             path: 'product-manage',

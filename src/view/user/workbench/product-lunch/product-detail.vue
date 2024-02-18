@@ -1430,17 +1430,19 @@ const confirmUpShalve = () => {
       .post(
         userApi.product,
         {
-          user: {
-            id: store.user?.id
-          },
-          version: '1.0.0',
-          create_reason: '商品上架',
-          work_line_id: 1400,
-          work_operation: 4600,
-          content: {
-            id: route.params.id,
-            ...upShalveDatas.value
-          }
+          productId: route.params.id,
+          providerId: store.user?.id
+          // user: {
+          //   id: store.user?.id
+          // },
+          // version: '1.0.0',
+          // create_reason: '商品上架',
+          // work_line_id: 1400,
+          // work_operation: 4600,
+          // content: {
+          //   id: route.params.id,
+          //   ...upShalveDatas.value
+          // }
         },
         {
           message: true

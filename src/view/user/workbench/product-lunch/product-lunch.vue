@@ -36,7 +36,7 @@
       <product-card v-for="p in producets" :key="p.productId" :desc="p.fullName" :price="p.priceSelling"
         :start-time="p?.saleStartTime" :end-time="p?.saleEndTime" :area="p.activityLocation?.startLocationDetailed"
         :lunch-status="p.productStatus" :image-url="p.horizontalShowsResourceList?.[0]?.url || 'xxx'" @go-to-detail="() => gotoDetail(p)"
-        :period="p?.group_period || []" :status="p.productStatus">
+        @change-schedule="() => changeSchedule(p)" :period="p?.group_period || []" :status="p.productStatus">
       </product-card>
     </div>
     <p v-else class=" text-center">暂无数据</p>
@@ -118,6 +118,9 @@ const goPublishProduct = () => {
 const gotoDetail = (p = 0) => {
   router.push("/user/workbench/product/" + p.productId);
 };
+const changeSchedule = (p = 0) => {
+  router.push("/user/workbench/schedule/" + p.productId);
+}
 const tabChange = (name) => {
   let activeTabList = name == "" ? null : name.split("/")
   selectStatus.value = activeTabList
