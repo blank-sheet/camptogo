@@ -1,18 +1,17 @@
 <template>
-  <el-date-picker
-    :value-format="valueFormat"
-    type="date"
-    style="margin-right: 10px"
-    v-model="_date"
-    :placeholder="placeholder" />
+  <el-date-picker :value-format="valueFormat" type="date" style="margin-right: 10px" v-model="_date"
+    :placeholder="placeholder" :disabled="disabled" />
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
   placeholder: {
     default: '请选择日期'
+  },
+  disabled: {
+    default: false
   },
   date: {
     default: ''
@@ -21,6 +20,7 @@ const props = defineProps({
     default: 'YYYY-MM-DDTHH:mm'
   }
 })
+
 
 const _date = ref(props.date)
 const emits = defineEmits(['update:date'])

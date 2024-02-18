@@ -100,8 +100,7 @@
               <template v-if="form.multigroupProductType == 'NOT_MULTIGROUP'">
                 <CampDatePicker v-model="form.groupPeriodList[0].activityTimeRange[0]" placeholder="开始日期" />
                 <span style="margin: 0 10px 0 0"> - </span>
-                <CampDatePicker v-model="form.groupPeriodList[0].activityTimeRange[1]" placeholder="结束日期"
-                  />
+                <CampDatePicker v-model="form.groupPeriodList[0].activityTimeRange[1]" placeholder="结束日期" />
                 <span>
                   共{{ getDurationTime(form.groupPeriodList[0].activityTimeRange[0],
                     form.groupPeriodList[0].activityTimeRange[1]) }}天
@@ -111,10 +110,11 @@
                 <div class="boxs">
                   <div v-for="(day, index) in form.groupPeriodList" :key="index" style="margin: 5px 0">
                     <CampDatePicker v-model="day.activityTimeRange[0]" placeholder="开始日期"
-                      @change="formatDuration(index, 0)" />
+                      @change="formatDuration(index),isBeforeBeginDay(index)" />
                     <span style="margin: 0 10px 0 0">-</span>
                     <CampDatePicker v-model="day.activityTimeRange[1]" placeholder="结束日期"
-                      @change="formatDuration(index, 1)" />
+                      :disabled="form.multigroupProductType != 'NOT_MULTIGROUP' && index > 0"
+                      @change="formatDuration(index),isBeforeBeginDay(index)" />
                     <span>共{{ getDurationTime(day.activityTimeRange[0], day.activityTimeRange[1]) }}天</span>
                     <div class="add" style="width: 400px; margin: 10px" @click="deleteGroupPeriod(index)">- 删除团期</div>
                   </div>
@@ -402,15 +402,15 @@
               <div class="hardware">
                 <header>活动场地</header>
                 <el-input v-model="form.venue" autosize type="textarea" placeholder="您可以从以下方面描述室内室外活动场地：
-                          场地名称；场地类型，如运动场、实验室、专业草场等特色或专业场地；设施设备，如监控、新风系统、活动设施、专业设备等。" />
+                              场地名称；场地类型，如运动场、实验室、专业草场等特色或专业场地；设施设备，如监控、新风系统、活动设施、专业设备等。" />
               </div>
               <div class="hardware" style="margin-top: 20px" v-show="form.stayIf">
                 <header>住宿条件</header>
                 <el-input type="textarea" autosize v-model="form.accommodations" placeholder="您可以从以下方面描述住宿条件：
-                          住宿场所类型，如酒店、民宿、营房、青旅等；
-                          房间类型，如单人房、双人间、X人宿舍等；
-                          房间条件，如床型、热水、卫浴、空调、网络、电器等；
-                          安保情况，包括安保人员、夜间值班、巡逻情况等。" />
+                              住宿场所类型，如酒店、民宿、营房、青旅等；
+                              房间类型，如单人房、双人间、X人宿舍等；
+                              房间条件，如床型、热水、卫浴、空调、网络、电器等；
+                              安保情况，包括安保人员、夜间值班、巡逻情况等。" />
               </div>
               <div class="hardware">
                 <header>教学教具</header>
@@ -427,8 +427,8 @@
               <div class="hardware">
                 <header>团队详情</header>
                 <el-input v-model="form.team.detail" type="textarea" autosize placeholder="您可以从以下方面进行描述：
-                          团队配置，如课程老师、助教老师、生活老师、安全员、医护人员、摄影老师、领队、导游等；
-                          人员详情，如资质、荣誉、教龄等。" />
+                              团队配置，如课程老师、助教老师、生活老师、安全员、医护人员、摄影老师、领队、导游等；
+                              人员详情，如资质、荣誉、教龄等。" />
               </div>
               <div class="hardware">
                 <header>专业拍摄</header>
@@ -444,8 +444,8 @@
                       v-model="form.team.captureNums" />个拍摄人员
                   </div>
                   <el-input type="textarea" autosize placeholder="请从以下方面描述拍摄服务详情：
-                          预计产出照片张数；预计产出视频个数，单个视频长度；
-                          使用设备型号；机位个数及位置；其他。" v-model="form.team.captureDetail" />
+                              预计产出照片张数；预计产出视频个数，单个视频长度；
+                              使用设备型号；机位个数及位置；其他。" v-model="form.team.captureDetail" />
                 </div>
               </div>
             </CampFormItem>
@@ -465,10 +465,10 @@
             </CampFormItem>
             <CampFormItem label="医疗情况：" prop="medicalCare">
               <el-input v-model="form.medicalCare" type="textarea" autosize placeholder="您可以从以下方面描述医疗情况：
-                          医疗人员情况，如专业医疗人员、员工医疗培训情况等；
-                          医疗场所情况，如是否有卫生室等；
-                          医疗物资状况，如急救箱、药品、医疗设备等；
-                          附近医疗点情况，如附近医院的距离、等级等。" />
+                              医疗人员情况，如专业医疗人员、员工医疗培训情况等；
+                              医疗场所情况，如是否有卫生室等；
+                              医疗物资状况，如急救箱、药品、医疗设备等；
+                              附近医疗点情况，如附近医院的距离、等级等。" />
             </CampFormItem>
             <CampFormItem label="图片视频上传" :msg="'图片和视频为必选项'">
               <span class="desc">
@@ -625,7 +625,7 @@
               <div>
                 <span class="desc"> *核保公司核保完成后,核保结果会自动在此呈现 </span>
                 <el-tooltip content="若有更多被保险人如拼团商品中非通过营探报名的出行人、主办方员工等需一并投保的，请在T-1日 (T为活动开始日期) 14时前在商品管理-保险投保模块上传其他被保险人的姓名
-                          证件号码、性别、出生年月，平台将在T-1日19时一次性向保险公司发送被保险人信息。因您自身原因导致上述被保险人信息未能报送成功的，营探不承担责任。" raw-content
+                              证件号码、性别、出生年月，平台将在T-1日19时一次性向保险公司发送被保险人信息。因您自身原因导致上述被保险人信息未能报送成功的，营探不承担责任。" raw-content
                   placement="top-start">
                   <el-icon>
                     <QuestionFilled />
@@ -692,15 +692,15 @@
               <div class="content">
                 <div>请填写说明会内容</div>
                 <el-input type="textarea" autosize v-model="form.briefing.detail" placeholder="如：1、在线破冰活动
-                                2、在线安全培训
-                                3、答疑，请出行人及监护人积极参加" />
+                                    2、在线安全培训
+                                    3、答疑，请出行人及监护人积极参加" />
               </div>
             </CampFormItem>
             <CampFormItem label="重要说明：" prop="mustKnow">
               <el-input v-model="form.mustKnow" type="textarea" autosize placeholder="1.未成年人参加独立活动的,在开营当天需由监护人陪同办理相关手续，监护人需携带本人及未成年人身份证原件办理相关手续。 
-                          2.如因您隐瞒出行人情况导致不利后果，由您自行承担。
-                          3.出行人不应在活动过程中私自食用已知会导致您过敏的食物、酒类、不洁食品饮料，如您私自食用导致不良后果，本平台及服务商不承担任何责任。
-                                          " maxlength="500" show-word-limit />
+                              2.如因您隐瞒出行人情况导致不利后果，由您自行承担。
+                              3.出行人不应在活动过程中私自食用已知会导致您过敏的食物、酒类、不洁食品饮料，如您私自食用导致不良后果，本平台及服务商不承担任何责任。
+                                              " maxlength="500" show-word-limit />
             </CampFormItem>
             <CampFormItem label="活动地点" prop="activityLocation.startLocation">
               <div style="width: 100%; display: flex; margin-bottom: 20px">
@@ -755,7 +755,7 @@
             </CampFormItem>
             <CampFormItem label="整理物资准备" prop="preparation">
               <el-input v-model="form.preparation" type="textarea" autosize placeholder="1.家长可以提前准备一封关怀、鼓励孩子的信。
-                          2.有特长的同学携带设备参加活动,须提前沟通。" maxlength="500" show-word-limit>
+                              2.有特长的同学携带设备参加活动,须提前沟通。" maxlength="500" show-word-limit>
               </el-input>
             </CampFormItem>
             <CampFormItem label="团队紧急联系人方式" prop="emergencyContact.name">
@@ -1398,7 +1398,7 @@ const validateForm = (formEl) =>
       document.querySelector('.is-error').scrollIntoView()
     }
     return valid
-})
+  })
 const addNewBack = () => {
   form.value.refundPlanList.splice(-1, 0, {
     leftDays: 0,
@@ -1497,7 +1497,7 @@ const createProduct = async (formEl) => {
         a.dailyIndex = a.dateIndex || 0
         return a
       })
-      console.log(form.value);
+      console.log(form.value)
       const response = await request.post(
         userApi.createProduct,
         {
@@ -1610,36 +1610,30 @@ const deleteGroupPeriod = (index) => {
   form.value.groupPeriodList.splice(index, 1)
 }
 //多团期情况 格式化各个团期天数与第一个团期相同
-const formatDuration = (dayIndex, timeIndex) => {
+const formatDuration = (dayIndex) => {
   if (form.value.groupPeriodList.length === 1) {
     return
   }
-  var duration = getDurationTime(form.value.groupPeriodList[0].activityTimeRange[0], form.value.groupPeriodList[0].activityTimeRange[1]) * 3600 * 24 * 1000
-  if (timeIndex == 0) {
-    let begin = Date.parse(form.value.groupPeriodList[dayIndex].activityTimeRange[0])
-    let end = new Date(begin + duration)
-    let year = end.getFullYear()
-    let month = ("0" + (end.getMonth() + 1)).slice(-2)
-    let day = ("0" + end.getDate()).slice(-2)
-    let endDay = year + '-' + month + '-' + day + "T00:00"
-    form.value.groupPeriodList[dayIndex].activityTimeRange[1] = endDay
-  } else {
-    let end = Date.parse(form.value.groupPeriodList[dayIndex].activityTimeRange[1])
-    let begin = new Date(end - duration)
-    let year = begin.getFullYear()
-    let month = ("0" + (begin.getMonth() + 1)).slice(-2)
-    let day = ("0" + begin.getDate()).slice(-2)
-    let beginDay = year + '-' + month + '-' + day + "T00:00"
-    form.value.groupPeriodList[dayIndex].activityTimeRange[0] = beginDay
+  if(form.value.groupPeriodList.length > 1 && dayIndex == 0){
+    form.value.groupPeriodList.splice(1)
   }
+  var duration = getDurationTime(form.value.groupPeriodList[0].activityTimeRange[0], form.value.groupPeriodList[0].activityTimeRange[1]) * 3600 * 24 * 1000
+  let begin = Date.parse(form.value.groupPeriodList[dayIndex].activityTimeRange[0])
+  let end = new Date(begin + duration)
+  let year = end.getFullYear()
+  let month = ("0" + (end.getMonth() + 1)).slice(-2)
+  let day = ("0" + end.getDate()).slice(-2)
+  let endDay = year + '-' + month + '-' + day + "T00:00"
+  form.value.groupPeriodList[dayIndex].activityTimeRange[1] = endDay
+
 }
 // //团期负值校验 天数为负值 强制为当前天开始 当前天结束
-// const isBeforeBeginDay = (dayIndex) => {
-//   const duration = getDurationTime(form.value.groupPeriodList[dayIndex].activityTimeRange[0], form.value.groupPeriodList[dayIndex].activityTimeRange[1])
-//   if (duration < 0) {
-//     form.value.groupPeriodList[dayIndex].activityTimeRange[1] = form.value.groupPeriodList[dayIndex].activityTimeRange[0]
-//   }
-// }
+const isBeforeBeginDay = (dayIndex) => {
+  const duration = getDurationTime(form.value.groupPeriodList[dayIndex].activityTimeRange[0], form.value.groupPeriodList[dayIndex].activityTimeRange[1])
+  if (duration < 0) {
+    form.value.groupPeriodList[dayIndex].activityTimeRange[1] = form.value.groupPeriodList[dayIndex].activityTimeRange[0]
+  }
+}
 const addFeature = () => {
   form.value.certifiedFeatureList.push({
     certificate: undefined,
