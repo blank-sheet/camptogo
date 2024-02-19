@@ -147,56 +147,11 @@ const setActive = id => {
 }
 </script>
 <style lang="scss">
+
 .chapterArea {
-  width: 90%;
-
+  width: 80%;
 }
 
-.text {
-  color: #000000;
-  font-size: 14px;
-  font-family: PingFang SC;
-  letter-spacing: 1px;
-  line-height: 1.4;
-  text-align: left;
-  padding: 0;
-  width: 75%;
-}
-
-.title {
-  line-height: 1;
-  text-align: left;
-  color: #000000;
-  font-family: PingFang SC;
-  font-size: 32px;
-  text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
-}
-
-.date {
-  line-height: 1;
-  color: rgb(117, 117, 117);
-  padding-bottom: 5px;
-  font-size: 15px;
-  font-family: PingFang SC;
-  border-bottom: 3px solid rgb(216, 216, 216);
-}
-
-.greenTitle {
-  line-height: 1;
-  height: 40px;
-  line-height: 40px;
-  font-size: 26px;
-  font-family: PingFang SC;
-  color: #95D600;
-  padding-left: 10px;
-  border-left: 6px solid #95D600;
-  font-weight: 400;
-}
-
-.hightLight {
-  color: #95D600;
-  background-color: rgb(254, 249, 161);
-}
 
 el-main {
   width: 200px;
