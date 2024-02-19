@@ -568,7 +568,7 @@
                 v-model="insurence.liability" :options="liabilityOptions" placeholder="请选择保险信息" /> -->
               <ElSelect v-model="insurence.liability" v-on:change="liabilityChange"
                 style="width: 80%; margin-bottom: 20px" placeholder="请选择保险信息">
-                <ElOption v-for="(item, level) in liabilityOptions" :label="item.label" :value="item.value">
+                <ElOption v-for="(item, level) in liabilityOptions" :label="item.label" :value="!item.value">
                 </ElOption>
               </ElSelect>
               <div v-if="insurence.liability">
@@ -1007,7 +1007,6 @@ const insurenceAuditDetail = ref({
 const userInfo = JSON.parse(localStorage.getItem('userInfo'))
 const liabilityChange = () => {
   form.value.insuranceInfo.liabilityInsuranceSelfDetails = undefined
-
   if (isLiabilitySelf.value) {
     ElMessageBox.confirm(
       '若您选择自行购买其他保险，请勾选符合您经营情形的对应选项，并确认该保单能在活动开始前生效。若您不属于以上三种任意一种情形，请选择购买营探定制责任险。否则，依据相关法律规定，我们无法为您的商品上架。',
