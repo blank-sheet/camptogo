@@ -1,42 +1,44 @@
 <template>
-  <pre>
-# 营探搜索排名规则
+<pre>
+<essayText> 
+<essayTitle>营探搜索排名规则</essayTitle>
 
-发布日期：2022年8月19日
 
-生效日期：2022年8月27日
 
-**提示 条款**
+<essayDate>发布日期：2022年8月19日 生效日期：2022年8月27日</essayDate>
+
+
+<essayTitleH2>提示 条款</essayTitleH2>
 
 营探搜索与排名规则是将匹配关键词的商品按照对消费者需求满足程度依次展示，目的是帮助消费者快速方便地找到所需商品。此外，消费者还可以按照一定条件对商品进行精确筛选。 
 
-## **第一章 营探的搜索排名规则**
+<essayTitleH2>第一章 营探的搜索排名规则</essayTitleH2>
 
-**1.1**综合排序：是指根据商品在某一段时间内产生的销量、价格、质量、商品评分等条件，来综合反映商品的搜索排名结果。服务商可以通过提高商品和服务质量分，或者利用推广工具提升商品的基础数据从而提升综合排序的自然搜索排名。 
+<essayTextWithWeight>1.1</essayTextWithWeight>综合排序：是指根据商品在某一段时间内产生的销量、价格、质量、商品评分等条件，来综合反映商品的搜索排名结果。服务商可以通过提高商品和服务质量分，或者利用推广工具提升商品的基础数据从而提升综合排序的自然搜索排名。 
 
-**1.2**销量排序：指根据商品总销量数据进行搜索结果展示。 
+<essayTextWithWeight>1.2</essayTextWithWeight>销量排序：指根据商品总销量数据进行搜索结果展示。 
 
-**1.3**浏览排序：指根据商品总浏览量数据进行搜索结果展示。 
+<essayTextWithWeight>1.3</essayTextWithWeight>浏览排序：指根据商品总浏览量数据进行搜索结果展示。 
 
-**1.4**日期排序：根据商品开始时间由近至远的形式进行搜索结果展示。 
+<essayTextWithWeight>1.4</essayTextWithWeight>日期排序：根据商品开始时间由近至远的形式进行搜索结果展示。 
 
-**1.5**价格排序：指根据商品价格从高到低或从低到高的形式进行搜索结果展示。 
+<essayTextWithWeight>1.5</essayTextWithWeight>价格排序：指根据商品价格从高到低或从低到高的形式进行搜索结果展示。 
 
-**1.6**筛选排序：指根据消费者选择的各个维度的关键词，以及一定的推荐算法进行搜索结果展示。 
+<essayTextWithWeight>1.6</essayTextWithWeight>筛选排序：指根据消费者选择的各个维度的关键词，以及一定的推荐算法进行搜索结果展示。 
 
 1.7非默认排序：指消费者可自主选择按照价格、销量、评论、上架时间等单一维度进行排序的方式。 
 
-## **第二章 排序算法** 
+<essayTitleH2>第二章 排序算法</essayTitleH2> 
 
-**2.1**文本相关性 
+<essayTextWithWeight>2.1</essayTextWithWeight>文本相关性 
 
 营探会对平台商品建立索引，当消费者搜索的时候，系统会根据索引进行召回，并根据文本相关性得分进行排序。文本相关性即商品的文本描述信息（商品标题、类目名称、品牌名）和搜索关键词的是否相关或匹配。 
 
-**2.2**类目 
+<essayTextWithWeight>2.2</essayTextWithWeight>类目 
 
 在营探，所有商品需放置在具体的分类下，例如亲子、体育、天文等。营探搜索因子中，商品的所在类目是否合理将直接影响到商品的排序结果。因此选择商品类目时，需确保放于正确且合理类目，才可保证商品在消费者精准搜索词下得到有效曝光。 
 
-**2.3**商品人气 
+<essayTextWithWeight>2.3</essayTextWithWeight>商品人气 
 
 商品人气不仅影响商品的销量，还影响消费者对该服务商的喜爱度。影响商品人气的因素分为3大部分：
 
@@ -52,25 +54,25 @@
 
 商品属性是消费者了解商品的重要渠道，商品属性信息和商品实质不匹配的话，会直接降低消费者的购物体验。
 
-**2.4**用户搜索的反馈 
+<essayTextWithWeight>2.4</essayTextWithWeight>用户搜索的反馈 
 
 2.4.1消费者搜索查询词后点击或者购买商品的行为，在消费者搜索反馈系统中，计为该查询词与该商品的一次点击或购买数据。消费者搜索反馈的数据反映了消费者对搜索结果的满意度，同时反映了对商品的满意度。 
 
 2.4.2反馈数据包括：查询词展示结果中商品的点击量和下单量，消费者通过搜索进入商品单品页的平均时间以及商品的搜索点击转化率。 
 
-## **第三章 非默认排序** 
+<essayTitleH2>第三章 非默认排序</essayTitleH2> 
 
-**3.1** 搜索词的非默认排序 
+<essayTextWithWeight>3.1</essayTextWithWeight> 搜索词的非默认排序 
 
 非默认排序的实现是根据消费者输入的搜索词，搜索算法系统会计算出该商品的所相关类目。使用“价格、销量、评论”等非默认排序时，系统将相关性较差的商品类目过滤，不予以展示。 
 
 如果在非默认排序中，服务商发现自己的商品未展示，请确认自己商品所处的分类是否合理以及商品标题是否包含过多无用信息。 
 
-**3.2** 频道推送的非默认排序 
+<essayTextWithWeight>3.2</essayTextWithWeight> 频道推送的非默认排序 
 
 3.2.1 新入驻服务商流量扶持 
 
-为了让新入驻的服务商能够崭露头角，新服务商**上线30天内**，将会得到营探的流量扶持。 
+为了让新入驻的服务商能够崭露头角，新服务商<essayTextWithWeight>上线30天内</essayTextWithWeight>，将会得到营探的流量扶持。 
 
 3.2.2 商品人气流量扶持 
 
@@ -80,33 +82,33 @@
 
 详见具体营销推广政策。 
 
-## **第四章 搜索系统的更新** 
+<essayTitleH2>第四章 搜索系统的更新</essayTitleH2> 
 
 搜索系统更新分为两个部分： 
 
-**4.1**增量更新： 
+<essayTextWithWeight>4.1</essayTextWithWeight>增量更新： 
 
 数据商品消息发送到搜索库，搜索将收到反映并接受到消息进行更新。一般时间10-30分钟内完成。 
 
-**4.2**全量更新： 
+<essayTextWithWeight>4.2</essayTextWithWeight>全量更新： 
 
 搜索每天会做对搜索的数据库重新建立索引，保证在数据库中搜索数据都更新，开始生成数据值，再推送到前台线上，因为数据量比较大，所以第二天所有营探客户端9点前都会基本完成全量更新。 
 
-**4.3**商品下架成功，立刻-10分钟后不再被搜索到、增量索引到。 
+<essayTextWithWeight>4.3</essayTextWithWeight>商品下架成功，立刻-10分钟后不再被搜索到、增量索引到。 
 
-**4.4**库存变更后，立刻-30分钟可以被搜索识别到新库存。 
+<essayTextWithWeight>4.4</essayTextWithWeight>库存变更后，立刻-30分钟可以被搜索识别到新库存。 
 
-**4.5**图片、属性区(品牌等)、评价标签因子T+1日内更新。 
+<essayTextWithWeight>4.5</essayTextWithWeight>图片、属性区(品牌等)、评价标签因子T+1日内更新。 
 
-**4.6**基础广告词T+1日内更新。 
+<essayTextWithWeight>4.6</essayTextWithWeight>基础广告词T+1日内更新。 
 
-**4.7**营探的排名算法会不断改进，以反映营探业务发生的变化。
+<essayTextWithWeight>4.7</essayTextWithWeight>营探的排名算法会不断改进，以反映营探业务发生的变化。
 
 ## 第五章  产品 广告竞价排名
 
 为充分实现广告公平和有效性的投放，先对“营探”客户端中投放的广告进行实时自动竞价，按价高者得的原则确定广告位的实际分配。为规范竞价行为，现制定本规则，以资共同遵守。
 
-**5.1**竞价要素
+<essayTextWithWeight>5.1</essayTextWithWeight>竞价要素
 
 5.1.1每千人展示成本（简称“CPM”（Cost Per Miller））：CPM指广告每向用户展示一千次，商户需向营探支付的费用。这里的“点击”指用户实际点击广告链接的动作。
 
@@ -124,7 +126,7 @@ CTR=竞价广告的点击数+竞价广告的展示数X 100%
 
 具体计算公式为: ECPIMI-CTR×CPC×1000
 
-**5.2**竞价排名规则
+<essayTextWithWeight>5.2</essayTextWithWeight>竞价排名规则
 
 5.2.1 CPM 报价/CPC报价
 
@@ -178,7 +180,7 @@ CPC结算价= (排名第二位竞价广告的ECPM+0. 01元)÷1000÷CTR
 
 基础价(0.3 元或0. 45元)≤CPC结算价≤CPC报价
 
-**5.3**竞价排名规则的解释、修改、通知与效力
+<essayTextWithWeight>5.3</essayTextWithWeight>竞价排名规则的解释、修改、通知与效力
 
 5.3.1北京光荷文化科技有限公司对本规则有唯一的解释权。 对本规则的理解如有争议，以北京光荷文化科技有限公司在合法的范围内做出的解释为准。
 
@@ -190,5 +192,16 @@ CPC结算价= (排名第二位竞价广告的ECPM+0. 01元)÷1000÷CTR
 
  
 
-  </pre>
+</essayText> 
+</pre>
 </template>
+<script setup>
+import essayTitle from "../essayComponents/essayTitle.vue"
+import essayDate from "../essayComponents/essayDate.vue"
+import essayTitleH2 from "../essayComponents/essayTitleH2.vue"
+import essayTextWithWeight from "../essayComponents/essayTextWithWeight.vue"
+import essayHeightLight from "../essayComponents/essayHeightLight.vue"
+import essayText from "../essayComponents/essayText.vue"
+
+
+</script>

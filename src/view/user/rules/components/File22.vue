@@ -1,12 +1,14 @@
 <template>
-  <pre>
-# **营探服务商费用核算与结算办法**
+<pre>
+<essayText> 
+<essayTitle>营探服务商费用核算与结算办法</essayTitle>
 
-发布日期：2024年1月14日
 
-生效日期：2024年1月21日
 
-第一章 概述 
+<essayDate>发布日期：2024年1月14日 生效日期：2024年1月21日</essayDate>
+
+
+<essayTitleH2>第一章 概述 </essayTitleH2>
 
 1.1目的 
 
@@ -50,7 +52,7 @@
 
 费用核算与结算必须遵守国家法律法规，保护各方当事人的利益，且不得损害社会公共利益。 
 
-第二章 费用核算 
+<essayTitleH2>第二章 费用核算 </essayTitleH2>
 
 2.1核算权 
 
@@ -78,7 +80,7 @@
 
 2.7营探收入确认 
 
-营探收入确认根据《营探服务商收费标准》等相关规则、协议的约定为准。 
+营探收入确认根据<essayHeightLight>《营探服务商收费标准》</essayHeightLight>等相关规则、协议的约定为准。 
 
 2.8向服务商支付结算交易资金 
 
@@ -96,7 +98,7 @@
 
 营探应当以书面或电子形式及时告知服务商季度、年度交易核算情况，包括但不限于金额、核算方法、核算依据；服务商对核算结果有异议的，应当在收到核算结果之日起三（3）个工作日内向营探指定邮箱（partner@camptogo.com）提出。
 
-第三章 支付结算 
+<essayTitleH2>第三章 支付结算 </essayTitleH2>
 
 3.1支付结算账户 
 
@@ -134,11 +136,11 @@
 
 3.5委托缴存 
 
-由于账户操作的原因导致服务商直接向营探缴存保证金不便利的，根据《营探诚信保证金管理规定》的约定，营探收到服务商及其被委托人（自然人）的法律文书后，允许该被委托人通过其个人账户代服务商向平台存入诚信保证金（缴存时被委托人需在备注栏中明示：代XX缴存诚信保证金）。
+由于账户操作的原因导致服务商直接向营探缴存保证金不便利的，根据<essayHeightLight>《营探诚信保证金管理规定》</essayHeightLight>的约定，营探收到服务商及其被委托人（自然人）的法律文书后，允许该被委托人通过其个人账户代服务商向平台存入诚信保证金（缴存时被委托人需在备注栏中明示：代XX缴存诚信保证金）。
 
 3.6诚信保证金与消费者权益保护 
 
-服务商违法、违规、违约或侵犯消费者权益时、服务商同意营探根据《营探诚信保证金管理规定》的约定，冻结其诚信保证金及待结算款项用于向相关当事人进行赔偿、缴纳罚金、违约金等。
+服务商违法、违规、违约或侵犯消费者权益时、服务商同意营探根据<essayHeightLight>《营探诚信保证金管理规定》</essayHeightLight>的约定，冻结其诚信保证金及待结算款项用于向相关当事人进行赔偿、缴纳罚金、违约金等。
 
 3.7结算责任 
 
@@ -184,9 +186,9 @@
 
 3.11.2服务商同意并理解，营探有可能因网络问题或银行问题，造成结算迟延；非因网路或不可抗力的原因，营探有义务按约定向服务商支付提现款项。
 
-第四章 附则 
+<essayTitleH2>第四章 附则 </essayTitleH2>
 
-4.1本办法规定的各项期限的计算，适用《中华人民共和国民法典》总则编关于计算期间的规定：
+4.1本办法规定的各项期限的计算，适用<essayHeightLight>《中华人民共和国民法典》</essayHeightLight>总则编关于计算期间的规定：
 
 4.1.1期限最后一日是法定休假日的，以休假日后的第一个工作日为最后一日；
 
@@ -201,5 +203,16 @@
 4.4本办法未明确或未约定事宜，依据双方签订的协议约定为准，协议未约定的依据营探页面公示的信息为准，且营探会根据法律法规及市场变化对页面公示内容进行调整，具体依据调整后的内容为准，请您随时关注页面公示信息。
 （以下无正文）
 
-  </pre>
+</essayText> 
+</pre>
 </template>
+<script setup>
+import essayTitle from "../essayComponents/essayTitle.vue"
+import essayDate from "../essayComponents/essayDate.vue"
+import essayTitleH2 from "../essayComponents/essayTitleH2.vue"
+import essayTextWithWeight from "../essayComponents/essayTextWithWeight.vue"
+import essayHeightLight from "../essayComponents/essayHeightLight.vue"
+import essayText from "../essayComponents/essayText.vue"
+
+
+</script>
