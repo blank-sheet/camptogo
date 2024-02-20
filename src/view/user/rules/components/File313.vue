@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-  # 营探推荐官返现活动规则
+<essayTitle>营探推荐官返现活动规则</essayTitle>
 
 ##  一、活动规则
 

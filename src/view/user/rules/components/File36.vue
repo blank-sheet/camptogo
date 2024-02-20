@@ -1,8 +1,7 @@
 <template>
 <pre>
 <essayText> 
-  
-## 附加旅行公共交通工具意外伤害保险条款
+<essayTitle>附加旅行公共交通工具意外伤害保险条款</essayTitle>
 
   **总 则**
 

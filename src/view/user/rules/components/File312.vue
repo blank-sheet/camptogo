@@ -1,8 +1,7 @@
 <template>
 <pre>
 <essayText> 
-# 灵活就业服务合作协议
-
+<essayTitle>灵活就业服务合作协议</essayTitle>
 
 ## **特别声明：**
 

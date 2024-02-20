@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-# 营探敏感个人信息清单
+<essayTitle>营探敏感个人信息清单</essayTitle>
 
 发布日期：2024年1月14日
 生效日期：2024年1月21日

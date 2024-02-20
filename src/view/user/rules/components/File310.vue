@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-## 附加旅行个人责任及宠物责任保险
+<essayTitle>附加旅行个人责任及宠物责任保险</essayTitle>
 
 **总 则**
 

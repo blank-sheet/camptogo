@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-# 营探隐私政策简明版
+<essayTitle>营探隐私政策简明版</essayTitle>
 
 发布日期：2022年8月19日
 

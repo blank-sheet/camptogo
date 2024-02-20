@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-# 附加食物中毒保险条款
+<essayTitle>附加食物中毒保险条款</essayTitle>
 
 **总 则**
 

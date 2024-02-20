@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-#    **天安财产保险股份有限公司**
+<essayTitle>天安财产保险股份有限公司</essayTitle>
 
 **组织者责任保险条款**
 

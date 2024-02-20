@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-## 附加旅行突发性疾病身故保险条款
+<essayTitle>附加旅行突发性疾病身故保险条款</essayTitle>
 
 **总 则**
 

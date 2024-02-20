@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-# **常见问题**
+<essayTitle>常见问题</essayTitle>
 
 ## **是否有报名条件？**
 

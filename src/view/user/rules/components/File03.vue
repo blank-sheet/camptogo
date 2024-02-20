@@ -1,7 +1,7 @@
 <template>
   <pre>
 <essayText> 
-<essayTitle>Vol.3 | 营探帮助中心</essayTitle>
+<essayTitle>营探帮助中心</essayTitle>
 
 
 <essayDate>2023-06-12</essayDate><!-- 生效日期：2023年6月12日发布日期：2023年6月12日 -->

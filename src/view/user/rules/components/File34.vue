@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-## 附加旅行住院津贴保险条款
+<essayTitle>附加旅行住院津贴保险条款</essayTitle>
 
   **总 则**
 

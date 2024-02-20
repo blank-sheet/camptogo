@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-<essayTitle>Vol.2 | 营探安全手册</essayTitle>
+<essayTitle>营探安全手册</essayTitle>
 
 
 

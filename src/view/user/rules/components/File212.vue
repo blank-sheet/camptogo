@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-# 儿童隐私保护声明及监护人须知
+<essayTitle>儿童隐私保护声明及监护人须知</essayTitle>
 
 发布日期：2024年1月14日
 

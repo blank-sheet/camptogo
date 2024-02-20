@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-## 附加高风险运动意外伤害保险条款
+<essayTitle>附加高风险运动意外伤害保险条款</essayTitle>
 
   **总 则**
 

@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-# 预订须知
+<essayTitle>预订须知</essayTitle>
 
 *该商品为有条件退订商品
 

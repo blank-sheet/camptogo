@@ -1,7 +1,7 @@
 <template>
 <pre>
 <essayText> 
-  # **营探服务商入驻协议及授权条款**
+<essayTitle>营探服务商入驻协议及授权条款</essayTitle>
   
 甲方： 
 
