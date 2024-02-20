@@ -1,5 +1,6 @@
 <template>
   <pre>
+<essayText> 
   ![PPT1](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/PPT/PPT1.png)
   ![PPT2](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/PPT/PPT2.png)
   ![PPT3](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/PPT/PPT3.png)
@@ -29,6 +30,17 @@
   ![PPT27](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/PPT/PPT27.png)
   ![PPT28](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/PPT/PPT28.png)
 
-  </pre>
+</essayText> 
+</pre>
 </template>
 <style scoped></style>
+<script setup>
+import essayTitle from "../essayComponents/essayTitle.vue"
+import essayDate from "../essayComponents/essayDate.vue"
+import essayTitleH2 from "../essayComponents/essayTitleH2.vue"
+import essayTextWithWeight from "../essayComponents/essayTextWithWeight.vue"
+import essayHeightLight from "../essayComponents/essayHeightLight.vue"
+import essayText from "../essayComponents/essayText.vue"
+
+
+</script>
