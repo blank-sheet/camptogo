@@ -1,5 +1,6 @@
 <template>
   <pre>
+<essayText> 
 <essayTitle>Vol.3 | 营探帮助中心</essayTitle>
 
 
@@ -7,7 +8,7 @@
 
 
 <essayTitleH2>一、账号与安全</essayTitleH2>
-<essayText>
+
 <essayTitleH3>1.账号如何注册？</essayTitleH3>
 请登录Camptogo APP/微信小程序，通过手机号一键登录进行注册。
 
@@ -76,10 +77,10 @@ iOS端软件：请登录Camptogo APP，点击“我的—帮助中心”我的�
 3.按照法律规定，我们可能长期保留某些信息。例如预付款交易相关的信息、用来识别欺诈行为的信息以及出于安全原因而保留的信息。
 
 详见<essayHeightLight>《营探隐私政策》</essayHeightLight>和<essayHeightLight>《营探用户协议》</essayHeightLight>。  
-</essayText>
+
 
 <essayTitleH2>二、订单提交与修改</essayTitleH2>
-<essayText>
+
 <essayTitleH3>1.如何购买？</essayTitleH3>
 请登录Camptogo APP/微信小程序进行用户注册：
 
@@ -151,11 +152,11 @@ iOS端软件：请登录Camptogo APP，点击“我的—帮助中心”我的�
 
 <essayTitleH3>8.如何与主办方取得联系？</essayTitleH3>
 开营前5-7天营探平台将联合活动主办方与用户取得联系，邀请您加入活动群。如果您想与主办方提前取得联系，请联系营探客服（点击“我的-联系客服”或者电话联系010-87511881）。
-</essayText>
+
 
  
 <essayTitleH2>三、付款与退款</essayTitleH2> 
-<essayText>
+
 <essayTitleH3>1.如何支付？</essayTitleH3>
 1.您在APP中通过银联商务提供的支付宝或微信支付功能进行支付；
 
@@ -198,10 +199,10 @@ iOS端软件：请登录Camptogo APP，点击“我的—帮助中心”我的�
 3.因不可抗力更改或取消订单的，您将收到全额或部分退款；
 
 4.在限定期限内，活动未达到最低成团人数的，活动取消，您将收到全额退款。  
-</essayText>
+
 
 <essayTitleH2>四、安全与保障</essayTitleH2>
-<essayText>
+
 <essayTitleH3>1.如何保障您的资金安全？</essayTitleH3>
 1.营探作为第三方网络平台，协助用户和活动主办方完成预订、支付操作。根据国家相关法律法规，以及平台与活动主办方签订的合作协议，分别引入微信支付和中国工商银行对交易资金、保证金进行监管，确保资金安全；
 
@@ -250,10 +251,10 @@ iOS端软件：请登录Camptogo APP，点击“我的—帮助中心”我的�
 
 3.活动期间，在您线上支付时，请关闭不可信软件或插件（如：游戏外挂）等，因为这些软件可能暗藏木马，潜在窃取您的输入信息的风险。
 
-</essayText>
+
 
 <essayTitleH2>五、产品搜索与收藏</essayTitleH2>
-<essayText>
+
 <essayTitleH3>1.如何选择心仪产品？</essayTitleH3>
 1.看教育意义：选择活动时考虑该活动对参与者的教育意义；
 
@@ -284,10 +285,10 @@ iOS端软件：请登录Camptogo APP，点击“我的—帮助中心”我的�
 
 <essayTitleH3>7.如何查看历史浏览记录？</essayTitleH3>
 您可在营探APP/小程序首页下方选择“收藏”按钮，在收藏页面选择“足迹”，查看历史浏览记录。  
-</essayText>
+
 
 <essayTitleH2>六、参与人及监护人提示</essayTitleH2>
-<essayText>
+
 <essayTitleH3>1.如何做一名贴心的参与人？</essayTitleH3>
 为了向您提供更好的服务，营探希望您能在预订商品和服务前完善出行人的个人信息，并且保证信息的真实有效性。同时，营探非常希望您向服务商以及营探反馈对于我们商品和服务的喜好和改进意见。
 
@@ -323,8 +324,8 @@ iOS端软件：请登录Camptogo APP，点击“我的—帮助中心”我的�
 4.在参与具有专业要求的活动时，需在专业人士指导下进行，听从指挥；
 
 5.出行人及其监护人、紧急联系人的手机保持畅通，以便联系。  
-</essayText>
 
+</essayText> 
   </pre>
 </template>
 <script setup>
