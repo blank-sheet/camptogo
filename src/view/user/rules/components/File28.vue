@@ -1,5 +1,5 @@
 <template>
-  <pre>
+<pre>
 <essayText> 
 <essayTitle>价格说明</essayTitle>
 
