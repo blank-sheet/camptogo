@@ -1,5 +1,6 @@
 <template>
-  <pre>
+<pre>
+<essayText> 
 ## 附加高风险运动意外伤害保险条款
 
   **总 则**
@@ -42,5 +43,6 @@
 
 
   
-  </pre>
+  </essayText> 
+</pre>
 </template>

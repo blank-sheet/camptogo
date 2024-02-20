@@ -1,5 +1,6 @@
 <template>
-  <pre>
+<pre>
+<essayText> 
 # 个人信息收集清单
 
 发布日期：2024年1月14日
@@ -20,5 +21,6 @@
 | 收集个人信息的场景     | 可能会收集的个人信息                 |
 | ------------------------------------ | ---------------- |
 ![PPT16](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/peopleMessage/peoplemessage_4.jpg)
-  </pre>
+  </essayText> 
+</pre>
 </template>

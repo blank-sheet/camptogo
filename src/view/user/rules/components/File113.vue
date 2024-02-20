@@ -1,5 +1,6 @@
 <template>
-    <pre>
+<pre>
+<essayText> 
   # **营探服务商入驻协议及授权条款**
   
 甲方： 
@@ -437,6 +438,7 @@
   
    
    
-    </pre>
+    </essayText> 
+</pre>
   </template>
   
