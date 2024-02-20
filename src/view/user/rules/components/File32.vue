@@ -129,3 +129,13 @@
   </essayText> 
 </pre>
 </template>
+<script setup>
+import essayTitle from "../essayComponents/essayTitle.vue"
+import essayDate from "../essayComponents/essayDate.vue"
+import essayTitleH2 from "../essayComponents/essayTitleH2.vue"
+import essayTextWithWeight from "../essayComponents/essayTextWithWeight.vue"
+import essayHeightLight from "../essayComponents/essayHeightLight.vue"
+import essayText from "../essayComponents/essayText.vue"
+
+
+</script>
