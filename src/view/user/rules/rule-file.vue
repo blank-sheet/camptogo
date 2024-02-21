@@ -146,7 +146,7 @@ const setActive = id => {
   activeNav.value = id
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 
 .chapterArea {
   width: 80%;

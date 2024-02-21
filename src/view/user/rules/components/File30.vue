@@ -1,5 +1,5 @@
 <template>
-  <pre>
+<pre>
 <essayText> 
   ![PPT1](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/PPT/PPT1.png)
   ![PPT2](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/PPT/PPT2.png)
@@ -29,7 +29,6 @@
   ![PPT26](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/PPT/PPT26.png)
   ![PPT27](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/PPT/PPT27.png)
   ![PPT28](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/PPT/PPT28.png)
-
 </essayText> 
 </pre>
 </template>
