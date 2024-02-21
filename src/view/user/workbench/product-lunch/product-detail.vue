@@ -1492,7 +1492,8 @@ const createProduct = async (formEl) => {
         ...item,
         certificate: item.certificate?.url,
       }))
-      form.value.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
+      //这里是取值相反
+      form.value.insuranceInfo.liabilityInsuranceSelfIf = !insurence.liability
       form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
       //dateindex 与 dailyIndex置换
       form.value.dailyScheduleList.map((a) => {
@@ -1527,7 +1528,8 @@ const saveDraft = () => {
     ...item,
     certificate: item.certificate?.url,
   }))
-  form.value.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
+  //这里是取值相反
+      form.value.insuranceInfo.liabilityInsuranceSelfIf = !insurence.liability
   form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
   //dateindex 与 dailyIndex置换
   form.value.dailyScheduleList.map((a) => {
@@ -1566,7 +1568,8 @@ const copyProduct = () => {
     ...item,
     certificate: item.certificate?.url,
   }))
-  form.value.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
+  //这里是取值相反
+      form.value.insuranceInfo.liabilityInsuranceSelfIf = !insurence.liability
   form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
   //dateindex 与 dailyIndex置换
   form.value.dailyScheduleList.map((a, b) => {
