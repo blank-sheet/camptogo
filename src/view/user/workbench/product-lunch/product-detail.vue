@@ -1425,24 +1425,8 @@ const duration = ref(0)
 const getDurationTime = (beginTime, endTime) => {
   const begin = Date.parse(beginTime)
   const end = Date.parse(endTime)
-  const day = Number(((end - begin) / 1000 / 3600 / 24).toFixed(0))
+  const day = (Number(((end - begin) / 1000 / 3600 / 24).toFixed(0))+1)
   if (end && begin) {
-    // if (form.value.dailyScheduleList.length < day) {
-    //   for (let i = 0; i < day - form.value.dailyScheduleList.length; i++) {
-    //     form.value.dailyScheduleList.push({
-    //       dailyIndex: form.value.dailyScheduleList[form.value.dailyScheduleList.length-1]+1,
-    //       itemList: [
-    //         {
-    //           timeRange: [undefined, undefined],
-    //           detail: undefined
-    //         }
-    //       ]
-    //     })
-    //   }
-    // }
-    // if (form.value.dailyScheduleList.length > day) {
-    //   form.value.dailyScheduleList.splice(day-1)
-    // }
     duration.value = day
     return day
   } else {
@@ -1707,7 +1691,7 @@ const formatDuration = (dayIndex) => {
   if (form.value.groupPeriodList.length > 1 && dayIndex == 0) {
     form.value.groupPeriodList.splice(1)
   }
-  var duration = getDurationTime(form.value.groupPeriodList[0].activityTimeRange[0], form.value.groupPeriodList[0].activityTimeRange[1]) * 3600 * 24 * 1000
+  var duration = (getDurationTime(form.value.groupPeriodList[0].activityTimeRange[0], form.value.groupPeriodList[0].activityTimeRange[1])-1) * 3600 * 24 * 1000
   let begin = Date.parse(form.value.groupPeriodList[dayIndex].activityTimeRange[0])
   let end = new Date(begin + duration)
   let year = end.getFullYear()
@@ -1715,7 +1699,6 @@ const formatDuration = (dayIndex) => {
   let day = ("0" + end.getDate()).slice(-2)
   let endDay = year + '-' + month + '-' + day + "T00:00"
   form.value.groupPeriodList[dayIndex].activityTimeRange[1] = endDay
-
 }
 // //团期负值校验 天数为负值 强制为当前天开始 当前天结束
 const isBeforeBeginDay = (dayIndex) => {
