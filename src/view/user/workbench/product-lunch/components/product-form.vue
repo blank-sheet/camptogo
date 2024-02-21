@@ -1,7 +1,7 @@
 <template>
   <div class="product-form">
     <header :id="id" v-view="fn">
-      {{ title }}
+      &emsp;{{ title }}
     </header>
     <div class="form">
       <slot name="form"></slot>
@@ -32,13 +32,12 @@ const fn = () => {
   padding: 56px 20px 16px 16px;
   position: relative;
   > header {
-    padding-left: 16px;
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     height: 56px;
     line-height: 56px;
-    width: 816px;
     border-bottom: 1px solid #e4dfdf;
     font-weight: bold;
   }
