@@ -832,6 +832,7 @@
       <template
         v-if="isNewProdoct || (form.productStatus && 'DRAFT/CREATED_WAIT_REVIEW'.includes(form.productStatus.toString()))">
         <el-button type="success" @click="createProduct(formRef)">提交审核</el-button>
+        <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button>
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
         <ElButton v-show="form.productStatus == 'DRAFT'" type="danger" @click="deleteProduct">删除商品</ElButton>
       </template>
@@ -1922,6 +1923,20 @@ onMounted(() => {
 const goToPosition = id => {
   const element = document.getElementById(id)
   element.scrollIntoView()
+}
+//报名表相关
+const setRegistrationForm = ()=>{
+  router.push({
+    path:`/user/workbench/product/${route.params.id}/rgsForm`
+  })
+}
+const RegistrationFormIsExit = ref(false)
+const getRegistrationFormIsExit = ()=>{
+  request.post(userApi.getRegistrationFormIsExitAPI,{
+    productId:route.params.id
+  }).then(res=>{
+    RegistrationFormIsExit.value = res.data.data
+  })
 }
 </script>
 <style lang="scss">

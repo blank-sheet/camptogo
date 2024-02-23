@@ -5,7 +5,7 @@
 2. 对象：通过obj.attr来校验对象的某个属性是否为空
 3. 数组：isArr
    -->
-  <el-form-item :label="label" :prop="prop" :rules="{
+  <el-form-item :class=" labelTop ? 'labelTop' : '' " :label="label" :prop="prop" :rules="{
     trigger: 'blur',
     message: msg,
     required: true
@@ -18,9 +18,12 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   label: {
-    default: 'label'
+    default: ''
+  },
+  labelTop: {
+    default: false
   },
   prop: {
     default: ''
@@ -34,4 +37,9 @@ defineProps({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.labelTop {
+  display: flex;
+  flex-direction: column;
+}
+</style>
