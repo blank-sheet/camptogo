@@ -5,7 +5,7 @@
 
 <essayTitleH2>总 则</essayTitleH2>
 
-<essayTextWithWeight>第一条</essayTextWithWeight> 投保人只有在投保了《旅游者人身意外伤害险条款》等旅游类险种（以下简称为“主险”）后，方可投保本附加条款（以下简称为“本附加条款”）。
+<essayTextWithWeight>第一条</essayTextWithWeight> 投保人只有在投保了<essayHeightLight>《旅游者人身意外伤害险条款》</essayHeightLight>等旅游类险种（以下简称为“主险”）后，方可投保本附加条款（以下简称为“本附加条款”）。
 
 <essayTextWithWeight>第二条</essayTextWithWeight> 本附加条款与主保险合同条款不一致之处，以本附加条款为准；本附加条款未尽之处，以主保险合同条款为准。
 

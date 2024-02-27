@@ -5,7 +5,7 @@
 
 <essayTitleH2>总 则</essayTitleH2>
 
-<essayTextWithWeight>第一条</essayTextWithWeight> 投保人只有在投保了《旅游者人身意外伤害险条款》等旅游类险种（以下简称为“主险”）后，方可投保本附加条款（以下简称为“本附加条款”）。
+<essayTextWithWeight>第一条</essayTextWithWeight> 投保人只有在投保了<essayHeightLight>《旅游者人身意外伤害险条款》</essayHeightLight>等旅游类险种（以下简称为“主险”）后，方可投保本附加条款（以下简称为“本附加条款”）。
 
 <essayTextWithWeight>第二条</essayTextWithWeight> 本附加条款与主保险合同条款不一致之处，以本附加条款为准；本附加条款未尽之处，以主保险合同条款为准。
 
@@ -47,7 +47,7 @@
 
 <essayTextWithWeight>（十）被保险人患爱滋病（AIDS）或感染爱滋病毒（HIV 呈阳性）期间；</essayTextWithWeight> 
 
-<essayTextWithWeight>（十一）被保险人存在精神和行为障碍（以世界卫生组织颁布的《疾病和有关健康问题的国际统计分类（ICD-10）》为准）期间猝死；</essayTextWithWeight> 
+<essayTextWithWeight>（十一）被保险人存在精神和行为障碍（以世界卫生组织颁布的<essayHeightLight>《疾病和有关健康问题的国际统计分类（ICD-10）》</essayHeightLight>为准）期间猝死；</essayTextWithWeight> 
 
 <essayTextWithWeight>（十二）战争、军事行动、暴乱或武装叛乱；</essayTextWithWeight> 
 

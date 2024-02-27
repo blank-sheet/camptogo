@@ -147,7 +147,6 @@ const setActive = id => {
 }
 </script>
 <style lang="scss" scoped>
-
 .chapterArea {
   width: 80%;
 }
@@ -188,19 +187,6 @@ pre {
   }
 }
 
-@media (max-width: 768px) {
-  aside {
-    display: none;
-  }
-
-  .el-header {
-    display: none;
-  }
-
-  pre {
-    white-space: initial;
-  }
-}
 
 .carousel {
   position: relative;
@@ -294,6 +280,34 @@ pre {
   span {
     position: relative;
     color: #8a8a8a;
+  }
+}
+</style>
+
+<style lanmg="scss">
+@media (max-width: 768px) {
+  aside {
+    display: none;
+  }
+
+  .product-nav{
+    display: none;
+  }
+
+  .chapterArea {
+    width: 100% !important;
+  }
+
+  .el-header {
+    display: none;
+  }
+
+  pre {
+    white-space: initial;
+  }
+
+  .el-main {
+    height: 100vh !important;
   }
 }
 </style>
