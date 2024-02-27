@@ -49,5 +49,11 @@ export const userApi = {
   // 新增商品团期
   addSchedule: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/group_period/create',
   //获取报名表存在情况
-  getRegistrationFormIsExitAPI:'/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/application_form/is_exist'
+  getRegistrationFormIsExitAPI: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/application_form/is_exist',
+  //创建报名表
+  createRegistrationFormAPI: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/application_form/create',
+  //更新报名表
+  updateRegistrationFormAPI: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/application_form/update',
+  //获取报名表详情
+  getRegistrationFormAPI: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/application_form/query'
 }

@@ -115,7 +115,6 @@ const showDesc = (index) => {
 .noEdit {
   padding: 24px;
   background-color: #fff;
-
   .title {
     font-family: 'PingFang SC';
     font-style: normal;

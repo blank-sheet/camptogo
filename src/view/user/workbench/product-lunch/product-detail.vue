@@ -127,7 +127,7 @@
                     form.groupPeriodList.push({
                       activityTimeRange: [undefined, undefined]
                     })
-                  ">
+                    ">
                     + 添加更多团期
                   </div>
                 </div>
@@ -201,7 +201,7 @@
                     <div class="refund-delete" @click="() => {
                       form.refundPlanList.splice(index + 1, 1)
                     }
-                    ">
+                      ">
                       <el-icon>
                         <Delete />
                       </el-icon>
@@ -542,7 +542,7 @@
                       form.dailyScheduleList[index].dailyIndex = dailyIndex
                     form.dailyScheduleList[index].dateIndex = dateIndex
                   }
-                  ">复制前一天行程</ElButton>
+                    ">复制前一天行程</ElButton>
                 </div>
 
                 <div>
@@ -557,7 +557,7 @@
                       <el-icon @click="() => {
                         deleteDaily(item, daily)
                       }
-                      ">
+                        ">
                         <Delete />
                       </el-icon>
                     </div>
@@ -1426,7 +1426,7 @@ const duration = ref(0)
 const getDurationTime = (beginTime, endTime) => {
   const begin = Date.parse(beginTime)
   const end = Date.parse(endTime)
-  const day = (Number(((end - begin) / 1000 / 3600 / 24).toFixed(0))+1)
+  const day = (Number(((end - begin) / 1000 / 3600 / 24).toFixed(0)) + 1)
   if (end && begin) {
     duration.value = day
     return day
@@ -1438,19 +1438,19 @@ const getDurationTime = (beginTime, endTime) => {
 watch(duration, (newV) => {
   const arr = []
   for (let i = 0; i < newV; i++) {
-    if(form.value.dailyScheduleList[i]){
+    if (form.value.dailyScheduleList[i]) {
       arr.push(form.value.dailyScheduleList[i])
-    }else{
+    } else {
       arr.push({
-          dailyIndex: i,
-          dateIndex:i,
-          itemList: [
-            {
-              timeRange: [undefined, undefined],
-              detail: undefined
-            }
-          ]
-        })
+        dailyIndex: i,
+        dateIndex: i,
+        itemList: [
+          {
+            timeRange: [undefined, undefined],
+            detail: undefined
+          }
+        ]
+      })
     }
   }
   form.value.dailyScheduleList = arr
@@ -1692,7 +1692,7 @@ const formatDuration = (dayIndex) => {
   if (form.value.groupPeriodList.length > 1 && dayIndex == 0) {
     form.value.groupPeriodList.splice(1)
   }
-  var duration = (getDurationTime(form.value.groupPeriodList[0].activityTimeRange[0], form.value.groupPeriodList[0].activityTimeRange[1])-1) * 3600 * 24 * 1000
+  var duration = (getDurationTime(form.value.groupPeriodList[0].activityTimeRange[0], form.value.groupPeriodList[0].activityTimeRange[1]) - 1) * 3600 * 24 * 1000
   let begin = Date.parse(form.value.groupPeriodList[dayIndex].activityTimeRange[0])
   let end = new Date(begin + duration)
   let year = end.getFullYear()
@@ -1925,17 +1925,23 @@ const goToPosition = id => {
   element.scrollIntoView()
 }
 //报名表相关
-const setRegistrationForm = ()=>{
+const setRegistrationForm = () => {
+  // getRegistrationFormIsExit()
   router.push({
-    path:`/user/workbench/product/${route.params.id}/rgsForm`
+    path: `/user/workbench/product/${route.params.id}/rgsForm`
   })
 }
 const RegistrationFormIsExit = ref(false)
-const getRegistrationFormIsExit = ()=>{
-  request.post(userApi.getRegistrationFormIsExitAPI,{
-    productId:route.params.id
-  }).then(res=>{
-    RegistrationFormIsExit.value = res.data.data
+const getRegistrationFormIsExit = () => {
+  request.post(userApi.getRegistrationFormIsExitAPI, {
+    productId: route.params.id
+  }).then(res => {
+    RegistrationFormIsExit.value = res.data.details
+    if (RegistrationFormIsExit.value) {
+      router.push({
+        path: `/user/workbench/product/${route.params.id}/rgsForm`
+      })
+    }
   })
 }
 </script>
