@@ -1,0 +1,30 @@
+{
+  "id": "4446444",
+  "name": "camptogo",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "30088179",
+      "name": "向下展开",
+      "font_class": "xiangxiazhankai",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "1304951",
+      "name": "列表",
+      "font_class": "liebiao",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "10928222",
+      "name": "home",
+      "font_class": "homepage",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    }
+  ]
+}

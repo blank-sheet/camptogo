@@ -8,6 +8,7 @@ import elementPlus from 'element-plus'
 import { router } from './router'
 import { createPinia } from 'pinia'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import "./assets/icon/iconfont.css"
 const app = createApp(App)
 app.directive('view', {
   mounted(el, binding) {

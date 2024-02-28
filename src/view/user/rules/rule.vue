@@ -9,19 +9,19 @@
           </el-icon>
         </template>
       </el-input>
-      <div class="title-sy">
-        <el-icon class="el-input__icon">
-          <House />
-        </el-icon>
-        首页
-      </div>
-      <div class="title-sy">
-        <el-icon class="el-input__icon">
-          <House />
-        </el-icon>
-        目录
-      </div>
-      <el-menu @select="handleOpen">
+      <el-menu class="menu" @select="handleOpen" unique-opened :default-openeds="defaultOpenedsArray">
+        <el-menu-item :index="1">
+          <template #title>
+            <i class="iconfont icon-homepage"></i>
+            首页
+          </template>
+        </el-menu-item>
+        <el-menu-item :index="2">
+          <template #title>
+            <i class="iconfont icon-liebiao"></i>
+            目录<div class="mulu"><i class="iconfont fold icon-xiangxiazhankai" @click="defaultOpenedsArray = []"></i></div>
+          </template>
+        </el-menu-item>
         <el-sub-menu :index="i.toString()" v-for="(f, i) in files" :key="i"
           :class="{ 'selected-submenu': selectedSubmenu.value === i }">
           <template #title>
@@ -46,6 +46,7 @@ import campBody from '../../../component/camp-body.vue'
 import RuleFile from './rule-file.vue'
 const router = useRouter()
 const route = useRoute()
+const defaultOpenedsArray = ref([])
 const level0 = [
   '工作台指引',
   ['营探风险告知书', '营探安全手册', '营探安全须知', '营探帮助中心', '免责声明']
@@ -113,6 +114,9 @@ const selectedSubmenu = ref(-1)
 const cur = ref('0-0')
 
 const handleOpen = (key, keyPath) => {
+  if(key == 2 || key == 1){
+    return
+  }
   router.push('/user/rule/' + key.replace('-', ''))
   cur.value = key
 }
@@ -127,9 +131,54 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.menu {
+  margin: 0 2px;
+  --el-menu-hover-bg-color: #EDEDED !important;
+  .mulu{
+    height: 15px;
+    line-height:15px;
+    width: 80%;
+    display: flex;
+    justify-content: right;
+    .fold{
+      margin: auto 0;
+      color: #707070;
+      &:hover{
+        background-color: #F5F5F5;
+      }
+    }
+  }
+  .iconfont {
+    margin: auto 6px auto 0;
+  }
+  .fold{
+    font-size: 12px;
+    margin: auto 6px auto 0;
+  }
+
+  .el-menu-item {
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #EDEDED;
+    }
+  }
+
+
+
+}
+
 .is-opened {
-  background: #93d500;
-  color: white;
+  span {
+    color: #95D600 !important;
+  }
+}
+
+.is-active {
+  background-color: #F5FFC4;
+  color: #95D600 !important;
 }
 
 .title-yt {
@@ -140,19 +189,6 @@ onMounted(() => {
   padding-left: 20px;
   height: 50px;
   line-height: 50px;
-}
-
-.title-sy {
-  padding-left: 20px;
-  height: 35px;
-  line-height: 35px;
-  display: flex;
-  font-size: 14px;
-
-  .el-input__icon {
-    color: #707070;
-    margin: auto 15px auto 0;
-  }
 }
 
 .searchInput {
@@ -170,5 +206,12 @@ onMounted(() => {
 ::v-deep(.el-aside)::-webkit-scrollbar {
   display: none;
   /* Chrome Safari */
+}
+</style>
+
+<style lang="scss">
+.el-sub-menu__title {
+  border-radius: 5px;
+  height: 40px;
 }
 </style>
