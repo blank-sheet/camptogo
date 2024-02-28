@@ -2,12 +2,8 @@
 <pre>
 <essayText> 
 <essayTitle>营探交易争议处理规则</essayTitle>
-
-
-
-<essayDate>发布日期：2023年2月20日 生效日期：2023年2月27日</essayDate>
-
-
+<essayDate>发布日期：2023年2月20日 
+生效日期：2023年2月27日</essayDate>
 <essayTitleH2>第一章 总则</essayTitleH2>
 
 <essayTextWithWeight>1.1</essayTextWithWeight>为保护交易双方当事人的合法权益，维护营探平台（以下简称本平台或营探）的正常运营秩序，依据<essayTextWithWeight>《营探服务商入驻协议》《营探服务商管理办法》《营探侵权处理办法》</essayTextWithWeight>，制定本规则。

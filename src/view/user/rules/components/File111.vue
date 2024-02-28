@@ -2,11 +2,8 @@
 <pre>
 <essayText> 
 <essayTitle>第三方合作清单</essayTitle>
-
-
-
-<essayDate>发布日期：2024年1月14日 生效日期：2024年1月21日</essayDate>
-
+<essayDate>发布日期：2024年1月14日
+生效日期：2024年1月21日</essayDate>
 
 ## **提示条款**
 

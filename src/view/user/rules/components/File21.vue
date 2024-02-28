@@ -2,19 +2,15 @@
 <pre>
 <essayText> 
 <essayTitle>营探服务商收费标准</essayTitle> 
-
-
-
-<essayDate>发布日期：2024年1月14日 生效日期：2024年1月21日</essayDate>
-
-
+<essayDate>发布日期：2024年1月14日 
+生效日期：2024年1月21日</essayDate>
 <essayTitleH2>第一章 总则</essayTitleH2>
 
 <essayTextWithWeight>1.1</essayTextWithWeight> 为确保营探平台的稳定经营，向用户提供更优质商品和服务，特制定本收费标准。
 
 <essayTextWithWeight>1.2</essayTextWithWeight> 本收费标准仅适用于营探平台（www.camptogo.com）向服务商提供信息发布和预订服务所收取的标准费用，不包括营探关联公司或第三方公司因提供其他增值商品和服务而收取的相关费用。
 
-<essayTextWithWeight>1.3</essayTextWithWeight> 营探有权随时、酌情或按法律法规和/或有关监管机关的指令修改本标准所列的收费项目和收费标准。经营探不时修改和调整的收费标准将以公告方式(包括但不限于在营探服务商工作台首页发布公告) 通知服务商。若服务商在营探公告通知修改/调整收费标准生效日后继续使用营探服务的，将被视为同意经修改/调整后的营探收费费率。若服务商不同意营探修改/调整收费标准，您应立即停止使用营探服务，并通过<essayHeightLight>《营探服务商入驻协议及入驻条款》</essayHeightLight>中约定的书面方式向营探发送通知，否则后续使用服务产生的相关费用应当按照营探调整后费用执行。
+<essayTextWithWeight>1.3</essayTextWithWeight> 营探有权随时、酌情或按法律法规和/或有关监管机关的指令修改本标准所列的收费项目和收费标准。经营探不时修改和调整的收费标准将以公告方式(包括但不限于在营探服务商工作台首页发布公告) 通知服务商。若服务商在营探公告通知修改/调整收费标准生效日后继续使用营探服务的，将被视为同意经修改/调整后的营探收费费率。若服务商不同意营探修改/调整收费标准，您应立即停止使用营探服务，并通过《营探服务商入驻协议及入驻条款》中约定的书面方式向营探发送通知，否则后续使用服务产生的相关费用应当按照营探调整后费用执行。
 
 <essayTextWithWeight>1.4</essayTextWithWeight> 本收费标准所列的收费不包括政府机关所征收的费用或税收，除国家法律另有规定外，任何邮费、传真费或其他机构收取的费用，由导致该费用产生的服务商承担，营探均不承担。
 
@@ -120,7 +116,7 @@
 
 <essayTitleH2>第四章 支付与结算</essayTitleH2>
 
-<essayTextWithWeight>4.1</essayTextWithWeight> 根据<essayHeightLight>《营探服务商费用核算与结算办法》</essayHeightLight>规定执行。
+<essayTextWithWeight>4.1</essayTextWithWeight> 根据《营探服务商费用核算与结算办法》规定执行。
 
 <essayTextWithWeight>4.2</essayTextWithWeight> 有单独约定的，以具体约定为准执行。
 

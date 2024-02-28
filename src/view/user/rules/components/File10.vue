@@ -1,25 +1,22 @@
 <template>
-  <pre>
+<pre>
 <essayText> 
 <essayTitle>营探用户协议</essayTitle> 
-
-
-<essayDate>发布日期：2023年2月20日 生效日期：2023年2月27日</essayDate>
-
-
+<essayDate>发布日期：2023年2月20日
+生效日期：2023年2月27日</essayDate>
 <essayTitleH2>提示条款</essayTitleH2>
 
 <essayTextWithWeight>感谢您使用营探服务。在使用营探服务之前，请您审慎阅读本协议，并确保完全同意本协议条款。</essayTextWithWeight>
 
-<essayTextWithWeight><essayHeightLight>《营探用户协议》</essayHeightLight>（以下简称本协议）是用户（以下简称用户或您）与【北京光荷文化科技有限公司及其关联公司】及第三方之间关于使用营探平台（以下简称营探或本平台）服务所订立的有效合约。</essayTextWithWeight>
+<essayTextWithWeight>《营探用户协议》（以下简称本协议）是用户（以下简称用户或您）与【北京光荷文化科技有限公司及其关联公司】及第三方之间关于使用营探平台（以下简称营探或本平台）服务所订立的有效合约。</essayTextWithWeight>
 
-<essayTextWithWeight><essayHeightLight>《营探用户协议》</essayHeightLight>的确认和接纳，内容如下：</essayTextWithWeight>
+<essayTextWithWeight>《营探用户协议》的确认和接纳，内容如下：</essayTextWithWeight>
 
-<essayTextWithWeight>1.您同意签订<essayHeightLight>《营探用户协议》</essayHeightLight>并开通营探服务；</essayTextWithWeight>
+<essayTextWithWeight>1.您同意签订《营探用户协议》并开通营探服务；</essayTextWithWeight>
 
 <essayTextWithWeight>2.您同意授权营探及第三方使用或查询您及您提供的相关信息，用于完成您通过本平台达成交易或服务使用。</essayTextWithWeight> 
 
-<essayTextWithWeight>3.您同意营探平台的相关规则，包括<essayHeightLight>《营探平台预订和退费须知》</essayHeightLight><essayHeightLight>《营探优惠券使用规则》</essayHeightLight><essayHeightLight>《营探隐私政策》</essayHeightLight><essayHeightLight>《营探知识产权声明》</essayHeightLight><essayHeightLight>《营探交易争议处理规则》</essayHeightLight><essayHeightLight>《营探侵权处理办法》</essayHeightLight>等。如有任何意见，请您向营探指定邮箱（complaint@camptogo.com）做出及时反馈。</essayTextWithWeight>
+<essayTextWithWeight>3.您同意营探平台的相关规则，包括《营探平台预订和退费须知》《营探优惠券使用规则》《营探隐私政策》《营探知识产权声明》《营探交易争议处理规则》《营探侵权处理办法》等。如有任何意见，请您向营探指定邮箱（complaint@camptogo.com）做出及时反馈。</essayTextWithWeight>
 
 
 
@@ -66,7 +63,7 @@
 
 <essayTextWithWeight>1.4【身份要素】</essayTextWithWeight>指营探用于识别您身份的信息要素，包括营探账户、密码、短信校验码、手机号码、身份证号码、身份证件信息及生物识别信息（人脸信息）。
 
-<essayTextWithWeight>1.5【服务】</essayTextWithWeight>指营探相关网站、服务、应用程序与内容，在<essayTextWithWeight><essayHeightLight>《营探用户协议》</essayHeightLight></essayTextWithWeight>中的统称。
+<essayTextWithWeight>1.5【服务】</essayTextWithWeight>指营探相关网站、服务、应用程序与内容，在<essayTextWithWeight>《营探用户协议》</essayTextWithWeight>中的统称。
 
 <essayTextWithWeight>1.6【规则】</essayTextWithWeight>指营探发布的协议、规则、实施细则、解读、说明、公告、政策、声明等内容。发布渠道包括但不限于营探规则中心、帮助中心、站内信通知、邮件通知、短信通知等。
 
@@ -303,7 +300,7 @@
 
 <essayTextWithWeight>4.6</essayTextWithWeight>您理解并同意，营探有权对您在本平台上发布的信息进行审核，<essayTextWithWeight>该审核通过即代表营探尽到审核义务。</essayTextWithWeight>您应当知悉并理解，营探的审核行为不代表对您发布的信息的真实性、合法性、准确性、及时性等提供担保，您应对您发布的信息承担全部法律责任。
 
-<essayTextWithWeight>4.7</essayTextWithWeight>用户对平台内的商品和服务进行评价时须按照营探的<essayTextWithWeight><essayHeightLight>《营探信用评价规则》</essayHeightLight></essayTextWithWeight>，否则营探有权根据该规则对用户及服务商采取相应处罚措施。
+<essayTextWithWeight>4.7</essayTextWithWeight>用户对平台内的商品和服务进行评价时须按照营探的<essayTextWithWeight>《营探信用评价规则》</essayTextWithWeight>，否则营探有权根据该规则对用户及服务商采取相应处罚措施。
 
 <essayTextWithWeight>4.8您应对您及您授权用户的用户内容及您在本平台或在本平台发布、提交或发送您的用户内容的后果承担全责。您进一步同意，您不会向本服务提交违背适用的地方、国家及国际法律法规的任何用户内容或其他材料。</essayTextWithWeight>
 
@@ -427,7 +424,7 @@
 
 5.2.2平台处理权利
 
-您所发布的信息应当合法、真实且有效，经营探审核发现发布信息涉嫌违法、违规的，或营探收到他人举报或投诉您违反本协议约定的，营探有权不经通知随时对相关内容进行删除、屏蔽，并视行为情节对违规账户处以包括但不限于警告、限制或禁止使用部分或全部功能、账户封禁直至注销的处罚，并公告处理结果。用户理解并同意，关于侵权问题，营探有权按照<essayTextWithWeight><essayHeightLight>《营探侵权处理办法》</essayHeightLight></essayTextWithWeight>对用户采取相关措施。
+您所发布的信息应当合法、真实且有效，经营探审核发现发布信息涉嫌违法、违规的，或营探收到他人举报或投诉您违反本协议约定的，营探有权不经通知随时对相关内容进行删除、屏蔽，并视行为情节对违规账户处以包括但不限于警告、限制或禁止使用部分或全部功能、账户封禁直至注销的处罚，并公告处理结果。用户理解并同意，关于侵权问题，营探有权按照<essayTextWithWeight>《营探侵权处理办法》</essayTextWithWeight>对用户采取相关措施。
 
 5.2.3用户的注意义务
 
@@ -437,9 +434,9 @@
 
 <essayTitleH2>第六章 数据隐私与安全</essayTitleH2>
 
-<essayTextWithWeight>6.1</essayTextWithWeight>本服务之使用，受<essayTextWithWeight><essayHeightLight>《营探隐私政策》</essayHeightLight></essayTextWithWeight>规范。您使用本服务，即代表您已阅读、理解并接受该隐私政策全部条款。如果您未满18周岁，在使用本服务前，应在您的父母或其他监护人监护、指导下共同阅读并同意该隐私政策。
+<essayTextWithWeight>6.1</essayTextWithWeight>本服务之使用，受<essayTextWithWeight>《营探隐私政策》</essayTextWithWeight>规范。您使用本服务，即代表您已阅读、理解并接受该隐私政策全部条款。如果您未满18周岁，在使用本服务前，应在您的父母或其他监护人监护、指导下共同阅读并同意该隐私政策。
 
-<essayTextWithWeight>6.2<essayHeightLight>《营探隐私政策》</essayHeightLight></essayTextWithWeight>可能会不时更新，以反映适用法律、法规、标准、行业规范等文件的更改，或反映本服务的更改、更新或新功能。<essayTextWithWeight><essayHeightLight>《营探隐私政策》</essayHeightLight></essayTextWithWeight>有任何更新后，若您继续访问或使用本服务即代表您已阅读、理解并接受了这些更新。
+<essayTextWithWeight>6.2《营探隐私政策》</essayTextWithWeight>可能会不时更新，以反映适用法律、法规、标准、行业规范等文件的更改，或反映本服务的更改、更新或新功能。<essayTextWithWeight>《营探隐私政策》</essayTextWithWeight>有任何更新后，若您继续访问或使用本服务即代表您已阅读、理解并接受了这些更新。
 
 <essayTextWithWeight>6.3</essayTextWithWeight>营探致力于保护个人信息安全，平台会在符合商业常理之范围内，尽力采取与本服务相匹配的技术措施或其他安全措施保护您的个人信息安全。尽管如此，营探无法保证您在网络上或通过网络进行信息传输的安全性或保密性。
 
@@ -461,13 +458,13 @@
 
 <essayTitleH2>第七章 公平竞争与反商业贿赂</essayTitleH2>
 
-<essayTextWithWeight>7.1</essayTextWithWeight>用户在经营过程中应当诚实守信，公平竞争，不得采取商业毁谤、商业贿赂、侵犯商业秘密、虚假广告、贬低其他竞争对手等不正当的竞争手段，不得违反<essayTextWithWeight><essayHeightLight>《中华人民共和国反不正当竞争法》</essayHeightLight></essayTextWithWeight>等相关法律法规。
+<essayTextWithWeight>7.1</essayTextWithWeight>用户在经营过程中应当诚实守信，公平竞争，不得采取商业毁谤、商业贿赂、侵犯商业秘密、虚假广告、贬低其他竞争对手等不正当的竞争手段，不得违反<essayTextWithWeight>《中华人民共和国反不正当竞争法》</essayTextWithWeight>等相关法律法规。
 
 <essayTextWithWeight>7.2</essayTextWithWeight>用户在使用营探商品和服务的过程中，不得采取不正当手段谋取不正当利益，不得以任何名义给予营探公司员工回扣、返点等行为，不得以任何名义、理由向营探员工馈赠贵重礼物、现金、有价证券及代为支付应由其个人自行支付的各种费用（包括但不限于住宅装修、旅游度假、食宿购物）。
 
 <essayTextWithWeight>第八章</essayTextWithWeight> <essayTextWithWeight>第三方商品和服务</essayTextWithWeight>
 
-<essayTextWithWeight>8.1</essayTextWithWeight>您在选择使用第三方商品和服务前应充分了解第三方商品和服务的功能、服务协议及隐私政策，再选择是否开通/购买第三方商品和服务。具体内容详见<essayTextWithWeight><essayHeightLight>《营探隐私政策》</essayHeightLight></essayTextWithWeight>。
+<essayTextWithWeight>8.1</essayTextWithWeight>您在选择使用第三方商品和服务前应充分了解第三方商品和服务的功能、服务协议及隐私政策，再选择是否开通/购买第三方商品和服务。具体内容详见<essayTextWithWeight>《营探隐私政策》</essayTextWithWeight>。
 
 <essayTextWithWeight>8.2</essayTextWithWeight>您应允许第三方应用接入营探向您提供服务，并由第三方向您提供某些功能或服务，例如：本服务中可能包含能跳转其他在线商品和服务的链接。在使用第三方服务的过程中，您除须遵守本协议的约定外，还须遵守第三方的用户协议、隐私政策等相关条款。对于前述网站或资源是否可以利用，本平台不予担保。因使用或依赖上述网站或资源所产生的损失或损害，本平台也不承担任何责任。
 
@@ -490,7 +487,7 @@
 
 <essayTitleH2>第十章 知识产权</essayTitleH2>
 
-<essayTextWithWeight>10.1</essayTextWithWeight>本平台对平台中所使用的软件和受知识产权或其他法律保护的资料享有相应的权利。经由本平台传送的资讯及内容，受到<essayTextWithWeight><essayHeightLight>《中华人民共和国著作权法》</essayHeightLight><essayHeightLight>《中华人民共和国商标法》</essayHeightLight><essayHeightLight>《中华人民共和国专利法》</essayHeightLight>或其他法律的保护。</essayTextWithWeight>未经本平台明示授权许可，用户不得进行修改、出租、散布或衍生其他作品。
+<essayTextWithWeight>10.1</essayTextWithWeight>本平台对平台中所使用的软件和受知识产权或其他法律保护的资料享有相应的权利。经由本平台传送的资讯及内容，受到<essayTextWithWeight>《中华人民共和国著作权法》《中华人民共和国商标法》《中华人民共和国专利法》或其他法律的保护。</essayTextWithWeight>未经本平台明示授权许可，用户不得进行修改、出租、散布或衍生其他作品。
 
 <essayTextWithWeight>10.2</essayTextWithWeight>用户了解并同意，除非营探另有说明或相关权利人依照法律规定享有权利，否则本平台提供的服务包含的商品和服务、技术、软件、程序、数据及其他所有信息内容，包括但不限于文字、图片、音频、视频、图表、界面设计、版面框架、有关数据或电子文档等（简称营探内容）的所有知识产权（包括但不限于版权、商标权、专利权、商业秘密）及相关权利均归营探或营探的关联公司所有。未经营探或相关权利人书面同意，您不得为任何商业或非商业目的自行或许可任何人使用（包括但不限于通过任何机器人、蜘蛛等程序或设备监视、复制、转载、散布、传播、播放、展示、出售、许可、镜像、上载、下载本服务中的内容）。
 
@@ -593,7 +590,7 @@
 <essayTextWithWeight>12.9</essayTextWithWeight>营探仅向您提供电子商务平台经营者所提供的基础服务，您了解本平台上的信息系由用户自行发布，且可能存在风险和瑕疵。营探将依法建立相关检查、监控制度尽可能保障您在本平台上的合法权益及良好体验。同时，鉴于本平台在信息网络环境下信息与实际服务相分离的特点，营探无法逐一审查商品和服务的信息，无法逐一审查交易所涉及的服务的质量、安全以及合法性、真实性、准确性，对此您应谨慎判断。
 
 <essayTextWithWeight>12.10</essayTextWithWeight>您理解并同意，在争议调处服务中，本平台的客服、评审人员并非专业人士，仅能以普通人的认知对用户提交的凭证进行判断。因此，除存在故意或重大过失外，您同意并认可营探作为调处方，对相关争议调处的决定免责。
-  
+
 
 
 
@@ -651,21 +648,21 @@
 
 <essayTextWithWeight>本协议相关法律依据：</essayTextWithWeight> 
 
-<essayHeightLight>《中华人民共和国民法典》</essayHeightLight> 
+《中华人民共和国民法典》 
 
-<essayHeightLight>《中华人民共和国数据安全法》</essayHeightLight> 
+《中华人民共和国数据安全法》 
 
-<essayHeightLight>《中华人民共和国保守国家秘密法》</essayHeightLight> 
+《中华人民共和国保守国家秘密法》 
 
-<essayHeightLight>《中华人民共和国网络安全法》</essayHeightLight> 
+《中华人民共和国网络安全法》 
 
-<essayHeightLight>《中华人民共和国个人信息保护法》</essayHeightLight> 
+《中华人民共和国个人信息保护法》 
 
-<essayHeightLight>《中华人民共和国电子商务法》</essayHeightLight> 
+《中华人民共和国电子商务法》 
 
-<essayHeightLight>《中华人民共和国反不正当竞争法》</essayHeightLight> 
+《中华人民共和国反不正当竞争法》 
 
-<essayHeightLight>《中华人民共和国消费者权益保护法》</essayHeightLight>
+《中华人民共和国消费者权益保护法》
 
 （以下无正文）   
 

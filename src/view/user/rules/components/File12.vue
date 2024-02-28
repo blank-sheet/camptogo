@@ -2,15 +2,11 @@
 <pre>
 <essayText> 
 <essayTitle>营探优惠券使用规则</essayTitle>
-
-
-
-<essayDate>发布日期：2024年1月14日 生效日期：2024年1月21日</essayDate>
-
-
+<essayDate>发布日期：2024年1月14日 
+生效日期：2024年1月21日</essayDate>
 <essayTitleH2>第一章 什么是优惠券</essayTitleH2>
 
-<essayTextWithWeight>1.1</essayTextWithWeight>营探（www.camptogo.com）优惠券（以下简称优惠券）是营探联合服务商对广大消费者的一种优惠和回馈。为使更多的消费者享受到这种优惠，特制定<essayHeightLight>《营探优惠券使用规则》</essayHeightLight>（以下简称本规则）。如果您接受并使用营探优惠券，那么您便接受了本规则。
+<essayTextWithWeight>1.1</essayTextWithWeight>营探（www.camptogo.com）优惠券（以下简称优惠券）是营探联合服务商对广大消费者的一种优惠和回馈。为使更多的消费者享受到这种优惠，特制定《营探优惠券使用规则》（以下简称本规则）。如果您接受并使用营探优惠券，那么您便接受了本规则。
 
 <essayTextWithWeight>1.2</essayTextWithWeight>优惠券仅在营探消费者为个人消费而发生购买行为时使用，不适用于团体购买、企业顾客购买及其他非以个人消费为目的的购买行为，使用他人手机号、地址等信息注册，或以非正常手段注册、一人注册多个账户等视为违规注册，同一手机、同一IP地址、同一或高度相似收货地址、同一设备号、同一ID、同一收件人或其他可以合理显示为同一账户的情形，其中任意一项或数项符合均视为同一账户。
 

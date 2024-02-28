@@ -2,10 +2,8 @@
 <pre>
 <essayText> 
 <essayTitle>应用权限申请与使用情况说明</essayTitle> 
-
-<essayDate>发布日期：2022年8月19日 生效日期：2022年8月27日</essayDate>
-
-
+<essayDate>发布日期：2022年8月19日
+生效日期：2022年8月27日</essayDate>
 
 **提示条款**
 

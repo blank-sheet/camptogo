@@ -2,17 +2,13 @@
 <pre>
 <essayText> 
 <essayTitle>营探信用评价规则</essayTitle>
-
-
-
-<essayDate>发布日期：2024年1月14日 生效日期：2024年1月21日</essayDate>
-
-
+<essayDate>发布日期：2024年1月14日
+生效日期：2024年1月21日</essayDate>
 <essayTitleH2>第一章 概述</essayTitleH2>
 
 <essayTextWithWeight>1.1</essayTextWithWeight>目的依据
 
-为响应建立信用社会的国家号召，建立有利于电商行业健康发展的信用体系、增强入驻营探平台服务商（以下简称服务商）的诚信意识、鼓励服务商为消费者提供优质的商品和服务、保障消费者合法权益，根据<essayHeightLight>《中华人民共和国电子商务法》、《营探服务商入驻协议及授权条款》、《营探用户协议》</essayHeightLight>及其他平台规则，制定本规则。
+为响应建立信用社会的国家号召，建立有利于电商行业健康发展的信用体系、增强入驻营探平台服务商（以下简称服务商）的诚信意识、鼓励服务商为消费者提供优质的商品和服务、保障消费者合法权益，根据《中华人民共和国电子商务法》、《营探服务商入驻协议及授权条款》、《营探用户协议》及其他平台规则，制定本规则。
 
 <essayTextWithWeight>1.2</essayTextWithWeight>适用范围
 
@@ -30,7 +26,7 @@
 
 <essayTextWithWeight>2.3【营探账户】（以下简称账户）：</essayTextWithWeight>是指您通过手机号码验证后取得的供您使用营探服务的账户。账户包括您的注册账号、用户名、头像、密码等。
 
-<essayTextWithWeight>2.4【服务】</essayTextWithWeight>指营探相关网站、服务、应用程序与内容，在<essayHeightLight>《营探用户协议》</essayHeightLight>中的统称。
+<essayTextWithWeight>2.4【服务】</essayTextWithWeight>指营探相关网站、服务、应用程序与内容，在《营探用户协议》中的统称。
 
 <essayTextWithWeight>2.5【使用】</essayTextWithWeight>指用户根据本协议下载、安装、注册、登录、浏览、使用营探等行为。
 
@@ -230,10 +226,9 @@
 
 <essayTextWithWeight>7.6</essayTextWithWeight>本规则未明确或未约定事宜，依据双方签订的协议约定为准，协议未约定的依据营探页面公示的信息为准，且营探会根据法律法规及市场变化对页面公示内容进行调整，具体依据调整后的内容为准，请您随时关注页面公示信息。
 
-  
+
 </essayText> 
 </pre>
-
 </template>
 <script setup>
 import essayTitle from "../essayComponents/essayTitle.vue"

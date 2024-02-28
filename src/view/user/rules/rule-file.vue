@@ -148,7 +148,7 @@ const setActive = id => {
 </script>
 <style lang="scss" scoped>
 .chapterArea {
-  width: 80%;
+  width: 89%;
 }
 
 
