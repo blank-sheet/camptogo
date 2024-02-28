@@ -2,7 +2,7 @@
 <pre>
 <essayText> 
 <essayTitle>营探风险告知书</essayTitle>
-<essayDate>发布日期：2022年1月27日 
+<essayDate>发布日期：2022年1月27日
 生效日期：2022年1月27日</essayDate>
 <essayTitleH2 id="1">01 提示条款</essayTitleH2> 
 

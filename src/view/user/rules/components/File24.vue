@@ -2,12 +2,8 @@
 <pre>
 <essayText> 
 <essayTitle>营探搜索排名规则</essayTitle>
-
-
-
-<essayDate>发布日期：2022年8月19日 生效日期：2022年8月27日</essayDate>
-
-
+<essayDate>发布日期：2022年8月19日
+生效日期：2022年8月27日</essayDate>
 <essayTitleH2>提示 条款</essayTitleH2>
 
 营探搜索与排名规则是将匹配关键词的商品按照对消费者需求满足程度依次展示，目的是帮助消费者快速方便地找到所需商品。此外，消费者还可以按照一定条件对商品进行精确筛选。 

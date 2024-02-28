@@ -2,7 +2,7 @@
 <pre>
 <essayText> 
 <essayTitle>价格说明</essayTitle>
-
+<essayDate></essayDate>
 <essayTitleH2>本价格为含税价，包含</essayTitleH2>
 
 出行人在活动期间的食宿费用、项目体验费、课程师资费、场地费、教具物资费等，具体内容以该商品详情页为准。

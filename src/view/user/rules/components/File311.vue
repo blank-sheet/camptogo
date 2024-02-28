@@ -2,6 +2,7 @@
 <pre>
 <essayText> 
 <essayTitle>自由职业者服务协议</essayTitle>
+<essayDate></essayDate>
 **鉴于:**
 
 1.甲方是一家依照中国法律设立的有限责任公司，为【场景化灵活用工服务平台】（“【灵活用工平台】”）的运营方。

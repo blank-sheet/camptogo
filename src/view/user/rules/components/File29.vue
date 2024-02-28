@@ -2,7 +2,7 @@
   <pre>
 <essayText> 
 <essayTitle>退改说明</essayTitle>
-
+<essayDate></essayDate>
 <essayTitleH2>该商品为 有条件退商品</essayTitleH2> 
 
 详见:<essayTextWithWeight><a href="http://123.57.13.5:82/#/user/rule/13">《营探平台预订和退费须知》</a></essayTextWithWeight><essayTextWithWeight><a href="http://123.57.13.5:82/#/user/rule/04"></a>《免责声明》</essayTextWithWeight>

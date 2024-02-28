@@ -2,7 +2,7 @@
 <pre>
 <essayText> 
 <essayTitle>天安财产保险股份有限公司</essayTitle>
-
+<essayDate></essayDate>
 <essayTextWithWeight>组织者责任保险条款</essayTextWithWeight>
 
 （注册号：C00002230912020033004492）

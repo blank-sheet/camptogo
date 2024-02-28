@@ -2,7 +2,7 @@
 <pre>
 <essayText> 
 <essayTitle>天安财产保险股份有限公司</essayTitle>
-
+<essayDate></essayDate>
 ## 附加救护车费用保险条款
 
 （(天安财险)(备-其他)【2020】(附) 020 号）

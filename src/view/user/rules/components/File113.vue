@@ -2,7 +2,7 @@
 <pre>
 <essayText> 
 <essayTitle>营探服务商入驻协议及授权条款</essayTitle>
-  
+<essayDate></essayDate>
 甲方： 
 
 居民身份证号码：

@@ -2,7 +2,7 @@
 <pre>
 <essayText> 
 <essayTitle>预订须知</essayTitle>
-
+<essayDate></essayDate>
 *该商品为有条件退订商品
 
 ## 预定限制
