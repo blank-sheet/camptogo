@@ -2,7 +2,7 @@
   <div class="user-layout">
     <el-container>
       <el-container>
-        <el-aside :width="sideWidth + 'px'">
+        <el-aside :width="width">
           <slot name="side"> </slot>
         </el-aside>
         <el-main>
@@ -16,10 +16,16 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   sideWidth: {
     default: 13
   }
+})
+
+const width = computed(() => {
+  return props.sideWidth + 'px'
 })
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <camp-body :side-width="23.5">
+  <camp-body :sideWidth="220">
     <template #side>
       <div class="title-yt">营探·规则协议</div>
       <el-input placeholder="搜索" class="searchInput" size="small">
@@ -19,7 +19,11 @@
         <el-menu-item :index="2">
           <template #title>
             <i class="iconfont icon-liebiao"></i>
-            目录<div class="mulu"><i class="iconfont fold icon-xiangxiazhankai" @click="defaultOpenedsArray = []"></i></div>
+            目录<div class="mulu">
+              <el-tooltip content="全部收起" placement="top">
+                <i class="iconfont fold icon-xiangxiazhankai" @click="defaultOpenedsArray = []"></i>
+              </el-tooltip>
+            </div>
           </template>
         </el-menu-item>
         <el-sub-menu :index="i.toString()" v-for="(f, i) in files" :key="i"
@@ -28,7 +32,7 @@
             <span>{{ f[0] }}</span>
           </template>
           <el-menu-item v-for="(n, j) in f[1]" :index="i + '-' + j" :key="j" @click="updateSelectedSubmenu(i)">
-            {{ n }}
+            <div class="text">{{ n }}</div>
           </el-menu-item>
         </el-sub-menu>
       </el-menu>
@@ -114,7 +118,7 @@ const selectedSubmenu = ref(-1)
 const cur = ref('0-0')
 
 const handleOpen = (key, keyPath) => {
-  if(key == 2 || key == 1){
+  if (key == 2 || key == 1) {
     return
   }
   router.push('/user/rule/' + key.replace('-', ''))
@@ -131,27 +135,40 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.text {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .menu {
   margin: 0 2px;
   --el-menu-hover-bg-color: #EDEDED !important;
-  .mulu{
+  overflow: hidden;
+
+  .mulu {
     height: 15px;
-    line-height:15px;
+    line-height: 15px;
     width: 80%;
     display: flex;
     justify-content: right;
-    .fold{
+
+    .fold {
       margin: auto 0;
       color: #707070;
-      &:hover{
+
+      &:hover {
         background-color: #F5F5F5;
       }
     }
   }
+
   .iconfont {
     margin: auto 6px auto 0;
   }
-  .fold{
+
+  .fold {
     font-size: 12px;
     margin: auto 6px auto 0;
   }
@@ -160,6 +177,9 @@ onMounted(() => {
     height: 40px;
     line-height: 40px;
     border-radius: 5px;
+    padding: 0 24px 0 36px;
+    overflow: hidden;
+    display: flex;
 
     &:hover {
       background-color: #EDEDED;
@@ -185,7 +205,6 @@ onMounted(() => {
   color: #93d500;
   font-family: PingFang SC;
   font-size: 22px;
-  width: 100%;
   padding-left: 20px;
   height: 50px;
   line-height: 50px;
