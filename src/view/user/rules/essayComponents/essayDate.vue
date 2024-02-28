@@ -8,13 +8,15 @@
 
 </script>
 
-<style lang="scss" scoped>.date {
-  line-height: 1;
-  color: rgb(117, 117, 117);
+<style lang="scss" scoped>
+.date {
+  color: #8C8C8C;
   padding-bottom: 5px;
-  font-size: 15px;
   font-family: PingFang SC;
   border-bottom: 3px solid rgb(216, 216, 216);
-  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
 }
 </style>

@@ -10,9 +10,11 @@
 
 <style lang="scss" scoped>
 .titleh3 {
-  font-size: 15px;
   font-family: PingFang SC;
-  color: #000000;
-  font-weight: 550;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: #262626;
 }
 </style>

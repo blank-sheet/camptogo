@@ -10,12 +10,12 @@
 
 <style lang="scss" scoped>
 .title {
-  line-height: 1;
-  text-align: left;
-  color: #000000;
+  height: 38px;
+  line-height: 38px;
+  font-weight: 500;
+  color: #262626;
   font-family: PingFang SC;
-  font-size: 32px;
-  text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
-  margin: 0;
+  font-size: 30px;
+  text-align: center;
 }
 </style>

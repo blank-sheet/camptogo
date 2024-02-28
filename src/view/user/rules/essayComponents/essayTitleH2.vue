@@ -10,14 +10,11 @@
 
 <style lang="scss" scoped>
 .greenTitle {
-  line-height: 1;
-  height: 40px;
-  line-height: 40px;
-  font-size: 26px;
   font-family: PingFang SC;
-  color: #95D600;
-  padding-left: 10px;
-  border-left: 6px solid #95D600;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #262626;
 }
 </style>

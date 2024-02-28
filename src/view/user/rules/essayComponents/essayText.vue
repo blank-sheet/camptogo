@@ -10,15 +10,12 @@
 
 <style lang="scss" scoped>
 .text {
-  color: #000000;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400;
   font-size: 14px;
-  font-family: PingFang SC;
-  letter-spacing: 0.5px;
-  line-height: 1.4;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  
+  line-height: 24px;
+  text-align: justify;
+  color: #262626;
 }
-
 </style>
