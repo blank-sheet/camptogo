@@ -129,7 +129,15 @@ import CampFormItem from '../../../../component/camp-form-item.vue'
 import CampDatePicker from '../../../../component/camp-date-picker.vue'
 import CampUpload from '../../../../component/camp-upload.vue'
 import quesTion from "./components/quesTion.vue"
-import { ref, provide } from "vue"
+import { request } from '../../../../api'
+import { userApi } from '../../../../api/modules/user/user'
+import { ref, provide, onMounted } from "vue"
+import { useRoute } from 'vue-router'
+const route = useRoute()
+onMounted(() => {
+  //获取报名表
+  // getRegForm()
+})
 const questionList = ref([
   {
     title: "性别",
@@ -216,8 +224,12 @@ const addQues = (index) => {
 }
 provide('addQues', addQues)
 
-const createRegistrationForm = ()=>{
-  
+const getRegForm = () => {
+  request.post(userApi.getRegistrationFormAPI, {
+    productId: route.params.id
+  }).then(res => {
+    questionList.value = res?.details.questionList || []
+  })
 }
 </script>
 

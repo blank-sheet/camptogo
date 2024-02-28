@@ -1,6 +1,7 @@
 <template>
   <div class="ques">
-    <component :ques="props.ques" :isEdit="isEdit" @click="isEdit = true" :is="getComponentName" :theIndex="theIndex"></component>
+    <component :ques="props.ques" :isEdit="isEdit" @click="isEdit = true" :is="getComponentName" :theIndex="theIndex">
+    </component>
     <div class="oprations" v-if="isEdit == true">
       <div class="text" @click="addQues()">此题后插入新题</div>
       <el-select class="select" v-model="ques.isRequired">
@@ -24,23 +25,23 @@ import choice from "./quesTemps/choice.vue"
 import fill from "./quesTemps/fill.vue"
 import selection from "./quesTemps/selection.vue"
 import upLoad from "./quesTemps/upload.vue"
-import { reactive, onMounted,ref ,computed,inject} from 'vue'
+import { reactive, onMounted, ref, computed, inject } from 'vue'
 const props = defineProps({
   ques: Object,
-  theIndex:{
-    type:Number,
-    default:0
+  theIndex: {
+    type: Number,
+    default: 0
   }
 })
 const isEdit = ref(false)
-const getComponentName = computed(()=>{
-  if(props.ques.questionType == 'SINGLE_CHOICE' || props.ques.questionType == 'MULTIPLE_CHOICE'){
+const getComponentName = computed(() => {
+  if (props.ques.questionType == 'SINGLE_CHOICE' || props.ques.questionType == 'MULTIPLE_CHOICE') {
     return choice
-  }else if(props.ques.questionType == 'FILL_IN_THE_BLANKS'){
+  } else if (props.ques.questionType == 'FILL_IN_THE_BLANKS') {
     return fill
-  }else if(props.ques.questionType == 'DROPDOWN_SINGLE_CHOICE'){
+  } else if (props.ques.questionType == 'DROPDOWN_SINGLE_CHOICE') {
     return selection
-  }else{
+  } else {
     return upLoad
   }
 })
