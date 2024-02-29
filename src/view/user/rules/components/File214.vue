@@ -5,7 +5,7 @@
 <essayDate>发布日期：2022年8月19日
 生效日期：2022年8月27日</essayDate>
 
-**提示条款**
+<essayTextWithWeight>提示条款</essayTextWithWeight>
 
 本文件适用版本号：iOS 1.0，小程序1.0及此后更新版本 
 

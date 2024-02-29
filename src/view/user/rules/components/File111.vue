@@ -5,15 +5,15 @@
 <essayDate>发布日期：2024年1月14日
 生效日期：2024年1月21日</essayDate>
 
-## **提示条款**
+<essayTitleH2><essayTextWithWeight>提示条款</essayTextWithWeight></essayTitleH2>
 
 为保障营探平台安全稳定的运行或实现相关功能，营探平台会嵌入由第三方提供的的软件工具开发包（以下简称“SDK”）或类似其他应用程序实现前述目的。我们会对第三方获取信息的软件工具开发包（SDK）进行严格的安全监测，以保护数据安全。
 
 我们合作的第三方可能因满足新的服务需求及业务功能变更进行调整。我们会及时在本清单中向您公开说明合作第三方的最新情况。目前营探合作的第三方详情如下：
 
-## **一、** 第三方SDK目录
+<essayTitleH2><essayTextWithWeight>一、</essayTextWithWeight> 第三方SDK目录</essayTitleH2>
 
-| **第三方公司名称**                 | **产品/类型** | **使用目的**                                       | **涉及的个人信息类型**                                       | **使用场景**                               | **第三方链接**                                               |
+| <essayTextWithWeight>第三方公司名称</essayTextWithWeight>                 | <essayTextWithWeight>产品/类型</essayTextWithWeight> | <essayTextWithWeight>使用目的</essayTextWithWeight>                                       | <essayTextWithWeight>涉及的个人信息类型</essayTextWithWeight>                                       | <essayTextWithWeight>使用场景</essayTextWithWeight>                               | <essayTextWithWeight>第三方链接</essayTextWithWeight>                                               |
 | ---------------------------------- | ------------- | -------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------ | ------------------------------------------------------------ |
 | 深圳市腾讯计算机系统有限公司       | 微信SDK       | 帮助用户分享内容                                   | 设备识别信息                                                 | 微信授权登录、微信好友和微信朋友圈分享功能 | 官网链接：https://open.weixin.qq.com/                                                                                                      隐私政策:https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&t=weixin_agreement&s=privacy |
 | 阿里巴巴集团                       | 阿里云OpenSDK | 实现基础网络服务、安全风控、性能优化及其他服务功能 | 设备识别信息（IMSI）、电话号码；设备识别信息、应用信息、网络信息 | 短信、一键登录、实名认证                   | 官网链接：[https://www.alibabacloud.com/zh?spm=a3c0i.239195.6791778070.19.618412bdFkOTI8](https://www.alibabacloud.com/zh?spm=a3c0i.239195.6791778070.19.618412bdFkOTI8"\t"_blank)                                                                                               隐私政策： https://www.alibabacloud.com/help/zh/legal/latest/alibaba-cloud-international-website-privacy-policy |
@@ -32,13 +32,13 @@
 | 杭州天谷信息科技有限公司                             | e签宝SaaS API           | 合同签约服务          | 自然人、企业的法定代表人及经办人、非法人组织、个体工商户的负责人的姓名、身份证号、手机号，注册邮箱、法人、非法人组织、个体工商户的统一社会信用代码、住所、有效通讯地址、联系方式等    | 入驻协议等协议签署     | 官网链接：https://www.esign.cn/pcgw/cp/cpjs/                                                                                                                                                            隐私政策：https://www.esign.cn/gw/fwxy/?current=2       |
  
 
-## **二、其他SDK接入方目录** 
+<essayTitleH2><essayTextWithWeight>二、其他SDK接入方目录</essayTextWithWeight></essayTitleH2> 
 
-| **SDK名称**     | **使用目的** | **涉及的个人信息类型** |
+| <essayTextWithWeight>SDK名称</essayTextWithWeight>     | <essayTextWithWeight>使用目的</essayTextWithWeight> | <essayTextWithWeight>涉及的个人信息类型</essayTextWithWeight> |
 | --------------- | ------------ | ---------------------- |
-| **Alamofire**   | **开发工具** | **无**                 |
-| **Kinghfisher** | **开发工具** | **无**                 |
-| **Snapkit**     | **开发工具** | **无**                 |
+| <essayTextWithWeight>Alamofire</essayTextWithWeight>   | <essayTextWithWeight>开发工具</essayTextWithWeight> | <essayTextWithWeight>无</essayTextWithWeight>                 |
+| <essayTextWithWeight>Kinghfisher</essayTextWithWeight> | <essayTextWithWeight>开发工具</essayTextWithWeight> | <essayTextWithWeight>无</essayTextWithWeight>                 |
+| <essayTextWithWeight>Snapkit</essayTextWithWeight>     | <essayTextWithWeight>开发工具</essayTextWithWeight> | <essayTextWithWeight>无</essayTextWithWeight>                 |
 
 请您注意，以上链接中的开发者文档或个人信息保护政策/隐私政策页面由相应SDK开发/提供商制作并发布，相关SDK开发/提供商将有可能在法律允许的范围内，对链接以及链接网页内容进行变动或调整，请以其最新公布的链接及链接网页内容为准。由于部分SDK开发/提供商未提供在线文档，我们无法提供所有的第三方SDK的开发文档或对应的个人信息保护政策/隐私政策的链接。
   </essayText> 

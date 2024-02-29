@@ -3,17 +3,17 @@
 <essayText> 
 <essayTitle>附加旅行公共交通工具意外伤害保险条款</essayTitle>
 <essayDate></essayDate>
-  **总 则**
+  <essayTextWithWeight>总 则</essayTextWithWeight>
 
-  **第一条** 投保人只有在投保了《旅游者人身意外伤害险条款》等旅游类险种（以下简称为“主险”）后，方可投保本附加条款（以下简称为“本附加条款”）。
+  <essayTextWithWeight>第一条</essayTextWithWeight> 投保人只有在投保了《旅游者人身意外伤害险条款》等旅游类险种（以下简称为“主险”）后，方可投保本附加条款（以下简称为“本附加条款”）。
 
-  **第二条** 本附加条款与主保险合同条款不一致之处，以本附加条款为准；本附加条款未尽之处，以主保险合同条款为准。
+  <essayTextWithWeight>第二条</essayTextWithWeight> 本附加条款与主保险合同条款不一致之处，以本附加条款为准；本附加条款未尽之处，以主保险合同条款为准。
 
-  **第三条** 本附加条款所附属的主保险合同效力终止，本附加条款效力即行终止。主保险合同无效，本附加条款亦无效。
+  <essayTextWithWeight>第三条</essayTextWithWeight> 本附加条款所附属的主保险合同效力终止，本附加条款效力即行终止。主保险合同无效，本附加条款亦无效。
 
-  **保险责任**
+  <essayTextWithWeight>保险责任</essayTextWithWeight>
 
-  **第四条** 保险责任 
+  <essayTextWithWeight>第四条</essayTextWithWeight> 保险责任 
 
   在保险期间内，被保险人持有有效证件在旅行时，持有效客票以乘客人身份乘坐公共交通工具（见释义）时，在交通工具内因交通事故导致身故或伤残的，保险人依照下列约定给付保险金。
 
@@ -35,53 +35,53 @@
 
   在保险期间内，前述第（一）、（二）款下的保险金累计给付金额以保险单载明的意外伤害保险金额为限。 
 
-  **责任免除**
+  <essayTextWithWeight>责任免除</essayTextWithWeight>
 
-  **第五条 因下列任一情形直接和间接导致被保险人身故或伤残的，保险人不承担给付保险金的责任：**
+  <essayTextWithWeight>第五条 因下列任一情形直接和间接导致被保险人身故或伤残的，保险人不承担给付保险金的责任：</essayTextWithWeight>
 
-  **1)** **投保人或受益人的故意行为；** 
+  <essayTextWithWeight>1)</essayTextWithWeight> <essayTextWithWeight> 投保人或受益人的故意行为；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>2)</essayTextWithWeight> <essayTextWithWeight> 被保险人违反承运人关于安全乘坐的规定；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>3)</essayTextWithWeight> <essayTextWithWeight> 被保险人故意犯罪或拒捕、自杀、故意自伤；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>4)</essayTextWithWeight> <essayTextWithWeight> 被保险人斗殴、酗酒、服用、吸食或注射毒品；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>5)</essayTextWithWeight> <essayTextWithWeight> 被保险人酒后驾驶、无合法有效驾驶证驾驶，或驾驶无有效行驶证的机动交通工具；</essayTextWithWeight>
+ 
+  <essayTextWithWeight>6)</essayTextWithWeight> <essayTextWithWeight> 被保险人妊娠（包括异位妊娠）、流产、分娩、节育、不孕不育；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>7)</essayTextWithWeight> <essayTextWithWeight> 被保险人因精神疾病而导致的意外；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>8)</essayTextWithWeight> <essayTextWithWeight> 被保险人任何因整容、整形手术、内外科手术或其他医疗行为导致的伤害；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>9)</essayTextWithWeight> <essayTextWithWeight> 被保险人因受国家管制药物的影响而导致的意外或未遵医嘱，私自服用、涂用、注射药物；</essayTextWithWeight>
 
-  **2)** **被保险人违反承运人关于安全乘坐的规定；** 
+  <essayTextWithWeight>10)</essayTextWithWeight> <essayTextWithWeight> 被保险人患艾滋病或感染艾滋病病毒期间发生的意外伤害；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>11)</essayTextWithWeight> <essayTextWithWeight> 公共交通工具自始发地出发以后，未到达目的地之前，在汽车和火车的车厢外部，轮船的甲板之外，飞机的舱门之外所遭受的意外伤害；</essayTextWithWeight>
+ 
+  <essayTextWithWeight>12)</essayTextWithWeight> <essayTextWithWeight> 战争、军事行动、暴乱或武装叛乱；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>13)</essayTextWithWeight> <essayTextWithWeight> 核爆炸、核辐射或核污染。；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>14)</essayTextWithWeight> <essayTextWithWeight> 主险条款规定的责任免除事项。</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>15)</essayTextWithWeight> <essayTextWithWeight> 战争（无论宣战与否）、军事行动、暴动或武装叛乱期间；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>16)</essayTextWithWeight> <essayTextWithWeight> 被保险人醉酒或受毒品、管制药品的影响期间；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>17)</essayTextWithWeight> <essayTextWithWeight> 被保险人酒后驾车、无有效驾驶证驾驶或驾驶无有效行驶证的机动车期间；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>18)</essayTextWithWeight> <essayTextWithWeight> 被保险人因受当地司法当局拘禁或被判入狱期间；</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>19)</essayTextWithWeight> <essayTextWithWeight> 主险条款规定的责任免除事项。</essayTextWithWeight> 
+ 
+  <essayTextWithWeight>20)</essayTextWithWeight> <essayTextWithWeight> 发生上述情形，导致被保险人身故的，保险人对该被保险人保险责任终止，并退还未满期净保费。</essayTextWithWeight>
 
-  **3)** **被保险人故意犯罪或拒捕、自杀、故意自伤；** 
+  <essayTextWithWeight>保险金额和保险费</essayTextWithWeight>
 
-  **4)** **被保险人斗殴、酗酒、服用、吸食或注射毒品；** 
-
-  **5)** **被保险人酒后驾驶、无合法有效驾驶证驾驶，或驾驶无有效行驶证的机动交通工具；**
-
-  **6)** **被保险人妊娠（包括异位妊娠）、流产、分娩、节育、不孕不育；** 
-
-  **7)** **被保险人因精神疾病而导致的意外；** 
-
-  **8)** **被保险人任何因整容、整形手术、内外科手术或其他医疗行为导致的伤害；** 
-
-  **9)** **被保险人因受国家管制药物的影响而导致的意外或未遵医嘱，私自服用、涂用、注射药物；**
-
-  **10)** **被保险人患艾滋病或感染艾滋病病毒期间发生的意外伤害；** 
-
-  **11)** **公共交通工具自始发地出发以后，未到达目的地之前，在汽车和火车的车厢外部，轮船的甲板之外，飞机的舱门之外所遭受的意外伤害；**
-
-  **12)** **战争、军事行动、暴乱或武装叛乱；** 
-
-  **13)** **核爆炸、核辐射或核污染。；** 
-
-  **14)** **主险条款规定的责任免除事项。** 
-
-  **15)** **战争（无论宣战与否）、军事行动、暴动或武装叛乱期间；** 
-
-  **16)** **被保险人醉酒或受毒品、管制药品的影响期间；** 
-
-  **17)** **被保险人酒后驾车、无有效驾驶证驾驶或驾驶无有效行驶证的机动车期间；** 
-
-  **18)** **被保险人因受当地司法当局拘禁或被判入狱期间；** 
-
-  **19)** **主险条款规定的责任免除事项。** 
-
-  **20)** **发生上述情形，导致被保险人身故的，保险人对该被保险人保险责任终止，并退还未满期净保费。**
-
-  **保险金额和保险费**
-
-  **第六条** 保险金额 
+  <essayTextWithWeight>第六条</essayTextWithWeight> 保险金额 
 
   保险金额是保险人对保单载明的每一位被保险人在保险期间内的每次旅行承担给付保险金责任的最高限额。保险金额由投保人、保险人双方约定，并在保险单中载明。 
 
@@ -97,19 +97,19 @@
 
   除非保单有另行约定，否则以上表所列保额为准。 
 
-  **第七条** 保险费 
+  <essayTextWithWeight>第七条</essayTextWithWeight> 保险费 
 
   投保人应该按照合同约定向保险人交纳保险费。保险人和投保人可以在本保险合同项下约定免赔额等限制条件。 
 
-  **保险期间**
+  <essayTextWithWeight>保险期间</essayTextWithWeight>
 
-  **第八条** 保险期间 
+  <essayTextWithWeight>第八条</essayTextWithWeight> 保险期间 
 
   除另有约定外，本附加条款的“保险期间”同主保险合同一致。 
 
-  **释义**
+  <essayTextWithWeight>释义</essayTextWithWeight>
 
-  **1****、公共交通工具：**指领有当地政府主管部分依法颁发的公共交通营运执照，以收费方 
+  <essayTextWithWeight>1</essayTextWithWeight><essayTextWithWeight>、公共交通工具：</essayTextWithWeight>指领有当地政府主管部分依法颁发的公共交通营运执照，以收费方 
 
   式合法载客的以下交通工具： 
 

@@ -87,7 +87,7 @@
 
 以上各项责任限额由投保人与保险人协商确定，并在保险合同中载明。
 
-<essayTextWithWeight>第十一条</essayTextWithWeight> <essayTextWithWeight>每人医疗费用免赔额、</essayTextWithWeight><essayTextWithWeight>每次事故财产损失免赔额由投保人与保险人在签订保险合同时协商确定，并在保险合同中载明。</essayTextWithWeight>
+<essayTextWithWeight>第十一条</essayTextWithWeight> <essayTextWithWeight> 每人医疗费用免赔额、</essayTextWithWeight><essayTextWithWeight>每次事故财产损失免赔额由投保人与保险人在签订保险合同时协商确定，并在保险合同中载明。</essayTextWithWeight>
 
 <essayTextWithWeight>保险人义务</essayTextWithWeight>
 
