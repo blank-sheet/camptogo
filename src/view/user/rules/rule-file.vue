@@ -56,7 +56,7 @@
         'nav-active': index == activeNav - 1
       }">
         <span></span>
-        <span @click="goToPosition(index + 1)">
+        <span class="title" @click="goToPosition(index + 1)">
           {{ nav }}
         </span>
       </li>
@@ -149,6 +149,7 @@ const setActive = id => {
 <style lang="scss" scoped>
 .chapterArea {
   width: 89%;
+  background-color: #fff;
 }
 
 
@@ -245,17 +246,26 @@ pre {
 
 .product-nav {
   position: fixed;
-  // left: 1300px;
-  // right: 50px;
-  left: calc(100% - 160px);
-  top: 130px;
+  right: 24px;
+  top: 80px;
   border-left: 2px solid lightgray;
+
 
   li {
     list-style: none;
-    min-width: 70px;
+    width: 120px;
     margin: 14px;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    .title {
+      width: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   .nav-active {
@@ -290,7 +300,7 @@ pre {
     display: none;
   }
 
-  .product-nav{
+  .product-nav {
     display: none;
   }
 

@@ -12,9 +12,9 @@
 
 <essayTitleH2>第一章 注销结果</essayTitleH2> 
 
-<essayTextWithWeight>1.1注销营探账户，您将无法再使用本营探账户，也将无法找回您营探账户中及与账户相关的内容或信息（即使您使用相同的手机号码再次注册并使用营探）。</essayTextWithWeight>
+<essayTextWithWeight>1.1 注销营探账户，您将无法再使用本营探账户，也将无法找回您营探账户中及与账户相关的内容或信息（即使您使用相同的手机号码再次注册并使用营探）。</essayTextWithWeight>
 
-<essayTextWithWeight>1.2注销营探账户后，无法找回的信息包括但不限于：</essayTextWithWeight>
+<essayTextWithWeight>1.2 注销营探账户后，无法找回的信息包括但不限于：</essayTextWithWeight>
 
 1.2.1您将无法登录、使用本营探账户，并移除该账户下所有登录方式；
 
@@ -34,7 +34,7 @@
 
 <essayTitleH2>第二章 注销条件 </essayTitleH2> 
 
-<essayTextWithWeight>2.1如您执意注销账户，您的账户需同时满足以下条件，这些条件包括但不限于：</essayTextWithWeight>
+<essayTextWithWeight>2.1 如您执意注销账户，您的账户需同时满足以下条件，这些条件包括但不限于：</essayTextWithWeight>
 
 2.1.1无未完成的订单、无未支付订单；
 
@@ -44,7 +44,7 @@
 
 <essayTitleH2>第三章 其他</essayTitleH2>  
 
-<essayTextWithWeight>3.1在您的营探账户注销期间，如果您的账户涉及争议纠纷，包括但不限于举报、投诉、仲裁、诉讼、涉嫌违法违规行为、相关国家机关调查；或账户存在被盗号风险的，营探有权暂停您的账户注销程序或限制相同信息在注销后再次注册。</essayTextWithWeight>
+<essayTextWithWeight>3.1 在您的营探账户注销期间，如果您的账户涉及争议纠纷，包括但不限于举报、投诉、仲裁、诉讼、涉嫌违法违规行为、相关国家机关调查；或账户存在被盗号风险的，营探有权暂停您的账户注销程序或限制相同信息在注销后再次注册。</essayTextWithWeight>
 
 3.2您知晓并理解：根据中华人民共和国电子商务法要求商品信息、交易信息保存时间自交易完成之日起不少于三年。注销成功后，我们将删除您的个人信息，或对其进行匿名化处理。当您的相关信息删除后，因为适用的法律和安全技术限制，我们可能无法立即从备份系统中删除相应的信息，但我们将安全的存储您的个人信息并限制对其的任何进一步的处理，直到备份可以删除或实现匿名化。
 

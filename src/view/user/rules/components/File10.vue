@@ -644,8 +644,6 @@
 <essayTextWithWeight>14.8</essayTextWithWeight> 本协议的标题仅为方便阅读所设，非对条款的定义、限制、解释或描述其范围或界限。 
 
 
-
-
 <essayTextWithWeight>本协议相关法律依据：</essayTextWithWeight> 
 
 《中华人民共和国民法典》 

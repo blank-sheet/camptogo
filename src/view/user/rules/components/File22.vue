@@ -44,59 +44,59 @@
 
 <essayTextWithWeight>1.3.13</essayTextWithWeight> 【可提款金额】指营探与服务商、第三方进行核算后，扣除因特殊事件冻结款项（包括但不限于因售后、投诉、消费者维权等发生的赔偿金额、违反营探相关规则的罚金或违约金）、营探应收账款金额、营探代扣代缴金额后的剩余金额。该剩余金额为税前金额，服务商应自行缴纳税费。 
 
-1.4原则 
+<essayTextWithWeight>1.4 </essayTextWithWeight>原则 
 
 费用核算与结算必须遵守国家法律法规，保护各方当事人的利益，且不得损害社会公共利益。 
 
 <essayTitleH2>第二章 费用核算 </essayTitleH2>
 
-2.1核算权 
+<essayTextWithWeight>2.1 </essayTextWithWeight>核算权 
 
 指营探按照约定与服务商、第三方对相关交易金额、费用、收入进行记账、报账和算账的权力。 
 
-2.2核算数据来源 
+<essayTextWithWeight>2.2</essayTextWithWeight>  核算数据来源 
 
 以营探系统数据、营探合作伙伴业务数据作为核算依据。 
 
-2.3订单核算 
+<essayTextWithWeight>2.3</essayTextWithWeight>  订单核算 
 
 指以服务商发布的每个商品的具体订单为单位进行核算的行为。 
 
-2.4季度核算 
+<essayTextWithWeight>2.4</essayTextWithWeight>  季度核算 
 
 营探与服务商、第三方至少每个季度核算一次，季度核算期间为每个季度第一个自然日0时至最后一个自然日24时。 
 
-2.5年度核算 
+<essayTextWithWeight>2.5</essayTextWithWeight>  年度核算 
 
 营探与服务商、第三方至少统计两个年度核算数据：一是自然年度（财年）核算、二是自服务商入驻日后的周期年度核算。
 
-2.6补登费用 
+<essayTextWithWeight>2.6</essayTextWithWeight>  补登费用 
 
 指营探与服务商、第三方根据约定对已结算款项的实际情况，实行多退少补的政策。 
 
-2.7营探收入确认 
+<essayTextWithWeight>2.7</essayTextWithWeight>  营探收入确认 
 
 营探收入确认根据《营探服务商收费标准》等相关规则、协议的约定为准。 
 
-2.8向服务商支付结算交易资金 
+<essayTextWithWeight>2.8</essayTextWithWeight>  向服务商支付结算交易资金 
 
 服务商结算费用的发放，按下述【第三章 支付结算】及合作协议约定内容执行。 
 
-2.9诚信保证金留成 
+<essayTextWithWeight>2.9</essayTextWithWeight>  诚信保证金留成 
 
 若服务商向营探缴存的诚信保证金金额不足时，营探有权从可提款金额中留存相应数额转入营探诚信保证金专项账户，将该款项作为履约保证金；若服务商在核算周期内的实际领取的结算金额多于年度整体核算结果的，营探有权从服务商诚信保证金中扣除对应金额；扣除后，如诚信保证金金额不足，服务商应及时按约定保证金金额补足。 
 
-2.10奖励 
+<essayTextWithWeight>2.10</essayTextWithWeight>  奖励 
 
 以补充协议具体约定为准。 
 
-2.11核算结果的通知 
+<essayTextWithWeight>2.11</essayTextWithWeight>  核算结果的通知 
 
 营探应当以书面或电子形式及时告知服务商季度、年度交易核算情况，包括但不限于金额、核算方法、核算依据；服务商对核算结果有异议的，应当在收到核算结果之日起三（3）个工作日内向营探指定邮箱（partner@camptogo.com）提出。
 
 <essayTitleH2>第三章 支付结算 </essayTitleH2>
 
-3.1支付结算账户 
+<essayTextWithWeight>3.1</essayTextWithWeight>  支付结算账户 
 
 <essayTextWithWeight>3.1.1</essayTextWithWeight> 服务商及第三方应当按照我国法律的相关规定，对自己的相关账户进行规范、安全的管理和使用；
 
@@ -106,7 +106,7 @@
 
 <essayTextWithWeight>3.1.4</essayTextWithWeight> 营探依据服务商工作台系统中确认的服务商本人账户进行支付结算，服务商结算账户变更的应及时根据要求提交变更资料。 
 
-3.2支付结算条件 
+<essayTextWithWeight>3.2</essayTextWithWeight>  支付结算条件 
 
 <essayTextWithWeight>3.2.1</essayTextWithWeight> 支付结算前，营探与服务商、第三方针对已完成交易须完成相关核算工作； 
 
@@ -114,7 +114,7 @@
 
 <essayTextWithWeight>3.2.3</essayTextWithWeight> 支付结算前，服务商提供的账户及结算凭证必须符合我国法律法规规定的填写要求。 
 
-3.3支付结算基本原则 
+<essayTextWithWeight>3.3</essayTextWithWeight>  支付结算基本原则 
 
 <essayTextWithWeight>3.3.1</essayTextWithWeight> 恪守信用，履约付款； 
 
@@ -122,7 +122,7 @@
 
 <essayTextWithWeight>3.3.3</essayTextWithWeight> 营探不垫款。 
 
-3.4委托支付 
+<essayTextWithWeight>3.4</essayTextWithWeight>  委托支付 
 
 <essayTextWithWeight>3.4.1</essayTextWithWeight> 营探平台内服务商资金核算与资金结算，指为了解决服务商和消费者网上交易的信任问题，在活动完成后，平台将服务商委托收取的买家支付的价款通过“银联商务”资金专项账户划拨给服务商，其中平台要扣除相应的费用。
 
@@ -130,15 +130,15 @@
 
 <essayTextWithWeight>3.4.3</essayTextWithWeight> 服务商可以委托营探平台在支付环节进行保险保费核算与结算。投保的保险保费与应向营探平台支付的其他费用、合并缴纳，投保保费由营探统一支付至保险机构所属专用账户。
 
-3.5委托缴存 
+<essayTextWithWeight>3.5</essayTextWithWeight>  委托缴存 
 
 由于账户操作的原因导致服务商直接向营探缴存保证金不便利的，根据《营探诚信保证金管理规定》的约定，营探收到服务商及其被委托人（自然人）的法律文书后，允许该被委托人通过其个人账户代服务商向平台存入诚信保证金（缴存时被委托人需在备注栏中明示：代XX缴存诚信保证金）。
 
-3.6诚信保证金与消费者权益保护 
+<essayTextWithWeight>3.6</essayTextWithWeight>  诚信保证金与消费者权益保护 
 
 服务商违法、违规、违约或侵犯消费者权益时、服务商同意营探根据《营探诚信保证金管理规定》的约定，冻结其诚信保证金及待结算款项用于向相关当事人进行赔偿、缴纳罚金、违约金等。
 
-3.7结算责任 
+<essayTextWithWeight>3.7</essayTextWithWeight>  结算责任 
 
 <essayTextWithWeight>3.7.1</essayTextWithWeight> 服务商及其授权人在结算过程中存在恶意或者重大过失的，应由行为人自行承担全部责任；给营探造成的全部损失，营探有权向服务商及相关当事人主张赔偿，主张赔偿过程中的一切费用由服务商承担；
 
@@ -146,7 +146,7 @@
 
 <essayTextWithWeight>3.7.3</essayTextWithWeight> 服务商办理支付结算，未按照银行规定填写票据或结算凭证或者填写有误，影响资金使用或造成资金的全部损失；票据或印章丢失，造成资金的全部损失的，由其自行承担全部责任。
 
-3.8最小结算周期与单位
+<essayTextWithWeight>3.8</essayTextWithWeight>  最小结算周期与单位
 
 <essayTextWithWeight>3.8.1</essayTextWithWeight> 最小结算周期 
 
@@ -164,19 +164,19 @@
 
 如订单完成前或"确认订单完成"后的3日内，消费者发起维权，则相关交易资金自动处于冻结状态；待纠纷维权完结后，服务商如需赔付，则先按照以下顺序支付赔付金额：已冻结交易资金—>诚信保证金—>服务商自行支付。赔付结束后，若还有剩余交易资金，则转到服务商的结算账户作为“可提款金额”。
 
-3.9结算提现方式 
+<essayTextWithWeight>3.9</essayTextWithWeight>  结算提现方式 
 
 <essayTextWithWeight>3.9.1</essayTextWithWeight> 根据服务商的结算账户绑定情况进行提现，所有绑定结算账户均需通过实名认证，否则将影响交易款到账；如因账号不存在、注销、未实名认证或未开立余额账户导致款项无法到账，可向各支付账号的客服咨询解决异常，解决账号异常后，可再进行结算。
 
 <essayTextWithWeight>3.9.2</essayTextWithWeight> 服务商须按规定完成结算提款申请，所有因服务商提现所产生的相关费用均由服务商自行承担，并有义务向营探开具同等金额的发票，钱票两讫。
 
-3.10结算失败原因和方法 
+<essayTextWithWeight>3.10</essayTextWithWeight>  结算失败原因和方法 
 
 <essayTextWithWeight>3.10.1</essayTextWithWeight>  保证金余额低于阈值，不可结算，应参考保证金缴纳规则完成补缴后，再提现； 
 
 <essayTextWithWeight>3.10.2</essayTextWithWeight>  因恶意刷单、套利等行为违反平台规则，将影响账号结算，违规解决后，方可发起结算。 
 
-3.11服务商权利与义务
+<essayTextWithWeight>3.11</essayTextWithWeight>  服务商权利与义务
 
 <essayTextWithWeight>3.11.1</essayTextWithWeight> 服务商有义务提供结算所需资质，结算资质每6个月进行更新认证，服务商提供虚假、错误的结算所需资质等导致无法结算的，营探有权不予向服务商结算本次提现金额，待下次提现日服务商提供合格资质时再予以结算；
 
@@ -184,7 +184,7 @@
 
 <essayTitleH2>第四章 附则 </essayTitleH2>
 
-4.1本办法规定的各项期限的计算，适用《中华人民共和国民法典》总则编关于计算期间的规定：
+<essayTextWithWeight>4.1</essayTextWithWeight>  本办法规定的各项期限的计算，适用《中华人民共和国民法典》总则编关于计算期间的规定：
 
 <essayTextWithWeight>4.1.1</essayTextWithWeight> 期限最后一日是法定休假日的，以休假日后的第一个工作日为最后一日；
 
@@ -192,11 +192,11 @@
 
 <essayTextWithWeight>4.1.3</essayTextWithWeight> 本办法所规定的各项期限，可以因不可抗力的原因而中止。不可抗力的原因消失时，期限可以顺延。 
 
-4.2涉及支付结算的规定如与国家法律、法规有抵触的，或因国家法律、法规和监管政策变化，导致本规定内容与法律、法规和监管政策存在不一致的，以国家法律、法规和监管政策规定为准。
+<essayTextWithWeight>4.2</essayTextWithWeight>  涉及支付结算的规定如与国家法律、法规有抵触的，或因国家法律、法规和监管政策变化，导致本规定内容与法律、法规和监管政策存在不一致的，以国家法律、法规和监管政策规定为准。
 
-4.3本办法条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方具有约束力。
+<essayTextWithWeight>4.3</essayTextWithWeight>  本办法条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方具有约束力。
 
-4.4本办法未明确或未约定事宜，依据双方签订的协议约定为准，协议未约定的依据营探页面公示的信息为准，且营探会根据法律法规及市场变化对页面公示内容进行调整，具体依据调整后的内容为准，请您随时关注页面公示信息。
+<essayTextWithWeight>4.4</essayTextWithWeight>  本办法未明确或未约定事宜，依据双方签订的协议约定为准，协议未约定的依据营探页面公示的信息为准，且营探会根据法律法规及市场变化对页面公示内容进行调整，具体依据调整后的内容为准，请您随时关注页面公示信息。
 （以下无正文）
 
 </essayText> 

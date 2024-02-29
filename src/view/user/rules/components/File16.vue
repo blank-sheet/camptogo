@@ -6,23 +6,23 @@
 生效日期：2024年1月21日</essayDate>
 <essayTitleH2>第一章 总则</essayTitleH2>
 
-<essayTextWithWeight>1.1</essayTextWithWeight>平台设立诚信保证金用于加强营探平台管理，防范交易风险，保障服务商与营探平台用户的合法权益。为规范平台及服务商双方行为，明确诚信保证金的管理办法，特制定本规则文件。
+<essayTextWithWeight>1.1</essayTextWithWeight> 平台设立诚信保证金用于加强营探平台管理，防范交易风险，保障服务商与营探平台用户的合法权益。为规范平台及服务商双方行为，明确诚信保证金的管理办法，特制定本规则文件。
 
-<essayTextWithWeight>1.2</essayTextWithWeight>诚信保证金是指服务商以 "一商户一诚信保证金" 原则向营探缴纳的，用以保证其商品和服务质量以及其严格按照营探服务商入驻协议及授权条款及各项平台规则合规经营的专项资金。在服务商出现违规情形时用于向营探用户、向营探平台、向第三方等进行赔付赔偿。赔付赔偿的范围除该权利人的直接损失之外，还应包括赔偿营探平台的直接损失和间接损失。服务商同意营探，依照双方签署的协议及平台规则对该诚信保证金进行处置。
+<essayTextWithWeight>1.2</essayTextWithWeight> 诚信保证金是指服务商以 "一商户一诚信保证金" 原则向营探缴纳的，用以保证其商品和服务质量以及其严格按照营探服务商入驻协议及授权条款及各项平台规则合规经营的专项资金。在服务商出现违规情形时用于向营探用户、向营探平台、向第三方等进行赔付赔偿。赔付赔偿的范围除该权利人的直接损失之外，还应包括赔偿营探平台的直接损失和间接损失。服务商同意营探，依照双方签署的协议及平台规则对该诚信保证金进行处置。
 
-<essayTextWithWeight>1.3</essayTextWithWeight>诚信保证金可用余额是指诚信保证金总额减已赔付金额，再减已标识的暂扣金额后的金额。
+<essayTextWithWeight>1.3</essayTextWithWeight> 诚信保证金可用余额是指诚信保证金总额减已赔付金额，再减已标识的暂扣金额后的金额。
 
-<essayTextWithWeight>1.4</essayTextWithWeight>本规则适用于营探平台所有服务商。
+<essayTextWithWeight>1.4</essayTextWithWeight> 本规则适用于营探平台所有服务商。
 
 
 
 <essayTitleH2>第二章 诚信保证金缴存</essayTitleH2>
 
-<essayTextWithWeight>2.1</essayTextWithWeight>服务商应根据营探平台要求缴纳诚信保证金，作为服务商侵权、违约、违规、未履行服务承诺时用于对消费者、营探平台和其他权利人进行赔偿的资金。如出现服务商违反平台规则的情形，平台有权<essayTextWithWeight>扣除、没收</essayTextWithWeight>该诚信保证金。根据《营探基础保证金阶段性缓缴政策（2024）》的规定，符合该缓缴政策的服务商可以自签订营探平台入驻协议之日起至在营探平台第一次确认商品成团之日止，暂缓缴纳基础保证金。该缓缴政策的具体适用是否延续等相关内容详见《营探基础保证金阶段性缓缴政策（2024）》。
+<essayTextWithWeight>2.1</essayTextWithWeight> 服务商应根据营探平台要求缴纳诚信保证金，作为服务商侵权、违约、违规、未履行服务承诺时用于对消费者、营探平台和其他权利人进行赔偿的资金。如出现服务商违反平台规则的情形，平台有权<essayTextWithWeight>扣除、没收</essayTextWithWeight>该诚信保证金。根据《营探基础保证金阶段性缓缴政策（2024）》的规定，符合该缓缴政策的服务商可以自签订营探平台入驻协议之日起至在营探平台第一次确认商品成团之日止，暂缓缴纳基础保证金。该缓缴政策的具体适用是否延续等相关内容详见《营探基础保证金阶段性缓缴政策（2024）》。
 
-<essayTextWithWeight>2.2</essayTextWithWeight>服务商须保证其用于缴存诚信保证金的资金来源合法，且服务商对该资金依法享有支配权。若服务商诚信保证金系由他人代为支付的，服务商应保证该代缴人清楚知晓所支付款项的性质、用途等情况且同意代为支付，并保证平台不会受到任何人就服务商诚信保证金主张其享有任何权利或以任何理由要求返还。
+<essayTextWithWeight>2.2</essayTextWithWeight> 服务商须保证其用于缴存诚信保证金的资金来源合法，且服务商对该资金依法享有支配权。若服务商诚信保证金系由他人代为支付的，服务商应保证该代缴人清楚知晓所支付款项的性质、用途等情况且同意代为支付，并保证平台不会受到任何人就服务商诚信保证金主张其享有任何权利或以任何理由要求返还。
 
-<essayTextWithWeight>2.3</essayTextWithWeight>服务商诚信保证金的缴存采取线上缴存的方式，即服务商主动缴存诚信保证金到营探诚信保证金专项账户；营探不接受现金形式缴存诚信保证金。具体缴存方法如下：
+<essayTextWithWeight>2.3</essayTextWithWeight> 服务商诚信保证金的缴存采取线上缴存的方式，即服务商主动缴存诚信保证金到营探诚信保证金专项账户；营探不接受现金形式缴存诚信保证金。具体缴存方法如下：
 
 2.3.1服务商需根据平台相关管理办法所核定的诚信保证金金额，通过工商银行“小微e管”产品向平台诚信保证金专项账户主动存入“诚信保证金”。诚信保证金交易手续费由服务商承担，按照工商银行的规定以交易金额的0.3%缴纳。服务商应在诚信保证金存入时将工商银行手续费和诚信保证金金额总额一并支付。
 
@@ -30,19 +30,19 @@
 
 2.3.3服务商及其被委托人在缴存诚信保证金时，应登录工商银行APP客户端，仔细查看系统中嵌入的协议文本和相关业务说明。
 
-<essayTextWithWeight>2.4</essayTextWithWeight>自动付款功能：“小微e管”的自动付款功能在T+90日（自然日，下同）生效，该功能主要适用于合作商存在多产品发布、中高风险类型产品发布、产品经常性、连续性发布等情形。自动付款功能生效当日，商户诚信保证金将自动划转至我司在工商银行设立的诚信保证金专项资金一般账户。
+<essayTextWithWeight>2.4</essayTextWithWeight> 自动付款功能：“小微e管”的自动付款功能在T+90日（自然日，下同）生效，该功能主要适用于合作商存在多产品发布、中高风险类型产品发布、产品经常性、连续性发布等情形。自动付款功能生效当日，商户诚信保证金将自动划转至我司在工商银行设立的诚信保证金专项资金一般账户。
 
-<essayTextWithWeight>2.5</essayTextWithWeight>跨类目诚信保证金：诚信保证金缴纳采取就高原则，诚信保证金按最高金额的类目缴纳；经营过程中增加的类目对应的诚信保证金与原有诚信保证金不一致，服务商须在限期内完成补缴。
+<essayTextWithWeight>2.5</essayTextWithWeight> 跨类目诚信保证金：诚信保证金缴纳采取就高原则，诚信保证金按最高金额的类目缴纳；经营过程中增加的类目对应的诚信保证金与原有诚信保证金不一致，服务商须在限期内完成补缴。
 
-<essayTextWithWeight>2.6</essayTextWithWeight>当服务商入驻营探平台后，服务商须根据诚信保证金标准，依《营探基础保证金阶段性缓缴政策（2024）》的相关规定，按照其经营的类目和实际情况<essayTextWithWeight>及时、足额缴存</essayTextWithWeight>相应诚信保证金。完成诚信保证金缴存手续后，方可进行交易款项结算提现操作。
+<essayTextWithWeight>2.6</essayTextWithWeight> 当服务商入驻营探平台后，服务商须根据诚信保证金标准，依《营探基础保证金阶段性缓缴政策（2024）》的相关规定，按照其经营的类目和实际情况<essayTextWithWeight>及时、足额缴存</essayTextWithWeight>相应诚信保证金。完成诚信保证金缴存手续后，方可进行交易款项结算提现操作。
 
-<essayTextWithWeight>2.7</essayTextWithWeight>诚信保证金实行专户管理，营探平台不得私自挪作他用。
+<essayTextWithWeight>2.7</essayTextWithWeight> 诚信保证金实行专户管理，营探平台不得私自挪作他用。
 
-<essayTextWithWeight>2.8</essayTextWithWeight>服务商理解并同意放弃对于所缴存的诚信保证金利息收取的权益，营探无需向服务商支付任何孳息。
+<essayTextWithWeight>2.8</essayTextWithWeight> 服务商理解并同意放弃对于所缴存的诚信保证金利息收取的权益，营探无需向服务商支付任何孳息。
 
 <essayTextWithWeight>2.9</essayTextWithWeight> 诚信保证金缴存产生的全部手续费由服务商自行承担，具体手续费的金额依据营探合作的负责诚信保证金缴存的银行标准进行确定。
 
-<essayTextWithWeight>2.10</essayTextWithWeight> 诚信保证金的具体缴存方式、流程及注意事项，以营探合作负责诚信保证金缴存的金融机构的规定为准。
+<essayTextWithWeight>2.10</essayTextWithWeight>  诚信保证金的具体缴存方式、流程及注意事项，以营探合作负责诚信保证金缴存的金融机构的规定为准。
 
 <essayTextWithWeight>2.11</essayTextWithWeight>诚信保证金金额的规定
 
@@ -74,23 +74,23 @@
 
 <essayTitleH2>第三章 诚信保证金的调整</essayTitleH2>
 
-<essayTextWithWeight>3.1</essayTextWithWeight>营探有权根据服务商的业务变化、经营类目、运营情况、违规情况及实际赔付情况等以<essayTextWithWeight>书面形式</essayTextWithWeight>通知服务商调整诚信保证金金额。
+<essayTextWithWeight>3.1</essayTextWithWeight> 营探有权根据服务商的业务变化、经营类目、运营情况、违规情况及实际赔付情况等以<essayTextWithWeight>书面形式</essayTextWithWeight>通知服务商调整诚信保证金金额。
 
-<essayTextWithWeight>3.2</essayTextWithWeight>服务商经营期间发生违反营探平台协议或平台规则情形的，营探有权根据平台协议及平台规则的规定提高其应缴诚信保证金金额。服务商出现违规情况或曾因违规被营探清退后再次申请加入，营探有权提高服务商的诚信保证金金额。
+<essayTextWithWeight>3.2</essayTextWithWeight> 服务商经营期间发生违反营探平台协议或平台规则情形的，营探有权根据平台协议及平台规则的规定提高其应缴诚信保证金金额。服务商出现违规情况或曾因违规被营探清退后再次申请加入，营探有权提高服务商的诚信保证金金额。
 
-<essayTextWithWeight>3.3</essayTextWithWeight>如果服务商受到行政、司法机关调查或处罚等，营探有权提高服务商的诚信保证金金额。
+<essayTextWithWeight>3.3</essayTextWithWeight> 如果服务商受到行政、司法机关调查或处罚等，营探有权提高服务商的诚信保证金金额。
 
-<essayTextWithWeight>3.4</essayTextWithWeight>如果营探收到任何人对服务商发起的投诉、举报等，或者因服务商自身原因导致平台受到任何人发起的投诉、举报、索赔、诉讼或仲裁等，营探有权基于其诉求提高服务商应缴诚信保证金金额，增幅为营探因此可能遭受的全部损失或承担费用的总金额。
+<essayTextWithWeight>3.4</essayTextWithWeight> 如果营探收到任何人对服务商发起的投诉、举报等，或者因服务商自身原因导致平台受到任何人发起的投诉、举报、索赔、诉讼或仲裁等，营探有权基于其诉求提高服务商应缴诚信保证金金额，增幅为营探因此可能遭受的全部损失或承担费用的总金额。
 
-<essayTextWithWeight>3.5</essayTextWithWeight>服务商的关联方存在违法违规、违反平台协议、平台规则情形的，营探有权根据服务商在经营期间发生的违规行为、用户投诉举报、以及关联方违规记录等情况进行综合判断，并视情节严重程度提高其应缴诚信保证金金额。
+<essayTextWithWeight>3.5</essayTextWithWeight> 服务商的关联方存在违法违规、违反平台协议、平台规则情形的，营探有权根据服务商在经营期间发生的违规行为、用户投诉举报、以及关联方违规记录等情况进行综合判断，并视情节严重程度提高其应缴诚信保证金金额。
 
-<essayTextWithWeight>3.6</essayTextWithWeight>诚信保证金的具体调整金额由营探确定。
+<essayTextWithWeight>3.6</essayTextWithWeight> 诚信保证金的具体调整金额由营探确定。
 
 
 
 <essayTitleH2>第四章 诚信保证金赔付与扣除</essayTitleH2>
 
-<essayTextWithWeight>4.1</essayTextWithWeight>经营探审核认定服务商有下列情形之一的，营探有权根据实际情况从服务商已缴存的诚信保证金中扣除有关的款项用于对他人进行赔付、赔偿平台损失或支付其他应由服务商承担的款项或费用：
+<essayTextWithWeight>4.1</essayTextWithWeight> 经营探审核认定服务商有下列情形之一的，营探有权根据实际情况从服务商已缴存的诚信保证金中扣除有关的款项用于对他人进行赔付、赔偿平台损失或支付其他应由服务商承担的款项或费用：
 
 4.1.1服务商违反法律、法规、政策及营探相关规则导致用户和平台受损；
 
@@ -122,7 +122,7 @@
 
 <essayTextWithWeight>4.2</essayTextWithWeight> 营探提取服务商的诚信保证金进行任何赔付，均应以电子邮件、短信或营探通知、公告等书面形式向服务商发出，并说明赔付原因及赔付金额；在全部损失金额不明确之前，营探平台有权无限期扣留该服务商全部诚信保证金，直至全部损失金额明确后予以结算。
 
-<essayTextWithWeight>4.3</essayTextWithWeight>诚信保证金不足的情形处理：
+<essayTextWithWeight>4.3</essayTextWithWeight> 诚信保证金不足的情形处理：
 
 4.3.1当服务商的诚信保证金不足以赔付消费者、营探平台及其他权利人时，服务商应<essayTextWithWeight>自行支付</essayTextWithWeight>额外的赔付金额；如服务商在平台上有未结货款，平台有权从该款项中扣除以补足保证金；如货款不足以补足店铺保证金的，平台有权终止平台协议，停止服务。
 
@@ -132,16 +132,16 @@
 
 4.3.4在服务商的诚信保证金不足时，营探没有义务使用自有资金向消费者或其他权利人支付赔偿金、补偿金或其他任何款项；
 
-<essayTextWithWeight>4.4</essayTextWithWeight>如服务商违反有关的服务承诺和/或营探平台规则和/或服务商与营探签署的其他协议和/或营探认为对营探不利的其他情况，给营探造成的全部损失，营探有权从诚信保证金中扣除营探全部损失。
+<essayTextWithWeight>4.4</essayTextWithWeight> 如服务商违反有关的服务承诺和/或营探平台规则和/或服务商与营探签署的其他协议和/或营探认为对营探不利的其他情况，给营探造成的全部损失，营探有权从诚信保证金中扣除营探全部损失。
 
-<essayTextWithWeight>4.5</essayTextWithWeight>若服务商在核算周期内实际领取的结算金额多于年度整体核算结果的，营探有权从服务商诚信保证金中扣除对应金额。扣除后，如诚信保证金金额不足，服务商应及时按约定保证金金额补足。
+<essayTextWithWeight>4.5</essayTextWithWeight> 若服务商在核算周期内实际领取的结算金额多于年度整体核算结果的，营探有权从服务商诚信保证金中扣除对应金额。扣除后，如诚信保证金金额不足，服务商应及时按约定保证金金额补足。
 
 
 
 
 <essayTitleH2>第五章 诚信保证金补缴</essayTitleH2>
 
-<essayTextWithWeight>5.1</essayTextWithWeight>如诚信保证金可用余额不足，服务商应在收到补缴诚信保证金通知后的<essayTextWithWeight>三（3）个</essayTextWithWeight>工作日内及时向营探平台诚信保证金账户补缴足额的诚信保证金，使可用余额达至最低诚信保证金金额。
+<essayTextWithWeight>5.1</essayTextWithWeight> 如诚信保证金可用余额不足，服务商应在收到补缴诚信保证金通知后的<essayTextWithWeight>三（3）个</essayTextWithWeight>工作日内及时向营探平台诚信保证金账户补缴足额的诚信保证金，使可用余额达至最低诚信保证金金额。
 
 5.1.1当服务商的保证金余额低于应缴金额时，平台有权限制其部分功能的使用（包括但不限于货款提现、商品上架、订单审核等），待服务商补足保证金后功能恢复。
 
@@ -149,17 +149,17 @@
 
 5.1.3如服务商逾期未能补足诚信保证金，或者未结交易资金款项余额不足以补足诚信保证金的，则营探平台有权暂扣未结交易资金款项并暂停或终止服务。
 
-<essayTextWithWeight>5.2</essayTextWithWeight>当服务当服务商申请退出（或被清退）营探平台时，须先按照营探平台规定补足诚信保证金至最低诚信保证金额度，如未按时补足，则营探有权自服务商未结交易资金款项中扣除相应金额资金予以补足诚信保证金，补足后服务商才可发起后续流程。
+<essayTextWithWeight>5.2</essayTextWithWeight> 当服务当服务商申请退出（或被清退）营探平台时，须先按照营探平台规定补足诚信保证金至最低诚信保证金额度，如未按时补足，则营探有权自服务商未结交易资金款项中扣除相应金额资金予以补足诚信保证金，补足后服务商才可发起后续流程。
 
 
 
 <essayTitleH2>第六章 诚信保证金退回</essayTitleH2>
 
-<essayTextWithWeight>6.1</essayTextWithWeight>若服务商申请退出（或被清退）营探平台，须在所有订单终止、所有索赔完结且已完成交易的所有商品和服务质保期均届满后，服务商可向营探发起退还诚信保证金的申请。自终止合作之日起满<essayTextWithWeight>三十（30）个</essayTextWithWeight>工作日，若服务商符合审批条件（如申请的材料齐全、信息完整无误、签字盖章完整、无未结算完的结算单等），营探将依据协议及相关规则等扣除应扣除部分后，将诚信保证金余额退还至服务商在营探备案的结算账户或服务商名下的其他账户。
+<essayTextWithWeight>6.1</essayTextWithWeight> 若服务商申请退出（或被清退）营探平台，须在所有订单终止、所有索赔完结且已完成交易的所有商品和服务质保期均届满后，服务商可向营探发起退还诚信保证金的申请。自终止合作之日起满<essayTextWithWeight>三十（30）个</essayTextWithWeight>工作日，若服务商符合审批条件（如申请的材料齐全、信息完整无误、签字盖章完整、无未结算完的结算单等），营探将依据协议及相关规则等扣除应扣除部分后，将诚信保证金余额退还至服务商在营探备案的结算账户或服务商名下的其他账户。
 
-<essayTextWithWeight>6.2</essayTextWithWeight>因出现本规则4.1中所述的行为或服务商与营探签署平台协议中约定的被营探清退的服务商，诚信保证金在清退时不予退还。
+<essayTextWithWeight>6.2</essayTextWithWeight> 因出现本规则4.1中所述的行为或服务商与营探签署平台协议中约定的被营探清退的服务商，诚信保证金在清退时不予退还。
 
-<essayTextWithWeight>6.3</essayTextWithWeight>诚信保证金退款流程：
+<essayTextWithWeight>6.3</essayTextWithWeight> 诚信保证金退款流程：
 
 6.3.1服务商申请退还诚信保证金需发送邮件至：partner@camptogo.com，邮件要求如下：
 
@@ -212,28 +212,27 @@
 
 <essayTitleH2>第八章 其他</essayTitleH2>
 
-<essayTextWithWeight>8.1</essayTextWithWeight>诚信保证金的缴存、赔付、退回等过程中所发生的银行收费等费用，全部由服务商自行承担。若服务商未支付，营探有权从诚信保证金余额中扣除相应金额。
+<essayTextWithWeight>8.1</essayTextWithWeight> 诚信保证金的缴存、赔付、退回等过程中所发生的银行收费等费用，全部由服务商自行承担。若服务商未支付，营探有权从诚信保证金余额中扣除相应金额。
 
-<essayTextWithWeight>8.2</essayTextWithWeight>若服务商信息变更（包括但不限于账号变更、公司更名、公司注销），应在服务商与营探协议约定的时效内<essayTextWithWeight>以书面形式及时通知</essayTextWithWeight>营探，否则因服务商信息的变更不及时而造成的支付失败、延迟、错误等，全部损失由服务商自行承担。
+<essayTextWithWeight>8.2</essayTextWithWeight> 若服务商信息变更（包括但不限于账号变更、公司更名、公司注销），应在服务商与营探协议约定的时效内<essayTextWithWeight>以书面形式及时通知</essayTextWithWeight>营探，否则因服务商信息的变更不及时而造成的支付失败、延迟、错误等，全部损失由服务商自行承担。
 
-<essayTextWithWeight>8.3</essayTextWithWeight>营探平台服务商的行为，发生在本管理规则生效之日以前的，适用当时的规则。发生在本管理规则生效之日及以后的，适用本规则。
+<essayTextWithWeight>8.3</essayTextWithWeight> 营探平台服务商的行为，发生在本管理规则生效之日以前的，适用当时的规则。发生在本管理规则生效之日及以后的，适用本规则。
 
-<essayTextWithWeight>8.4</essayTextWithWeight>本规定自发布之日起生效，营探可根据平台运营情况随时调整本管理规则并在本平台上公示。
+<essayTextWithWeight>8.4</essayTextWithWeight> 本规定自发布之日起生效，营探可根据平台运营情况随时调整本管理规则并在本平台上公示。
 
-<essayTextWithWeight>8.5</essayTextWithWeight>服务商应遵守国家法律、行政法规、部门规章等。对任何涉嫌违反国家法律、行政法规、部门规章等行为，本规则已有规定的，适用于本规则。本规则尚无规定的，营探有权酌情处理。但营探对服务商的处理不免除其应承担的法律责任。服务商在营探的任何行为，应同时遵守与营探及其关联公司签订的各项协议。
+<essayTextWithWeight>8.5</essayTextWithWeight> 服务商应遵守国家法律、行政法规、部门规章等。对任何涉嫌违反国家法律、行政法规、部门规章等行为，本规则已有规定的，适用于本规则。本规则尚无规定的，营探有权酌情处理。但营探对服务商的处理不免除其应承担的法律责任。服务商在营探的任何行为，应同时遵守与营探及其关联公司签订的各项协议。
 
-<essayTextWithWeight>8.6</essayTextWithWeight>本规则与其他平台规则不一致的，以本规则为准。
+<essayTextWithWeight>8.6</essayTextWithWeight> 本规则与其他平台规则不一致的，以本规则为准。
 
-<essayTextWithWeight>8.7</essayTextWithWeight>本规则条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方具有约束力。
+<essayTextWithWeight>8.7</essayTextWithWeight> 本规则条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方具有约束力。
 
-<essayTextWithWeight>8.8</essayTextWithWeight>本规则未明确或未约定事宜，依据双方签订的协议约定为准，协议未约定的依据营探页面公示的信息为准，且营探会根据法律法规及市场变化对页面公示内容进行调整，具体依据调整后的内容为准，请服务商随时关注页面公示信息。
+<essayTextWithWeight>8.8</essayTextWithWeight> 本规则未明确或未约定事宜，依据双方签订的协议约定为准，协议未约定的依据营探页面公示的信息为准，且营探会根据法律法规及市场变化对页面公示内容进行调整，具体依据调整后的内容为准，请服务商随时关注页面公示信息。
 
 （以下无正文）
 
 甲方（签章）：          
 
 日期：   
-
 
 
 <essayTextWithWeight>附件一 划扣确认书</essayTextWithWeight>
