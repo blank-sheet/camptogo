@@ -48,11 +48,33 @@
 
 2.11.1 基础保证金
 
-| <essayTextWithWeight>保证金类目</essayTextWithWeight>     | <essayTextWithWeight>保证金类目描述</essayTextWithWeight>                                           | <essayTextWithWeight>金额标准</essayTextWithWeight> |
+<!-- | <essayTextWithWeight>保证金类目</essayTextWithWeight>     | <essayTextWithWeight>保证金类目描述</essayTextWithWeight>                                           | <essayTextWithWeight>金额标准</essayTextWithWeight> |
 | ------------------ | ------------------------------------------------------------ | ------------ |
 | （一）境内小规模类 | 服务商申请发布的商品和服务是在中国大陆地区展开，所有在途商品的交易总额不超过50000元（含）的。 | 5000元       |
 | （二）境内常规类   | 服务商申请发布的商品和服务是在中国大陆地区展开，所有在途商品的交易总额超过50000元的。 | 10000元      |
-| （三）境外类       | 服务商申请发布的商品和服务是在中国大陆地区之外展开的。       | 50000元      |
+| （三）境外类       | 服务商申请发布的商品和服务是在中国大陆地区之外展开的。       | 50000元      | -->
+<table border="1" cellspacing="0">
+  <tr>
+    <td><essayTextWithWeight>保证金类目</essayTextWithWeight></td>
+    <td><essayTextWithWeight>保证金类目描述</essayTextWithWeight></td>
+    <td><essayTextWithWeight>金额标准</essayTextWithWeight></td>
+  </tr>
+  <tr>
+    <td>（一）境内小规模类</td>
+    <td>服务商申请发布的商品和服务是在中国大陆地区展开，所有在途商品的交易总额不超过50000元（含）的。</td>
+    <td>5000元 </td>
+  </tr>
+  <tr>
+    <td>（二）境内常规类</td>
+    <td>服务商申请发布的商品和服务是在中国大陆地区展开，所有在途商品的交易总额超过50000元的。</td>
+    <td>10000元</td>
+  </tr>
+  <tr>
+    <td>（三）境外类</td>
+    <td>服务商申请发布的商品和服务是在中国大陆地区之外展开的。</td>
+    <td>50000元</td>
+  </tr>
+</table>
 
 *保证金计算以季度为周期，即根据该季度内服务商申请发布的商品和服务开展的地点范围是否超出中国大陆、以及服务商在途商品的实际销售额是否超过50000元来确定保证金金额级别。
 
