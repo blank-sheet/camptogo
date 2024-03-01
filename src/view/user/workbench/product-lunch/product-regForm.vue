@@ -3,9 +3,7 @@
     <el-form ref="formRef" label-width="400px">
       <product-form title="商品信息" id="1">
         <template #form>
-          <CampFormItem label="商品名称：">
-
-          </CampFormItem>
+          <div class="fullname"><span>商品名称：</span>{{ route.query.name }}</div>
         </template>
       </product-form>
       <product-form title="基本信息" id="2">
@@ -113,7 +111,7 @@
         </template>
       </product-form>
       <div class="savebtn">
-        <el-button class="button" type="success" @click="createReForm">完成编辑</el-button>
+        <el-button class="button" type="success" @click="createReForm()">完成编辑</el-button>
       </div>
     </el-form>
     <div class="btn" @click="addQues(questionList.length)">
@@ -173,6 +171,10 @@ const getRegForm = async () => {
 }
 //创建报名表
 const createReForm = async () => {
+  if (questionList.value.length == 0) {
+    ElMessage.error("请填写相关问题")
+    return
+  }
   for (let i = 0; i < questionList.value.length; i++) {
     const element = questionList.value[i]
     if (element.title.length == 0) {
@@ -206,9 +208,7 @@ const createReForm = async () => {
     productId: route.params.id,
     questionList: questionList.value
   }).then(res => {
-    if (res.Code === 200) {
-      ElMessage.success(res.msg)
-    }
+    ElMessage.success(res.msg)
   })
 }
 
@@ -216,6 +216,11 @@ const createReForm = async () => {
 </script>
 
 <style lang="scss" scoped>
+.fullname {
+  display: flex;
+  padding: 20px 0 10px 0;
+}
+
 .savebtn {
   display: flex;
   justify-content: center;

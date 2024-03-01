@@ -2079,7 +2079,8 @@ const goToPosition = id => {
 //报名表相关
 const setRegistrationForm = () => {
   router.push({
-    path: `/user/workbench/product/${route.params.id}/rgsForm`
+    path: `/user/workbench/product/${route.params.id}/rgsForm`,
+    query: { name: form.value.fullName }
   })
 }
 //报名表是否存在
@@ -2097,7 +2098,10 @@ const getRegistrationFormIsExit = () => {
     })
 }
 const handlerToRegFormPage = () => {
-  router.push(`/user/workbench/product/${route.params.id}/rgsForm`)
+  router.push({
+    path: `/user/workbench/product/${route.params.id}/rgsForm`,
+    query: { name: form.value.fullName }
+  })
 }
 const isShowPublicPage = ref(false)
 const activeStep = ref(1)
