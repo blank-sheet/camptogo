@@ -154,6 +154,10 @@ const addQues = (index) => {
       {
         content: "",
         description: ""
+      },
+      {
+        content: "",
+        description: ""
       }
     ]
   })

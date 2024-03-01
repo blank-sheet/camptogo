@@ -72,6 +72,7 @@
 <script setup>
 import { inject } from 'vue'
 import { ElMessage } from 'element-plus'
+import draggable from 'vuedraggable'
 
 const props = defineProps({
   ques: {
