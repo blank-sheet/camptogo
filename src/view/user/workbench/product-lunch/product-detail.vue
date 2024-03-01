@@ -981,6 +981,26 @@
       </template>
     </el-dialog>
 
+    <el-dialog class="dialog" v-model="dialogForReg" width="500" align-center :show-close="false">
+      <template #header="{ close, titleId, titleClass }">
+        <div class="my-header">
+          <el-icon class="icon">
+            <WarningFilled />
+          </el-icon>&emsp13;
+          <span :id="titleId" :class="titleClass">特别提示</span>
+        </div>
+      </template>
+      <div class="diologText">您的商品还未设置报名表,设置完报名表后才可进行上架操作</div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="dialogForReg = false">取消</el-button>
+          <el-button type="primary" @click="handlerToRegFormPage()">
+            去设置
+          </el-button>
+        </div>
+      </template>
+    </el-dialog>
+
     <el-dialog class="dialog" v-model="dialogVisible" width="900" align-center>
       <template #header="{ close, titleId, titleClass }">
         <div>
@@ -1090,7 +1110,7 @@
           <el-button @click="activeStep += 1" v-show="activeStep < 3">
             下一步
           </el-button>
-          <el-button type="success" @click="dialogVisible = false, confirmUpShalve" v-show="activeStep == 3">
+          <el-button type="success" @click="dialogVisible = false, confirmUpShalve()" v-show="activeStep == 3">
             确认
           </el-button>
         </div>
@@ -1610,36 +1630,43 @@ const deleteActivityAttribute = (i) => {
   }
   form.value.activityAttributeList[attributeSelect.value].optionList.splice(i, 1)
 }
+//商品确认上架
 const confirmUpShalve = () => {
-  if (active.value === 1) {
-    request
-      .post(
-        userApi.product,
-        {
-          productId: route.params.id,
-          providerId: store.user?.id
-          // user: {
-          //   id: store.user?.id
-          // },
-          // version: '1.0.0',
-          // create_reason: '商品上架',
-          // work_line_id: 1400,
-          // work_operation: 4600,
-          // content: {
-          //   id: route.params.id,
-          //   ...upShalveDatas.value
-          // }
-        },
-        {
-          message: true
-        }
-      )
-      .then(r => {
-        dialogVisible.value = false
-        router.push('/user/workbench/productLunch')
-      })
+  //校验报名表是否存在
+  getRegistrationFormIsExit()
+  if (!RegistrationFormIsExit.value) {
+    return
+  } else {
+    if (active.value === 1) {
+      request
+        .post(
+          userApi.product,
+          {
+            productId: route.params.id,
+            providerId: store.user?.id
+            // user: {
+            //   id: store.user?.id
+            // },
+            // version: '1.0.0',
+            // create_reason: '商品上架',
+            // work_line_id: 1400,
+            // work_operation: 4600,
+            // content: {
+            //   id: route.params.id,
+            //   ...upShalveDatas.value
+            // }
+          },
+          {
+            message: true
+          }
+        )
+        .then(r => {
+          dialogVisible.value = false
+          router.push('/user/workbench/productLunch')
+        })
+    }
+    active.value = active.value === 0 ? 1 : 0
   }
-  active.value = active.value === 0 ? 1 : 0
 }
 const onUploadSuccess = (r, key) => {
   console.log(key)
@@ -1651,66 +1678,72 @@ const onUploadSuccess = (r, key) => {
 
 //发送请求 创建商品
 const createProduct = async (formEl) => {
-  const illeageWord = isIlleagle(JSON.stringify(form.value))
-  if (illeageWord != '') {
-    // ElMessageBox.confirm(
-    //   `经系统检测，您发布的商品信息存在违规描述:"${illeageWord}"。为保证平台的合法性和用户的权益，您须修改涉及违禁词汇的文字表述，否则无法完成商品上架。如果您对此有任何疑问或建议，请随时与我们联系，感谢您的支持与理解。`,
-    //   '商品信息存在违规描述',
-    //   {
-    //     cancelButtonText: '取消',
-    //     confirmButtonText: '确定',
-    //     // type: 'warning'
-    //   }
-    // )
-    currentTipTitle.value = '商品信息存在违规描述'
-    currentTipText.value = `经系统检测，您发布的商品信息存在违规描述:"${illeageWord}"。为保证平台的合法性和用户的权益，您须修改涉及违禁词汇的文字表述，否则无法完成商品上架。如果您对此有任何疑问或建议，请随时与我们联系，感谢您的支持与理解。`
-    centerDialogVisible.value = true
+  getRegistrationFormIsExit()
+  if (!RegistrationFormIsExit.value) {
     return
-  }
-  try {
-    const valid = await validateForm(formEl)
-    if (form.value.priceSelling > form.value.priceOriginal) {
-      ElMessage({
-        type: 'error',
-        message: '未划线价不能超过划线价！'
-      })
+  } else {
+    const illeageWord = isIlleagle(JSON.stringify(form.value))
+    if (illeageWord != '') {
+      // ElMessageBox.confirm(
+      //   `经系统检测，您发布的商品信息存在违规描述:"${illeageWord}"。为保证平台的合法性和用户的权益，您须修改涉及违禁词汇的文字表述，否则无法完成商品上架。如果您对此有任何疑问或建议，请随时与我们联系，感谢您的支持与理解。`,
+      //   '商品信息存在违规描述',
+      //   {
+      //     cancelButtonText: '取消',
+      //     confirmButtonText: '确定',
+      //     // type: 'warning'
+      //   }
+      // )
+      currentTipTitle.value = '商品信息存在违规描述'
+      currentTipText.value = `经系统检测，您发布的商品信息存在违规描述:"${illeageWord}"。为保证平台的合法性和用户的权益，您须修改涉及违禁词汇的文字表述，否则无法完成商品上架。如果您对此有任何疑问或建议，请随时与我们联系，感谢您的支持与理解。`
+      centerDialogVisible.value = true
       return
     }
-    if (valid) {
-      form.value.certifiedFeatureList = form.value.certifiedFeatureList.map(item => ({
-        ...item,
-        certificate: item.certificate?.url,
-      }))
-      //这里是取值相反
-      form.value.insuranceInfo.liabilityInsuranceSelfIf = !insurence.liability
-      form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
-      //dateindex 与 dailyIndex置换
-      form.value.dailyScheduleList.map((a) => {
-        a.dailyIndex = a.dateIndex || 0
-        return a
-      })
-      console.log(form.value)
-      const response = await request.post(
-        userApi.createProduct,
-        {
-          ...form.value,
-          providerId: store.providerId
-        },
-        {
-          message: true,
-          loading: true
-        }
-      )
-      if (response) {
-        // 清除缓存
-        window.localStorage.removeItem('camptogoProd')
-        router.push('/user/workbench/productLunch')
+    try {
+      const valid = await validateForm(formEl)
+      if (form.value.priceSelling > form.value.priceOriginal) {
+        ElMessage({
+          type: 'error',
+          message: '未划线价不能超过划线价！'
+        })
+        return
       }
+      if (valid) {
+        form.value.certifiedFeatureList = form.value.certifiedFeatureList.map(item => ({
+          ...item,
+          certificate: item.certificate?.url,
+        }))
+        //这里是取值相反
+        form.value.insuranceInfo.liabilityInsuranceSelfIf = !insurence.liability
+        form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
+        //dateindex 与 dailyIndex置换
+        form.value.dailyScheduleList.map((a) => {
+          a.dailyIndex = a.dateIndex || 0
+          return a
+        })
+        console.log(form.value)
+        const response = await request.post(
+          userApi.createProduct,
+          {
+            ...form.value,
+            providerId: store.providerId
+          },
+          {
+            message: true,
+            loading: true
+          }
+        )
+        if (response) {
+          // 清除缓存
+          window.localStorage.removeItem('camptogoProd')
+          router.push('/user/workbench/productLunch')
+        }
+      }
+    } catch (error) {
+      // 处理可能的错误
+      console.error('Error:', error)
     }
-  } catch (error) {
-    // 处理可能的错误
-    console.error('Error:', error)
   }
+
 }
 const saveDraft = () => {
   form.value.certifiedFeatureList = form.value.certifiedFeatureList.map(item => ({
@@ -2051,22 +2084,21 @@ const setRegistrationForm = () => {
 }
 //报名表是否存在
 const RegistrationFormIsExit = ref(false)
+const dialogForReg = ref(false)
 const getRegistrationFormIsExit = () => {
   if (route.params.id != 'new')
     request.post(userApi.getRegistrationFormIsExitAPI, {
       productId: route.params.id
     }).then(res => {
-      RegistrationFormIsExit.value = res.data.details
-      if (RegistrationFormIsExit.value) {
-        router.push({
-          path: `/user/workbench/product/${route.params.id}/rgsForm`
-        })
+      RegistrationFormIsExit.value = res.details
+      if (RegistrationFormIsExit.value != true) {
+        dialogForReg.value = true
       }
     })
 }
-onMounted(() => {
-  getRegistrationFormIsExit()
-})
+const handlerToRegFormPage = () => {
+  router.push(`/user/workbench/product/${route.params.id}/rgsForm`)
+}
 const isShowPublicPage = ref(false)
 const activeStep = ref(1)
 const Link = ref('')
