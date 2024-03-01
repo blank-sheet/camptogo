@@ -11,7 +11,30 @@
       <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
     </div>
     <div class="options">
-      <TransitionGroup name="option">
+      <draggable animation="100" v-model="ques.optionList" group="people" @start="drag = true" @end="drag = false"
+        item-key="id">
+        <template #item="{ element, index }">
+          <div class="option">
+            <div class="content">
+              <img class="icon" src="../../../../../../assets/icon/move.svg" alt="">
+              <el-input class="input" placeholder="编辑题目" v-model="element.content">
+                <template #prefix>
+                  <el-radio class="radio" label=" "></el-radio>
+                </template>
+              </el-input>
+              <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)">
+              <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)">
+              <img class="icon2" src="../../../..//../../assets/icon/vector.svg" alt="" @click="showDesc(index)"
+                v-if="element.description.length == 0">
+            </div>
+            <div class="desc" v-show="element.description.length > 0">
+              <el-input class="desinput" placeholder="编辑选项说明" v-model="element.description"></el-input>
+              <img class="icon2" src="../../../../../../assets/icon/del.svg" alt="" @click="deldesc(index)">
+            </div>
+          </div>
+        </template>
+      </draggable>
+      <!-- <TransitionGroup name="option">
         <div class="option" v-for="(item, index) in ques.optionList" :key="item">
           <div class="content">
             <img class="icon" src="../../../../../../assets/icon/move.svg" alt="">
@@ -30,7 +53,7 @@
             <img class="icon2" src="../../../../../../assets/icon/del.svg" alt="" @click="deldesc(index)">
           </div>
         </div>
-      </TransitionGroup>
+      </TransitionGroup> -->
     </div>
     <div class="selects" v-if="ques.questionType == 'MULTIPLE_CHOICE'">
       <el-select class="select" placeholder="最少选"></el-select>

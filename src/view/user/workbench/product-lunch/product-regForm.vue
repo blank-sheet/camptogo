@@ -1,14 +1,14 @@
 <template>
   <div class="regform">
     <el-form ref="formRef" label-width="400px">
-      <product-form title="商品信息" id="1" v-on:update:active="setActive">
+      <product-form title="商品信息" id="1">
         <template #form>
           <CampFormItem label="商品名称：">
 
           </CampFormItem>
         </template>
       </product-form>
-      <product-form title="基本信息" id="2" v-on:update:active="setActive">
+      <product-form title="基本信息" id="2">
         <template #form>
           <CampFormItem label="姓名" :labelTop="true">
             <el-input class="input" disabled placeholder="请输入"></el-input>
@@ -36,7 +36,7 @@
           </CampFormItem>
         </template>
       </product-form>
-      <product-form title="紧急联系人信息" id="3" v-on:update:active="setActive">
+      <product-form title="紧急联系人信息" id="3">
         <template #form>
           <CampFormItem label="紧急联系人姓名" :labelTop="true">
             <el-input class="input" disabled placeholder="请输入"></el-input>
@@ -49,7 +49,7 @@
           </CampFormItem>
         </template>
       </product-form>
-      <product-form title="基本身体情况" id="4" v-on:update:active="setActive">
+      <product-form title="基本身体情况" id="4">
         <template #form>
           <CampFormItem label="身高/cm" :labelTop="true">
             <el-input class="input" disabled placeholder="请输入"></el-input>
@@ -65,7 +65,7 @@
           </CampFormItem>
         </template>
       </product-form>
-      <product-form title="基本健康状况" id="5" v-on:update:active="setActive">
+      <product-form title="基本健康状况" id="5">
         <template #form>
           <CampFormItem label="过敏反应" :labelTop="true">
             <el-radio-group disabled>
@@ -106,7 +106,7 @@
           </CampFormItem>
         </template>
       </product-form>
-      <product-form title="自定义信息" id="6" v-on:update:active="setActive">
+      <product-form title="自定义信息" id="6">
         <template #form>
           <quesTion v-for="(item, index) in questionList" :key="item" :ques="item" :theIndex="index" :id="index">
           </quesTion>
@@ -116,11 +116,11 @@
         <el-button class="button" type="success" @click="createReForm">完成编辑</el-button>
       </div>
     </el-form>
-
     <div class="btn" @click="addQues(questionList.length)">
       <img class="icon icon1" src="../../../../assets/icon/magic_2_line.svg" alt="">
       <img class="icon icon2" src="../../../../assets/icon/Vector2.svg" alt="">
     </div>
+
   </div>
 </template>
 
@@ -135,7 +135,6 @@ import { userApi } from '../../../../api/modules/user/user'
 import { ref, provide, onMounted } from "vue"
 import { useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
-
 const route = useRoute()
 onMounted(() => {
   getRegForm()
