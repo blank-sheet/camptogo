@@ -48,6 +48,8 @@ export const userApi = {
   getCount: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/count',
   // 新增商品团期
   addSchedule: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/group_period/create',
+  //获取小程序链接
+  getLinkAPI: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/product/link/get',
   //获取报名表存在情况
   getRegistrationFormIsExitAPI: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/application_form/is_exist',
   //创建报名表

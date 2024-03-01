@@ -832,6 +832,7 @@
       <template
         v-if="isNewProdoct || (form.productStatus && 'DRAFT/CREATED_WAIT_REVIEW'.includes(form.productStatus.toString()))">
         <el-button type="success" @click="createProduct(formRef)">提交审核</el-button>
+        <!-- <el-button type="success" @click="dialogVisible = true">提交审核</el-button> 测试用 -->
         <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button>
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
         <ElButton v-show="form.productStatus == 'DRAFT'" type="danger" @click="deleteProduct">删除商品</ElButton>
@@ -879,7 +880,7 @@
         </li>
       </ul>
     </nav>
-    <el-dialog v-model="dialogVisible" width="750px">
+    <!-- <el-dialog v-model="dialogVisible" width="750px">
       <div>
         <el-steps :active="active" finish-status="success">
           <el-step title="核保结果" />
@@ -954,12 +955,12 @@
       </div>
       <template #footer>
         <span class="dialog-footer">
-          <!-- <ElButton v-show="active" @click="active = 0">上一步</ElButton> -->
           <el-button @click="dialogVisible = false">取消</el-button>
           <el-button type="primary" @click="confirmUpShalve"> 确认 </el-button>
         </span>
       </template>
-    </el-dialog>
+    </el-dialog> -->
+
     <el-dialog class="dialog" v-model="centerDialogVisible" width="500" align-center :show-close="false">
       <template #header="{ close, titleId, titleClass }">
         <div class="my-header">
@@ -975,6 +976,122 @@
           <el-button @click="centerDialogVisible = false">取消</el-button>
           <el-button type="primary" @click="centerDialogVisible = false">
             确定
+          </el-button>
+        </div>
+      </template>
+    </el-dialog>
+
+    <el-dialog class="dialog" v-model="dialogVisible" width="900" align-center>
+      <template #header="{ close, titleId, titleClass }">
+        <div>
+          <span class="desc" :id="titleId" :class="titleClass">商品上架确认页</span>
+        </div>
+      </template>
+      <div class="step">
+        <div class="stepbar">
+          <el-steps class="steps" :active="activeStep" align-center>
+            <el-step title="核保结果确认" />
+            <el-step title="信息确认" />
+            <el-step title="招募确认" />
+          </el-steps>
+          <div class="box" v-if="activeStep == 1">
+            <span
+              class="text">*如您不同意保险公司给出的保险价格，请您不要点击“下一步”或进行任何投保操作，该商品暂时不能上架。点击取消后，您可以修改商品信息选择自行购买组织者责任险，点击提交修改并审核通过后商品可正常上架。上架商品即视为同意保险方案。</span>
+            <div class="contain">
+              <div class="left">组织者责任险</div>
+              <div class="right">
+
+                <div class="rightBox">
+                  <div class="rightBox-left">1-5周岁:</div>
+                  <div class="rightBox-right">{{ insurenceAuditDetail?.lessThanSixLiabilityInsuranceUnitPrice / 100 ||
+                    '未购买' }} ( 单位:元每人每天 )</div>
+                </div>
+                <div class="rightBox">
+                  <div class="rightBox-left">6-11周岁:</div>
+                  <div class="rightBox-right">{{ insurenceAuditDetail?.sixToElevenLiabilityInsuranceUnitPrice / 100 ||
+                    '未购买' }} ( 单位:元每人每天 )</div>
+                </div>
+                <div class="rightBox">
+                  <div class="rightBox-left">17-20周岁:</div>
+                  <div class="rightBox-right">{{ insurenceAuditDetail?.greaterThanElevenLiabilityInsuranceUnitPrice / 100
+                    || '未购买'
+                  }}
+                    ( 单位:元每人每天 )</div>
+                </div>
+              </div>
+            </div>
+            <div class="contain">
+              <div class="left">意外险</div>
+              <div class="right">
+                <div class="rightBox">
+                  <div class="rightBox-left">40&emsp;<div class="rightBox-right">( 单位:元每人 )</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box" v-if="activeStep == 2">
+            <ElForm class="form">
+              <CampFormItem class="formItem" label="上架频道">
+                <ElSelect v-model="upShalveDatas.channel_id">
+                  <ElOption v-for="chanel in chanels" :value="chanel.id" :label="chanel.name">
+                  </ElOption>
+                </ElSelect>
+              </CampFormItem>
+              <CampFormItem class="formItem" label="活动起售时间">
+                <CampDatePicker v-model:date="upShalveDatas.product_launching_time" />
+              </CampFormItem>
+              <CampFormItem class="formItem" label="活动停售时间">
+                <CampDatePicker v-model:date="upShalveDatas.product_expiration_time" />
+              </CampFormItem>
+              <CampFormItem class="formItem" label="最低成团人数：">
+                <div class="CampFormItem-box">
+                  在本平台可报名
+                  <el-input-number class="number" :min="0" :disabled="!form.groupLimitIf" v-model="form.groupLimitSize"
+                    controls-position="right" /> 人
+                </div>
+              </CampFormItem>
+              <CampFormItem class="formItem" label="使用平台优惠券">
+                <el-radio-group class="groupLimitIf">
+                  <el-radio :label="false">使用</el-radio>
+                  <el-radio :label="true">不使用</el-radio>
+                </el-radio-group>
+              </CampFormItem>
+              <CampFormItem class="formItem" label="订单自动审核">
+                <el-switch v-model="upShalveDatas.reconsideration" />
+              </CampFormItem>
+            </ElForm>
+          </div>
+          <div class="box" v-if="activeStep == 3">
+            <ElForm class="form">
+              <CampFormItem class="formItem" label="招募方式">
+                <ElSelect v-model="form.targetedPromotion">
+                  <ElOption :value="false" label="公开招募上架"></ElOption>
+                  <ElOption :value="true" label="定向招募上架"></ElOption>
+                </ElSelect>
+              </CampFormItem>
+            </ElForm>
+            <div class="qrcode" v-show="form.targetedPromotion == true">
+
+            </div>
+            <div class="linkarea" v-show="form.targetedPromotion == true">
+              <span>下载图片</span> <span @click="copy(Link)">复制链接</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <template #footer>
+        <div class="isShowPublicPage-footer">
+          <el-button @click="dialogVisible = false" v-show="activeStep == 1">
+            取消
+          </el-button>
+          <el-button @click="activeStep -= 1" v-show="activeStep > 1">上一步</el-button>
+          <el-button @click="activeStep += 1" v-show="activeStep < 3">
+            下一步
+          </el-button>
+          <el-button type="success" @click="dialogVisible = false, confirmUpShalve" v-show="activeStep == 3">
+            确认
           </el-button>
         </div>
       </template>
@@ -1001,6 +1118,7 @@ import campTimePicker from '../../../../component/camp-time-picker.vue'
 import campTimeSelector from '../../../../component/camp-time-selector.vue'
 import campNumber from '../../../../component/camp-number.vue'
 import { getAccidentInsurenceDetails } from './helper/insurence.js'
+import useClipboard from 'vue-clipboard3'
 import {
   certifiedFeatures,
   backOptions,
@@ -1272,6 +1390,7 @@ const form = ref({
   priceInclude: undefined,
   priceExclude: undefined,
   priceInsuranceDetail: undefined,
+  targetedPromotion: undefined
 })
 
 // const isMultigroup = computed(() => {
@@ -1926,23 +2045,54 @@ const goToPosition = id => {
 }
 //报名表相关
 const setRegistrationForm = () => {
-  // getRegistrationFormIsExit()
   router.push({
     path: `/user/workbench/product/${route.params.id}/rgsForm`
   })
 }
+//报名表是否存在
 const RegistrationFormIsExit = ref(false)
 const getRegistrationFormIsExit = () => {
-  request.post(userApi.getRegistrationFormIsExitAPI, {
-    productId: route.params.id
-  }).then(res => {
-    RegistrationFormIsExit.value = res.data.details
-    if (RegistrationFormIsExit.value) {
-      router.push({
-        path: `/user/workbench/product/${route.params.id}/rgsForm`
-      })
-    }
-  })
+  if (route.params.id != 'new')
+    request.post(userApi.getRegistrationFormIsExitAPI, {
+      productId: route.params.id
+    }).then(res => {
+      RegistrationFormIsExit.value = res.data.details
+      if (RegistrationFormIsExit.value) {
+        router.push({
+          path: `/user/workbench/product/${route.params.id}/rgsForm`
+        })
+      }
+    })
+}
+onMounted(() => {
+  getRegistrationFormIsExit()
+})
+const isShowPublicPage = ref(false)
+const activeStep = ref(1)
+const Link = ref('')
+const getLink = () => {
+  if (route.params.id != 'new')
+    request.post(userApi.getLinkAPI, {
+      productId: route.params.id
+    }).then(res => {
+      Link.value = res.details
+    })
+}
+onMounted(() => {
+  getLink()
+})
+const copy = async (msg) => {
+  const { toClipboard } = useClipboard()
+  try {
+    // 复制
+    await toClipboard(msg)
+    ElMessage.success("复制成功")
+    // 复制成功
+  } catch (e) {
+    // 复制失败
+    console.log(e)
+    ElMessage.error("浏览器不支持自动复制")
+  }
 }
 </script>
 <style lang="scss">
@@ -2347,6 +2497,136 @@ const getRegistrationFormIsExit = () => {
     padding: 0 10px;
   }
 
+  .step {
+    width: 100%;
+
+    .stepbar {
+      width: 100%;
+      margin: 24px 0;
+
+      .steps {
+        width: 100%;
+      }
+
+      .box {
+        width: 100%;
+        height: 280px;
+        display: flex;
+        flex-direction: column;
+        padding-top: 15px;
+
+        .form {
+          display: flex;
+          flex-direction: column;
+          width: 60%;
+          margin: 0 auto;
+
+          .formItem {
+            width: 100%;
+            height: 30px;
+
+            .number {
+              width: 30%;
+            }
+          }
+        }
+
+        .linkarea {
+          display: flex;
+          width: 30%;
+          margin: 0 auto;
+
+          span {
+            font-family: PingFang SC;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: rgb(154, 213, 0);
+            margin: 0 10px;
+
+            &:hover {
+              text-decoration: underline;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .text {
+          width: 98%;
+          margin: 0 auto 28px auto;
+          font-family: PingFang SC;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 0em;
+          text-align: left;
+          color: #8C8C8C;
+        }
+
+        .contain {
+          display: flex;
+          margin: 0 auto 0 auto;
+          width: 50%;
+
+          .left {
+            width: 30%;
+            font-family: PingFang SC;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: right;
+            color: #262626;
+            margin-right: 25px;
+          }
+
+          .right {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: PingFang SC;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: left;
+
+            .rightBox {
+              display: flex;
+              width: 100%;
+              justify-content: space-between;
+              margin: 0 auto 21px auto;
+
+              .rightBox-left {
+                color: #595959;
+                display: flex;
+
+              }
+
+              .rightBox-right {
+                color: #8C8C8C;
+              }
+            }
+
+
+          }
+        }
+      }
+
+    }
+  }
+
+  .desc {
+    font-family: PingFang SC;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #262626;
+  }
+
   .el-dialog__body {
     padding-left: 0 !important;
   }
@@ -2355,5 +2635,10 @@ const getRegistrationFormIsExit = () => {
     padding-right: 0 !important;
   }
 
+}
+
+.isShowPublicPage-footer {
+  display: flex;
+  justify-content: center;
 }
 </style>

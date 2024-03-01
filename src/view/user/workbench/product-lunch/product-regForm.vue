@@ -108,11 +108,12 @@
       </product-form>
       <product-form title="自定义信息" id="6" v-on:update:active="setActive">
         <template #form>
-          <quesTion v-for="(item, index) in questionList" :key="item" :ques="item" :theIndex="index"></quesTion>
+          <quesTion v-for="(item, index) in questionList" :key="item" :ques="item" :theIndex="index" :id="index">
+          </quesTion>
         </template>
       </product-form>
       <div class="savebtn">
-        <el-button class="button" type="success" @click="createRegistrationForm">完成编辑</el-button>
+        <el-button class="button" type="success" @click="createReForm">完成编辑</el-button>
       </div>
     </el-form>
 
@@ -133,77 +134,13 @@ import { request } from '../../../../api'
 import { userApi } from '../../../../api/modules/user/user'
 import { ref, provide, onMounted } from "vue"
 import { useRoute } from 'vue-router'
+import { ElMessage } from 'element-plus'
+
 const route = useRoute()
 onMounted(() => {
-  //获取报名表
-  // getRegForm()
+  getRegForm()
 })
-const questionList = ref([
-  {
-    title: "性别",
-    isRequired: 1,
-    description: "用户填写自身性别",
-    questionType: "SINGLE_CHOICE",
-    optionList: [
-      {
-        content: "男",
-        description: "男性"
-      },
-      {
-        content: "女",
-        description: "女性"
-      }
-    ]
-  },
-  {
-    title: "性别select",
-    isRequired: 1,
-    description: "用户填写自身性别",
-    questionType: "DROPDOWN_SINGLE_CHOICE",
-    optionList: [
-      {
-        content: "男",
-        description: "男性"
-      },
-      {
-        content: "女",
-        description: "女性"
-      }
-    ]
-  },
-  {
-    title: "偏好菜系",
-    isRequired: 1,
-    description: "搜集用户偏好菜系",
-    minCount: 1,
-    maxCount: 3,
-    questionType: "MULTIPLE_CHOICE",
-    optionList: [
-      {
-        content: "鲁菜",
-        description: ""
-      },
-      {
-        content: "川菜",
-        description: ""
-      }
-    ]
-  },
-  {
-    title: "性别FILL_IN_THE_BLANKS",
-    isRequired: 1,
-    description: "用户填写自身性别",
-    questionType: "FILL_IN_THE_BLANKS",
-    optionList: []
-  },
-  {
-    title: "性别upload",
-    isRequired: 1,
-    description: "用户填写自身性别",
-    questionType: "PICTURE",
-    optionList: []
-  },
-])
+const questionList = ref([])
 const delQues = (index) => {
   questionList.value.splice(index, 1)
 }
@@ -223,14 +160,56 @@ const addQues = (index) => {
   })
 }
 provide('addQues', addQues)
-
-const getRegForm = () => {
-  request.post(userApi.getRegistrationFormAPI, {
+//获取报名表
+const getRegForm = async () => {
+  await request.post(userApi.getRegistrationFormAPI, {
     productId: route.params.id
   }).then(res => {
-    questionList.value = res?.details.questionList || []
+    questionList.value = res?.details?.questionList || []
   })
 }
+//创建报名表
+const createReForm = async () => {
+  for (let i = 0; i < questionList.value.length; i++) {
+    const element = questionList.value[i]
+    if (element.title.length == 0) {
+      ElMessage.error('题目不能为空')
+      const scroll = document.getElementById(i)
+      scroll.scrollIntoView({ behavior: "smooth", block: "center" })
+      const childs = scroll.querySelector('.noEdit')
+      childs.click()
+      return
+    }
+    if (element.optionList.length == 0) {
+      const scroll = document.getElementById(i)
+      scroll.scrollIntoView({ behavior: "smooth", block: "center" })
+      const childs = scroll.querySelector('.noEdit')
+      childs.click()
+      return
+    }
+    for (let j = 0; j < element.optionList.length; j++) {
+      const ele = element.optionList[j]
+      if (ele.content.length == 0) {
+        ElMessage.error('选项内容不能为空')
+        const scroll = document.getElementById(i)
+        scroll.scrollIntoView({ behavior: "smooth", block: "center" })
+        const childs = scroll.querySelector('.noEdit')
+        childs.click()
+        return
+      }
+    }
+  }
+  await request.post(userApi.createRegistrationFormAPI, {
+    productId: route.params.id,
+    questionList: questionList.value
+  }).then(res => {
+    if (res.Code === 200) {
+      ElMessage.success(res.msg)
+    }
+  })
+}
+
+
 </script>
 
 <style lang="scss" scoped>

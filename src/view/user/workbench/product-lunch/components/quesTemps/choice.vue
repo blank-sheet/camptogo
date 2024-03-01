@@ -37,7 +37,7 @@
       <el-select class="select" placeholder="最多选"></el-select>
     </div>
   </div>
-  <div class="noEdit" v-else>
+  <div class="noEdit" v-else @click="isEdit = true">
     <div class="title">{{ ques.title || "请输入题目" }}</div>
     <div class="desc">{{ ques.description }}</div>
     <div class="items">
