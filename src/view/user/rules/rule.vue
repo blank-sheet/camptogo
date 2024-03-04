@@ -9,19 +9,20 @@
           </el-icon>
         </template>
       </el-input>
-      <el-menu class="menu" @select="handleOpen" unique-opened :default-openeds="defaultOpenedsArray">
-        <el-menu-item :index="1">
+      <el-menu class="menu" @select="handleOpen" unique-opened :default-openeds="defaultOpenedsArray" >
+        <!-- close-on-click-outside -->
+        <el-menu-item index="home">
           <template #title>
             <i class="iconfont icon-homepage"></i>
             首页
           </template>
         </el-menu-item>
-        <el-menu-item :index="2">
+        <el-menu-item index="menu">
           <template #title>
             <i class="iconfont icon-liebiao"></i>
             目录<div class="mulu">
               <el-tooltip content="全部收起" placement="top">
-                <i class="iconfont fold icon-xiangxiazhankai" @click="defaultOpenedsArray = []"></i>
+                <i class="iconfont fold icon-xiangxiazhankai" @click="updatedefaultOpenedsArray()"></i>
               </el-tooltip>
             </div>
           </template>
@@ -116,9 +117,16 @@ const level3 = [
 const files = [level0, level1, level2, level3]
 const selectedSubmenu = ref(-1)
 const cur = ref('0-0')
-
+const updatedefaultOpenedsArray = ()=>{
+  defaultOpenedsArray.value = []
+}
 const handleOpen = (key, keyPath) => {
-  if (key == 2 || key == 1) {
+  if (key == 'home') {
+    router.push('/user/workbench/basicInfo')
+    return
+  }
+  if (key == 'menu') {
+    defaultOpenedsArray.value = []
     return
   }
   router.push('/user/rule/' + key.replace('-', ''))
