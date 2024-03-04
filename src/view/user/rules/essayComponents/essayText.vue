@@ -1,5 +1,5 @@
 <template>
-  <div class="text">
+  <div class="allText">
     <slot></slot>
   </div>
 </template>
@@ -9,7 +9,7 @@
 </script>
 
 <style lang="scss" scoped>
-.text {
+.allText {
   font-family: 'PingFang SC';
   font-style: normal;
   font-weight: 400;
@@ -17,6 +17,7 @@
   line-height: 24px;
   text-align: justify;
   color: #262626;
+  display: block;
 }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="chapterArea">
-    <File00 v-if="index === '0-0'" />
+    <File00 v-show="index === '0-0'" />
     <File01 v-if="index === '0-1'" />
     <File02 v-if="index === '0-2'" />
     <File03 v-if="index === '0-3'" />
@@ -65,8 +65,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUpdated, ref } from 'vue'
-// import { marked } from 'marked'
+import { onMounted, onUpdated, ref, watch } from 'vue'
 import File00 from './components/File00.vue'
 import File01 from './components/File01.vue'
 import File02 from './components/File02.vue'
@@ -116,30 +115,63 @@ import File311 from './components/File311.vue'
 import File312 from './components/File312.vue'
 import File313 from './components/File313.vue'
 
-defineProps({
+const props = defineProps({
   index: {
-    default: '0-0'
+    default: ''
   }
 })
+const files = ref([])
 const update = () => {
-  // const file = document.querySelector('pre')
-  // if (file) {
-  //   file.innerHTML = marked.parse(file.textContent)
-  // }
+
+
 }
-onMounted(() => {
-  update()
-})
+
 onUpdated(() => {
-  update()
+
+})
+const timer = ref(null)
+//100毫秒延迟获取正确的当前dom
+watch(() => props.index, (newV) => {
+  if (timer.value) {
+    clearTimeout(timer.value)
+  }
+  timer.value = setTimeout(() => {
+    files.value = document.querySelectorAll('.allText')
+    navs.value.length = 0
+    if (files.value[1]) {
+      const current = files.value[1]
+      const h2Title = current.querySelectorAll('.greenTitle')
+      if (h2Title.length > 0) {
+        const arr = []
+        for (let i = 0; i < h2Title.length; i++) {
+          h2Title[i].setAttribute('id', i + 1)
+          arr.push(h2Title[i].innerText)
+        }
+        navs.value = arr
+      }
+      return
+    } else {
+      const current = files.value[0]
+      const h2Title = current.querySelectorAll('.greenTitle')
+      if (h2Title.length > 0) {
+        const arr = []
+        for (let i = 0; i < h2Title.length; i++) {
+          h2Title[i].setAttribute('id', i + 1)
+          arr.push(h2Title[i].innerText)
+        }
+        navs.value = arr
+      }
+      return
+    }
+  }, 100)
 })
 
-const navs = ['01 提示条款', '02 平台声明', '03 账户风险提示', '04 信息风险提示', '05 平台风险提示', '06 其他风险提示']
+const navs = ref([])
 //导航逻辑
 const goToPosition = id => {
   setActive(id)
   const element = document.getElementById(id)
-  element.scrollIntoView()
+  element?.scrollIntoView({ behavior: "smooth", block: "center" })
 }
 const activeNav = ref(0)
 const setActive = id => {
