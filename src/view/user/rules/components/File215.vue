@@ -14,12 +14,11 @@
 您可通过点击 “我的”-“联系客服” 及通过<essayTextWithWeight>《营探隐私政策》</essayTextWithWeight>中的反馈、联系方式联系我们对下列部分信息的具体内容进行查询和管理： 
 
 
-![PPT16](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/peopleMessage/peoplemessage_1.jpg)
-![PPT16](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/peopleMessage/peoplemessage_2.jpg)
-![PPT16](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/peopleMessage/peoplemessage_3.jpg)
-| 收集个人信息的场景     | 可能会收集的个人信息                 |
-| ------------------------------------ | ---------------- |
-![PPT16](https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/peopleMessage/peoplemessage_4.jpg)
+<!-- 收集个人信息的场景   可能会收集的个人信息  -->
+<essayHeightLight><img class="smallImg" src="https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/peopleMessage/peoplemessage_1.jpg"/></essayHeightLight>
+<essayHeightLight><img class="smallImg" src="https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/peopleMessage/peoplemessage_2.jpg"/></essayHeightLight>
+<essayHeightLight><img class="smallImg" src="https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/peopleMessage/peoplemessage_3.jpg"/></essayHeightLight>
+<essayHeightLight><img class="smallImg" src="https://camptogo-summer.oss-cn-beijing.aliyuncs.com/static/peopleMessage/peoplemessage_4.jpg"/>></essayHeightLight>
   </essayText> 
 </pre>
 </template>

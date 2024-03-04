@@ -59,56 +59,47 @@
 | 违规                                               | 侵权违规：不当使用他人权利等                                 |                                                              |
 | 品质                                               | 品质缺陷：违禁添加、商品和服务质量不合格等                   |                                                              |
 | 页面规范                                           | 页面规范：服务商在考核周期内发布商品和服务的规范性，商品和服务存在被驳回或下架的情况。 |                                                              | -->
+
 <table border="1" cellspacing="0">
   <tr>
-    <td><essayTextWithWeight>指标维度</essayTextWithWeight></td>
-    <td><essayTextWithWeight>对应违规类型</essayTextWithWeight></td>
-    <td><essayTextWithWeight>考核周期</essayTextWithWeight></td>
+    <th>指标维度</th>
+    <th>对应违规类型</th>
+    <th>考核周期</th>
   </tr>
   <tr>
-    <td></td>
+    <td rowspan="3">经营状况</td>
     <td>不当经营：恶意倒卖、骚扰他人、违规承诺等</td>
-    <td>近12个月 ；入驻不足12个月的服务商从入驻成功开始计算考核周期。</td>
+    <td rowspan="9">近12个月 ；入驻不足12个月的服务商从入驻成功开始计算考核周期。</td>
   </tr>
   <tr>
-    <td>经营状况</td>
     <td>假冒商品：出售假冒商品</td>
-    <td></td>
   </tr>
   <tr>
-    <td></td>
     <td>交易作弊：虚假交易、营销套利、不正当手段获取资源等</td>
-    <td></td>
   </tr>
   <tr>
     <td>信息质量</td>
     <td>滥发信息：虚假宣传、类目乱挂等；</td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>违禁信息：发布违禁商品及信息等</td>
-    <td></td>
   </tr>
   <tr>
     <td>服务</td>
     <td>服务考核：售后违规等</td>
-    <td></td>
   </tr>
   <tr>
     <td>违规</td>
     <td>侵权违规：不当使用他人权利等</td>
-    <td></td>
   </tr>
   <tr>
     <td>品质</td>
     <td>品质缺陷：违禁添加、商品和服务质量不合格等</td>
-    <td></td>
   </tr>
   <tr>
     <td>页面规范</td>
     <td>页面规范：服务商在考核周期内发布商品和服务的规范性，商品和服务存在被驳回或下架的情况。</td>
-    <td></td>
   </tr>
 </table>
 

@@ -18,4 +18,21 @@
   text-align: justify;
   color: #262626;
 }
+
+</style>
+
+<style>
+table{
+  
+}
+th{
+  text-align: center;
+  padding: 5px;
+  white-space: nowrap;
+}
+td{
+  padding: 5px;
+  text-align: center;
+
+}
 </style>
