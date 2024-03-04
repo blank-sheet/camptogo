@@ -1,5 +1,5 @@
 <template>
-<pre>
+   <pre>
 <essayText> 
 <essayTitle>营探推荐官返现活动规则</essayTitle>
 <essayDate></essayDate>
@@ -11,17 +11,52 @@
 4.  推荐人要求：推荐人须在约定时间完成推荐官认证程序并提交必要材料，否则视为放弃参与返现活动。
 5.  返现金额：
 
-| <essayTextWithWeight>营探推荐官返现激励方案（2023/</essayTextWithWeight><essayTextWithWeight>6</essayTextWithWeight><essayTextWithWeight>/1～2023/8/31）</essayTextWithWeight>    |                                                              |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <essayTextWithWeight>推荐官</essayTextWithWeight>                                                   |                                                              |
-| <essayTextWithWeight>新用户（被邀请人）</essayTextWithWeight><essayTextWithWeight>首单消费</essayTextWithWeight><essayTextWithWeight>订单金额（实际支付价格）</essayTextWithWeight> | <essayTextWithWeight>激励金额（</essayTextWithWeight><essayTextWithWeight>向</essayTextWithWeight><essayTextWithWeight>推荐官返现）</essayTextWithWeight>                         |
+<!-- | <essayTextWithWeight>营探推荐官返现激励方案（2023/</essayTextWithWeight><essayTextWithWeight>6</essayTextWithWeight><essayTextWithWeight>/1～2023/8/31）</essayTextWithWeight>    |                                                              | -->
+<!-- | ------------------------------------------------------------ | ------------------------------------------------------------ | -->
+<!-- | <essayTextWithWeight>推荐官</essayTextWithWeight>                                                   |                                                              | -->
+<!-- | <essayTextWithWeight>新用户（被邀请人）</essayTextWithWeight><essayTextWithWeight>首单消费</essayTextWithWeight><essayTextWithWeight>订单金额（实际支付价格）</essayTextWithWeight> | <essayTextWithWeight>激励金额（</essayTextWithWeight><essayTextWithWeight>向</essayTextWithWeight><essayTextWithWeight>推荐官返现）</essayTextWithWeight>                         |
 | ￥0-￥1000                                                   | 10元现金                                                     |
 | ￥1000-￥2000                                                | 30元现金                                                     |
 | ￥2000-￥5000                                                | 60元现金                                                     |
 | ￥5000-￥10000                                               | 100元现金                                                    |
 | ￥10000+                                                     | 300元现金                                                    |
 | <essayTextWithWeight>新人（被邀请用户）</essayTextWithWeight>                                       |                                                              |
-| 新人券包                                                     | 5张券，合计500元 （满100减10，满1000减30，满2000减60，满5000减100，满10000减300）30天有效 |
+| 新人券包                                                     | 5张券，合计500元 （满100减10，满1000减30，满2000减60，满5000减100，满10000减300）30天有效 | -->
+<essayTextWithWeight>营探推荐官返现激励方案（2023/</essayTextWithWeight><essayTextWithWeight>6</essayTextWithWeight><essayTextWithWeight>/1～2023/8/31）</essayTextWithWeight>
+<table border="1" cellspacing="0">
+   <tr>
+    <td><essayTextWithWeight>推荐官</essayTextWithWeight></td>
+    <td></td>
+  </tr>
+   <tr>
+      <td><essayTextWithWeight>新用户（被邀请人）首单消费订单金额（实际支付价格）</essayTextWithWeight></td>
+      <td><essayTextWithWeight>激励金额（向推荐官返现）</essayTextWithWeight></td>
+   </tr>
+  <tr>
+    <td>￥0-￥1000</td>
+    <td>10元现金</td>
+  </tr>
+  <tr>
+    <td>￥1000-￥2000</td>
+    <td>30元现金</td>
+  </tr>
+  <tr>
+    <td>￥2000-￥5000</td>
+    <td>60元现金</td>
+  </tr>
+  <tr>
+    <td>￥5000-￥10000</td>
+    <td>100元现金</td>
+  </tr>
+  <tr>
+    <td><essayTextWithWeight>新人（被邀请用户）</essayTextWithWeight></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>新人券包</td>
+    <td>5张券，合计500元 （满100减10，满1000减30，满2000减60，满5000减100，满10000减300）30天有效</td>
+  </tr>
+</table>
 
 1. 具体活动要求：
    1.  推荐官限制：年满18周岁， 具有完全民事行为能力的中国籍自然人，且是营探平台的已注册用户。

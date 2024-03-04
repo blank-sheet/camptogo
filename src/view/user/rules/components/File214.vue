@@ -21,18 +21,75 @@
 
 6、本说明适用于营探平台所提供的各项服务。如有单独使用的场景或目的，将在下述列表中说明。 
 
-| plist中描述名称                     | 权限功能说明     | 使用场景或目的                                   |
+<!-- | plist中描述名称                     | 权限功能说明     | 使用场景或目的                                   |
 | ----------------------------------- | ---------------- | ------------------------------------------------ |
-| NSLocationAlwaysUsageDescription    | 定位权限         | 日历/定位消息/小程序中的定位权限                 |
-| NSLocationUsageDescription          | 定位权限         | 日历/定位消息/小程序中的定位权限                 |
-| NSLocationWhenInUseUsageDescription | 定位权限         | 日历/定位消息/小程序中的定位权限                 |
-| NSPhotoLibraryAddUsageDescription   | 向相册中添加内容 | 会话/Doc/邮件等保存图片的需求                    |
-| NSPhotoLibraryUsageDescription      | 读取相册中内容   | 从相册获取图片并发送到会话/文档/邮件等等相关需求 |
-| NSCameraUsageDescription            | 相机权限申请     | 音视频/相机/扫码等相关需求                       |
-| NSMicrophoneUsageDescription        | 麦克风权限申请   | 音视频/语音消息/语音评论等相关需求               |
-| NSContactsUsageDescription          | 联系人权限申请   | 添加联系人紧急联系人电话                         |
-| NSCalendarsUsageDescription         | 获取系统日历权限 | 日历相关功能，同步活动日历                       |
-| NSLocalNetworkUsageDescription      | 访问本地网络权限 | 连接网络设备等                                   |
+|     | 定位权限         | 日历/定位消息/小程序中的定位权限                 |
+|           | 定位权限         | 日历/定位消息/小程序中的定位权限                 |
+|  | 定位权限         | 日历/定位消息/小程序中的定位权限                 |
+|    | 向相册中添加内容 | 会话/Doc/邮件等保存图片的需求                    |
+|       | 读取相册中内容   | 从相册获取图片并发送到会话/文档/邮件等等相关需求 |
+|             | 相机权限申请     | 音视频/相机/扫码等相关需求                       |
+|         | 麦克风权限申请   | 音视频/语音消息/语音评论等相关需求               |
+|           | 联系人权限申请   | 添加联系人紧急联系人电话                         |
+|          | 获取系统日历权限 | 日历相关功能，同步活动日历                       |
+|       | 访问本地网络权限 | 连接网络设备等                                   | -->
+<table border="1" cellspacing="0">
+  <tr>
+    <td>plist中描述名称</td>
+    <td>权限功能说明</td>
+    <td>使用场景或目的</td>
+  </tr>
+  <tr>
+    <td>NSLocationAlwaysUsageDescription</td>
+    <td>定位权限</td>
+    <td>日历/定位消息/小程序中的定位权限</td>
+  </tr>
+  <tr>
+    <td>NSLocationUsageDescription</td>
+    <td>定位权限</td>
+    <td>日历/定位消息/小程序中的定位权限</td>
+  </tr>
+  <tr>
+    <td>NSLocationWhenInUseUsageDescription</td>
+    <td>定位权限</td>
+    <td>日历/定位消息/小程序中的定位权限</td>
+  </tr>
+  <tr>
+    <td>NSPhotoLibraryAddUsageDescription</td>
+    <td>向相册中添加内容</td>
+    <td>会话/Doc/邮件等保存图片的需求</td>
+  </tr>
+  <tr>
+    <td>NSPhotoLibraryUsageDescription</td>
+    <td>读取相册中内容</td>
+    <td>从相册获取图片并发送到会话/文档/邮件等等相关需求</td>
+  </tr>
+  <tr>
+    <td>NSCameraUsageDescription</td>
+    <td>相机权限申请</td>
+    <td>音视频/相机/扫码等相关需求</td>
+  </tr>
+  <tr>
+    <td>NSMicrophoneUsageDescription</td>
+    <td>麦克风权限申请</td>
+    <td>音视频/语音消息/语音评论等相关需求</td>
+  </tr>
+  <tr>
+    <td>NSContactsUsageDescription</td>
+    <td>联系人权限申请</td>
+    <td>添加联系人紧急联系人电话</td>
+  </tr>
+  <tr>
+    <td>NSCalendarsUsageDescription</td>
+    <td>获取系统日历权限</td>
+    <td>日历相关功能，同步活动日历</td>
+  </tr>
+  <tr>
+    <td>NSLocalNetworkUsageDescription</td>
+    <td>访问本地网络权限</td>
+    <td>连接网络设备等</td>
+  </tr>
+</table>
 
  
  
