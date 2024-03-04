@@ -88,7 +88,7 @@
 </template>
 
 <script setup>
-import { ref, defineExpose } from "vue";
+import { ref } from "vue";
 import CampFormItem from "../../../../../component/camp-form-item.vue";
 const show = ref(false);
 const form = ref({
