@@ -166,7 +166,7 @@ watch(() => props.index, (newV) => {
   }, 100)
 })
 
-const navs = ref([])
+const navs = ref(['第一章 平台声明','第二章 账户风险提示','第三章 信息风险提示','第四章 平台风险提示','第五章 其他风险提示'])
 //导航逻辑
 const goToPosition = id => {
   setActive(id)
