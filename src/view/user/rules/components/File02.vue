@@ -141,7 +141,7 @@
 
 <essayTextWithWeight>7.2</essayTextWithWeight> 如您希望参加特殊风险活动，应当提前仔细阅读活动相关说明，并依据自身条件慎重判断是否具备相应条件，如存在身体不适或酒后等禁止参加的情形，请勿报名；活动过程中，您应践行、遵守活动项目中有关保障人身、财产安全的措施及规定，认真参加安全培训，并在指定活动区域内按要求开展活动；活动期间，您负有注意自身安全、财产安全和环境保护的义务，您应依照科学常识（如雷雨天气防雷击、安全乘坐交通工具等）开展活动，切勿以身犯险；您因参加特殊风险活动造成自身人身或财产损失、他人人身或财产损失或环境问题的，本平台概不负责。
 
-<essayTextWithWeight>7.3</essayTextWithWeight> 如您已确认报名参与特殊风险活动，或想要了解相关应急处理知识，请点击链接<a href="https://foekalzv1f.feishu.cn/wiki/wikcnaPWlMifkgbnn6v66rZAR0c">《营探安全手册》</a>，查看《营探安全手册》的对应部分，了解您所报名的特殊风险活动所对应的安全提示信息。
+<essayTextWithWeight>7.3</essayTextWithWeight> 如您已确认报名参与特殊风险活动，或想要了解相关应急处理知识，请点击链接<essayHeightLight><a href="https://foekalzv1f.feishu.cn/wiki/wikcnaPWlMifkgbnn6v66rZAR0c">《营探安全手册》</a></essayHeightLight>，查看《营探安全手册》的对应部分，了解您所报名的特殊风险活动所对应的安全提示信息。
 
 
 <essayTitleH2>第八章 不可抗力安全注意事项</essayTitleH2>

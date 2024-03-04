@@ -18,7 +18,7 @@
 
 <essayTextWithWeight>1.3</essayTextWithWeight> 定义 
 
-<essayTextWithWeight>1.3.1</essayTextWithWeight> 【营探】指北京光荷文化科技有限公司及其关联公司开发并独立运营的一个提供多样化功能的泛营地商品互联网预订平台，包括网站（[www.camptogo.com](http://www.camptogo.com/)）、APP客户端、微信小程序、服务商工作台等终端。 
+<essayTextWithWeight>1.3.1</essayTextWithWeight> 【营探】指北京光荷文化科技有限公司及其关联公司开发并独立运营的一个提供多样化功能的泛营地商品互联网预订平台，包括网站<essayHeightLight><a href="http://www.camptogo.com/"> www.camptogo.com</a></essayHeightLight>、APP客户端、微信小程序、服务商工作台等终端。 
 
 <essayTextWithWeight>1.3.2</essayTextWithWeight> 【关联公司】指北京光荷文化科技有限公司控制的任何实体或与北京光荷文化科技有限公司共同处于被同一实体控制下的任何实体。 
 
