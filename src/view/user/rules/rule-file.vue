@@ -1,6 +1,6 @@
 <template>
   <div class="chapterArea">
-    <File00 v-show="index === '0-0'" />
+    <File00 v-if="index === '0-0'" />
     <File01 v-if="index === '0-1'" />
     <File02 v-if="index === '0-2'" />
     <File03 v-if="index === '0-3'" />
@@ -121,13 +121,9 @@ const props = defineProps({
   }
 })
 const files = ref([])
-const update = () => {
 
-
-}
-
-onUpdated(() => {
-
+onUpdated(()=>{
+  // currentView.value = `${props.index}1`
 })
 const timer = ref(null)
 //100毫秒延迟获取正确的当前dom
@@ -144,39 +140,38 @@ watch(() => props.index, (newV) => {
       if (h2Title.length > 0) {
         const arr = []
         for (let i = 0; i < h2Title.length; i++) {
-          h2Title[i].setAttribute('id', i + 1)
+          h2Title[i].setAttribute('id', `${props.index}${i + 1}`)
           arr.push(h2Title[i].innerText)
         }
         navs.value = arr
       }
-      return
     } else {
       const current = files.value[0]
       const h2Title = current.querySelectorAll('.greenTitle')
       if (h2Title.length > 0) {
         const arr = []
         for (let i = 0; i < h2Title.length; i++) {
-          h2Title[i].setAttribute('id', i + 1)
+          h2Title[i].setAttribute('id', `${props.index}${i + 1}`)
           arr.push(h2Title[i].innerText)
         }
         navs.value = arr
       }
-      return
     }
   }, 100)
 })
 
-const navs = ref(['第一章 平台声明','第二章 账户风险提示','第三章 信息风险提示','第四章 平台风险提示','第五章 其他风险提示'])
+const navs = ref(['第一章 平台声明', '第二章 账户风险提示', '第三章 信息风险提示', '第四章 平台风险提示', '第五章 其他风险提示'])
 //导航逻辑
 const goToPosition = id => {
-  setActive(id)
-  const element = document.getElementById(id)
-  element?.scrollIntoView({ behavior: "smooth", block: "center" })
+  activeNav.value = id
+  currentView.value = `${props.index}${id}`
 }
 const activeNav = ref(0)
-const setActive = id => {
-  activeNav.value = id
-}
+const currentView = ref('')
+watch(()=>currentView.value,(newV)=>{
+  const Dom = document.getElementById(newV)
+  Dom.scrollIntoView({ behavior: 'smooth', block: 'center' });
+})
 </script>
 <style lang="scss" scoped>
 .chapterArea {
