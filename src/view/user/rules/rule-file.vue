@@ -49,14 +49,14 @@
     <File312 v-if="index === '3-12'" />
     <File313 v-if="index === '3-13'" />
   </div>
-  <nav class="product-nav">
+  <nav class="product-nav2">
     <ul>
       <li v-for="(nav, index) in navs" :class="{
         nav: true,
-        'nav-active': index == activeNav - 1
+        'nav-active2': index == activeNav - 1
       }">
         <span></span>
-        <span class="title" @click="goToPosition(index + 1)">
+        <span class="title2" @click="goToPosition(index + 1)">
           {{ nav }}
         </span>
       </li>
@@ -249,7 +249,7 @@ pre {
 }
 
 pre {
-  font-size: 1.8vh;
+  font-size: 16px;
 
   li {
     margin-left: 3vw;
@@ -276,7 +276,7 @@ pre {
   }
 }
 
-.product-nav {
+.product-nav2 {
   position: fixed;
   right: 24px;
   top: 80px;
@@ -292,7 +292,7 @@ pre {
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    .title {
+    .title2 {
       width: 120px;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -300,7 +300,7 @@ pre {
     }
   }
 
-  .nav-active {
+  .nav-active2 {
     span {
       position: relative;
       height: 30px;
@@ -332,7 +332,7 @@ pre {
     display: none;
   }
 
-  .product-nav {
+  .product-nav2 {
     display: none;
   }
 
