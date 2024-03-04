@@ -23,6 +23,10 @@ export const userRoutes = [
             component: () => import('../../view/user/workbench/product-lunch/product-detail.vue')
           },
           {
+            path: 'product/:id/rgsForm',
+            component: () => import('../../view/user/workbench/product-lunch/product-regForm.vue')
+          },
+          {
             path: 'schedule/:id',
             component: () => import('../../view/user/workbench/product-lunch/change-schedule.vue')
           },

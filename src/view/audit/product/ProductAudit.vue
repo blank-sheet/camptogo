@@ -8,8 +8,8 @@
         <el-tab-pane label="已拒绝" name="DECLINE"></el-tab-pane>
       </el-tabs>
       <div style="display: flex; margin: 20px 0">
-        <el-input v-model="searchInfo.keyword" placeholder="服务商名称/商品id" />
-        <el-select
+        <el-input class="elinput" v-model="searchInfo.keyword" placeholder="服务商名称/商品id" />
+        <el-select class="elselect"
           multiple
           v-model="searchInfo.productStatus"
           placeholder="商品状态"
@@ -59,7 +59,7 @@
           <el-button type="primary" v-show="scope.row.snapshot.productId">
             <a
               :href="
-                'http://localhost:5173/#/user/workbench/product/' + scope.row.snapshot.productId
+                'http://123.57.13.5:82/#/user/workbench/product/' + scope.row.snapshot.productId
               "
               target="_blank"
               >查看</a
@@ -278,7 +278,14 @@ var OPERATION_TYPES = {
 </script>
 
 <style lang="scss">
-// .product-audit {
-//   width: 1180px;
-// }
+.product-audit {
+  .elinput{
+    width: 180px;
+    height: 30px;
+  }
+  .elselect{
+    width: 180px;
+    height: 30px;
+  }
+}
 </style>

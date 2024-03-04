@@ -7,8 +7,8 @@
       <el-tab-pane label="已拒绝" name="DECLINE"></el-tab-pane>
     </el-tabs>
     <div style="display: flex; margin: 20px 0">
-      <el-input v-model="searchInfo.keyword" placeholder="服务商名称/商品id" />
-      <el-select multiple v-model="searchInfo.productStatus" placeholder="商品状态" style="margin: 0 20px">
+      <el-input class="elinput" v-model="searchInfo.keyword" placeholder="服务商名称/商品id" />
+      <el-select class="elselect" multiple v-model="searchInfo.productStatus" placeholder="商品状态" style="margin: 0 20px">
         <el-option v-for="status in Object.keys(PRODUCT_STATUS)" :label="PRODUCT_STATUS[status]" :value="status" />
       </el-select>
       <div>
@@ -46,7 +46,7 @@
         <template #default="scope">
           <el-button type="primary" v-show="scope.row.snapshot.productId">
             <a :href="'http://123.57.13.5:82/#/user/workbench/product/' + scope.row.snapshot.productId
-              " target="_blank">查看</a>
+            " target="_blank">查看</a>
           </el-button>
         </template>
       </el-table-column>
@@ -67,9 +67,9 @@
                 <el-button type="primary">查看</el-button>
               </template>
             </el-popover>
-           
-            <el-button  :disabled="scope.row.snapshot.productStatus !== 'CREATED_REVIEWED'" type="success" @click="approveInsurence(scope.row)"
-              >审核</el-button>
+
+            <el-button :disabled="scope.row.snapshot.productStatus !== 'CREATED_REVIEWED'" type="success"
+              @click="approveInsurence(scope.row)">审核</el-button>
           </div>
 
           <!-- <div class=" w-full">
@@ -84,8 +84,8 @@
       </el-table-column>
     </el-table>
     <reject-dialog v-model:show="dialogInfo.reject" @reset-table="updateList(pageNum)" />
-    <approve-dialog v-model:show="dialogInfo.approve" @reset-table="updateList(pageNum)" :product-id="currentTableRow.entityId"
-      :work-ticket-id="currentTableRow.workTicketId" />
+    <approve-dialog v-model:show="dialogInfo.approve" @reset-table="updateList(pageNum)"
+      :product-id="currentTableRow.entityId" :work-ticket-id="currentTableRow.workTicketId" />
     <reject-reason v-model:show="dialogInfo.reason" />
     <camp-pagination :total="total" @change-page="updateList" />
   </div>
@@ -184,6 +184,16 @@ onMounted(() => {
 .Insurence {
   margin-right: 120px;
 
+  .elinput {
+    width: 180px;
+    height: 30px;
+  }
+
+  .elselect {
+    width: 180px;
+    height: 30px;
+  }
+
   thead {
     .cell {
       justify-content: center;
@@ -220,5 +230,4 @@ onMounted(() => {
       font-weight: 400;
     }
   }
-}
-</style>
+}</style>

@@ -34,12 +34,12 @@
 							<CampDatePicker v-model="product.groupPeriodList[index].activityTimeRange[0]" :disabled="true" placeholder="开始日期" />
               <span style="margin: 0 10px 0 0"> - </span>
               <CampDatePicker v-model="product.groupPeriodList[index].activityTimeRange[1]" :disabled="true" placeholder="结束日期" />
-              <span>共{{ difftime[0] }}天</span>
+              <span>共{{ getDurationTime(product.groupPeriodList[index].activityTimeRange[0], product.groupPeriodList[index].activityTimeRange[1]) }}天</span>
 						</div>
 						<el-form-item class="form-item-lable" label="日程表：" label-width="auto">
-							<div class="" v-for="(item, i) in difftime[0]" :key="i">
+							<div class="" v-for="(ele, i) in getDurationTime(product.groupPeriodList[index].activityTimeRange[0], product.groupPeriodList[index].activityTimeRange[1])" :key="i">
 								<div class="date-picker">
-									<CampDatePicker v-model:date="getDatesBetween(product.groupPeriodList[index].activityTimeRange[0], product.groupPeriodList[index].activityTimeRange[1])[i]" :disabled="true" placeholder="开始日期" />
+									<CampDatePicker  v-model:date="getDatesBetween(product.groupPeriodList[index].activityTimeRange[0], product.groupPeriodList[index].activityTimeRange[1])[i]" :disabled="true" placeholder="开始日期" />
 								</div>
 								<div class="calendar"><Calendar :dailyScheduleList="product.dailyScheduleList" /></div>
 							</div>
@@ -62,10 +62,10 @@
 					</template>
 					<div class="collapse-item">
 						<div class="date-picker-item">
-							<CampDatePicker v-model="newSchedule[0]" placeholder="开始日期" />
+							<CampDatePicker v-model="newSchedule[0]" placeholder="开始日期" @change="updateNewSchedule()"/>
               <span style="margin: 0 10px 0 0"> - </span>
-              <CampDatePicker v-model="newSchedule[1]" placeholder="结束日期" />
-              <span>共{{ difftime[0] }}天</span>
+              <CampDatePicker v-model="newSchedule[1]" placeholder="结束日期" disabled/>
+              <span>共{{ getDurationTime2(newSchedule[0], newSchedule[1]) }}天</span>
 						</div>
 						<el-form-item class="form-item-lable" label="日程表：" label-width="auto">
 							<div class="" v-for="(item, index) in difftime[0]" :key="index">
@@ -104,24 +104,24 @@ const newSchedule = ref([undefined, undefined])
 const copySchedule = ref([undefined, undefined])
 const isAdd = ref(false)
 
-watch(
-  () => newSchedule.value,
-  (newValue, oldValue) => {
-    if (newValue[0] != copySchedule.value[0]) {
-      newSchedule.value[1] = addDays(newValue[0], daysLimit.value[0]);
-			copySchedule.value = newSchedule.value.slice()
-			return
-    }
-    if (newValue[1] != copySchedule.value[1]) {
-      newSchedule.value[0] = subtractDays(newValue[1], daysLimit.value[0]);
-			copySchedule.value = newSchedule.value.slice()
-			return
-    }
-  },
-  {
-    deep: true
-  }
-)
+// watch(
+//   () => newSchedule.value,
+//   (newValue, oldValue) => {
+//     if (newValue[0] != copySchedule.value[0]) {
+//       newSchedule.value[1] = addDays(newValue[0], daysLimit.value[0]);
+// 			copySchedule.value = newSchedule.value.slice()
+// 			return
+//     }
+//     if (newValue[1] != copySchedule.value[1]) {
+//       newSchedule.value[0] = subtractDays(newValue[1], daysLimit.value[0]);
+// 			copySchedule.value = newSchedule.value.slice()
+// 			return
+//     }
+//   },
+//   {
+//     deep: true
+//   }
+// )
 
 const addDays = (dateString, days) => {
   const date = new Date(dateString);
@@ -138,6 +138,17 @@ const subtractDays = (dateString, days) => {
   return date.toISOString();
 }
 
+//确保新增的排期天数 与先前一直
+const updateNewSchedule = ()=>{
+  var time = (duration.value-1 )* 3600 * 24 * 1000
+	let begin = Date.parse(newSchedule.value[0])
+	let end = new Date(begin + time)
+	let year = end.getFullYear()
+  let month = ("0" + (end.getMonth() + 1)).slice(-2)
+  let day = ("0" + end.getDate()).slice(-2)
+  let endDay = year + '-' + month + '-' + day + "T00:00"
+	newSchedule.value[1] = endDay
+}
 const difftime = computed(() => {
   const times = []
   product.value.groupPeriodList?.forEach(t => {
@@ -160,7 +171,28 @@ const difftime = computed(() => {
     return new Date(year, month - 1, day).getTime()
   }
 })
-
+const getDurationTime = (beginTime, endTime) => {
+  const begin = Date.parse(beginTime)
+  const end = Date.parse(endTime)
+  const day = Number(((end - begin) / 1000 / 3600 / 24).toFixed(0))+1
+  if (end && begin) {
+		duration.value = day
+    return day
+  } else {
+    return 0
+  }
+}
+const getDurationTime2 = (beginTime, endTime) => {
+  const begin = Date.parse(beginTime)
+  const end = Date.parse(endTime)
+  const day = Number(((end - begin) / 1000 / 3600 / 24).toFixed(0))+1
+  if (end && begin) {
+    return day
+  } else {
+    return 0
+  }
+}
+const duration = ref(0)
 const getDatesBetween = (startDate, endDate) => {
   const dates = [];
   const currentDate = new Date(startDate);
@@ -217,8 +249,7 @@ const getSchedule = () => {
     })
     .then(r => {
 			let productInfo = r.details
-			productInfo.createTime = productInfo.createTime.slice(0, 10) 
-      console.log(productInfo);
+			productInfo.createTime = productInfo.createTime.slice(0, 10)
 			product.value = productInfo
 		})
 }
