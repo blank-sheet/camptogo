@@ -65,7 +65,7 @@
     <div class="desc">{{ ques.description }}</div>
     <div class="items">
       <div class="item" v-for="item in ques.optionList" :key="item" v-if="ques.optionList.length > 0">
-        <div><el-radio :value="item.content"></el-radio>{{ item.content || '请输入选项' }}</div>
+        <div><el-radio-group v-model="radio2"><el-radio :value="item.content"></el-radio></el-radio-group>{{ item.content || '请输入选项' }}</div>
         <div class="text">{{ item.description || '' }}</div>
       </div>
     </div>
@@ -73,9 +73,10 @@
 </template>
 
 <script setup>
-import { inject } from 'vue'
+import { inject,ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import draggable from 'vuedraggable'
+const radio2 = ref('undefine')
 const props = defineProps({
   ques: {
     type: Object
@@ -136,7 +137,7 @@ const showDesc = (index) => {
 }
 
 .noEdit {
-  padding: 24px;
+  padding: 24px 0;
   background-color: #fff;
 
   .title {

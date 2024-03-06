@@ -127,7 +127,7 @@
                     form.groupPeriodList.push({
                       activityTimeRange: [undefined, undefined]
                     })
-                    ">
+                  ">
                     + 添加更多团期
                   </div>
                 </div>
@@ -201,7 +201,7 @@
                     <div class="refund-delete" @click="() => {
                       form.refundPlanList.splice(index + 1, 1)
                     }
-                      ">
+                    ">
                       <el-icon>
                         <Delete />
                       </el-icon>
@@ -411,15 +411,15 @@
               <div class="hardware">
                 <header>活动场地</header>
                 <el-input v-model="form.venue" autosize type="textarea" placeholder="您可以从以下方面描述室内室外活动场地：
-场地名称；场地类型，如运动场、实验室、专业草场等特色或专业场地；设施设备，如监控、新风系统、活动设施、专业设备等。" />
+  场地名称；场地类型，如运动场、实验室、专业草场等特色或专业场地；设施设备，如监控、新风系统、活动设施、专业设备等。" />
               </div>
               <div class="hardware" style="margin-top: 20px" v-show="form.stayIf">
                 <header>住宿条件</header>
                 <el-input type="textarea" autosize v-model="form.accommodations" placeholder="您可以从以下方面描述住宿条件：
-住宿场所类型，如酒店、民宿、营房、青旅等；
-房间类型，如单人房、双人间、X人宿舍等；
-房间条件，如床型、热水、卫浴、空调、网络、电器等；
-安保情况，包括安保人员、夜间值班、巡逻情况等。" />
+  住宿场所类型，如酒店、民宿、营房、青旅等；
+  房间类型，如单人房、双人间、X人宿舍等；
+  房间条件，如床型、热水、卫浴、空调、网络、电器等；
+  安保情况，包括安保人员、夜间值班、巡逻情况等。" />
               </div>
               <div class="hardware">
                 <header>教学教具</header>
@@ -436,8 +436,8 @@
               <div class="hardware">
                 <header>团队详情</header>
                 <el-input style="width:80%" v-model="form.team.detail" type="textarea" autosize placeholder="您可以从以下方面进行描述：
-团队配置，如课程老师、助教老师、生活老师、安全员、医护人员、摄影老师、领队、导游等；
-人员详情，如资质、荣誉、教龄等。" />
+  团队配置，如课程老师、助教老师、生活老师、安全员、医护人员、摄影老师、领队、导游等；
+  人员详情，如资质、荣誉、教龄等。" />
               </div>
               <div class="hardware">
                 <header>专业拍摄</header>
@@ -453,8 +453,8 @@
                       v-model="form.team.captureNums" />个拍摄人员
                   </div>
                   <el-input style="width:80%" type="textarea" autosize placeholder="请从以下方面描述拍摄服务详情：
-预计产出照片张数；预计产出视频个数，单个视频长度；
-使用设备型号；机位个数及位置；其他。" v-model="form.team.captureDetail" />
+  预计产出照片张数；预计产出视频个数，单个视频长度；
+  使用设备型号；机位个数及位置；其他。" v-model="form.team.captureDetail" />
                 </div>
               </div>
             </CampFormItem>
@@ -474,10 +474,10 @@
             </CampFormItem>
             <CampFormItem label="医疗情况：" prop="medicalCare">
               <el-input style="width:80%" v-model="form.medicalCare" type="textarea" autosize placeholder="您可以从以下方面描述医疗情况：
-医疗人员情况，如专业医疗人员、员工医疗培训情况等；
-医疗场所情况，如是否有卫生室等；
-医疗物资状况，如急救箱、药品、医疗设备等；
-附近医疗点情况，如附近医院的距离、等级等。" />
+  医疗人员情况，如专业医疗人员、员工医疗培训情况等；
+  医疗场所情况，如是否有卫生室等；
+  医疗物资状况，如急救箱、药品、医疗设备等；
+  附近医疗点情况，如附近医院的距离、等级等。" />
             </CampFormItem>
             <CampFormItem label="图片视频上传" :msg="'图片和视频为必选项'">
               <span class="desc">
@@ -542,7 +542,7 @@
                       form.dailyScheduleList[index].dailyIndex = dailyIndex
                     form.dailyScheduleList[index].dateIndex = dateIndex
                   }
-                    ">复制前一天行程</ElButton>
+                  ">复制前一天行程</ElButton>
                 </div>
 
                 <div>
@@ -557,7 +557,7 @@
                       <el-icon @click="() => {
                         deleteDaily(item, daily)
                       }
-                        ">
+                      ">
                         <Delete />
                       </el-icon>
                     </div>
@@ -634,7 +634,7 @@
               <div>
                 <span class="desc"> *核保公司核保完成后,核保结果会自动在此呈现 </span>
                 <el-tooltip content="若有更多被保险人如拼团商品中非通过营探报名的出行人、主办方员工等需一并投保的，请在T-1日 (T为活动开始日期) 14时前在商品管理-保险投保模块上传其他被保险人的姓名
-证件号码、性别、出生年月，平台将在T-1日19时一次性向保险公司发送被保险人信息。因您自身原因导致上述被保险人信息未能报送成功的，营探不承担责任。" raw-content placement="top-start">
+  证件号码、性别、出生年月，平台将在T-1日19时一次性向保险公司发送被保险人信息。因您自身原因导致上述被保险人信息未能报送成功的，营探不承担责任。" raw-content placement="top-start">
                   <el-icon>
                     <QuestionFilled />
                   </el-icon>
@@ -700,16 +700,16 @@
               <div class="content">
                 <div>请填写说明会内容</div>
                 <el-input style="width:80%" type="textarea" autosize v-model="form.briefing.detail" placeholder="请出行人及监护人积极参加，说明会将针对下述内容展开：
-1、在线破冰活动
-2、在线安全培训
-3、答疑" />
+  1、在线破冰活动
+  2、在线安全培训
+  3、答疑" />
               </div>
             </CampFormItem>
             <CampFormItem label="重要说明：" prop="mustKnow">
               <el-input style="width:80%" v-model="form.mustKnow" type="textarea" autosize placeholder="1.未成年人参加独立活动的,在开营当天需由监护人陪同办理相关手续，监护人需携带本人及未成年人身份证原件办理相关手续。 
-2.如因您隐瞒出行人情况导致不利后果，由您自行承担。
-3.出行人不应在活动过程中私自食用已知会导致您过敏的食物、酒类、不洁食品饮料，如您私自食用导致不良后果，本平台及服务商不承担任何责任。
-                      " maxlength="500" show-word-limit />
+  2.如因您隐瞒出行人情况导致不利后果，由您自行承担。
+  3.出行人不应在活动过程中私自食用已知会导致您过敏的食物、酒类、不洁食品饮料，如您私自食用导致不良后果，本平台及服务商不承担任何责任。
+                        " maxlength="500" show-word-limit />
             </CampFormItem>
             <CampFormItem label="活动地点" prop="activityLocation.startLocation">
               <div style="width: 100%; display: flex; margin-bottom: 20px">
@@ -764,7 +764,7 @@
             </CampFormItem>
             <CampFormItem label="整理物资准备" prop="preparation">
               <el-input style="width:80%" v-model="form.preparation" type="textarea" autosize placeholder="1.家长可以提前准备一封关怀、鼓励孩子的信。
-2.有特长的同学携带设备参加活动,须提前沟通。" maxlength="500" show-word-limit>
+  2.有特长的同学携带设备参加活动,须提前沟通。" maxlength="500" show-word-limit>
               </el-input>
             </CampFormItem>
             <CampFormItem label="团队紧急联系人方式" prop="emergencyContact.name">
@@ -832,7 +832,6 @@
       <template
         v-if="isNewProdoct || (form.productStatus && 'DRAFT/CREATED_WAIT_REVIEW'.includes(form.productStatus.toString()))">
         <el-button type="success" @click="createProduct(formRef)">提交审核</el-button>
-        <!-- <el-button type="success" @click="dialogVisible = true">提交审核</el-button> 测试用 -->
         <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button>
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
         <ElButton v-show="form.productStatus == 'DRAFT'" type="danger" @click="deleteProduct">删除商品</ElButton>
@@ -841,6 +840,7 @@
       <template v-if="form.productStatus && 'ONLINE_WAIT_REVIEW'.includes(form.productStatus.toString())">
         <el-button type="success" @click="copyProduct">复制商品</el-button>
         <el-button type="success" @click="getPreview">查看预览</el-button>
+        <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button>
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
         <ElButton type="danger" @click="deleteProduct">删除商品</ElButton>
       </template>
@@ -849,6 +849,7 @@
       <template v-if="form.productStatus && 'CREATED_REVIEWED'.includes(form.productStatus.toString())">
         <el-button type="success" @click="getPreview">查看预览</el-button>
         <el-button type="success" @click="copyProduct">复制商品</el-button>
+        <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button>
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
         <ElButton type="danger" @click="deleteProduct">删除商品</ElButton>
       </template>
@@ -857,13 +858,15 @@
         <el-button type="success" @click="createProduct(formRef)">提交修改</el-button>
         <el-button type="success" @click="getPreview">查看预览</el-button>
         <el-button type="success" @click="copyProduct">复制商品</el-button>
+        <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button>
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
-        <el-button type="success" @click="dialogVisible = true">点击上架</el-button>
+        <el-button type="success" @click="listings()">点击上架</el-button>
         <ElButton type="danger" @click="deleteProduct">删除商品</ElButton>
       </template>
       <!-- 上架后 -->
       <template v-if="form.productStatus && 'HALTED_SALES'.includes(form.productStatus.toString())">
         <el-button type="success" @click="() => createProduct(formRef)">提交修改</el-button>
+        <el-button type="success" @click="setRegistrationForm()">查看报名表</el-button>
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
       </template>
     </camp-footer>
@@ -1677,72 +1680,57 @@ const onUploadSuccess = (r, key) => {
 
 //发送请求 创建商品
 const createProduct = async (formEl) => {
-  getRegistrationFormIsExit()
-  if (!RegistrationFormIsExit.value) {
+  const illeageWord = isIlleagle(JSON.stringify(form.value))
+  if (illeageWord != '') {
+    currentTipTitle.value = '商品信息存在违规描述'
+    currentTipText.value = `经系统检测，您发布的商品信息存在违规描述:"${illeageWord}"。为保证平台的合法性和用户的权益，您须修改涉及违禁词汇的文字表述，否则无法完成商品上架。如果您对此有任何疑问或建议，请随时与我们联系，感谢您的支持与理解。`
+    centerDialogVisible.value = true
     return
-  } else {
-    const illeageWord = isIlleagle(JSON.stringify(form.value))
-    if (illeageWord != '') {
-      // ElMessageBox.confirm(
-      //   `经系统检测，您发布的商品信息存在违规描述:"${illeageWord}"。为保证平台的合法性和用户的权益，您须修改涉及违禁词汇的文字表述，否则无法完成商品上架。如果您对此有任何疑问或建议，请随时与我们联系，感谢您的支持与理解。`,
-      //   '商品信息存在违规描述',
-      //   {
-      //     cancelButtonText: '取消',
-      //     confirmButtonText: '确定',
-      //     // type: 'warning'
-      //   }
-      // )
-      currentTipTitle.value = '商品信息存在违规描述'
-      currentTipText.value = `经系统检测，您发布的商品信息存在违规描述:"${illeageWord}"。为保证平台的合法性和用户的权益，您须修改涉及违禁词汇的文字表述，否则无法完成商品上架。如果您对此有任何疑问或建议，请随时与我们联系，感谢您的支持与理解。`
-      centerDialogVisible.value = true
+  }
+  try {
+    const valid = await validateForm(formEl)
+    if (form.value.priceSelling > form.value.priceOriginal) {
+      ElMessage({
+        type: 'error',
+        message: '未划线价不能超过划线价！'
+      })
       return
     }
-    try {
-      const valid = await validateForm(formEl)
-      if (form.value.priceSelling > form.value.priceOriginal) {
-        ElMessage({
-          type: 'error',
-          message: '未划线价不能超过划线价！'
-        })
-        return
-      }
-      if (valid) {
-        form.value.certifiedFeatureList = form.value.certifiedFeatureList.map(item => ({
-          ...item,
-          certificate: item.certificate?.url,
-        }))
-        //这里是取值相反
-        form.value.insuranceInfo.liabilityInsuranceSelfIf = !insurence.liability
-        form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
-        //dateindex 与 dailyIndex置换
-        form.value.dailyScheduleList.map((a) => {
-          a.dailyIndex = a.dateIndex || 0
-          return a
-        })
-        console.log(form.value)
-        const response = await request.post(
-          userApi.createProduct,
-          {
-            ...form.value,
-            providerId: store.providerId
-          },
-          {
-            message: true,
-            loading: true
-          }
-        )
-        if (response) {
-          // 清除缓存
-          window.localStorage.removeItem('camptogoProd')
-          router.push('/user/workbench/productLunch')
+    if (valid) {
+      form.value.certifiedFeatureList = form.value.certifiedFeatureList.map(item => ({
+        ...item,
+        certificate: item.certificate?.url,
+      }))
+      //这里是取值相反
+      form.value.insuranceInfo.liabilityInsuranceSelfIf = !insurence.liability
+      form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
+      //dateindex 与 dailyIndex置换
+      form.value.dailyScheduleList.map((a) => {
+        a.dailyIndex = a.dateIndex || 0
+        return a
+      })
+      console.log(form.value)
+      const response = await request.post(
+        userApi.createProduct,
+        {
+          ...form.value,
+          providerId: store.providerId
+        },
+        {
+          message: true,
+          loading: true
         }
+      )
+      if (response) {
+        // 清除缓存
+        window.localStorage.removeItem('camptogoProd')
+        router.push('/user/workbench/productLunch')
       }
-    } catch (error) {
-      // 处理可能的错误
-      console.error('Error:', error)
     }
+  } catch (error) {
+    // 处理可能的错误
+    console.error('Error:', error)
   }
-
 }
 const saveDraft = () => {
   form.value.certifiedFeatureList = form.value.certifiedFeatureList.map(item => ({
@@ -1969,6 +1957,7 @@ watch(
     deep: true
   }
 )
+
 onMounted(() => {
   isLoading.value = true
   // 获取保险挡位列表
@@ -2070,18 +2059,23 @@ onMounted(() => {
     })
   })
 })
+
 //导航逻辑
 const goToPosition = id => {
   const element = document.getElementById(id)
   element.scrollIntoView()
 }
-//报名表相关
+
+//跳转报名表
 const setRegistrationForm = () => {
   router.push({
     path: `/user/workbench/product/${route.params.id}/rgsForm`,
-    query: { name: form.value.fullName }
+    query: {
+      name: form.value.fullName,
+    }
   })
 }
+
 //报名表是否存在
 const RegistrationFormIsExit = ref(false)
 const dialogForReg = ref(false)
@@ -2096,6 +2090,8 @@ const getRegistrationFormIsExit = () => {
       }
     })
 }
+
+//路由跳转报名表页
 const handlerToRegFormPage = () => {
   router.push({
     path: `/user/workbench/product/${route.params.id}/rgsForm`,
@@ -2104,6 +2100,8 @@ const handlerToRegFormPage = () => {
 }
 const isShowPublicPage = ref(false)
 const activeStep = ref(1)
+
+//获取商品小程序链接
 const Link = ref('')
 const getLink = () => {
   if (route.params.id != 'new')
@@ -2116,6 +2114,9 @@ const getLink = () => {
 onMounted(() => {
   getLink()
 })
+
+
+//复制函数
 const copy = async (msg) => {
   const { toClipboard } = useClipboard()
   try {
@@ -2127,6 +2128,16 @@ const copy = async (msg) => {
     // 复制失败
     console.log(e)
     ElMessage.error("浏览器不支持自动复制")
+  }
+}
+
+//商品点击立即上架操作
+const listings = () => {
+  getRegistrationFormIsExit()
+  if (!RegistrationFormIsExit.value) {
+    return
+  } else {
+    dialogVisible.value = true
   }
 }
 </script>

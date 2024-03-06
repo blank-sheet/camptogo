@@ -1,12 +1,12 @@
 <template>
   <div class="regform">
     <el-form ref="formRef" label-width="400px">
-      <product-form title="商品信息" id="1">
+      <product-form title="商品信息">
         <template #form>
           <div class="fullname"><span>商品名称：</span>{{ route.query.name }}</div>
         </template>
       </product-form>
-      <product-form title="基本信息" id="2">
+      <product-form title="基本信息">
         <template #form>
           <CampFormItem label="姓名" :labelTop="true">
             <el-input class="input" disabled placeholder="请输入"></el-input>
@@ -34,7 +34,7 @@
           </CampFormItem>
         </template>
       </product-form>
-      <product-form title="紧急联系人信息" id="3">
+      <product-form title="紧急联系人信息">
         <template #form>
           <CampFormItem label="紧急联系人姓名" :labelTop="true">
             <el-input class="input" disabled placeholder="请输入"></el-input>
@@ -47,7 +47,7 @@
           </CampFormItem>
         </template>
       </product-form>
-      <product-form title="基本身体情况" id="4">
+      <product-form title="基本身体情况">
         <template #form>
           <CampFormItem label="身高/cm" :labelTop="true">
             <el-input class="input" disabled placeholder="请输入"></el-input>
@@ -63,7 +63,7 @@
           </CampFormItem>
         </template>
       </product-form>
-      <product-form title="基本健康状况" id="5">
+      <product-form title="基本健康状况">
         <template #form>
           <CampFormItem label="过敏反应" :labelTop="true">
             <el-radio-group disabled>
@@ -104,9 +104,10 @@
           </CampFormItem>
         </template>
       </product-form>
-      <product-form title="自定义信息" id="6">
+      <product-form title="自定义信息">
         <template #form>
-          <quesTion v-for="(item, index) in questionList" :key="item" :ques="item" :theIndex="index" :id="index">
+          <quesTion v-for="(item, index) in questionList" :key="item" :ques="item" :theIndex="index" :id="index"
+            ref="childDoms">
           </quesTion>
         </template>
       </product-form>
@@ -114,10 +115,14 @@
         <el-button class="button" type="success" @click="createReForm()">完成编辑</el-button>
       </div>
     </el-form>
-    <div class="btn" @click="addQues(questionList.length)">
-      <img class="icon icon1" src="../../../../assets/icon/magic_2_line.svg" alt="">
-      <img class="icon icon2" src="../../../../assets/icon/Vector2.svg" alt="">
-    </div>
+    <el-tooltip class="box-item" content="自定义更多题目" placement="top">
+      <div class="btn" @click="addQues(questionList.length)">
+        <img class="icon icon1" src="../../../../assets/icon/magic_2_line.svg" alt="">
+        <img class="icon icon2" src="../../../../assets/icon/Vector2.svg" alt="">
+        <img class="icon icon3" src="../../../../assets/icon/Vector3.svg" alt="">
+      </div>
+    </el-tooltip>
+
 
   </div>
 </template>
@@ -131,9 +136,11 @@ import quesTion from "./components/quesTion.vue"
 import { request } from '../../../../api'
 import { userApi } from '../../../../api/modules/user/user'
 import { ref, provide, onMounted } from "vue"
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 const route = useRoute()
+const router = useRouter()
+const childDoms = ref([])
 onMounted(() => {
   getRegForm()
 })
@@ -171,6 +178,15 @@ const getRegForm = async () => {
 }
 //创建报名表
 const createReForm = async () => {
+  for (let i = 0; i < childDoms.value.length; i++) {
+    if(childDoms.value[i].isEdit){
+      ElMessage.error('题目未保存')
+      const scroll = document.getElementById(i)
+      console.log(scroll);
+      scroll.scrollIntoView({ behavior: "smooth", block: "center" })
+      return
+    }
+  }
   if (questionList.value.length == 0) {
     ElMessage.error("请填写相关问题")
     return
@@ -209,6 +225,7 @@ const createReForm = async () => {
     questionList: questionList.value
   }).then(res => {
     ElMessage.success(res.msg)
+    router.push(`/user/workbench/product/${route.params.id}`)
   })
 }
 
@@ -256,6 +273,24 @@ const createReForm = async () => {
     display: none;
   }
 
+  .icon3 {
+    display: none;
+  }
+
+  &:hover {
+    .icon1 {
+      display: none;
+    }
+
+    .icon2 {
+      display: inline-block;
+    }
+
+    .icon3 {
+      display: none;
+    }
+  }
+
   &:active {
     background-color: #F5FFC4;
 
@@ -264,6 +299,10 @@ const createReForm = async () => {
     }
 
     .icon2 {
+      display: none;
+    }
+
+    .icon3 {
       display: inline-block;
     }
   }

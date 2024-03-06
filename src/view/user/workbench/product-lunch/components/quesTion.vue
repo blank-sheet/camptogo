@@ -25,7 +25,7 @@ import choice from "./quesTemps/choice.vue"
 import fill from "./quesTemps/fill.vue"
 import selection from "./quesTemps/selection.vue"
 import upLoad from "./quesTemps/upload.vue"
-import { reactive, onMounted, ref, computed, inject } from 'vue'
+import { ref, computed, inject } from 'vue'
 const props = defineProps({
   ques: Object,
   theIndex: {
@@ -51,6 +51,10 @@ const addFun = inject('addQues')
 const addQues = () => {
   addFun(props.theIndex)
 }
+
+defineExpose({
+  isEdit
+})
 </script>
 
 <style lang="scss" scoped>

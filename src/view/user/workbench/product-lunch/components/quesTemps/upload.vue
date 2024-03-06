@@ -49,7 +49,7 @@ const delQues = () => {
 
 <style lang="scss" scoped>
 .noEdit {
-  padding: 24px;
+  padding: 24px 0;
   background-color: #fff;
 
   .title {
