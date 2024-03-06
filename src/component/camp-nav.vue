@@ -41,7 +41,7 @@ const changeRoute = (index, url) => {
 watch(route, (newV) => {
   if (props.navOptions) {
     props.navOptions.forEach((item, index) => {
-      if (newV.fullPath == item.navTo) {
+      if (newV.fullPath.slice(0,10) == item.navTo.slice(0,10)) {
         activeNav.value = index
         return
       }
