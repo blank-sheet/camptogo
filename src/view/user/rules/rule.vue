@@ -39,7 +39,8 @@
       </el-menu>
     </template>
     <template #main>
-      <rule-file :index="cur" />
+      <ruleHome v-if="route.params.id === 'home'"></ruleHome>
+      <rule-file v-else :index="cur" />
     </template>
   </camp-body>
 </template>
@@ -49,6 +50,7 @@ import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import campBody from '../../../component/camp-body.vue'
 import RuleFile from './rule-file.vue'
+import ruleHome from "./ruleHome.vue"
 const router = useRouter()
 const route = useRoute()
 const defaultOpenedsArray = ref([])
@@ -122,7 +124,7 @@ const updatedefaultOpenedsArray = ()=>{
 }
 const handleOpen = (key, keyPath) => {
   if (key == 'home') {
-    router.push('/user/workbench/basicInfo')
+    router.push('/user/rule/home')
     return
   }
   if (key == 'menu') {
@@ -154,7 +156,7 @@ onMounted(() => {
   margin: 0 2px;
   --el-menu-hover-bg-color: #EDEDED !important;
   overflow: hidden;
-
+  border-right: 0;
   .mulu {
     height: 15px;
     line-height: 15px;

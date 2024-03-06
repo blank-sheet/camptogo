@@ -26,7 +26,7 @@ const navOptions = [
   // },
   {
     label: '规则协议',
-    navTo: '/user/rule/00'
+    navTo: '/user/rule/home'
   },
   {
     label: '公告通知',
