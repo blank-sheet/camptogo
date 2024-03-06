@@ -339,6 +339,7 @@ const handlerToDetail = (index)=>{
 
     .title {
       display: flex;
+      margin: 0 auto 0 0;
       height: 40px;
       line-height: 40px;
 
@@ -359,6 +360,7 @@ const handlerToDetail = (index)=>{
     }
 
     .tip {
+      margin: 0 auto 0 0;
       margin: 8px 0;
       padding-left: 52px;
       font-size: 14px;
