@@ -13,7 +13,7 @@
 
 <script setup>
 import { ElCascader } from 'element-plus'
-import { watch, ref, defineProps } from 'vue'
+import { watch, ref } from 'vue'
 const prop = {
   emitPath: false
 }

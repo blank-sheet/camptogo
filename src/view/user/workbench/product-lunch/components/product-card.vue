@@ -44,7 +44,7 @@
 
 <script setup>
 import { getProductStatus } from '../../../../../utils/getProductStatus'
-import { defineEmits, ref } from 'vue'
+import { ref } from 'vue'
 defineProps({
   imageUrl: {
     default:
