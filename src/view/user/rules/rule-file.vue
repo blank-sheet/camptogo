@@ -1,55 +1,58 @@
 <template>
-  <div class="chapterArea">
-    <File00 v-if="index === '0-0'" />
-    <File01 v-if="index === '0-1'" />
-    <File02 v-if="index === '0-2'" />
-    <File03 v-if="index === '0-3'" />
-    <File04 v-if="index === '0-4'" />
-    <File10 v-if="index === '1-0'" />
-    <File11 v-if="index === '1-1'" />
-    <File12 v-if="index === '1-2'" />
-    <File13 v-if="index === '1-3'" />
-    <File15 v-if="index === '1-4'" />
-    <File16 v-if="index === '1-5'" />
-    <File17 v-if="index === '1-6'" />
-    <File18 v-if="index === '1-7'" />
-    <File19 v-if="index === '1-8'" />
-    <File110 v-if="index === '1-9'" />
-    <File111 v-if="index === '1-10'" />
-    <File112 v-if="index === '1-11'" />
-    <File113 v-if="index === '1-12'" />
-    <File20 v-if="index === '2-0'" />
-    <File21 v-if="index === '2-1'" />
-    <File22 v-if="index === '2-2'" />
-    <File23 v-if="index === '2-3'" />
-    <File24 v-if="index === '2-4'" />
-    <File25 v-if="index === '2-5'" />
-    <File26 v-if="index === '2-6'" />
-    <File27 v-if="index === '2-7'" />
-    <File28 v-if="index === '2-8'" />
-    <File29 v-if="index === '2-9'" />
-    <File210 v-if="index === '2-10'" />
-    <File211 v-if="index === '2-11'" />
-    <File212 v-if="index === '2-12'" />
-    <File213 v-if="index === '2-13'" />
-    <File214 v-if="index === '2-14'" />
-    <File215 v-if="index === '2-15'" />
-    <File30 v-if="index === '3-0'" />
-    <File31 v-if="index === '3-1'" />
-    <File32 v-if="index === '3-2'" />
-    <File33 v-if="index === '3-3'" />
-    <File34 v-if="index === '3-4'" />
-    <File35 v-if="index === '3-5'" />
-    <File36 v-if="index === '3-6'" />
-    <File37 v-if="index === '3-7'" />
-    <File38 v-if="index === '3-8'" />
-    <File39 v-if="index === '3-9'" />
-    <File310 v-if="index === '3-10'" />
-    <File311 v-if="index === '3-11'" />
-    <File312 v-if="index === '3-12'" />
-    <File313 v-if="index === '3-13'" />
+  <div class="rule">
+    <div class="chapterArea">
+      <File00 v-if="index === '0-0'" />
+      <File01 v-if="index === '0-1'" />
+      <File02 v-if="index === '0-2'" />
+      <File03 v-if="index === '0-3'" />
+      <File04 v-if="index === '0-4'" />
+      <File10 v-if="index === '1-0'" />
+      <File11 v-if="index === '1-1'" />
+      <File12 v-if="index === '1-2'" />
+      <File13 v-if="index === '1-3'" />
+      <File15 v-if="index === '1-4'" />
+      <File16 v-if="index === '1-5'" />
+      <File17 v-if="index === '1-6'" />
+      <File18 v-if="index === '1-7'" />
+      <File19 v-if="index === '1-8'" />
+      <File110 v-if="index === '1-9'" />
+      <File111 v-if="index === '1-10'" />
+      <File112 v-if="index === '1-11'" />
+      <File113 v-if="index === '1-12'" />
+      <File20 v-if="index === '2-0'" />
+      <File21 v-if="index === '2-1'" />
+      <File22 v-if="index === '2-2'" />
+      <File23 v-if="index === '2-3'" />
+      <File24 v-if="index === '2-4'" />
+      <File25 v-if="index === '2-5'" />
+      <File26 v-if="index === '2-6'" />
+      <File27 v-if="index === '2-7'" />
+      <File28 v-if="index === '2-8'" />
+      <File29 v-if="index === '2-9'" />
+      <File210 v-if="index === '2-10'" />
+      <File211 v-if="index === '2-11'" />
+      <File212 v-if="index === '2-12'" />
+      <File213 v-if="index === '2-13'" />
+      <File214 v-if="index === '2-14'" />
+      <File215 v-if="index === '2-15'" />
+      <File30 v-if="index === '3-0'" />
+      <File31 v-if="index === '3-1'" />
+      <File32 v-if="index === '3-2'" />
+      <File33 v-if="index === '3-3'" />
+      <File34 v-if="index === '3-4'" />
+      <File35 v-if="index === '3-5'" />
+      <File36 v-if="index === '3-6'" />
+      <File37 v-if="index === '3-7'" />
+      <File38 v-if="index === '3-8'" />
+      <File39 v-if="index === '3-9'" />
+      <File310 v-if="index === '3-10'" />
+      <File311 v-if="index === '3-11'" />
+      <File312 v-if="index === '3-12'" />
+      <File313 v-if="index === '3-13'" />
+    </div>
   </div>
-  <nav class="product-nav2">
+
+  <!-- <nav class="product-nav2">
     <ul>
       <li v-for="(nav, index) in navs" :class="{
         nav: true,
@@ -61,7 +64,7 @@
         </span>
       </li>
     </ul>
-  </nav>
+  </nav> -->
 </template>
 
 <script setup>
@@ -122,7 +125,7 @@ const props = defineProps({
 })
 const files = ref([])
 
-onUpdated(()=>{
+onUpdated(() => {
   // currentView.value = `${props.index}1`
 })
 const timer = ref(null)
@@ -168,16 +171,21 @@ const goToPosition = id => {
 }
 const activeNav = ref(0)
 const currentView = ref('')
-watch(()=>currentView.value,(newV)=>{
+watch(() => currentView.value, (newV) => {
   const Dom = document.getElementById(newV)
-  Dom.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  Dom.scrollIntoView({ behavior: 'smooth', block: 'center' })
 })
 </script>
 <style lang="scss" scoped>
-.chapterArea {
-  width: 89%;
+.rule {
+  width: 100%;
   background-color: #fff;
+
+  .chapterArea {
+    width: 89%;
+  }
 }
+
 
 
 el-main {

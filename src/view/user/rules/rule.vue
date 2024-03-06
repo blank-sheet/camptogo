@@ -9,7 +9,7 @@
           </el-icon>
         </template>
       </el-input>
-      <el-menu class="menu" @select="handleOpen" unique-opened :default-openeds="defaultOpenedsArray" >
+      <el-menu class="menu" @select="handleOpen" unique-opened :default-openeds="defaultOpenedsArray">
         <!-- close-on-click-outside -->
         <el-menu-item index="home">
           <template #title>
@@ -21,9 +21,6 @@
           <template #title>
             <i class="iconfont icon-liebiao"></i>
             目录<div class="mulu">
-              <el-tooltip content="全部收起" placement="top">
-                <i class="iconfont fold icon-xiangxiazhankai" @click="updatedefaultOpenedsArray()"></i>
-              </el-tooltip>
             </div>
           </template>
         </el-menu-item>
@@ -119,7 +116,7 @@ const level3 = [
 const files = [level0, level1, level2, level3]
 const selectedSubmenu = ref(-1)
 const cur = ref('0-0')
-const updatedefaultOpenedsArray = ()=>{
+const updatedefaultOpenedsArray = () => {
   defaultOpenedsArray.value = []
 }
 const handleOpen = (key, keyPath) => {
@@ -157,6 +154,7 @@ onMounted(() => {
   --el-menu-hover-bg-color: #EDEDED !important;
   overflow: hidden;
   border-right: 0;
+
   .mulu {
     height: 15px;
     line-height: 15px;
@@ -196,8 +194,6 @@ onMounted(() => {
     }
   }
 
-
-
 }
 
 .is-opened {
@@ -206,7 +202,11 @@ onMounted(() => {
   }
 }
 
-.is-active {
+.el-sub-menu.is-active {
+  color: #95D600 !important;
+}
+
+.el-menu-item.is-active {
   background-color: #F5FFC4;
   color: #95D600 !important;
 }
