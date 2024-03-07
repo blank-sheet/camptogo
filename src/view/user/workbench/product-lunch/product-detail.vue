@@ -411,15 +411,15 @@
               <div class="hardware">
                 <header>活动场地</header>
                 <el-input v-model="form.venue" autosize type="textarea" placeholder="您可以从以下方面描述室内室外活动场地：
-    场地名称；场地类型，如运动场、实验室、专业草场等特色或专业场地；设施设备，如监控、新风系统、活动设施、专业设备等。" />
+                    场地名称；场地类型，如运动场、实验室、专业草场等特色或专业场地；设施设备，如监控、新风系统、活动设施、专业设备等。" />
               </div>
               <div class="hardware" style="margin-top: 20px" v-show="form.stayIf">
                 <header>住宿条件</header>
                 <el-input type="textarea" autosize v-model="form.accommodations" placeholder="您可以从以下方面描述住宿条件：
-    住宿场所类型，如酒店、民宿、营房、青旅等；
-    房间类型，如单人房、双人间、X人宿舍等；
-    房间条件，如床型、热水、卫浴、空调、网络、电器等；
-    安保情况，包括安保人员、夜间值班、巡逻情况等。" />
+                    住宿场所类型，如酒店、民宿、营房、青旅等；
+                    房间类型，如单人房、双人间、X人宿舍等；
+                    房间条件，如床型、热水、卫浴、空调、网络、电器等；
+                    安保情况，包括安保人员、夜间值班、巡逻情况等。" />
               </div>
               <div class="hardware">
                 <header>教学教具</header>
@@ -436,8 +436,8 @@
               <div class="hardware">
                 <header>团队详情</header>
                 <el-input style="width:80%" v-model="form.team.detail" type="textarea" autosize placeholder="您可以从以下方面进行描述：
-    团队配置，如课程老师、助教老师、生活老师、安全员、医护人员、摄影老师、领队、导游等；
-    人员详情，如资质、荣誉、教龄等。" />
+                    团队配置，如课程老师、助教老师、生活老师、安全员、医护人员、摄影老师、领队、导游等；
+                    人员详情，如资质、荣誉、教龄等。" />
               </div>
               <div class="hardware">
                 <header>专业拍摄</header>
@@ -453,8 +453,8 @@
                       v-model="form.team.captureNums" />个拍摄人员
                   </div>
                   <el-input style="width:80%" type="textarea" autosize placeholder="请从以下方面描述拍摄服务详情：
-    预计产出照片张数；预计产出视频个数，单个视频长度；
-    使用设备型号；机位个数及位置；其他。" v-model="form.team.captureDetail" />
+                    预计产出照片张数；预计产出视频个数，单个视频长度；
+                    使用设备型号；机位个数及位置；其他。" v-model="form.team.captureDetail" />
                 </div>
               </div>
             </CampFormItem>
@@ -474,10 +474,10 @@
             </CampFormItem>
             <CampFormItem label="医疗情况：" prop="medicalCare">
               <el-input style="width:80%" v-model="form.medicalCare" type="textarea" autosize placeholder="您可以从以下方面描述医疗情况：
-    医疗人员情况，如专业医疗人员、员工医疗培训情况等；
-    医疗场所情况，如是否有卫生室等；
-    医疗物资状况，如急救箱、药品、医疗设备等；
-    附近医疗点情况，如附近医院的距离、等级等。" />
+                    医疗人员情况，如专业医疗人员、员工医疗培训情况等；
+                    医疗场所情况，如是否有卫生室等；
+                    医疗物资状况，如急救箱、药品、医疗设备等；
+                    附近医疗点情况，如附近医院的距离、等级等。" />
             </CampFormItem>
             <CampFormItem label="图片视频上传" :msg="'图片和视频为必选项'">
               <span class="desc">
@@ -634,7 +634,8 @@
               <div>
                 <span class="desc"> *核保公司核保完成后,核保结果会自动在此呈现 </span>
                 <el-tooltip content="若有更多被保险人如拼团商品中非通过营探报名的出行人、主办方员工等需一并投保的，请在T-1日 (T为活动开始日期) 14时前在商品管理-保险投保模块上传其他被保险人的姓名
-    证件号码、性别、出生年月，平台将在T-1日19时一次性向保险公司发送被保险人信息。因您自身原因导致上述被保险人信息未能报送成功的，营探不承担责任。" raw-content placement="top-start">
+                    证件号码、性别、出生年月，平台将在T-1日19时一次性向保险公司发送被保险人信息。因您自身原因导致上述被保险人信息未能报送成功的，营探不承担责任。" raw-content
+                  placement="top-start">
                   <el-icon>
                     <QuestionFilled />
                   </el-icon>
@@ -700,16 +701,16 @@
               <div class="content">
                 <div>请填写说明会内容</div>
                 <el-input style="width:80%" type="textarea" autosize v-model="form.briefing.detail" placeholder="请出行人及监护人积极参加，说明会将针对下述内容展开：
-    1、在线破冰活动
-    2、在线安全培训
-    3、答疑" />
+                    1、在线破冰活动
+                    2、在线安全培训
+                    3、答疑" />
               </div>
             </CampFormItem>
             <CampFormItem label="重要说明：" prop="mustKnow">
               <el-input style="width:80%" v-model="form.mustKnow" type="textarea" autosize placeholder="1.未成年人参加独立活动的,在开营当天需由监护人陪同办理相关手续，监护人需携带本人及未成年人身份证原件办理相关手续。 
-    2.如因您隐瞒出行人情况导致不利后果，由您自行承担。
-    3.出行人不应在活动过程中私自食用已知会导致您过敏的食物、酒类、不洁食品饮料，如您私自食用导致不良后果，本平台及服务商不承担任何责任。
-                          " maxlength="500" show-word-limit />
+                    2.如因您隐瞒出行人情况导致不利后果，由您自行承担。
+                    3.出行人不应在活动过程中私自食用已知会导致您过敏的食物、酒类、不洁食品饮料，如您私自食用导致不良后果，本平台及服务商不承担任何责任。
+                                          " maxlength="500" show-word-limit />
             </CampFormItem>
             <CampFormItem label="活动地点" prop="activityLocation.startLocation">
               <div style="width: 100%; display: flex; margin-bottom: 20px">
@@ -764,7 +765,7 @@
             </CampFormItem>
             <CampFormItem label="整理物资准备" prop="preparation">
               <el-input style="width:80%" v-model="form.preparation" type="textarea" autosize placeholder="1.家长可以提前准备一封关怀、鼓励孩子的信。
-    2.有特长的同学携带设备参加活动,须提前沟通。" maxlength="500" show-word-limit>
+                    2.有特长的同学携带设备参加活动,须提前沟通。" maxlength="500" show-word-limit>
               </el-input>
             </CampFormItem>
             <CampFormItem label="团队紧急联系人方式" prop="emergencyContact.name">
@@ -883,86 +884,6 @@
         </li>
       </ul>
     </nav>
-    <!-- <el-dialog v-model="dialogVisible" width="750px">
-      <div>
-        <el-steps :active="active" finish-status="success">
-          <el-step title="核保结果" />
-          <el-step title="商品信息" />
-        </el-steps>
-        <div v-if="active === 0 && !(form.isLiabilitySelf && form.isAccidentSelf)">
-          <div class="title">核保结果确认</div>
-          <el-divider />
-          <div class="desc" style="margin: 30px 0">
-            *如您不同意保险公司给出的保险方案，请不要点击“确定”以及进行后续商品上架操作；上架商品即视为同意保险方案。
-          </div>
-          <div class="title">保险价格</div>
-          <div style="margin-left: 40px">
-            <div style="display: flex">
-              <el-checkbox :model-value="Boolean(insurenceAuditDetail?.lessThanSixLiabilityInsuranceUnitPrice)"
-                label="组织者责任险：" size="large" />
-              <div style="margin-top: 13px">
-                <p>
-                  1-5周岁：{{
-                    insurenceAuditDetail?.lessThanSixLiabilityInsuranceUnitPrice / 100 || '未购买'
-                  }}
-                  <span class="desc">(单位：元每人每天)</span>
-                </p>
-                <br /><br />
-                <p>
-                  6-11周岁：{{ insurenceAuditDetail?.sixToElevenLiabilityInsuranceUnitPrice / 100
-                  }}<span class="desc">单位：元每人每天)</span>
-                </p>
-                <br /><br />
-                <p>
-                  12-70周岁：{{
-                    insurenceAuditDetail?.greaterThanElevenLiabilityInsuranceUnitPrice / 100
-                  }}<span class="desc">(单位：元每人每天)</span>
-                </p>
-                <br /><br />
-              </div>
-            </div>
-            <div>
-              <el-checkbox :model-value="Boolean(insurenceAuditDetail?.accidentInsuranceUnitPrice)" label="意外险："
-                size="large" /><span style="margin-left: 44px">
-                {{ insurenceAuditDetail?.accidentInsuranceUnitPrice / 100 || '未购买' }}
-                <span class="desc">(单位：元每人每天)</span></span>
-            </div>
-          </div>
-        </div>
-        <ElForm v-else>
-          <h3 style="margin: 20px 0">商品信息选择</h3>
-          <CampFormItem label="上架频道">
-            <ElSelect v-model="upShalveDatas.channel_id">
-              <ElOption v-for="chanel in chanels" :value="chanel.id" :label="chanel.name">
-              </ElOption>
-            </ElSelect>
-          </CampFormItem>
-          <CampFormItem label="活动起售时间">
-            <CampDatePicker v-model:date="upShalveDatas.product_launching_time" />
-          </CampFormItem>
-          <CampFormItem label="活动停售时间">
-            <CampDatePicker v-model:date="upShalveDatas.product_expiration_time" />
-          </CampFormItem>
-          <CampFormItem label="库存">
-            在本平台中可报名
-            <ElInputNumber v-model="upShalveDatas.recruit_total" style="width: 90px" controls-position="right" />人
-            <span class="desc">不得高于活动总人数</span>
-          </CampFormItem>
-          <CampFormItem label="订单自动审核">
-            <el-switch v-model="upShalveDatas.reconsideration" />
-            <span class="desc">
-              *开启后，若订单生成已满18小时或活动即将开始但商家仍未处理订单，订单将自动审核通过；不开启，订单将自动审核不通过。
-            </span>
-          </CampFormItem>
-        </ElForm>
-      </div>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="dialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="confirmUpShalve"> 确认 </el-button>
-        </span>
-      </template>
-    </el-dialog> -->
 
     <el-dialog class="dialog" v-model="centerDialogVisible" width="500" align-center :show-close="false">
       <template #header="{ close, titleId, titleClass }">
@@ -1055,51 +976,58 @@
             </div>
           </div>
           <div class="box" v-if="activeStep == 2">
-            <ElForm class="form">
-              <CampFormItem class="formItem" label="上架频道">
-                <ElSelect v-model="upShalveDatas.channel_id">
+            <ElForm class="form" ref="upShalveDatasRef1" :model="upShalveDatas">
+              <CampFormItem class="formItem" label="上架频道" prop="channelId">
+                <ElSelect v-model="upShalveDatas.channelId">
                   <ElOption v-for="chanel in chanels" :value="chanel.id" :label="chanel.name">
                   </ElOption>
                 </ElSelect>
               </CampFormItem>
-              <CampFormItem class="formItem" label="活动起售时间">
-                <CampDatePicker v-model:date="upShalveDatas.product_launching_time" />
+              <CampFormItem class="formItem" label="活动起售时间" prop="saleStartTime">
+                <CampDatePicker v-model:date="upShalveDatas.saleStartTime" />
               </CampFormItem>
-              <CampFormItem class="formItem" label="活动停售时间">
-                <CampDatePicker v-model:date="upShalveDatas.product_expiration_time" />
+              <CampFormItem class="formItem" label="活动停售时间" prop="saleEndTime">
+                <CampDatePicker v-model:date="upShalveDatas.saleEndTime" />
               </CampFormItem>
-              <CampFormItem class="formItem" label="最低成团人数：">
+              <!-- <CampFormItem class="formItem" label="最低成团人数">
                 <div class="CampFormItem-box">
                   在本平台可报名
                   <el-input-number class="number" :min="0" :disabled="!form.groupLimitIf" v-model="form.groupLimitSize"
                     controls-position="right" /> 人
                 </div>
+              </CampFormItem> -->
+              <CampFormItem class="formItem" label="商品库存" prop="recruitTotal">
+                <div class="CampFormItem-box">
+                  <el-input-number class="number" :min="0" v-model="upShalveDatas.recruitTotal"
+                    controls-position="right" />
+                </div>
               </CampFormItem>
-              <CampFormItem class="formItem" label="使用平台优惠券">
-                <el-radio-group class="groupLimitIf">
-                  <el-radio :label="false">使用</el-radio>
-                  <el-radio :label="true">不使用</el-radio>
+              <CampFormItem class="formItem" label="使用平台优惠券" prop="usePlatformCoupon">
+                <el-radio-group class="groupLimitIf" v-model="upShalveDatas.usePlatformCoupon">
+                  <el-radio :label="true">使用</el-radio>
+                  <el-radio :label="false">不使用</el-radio>
                 </el-radio-group>
               </CampFormItem>
-              <CampFormItem class="formItem" label="订单自动审核">
+              <CampFormItem class="formItem" label="订单自动审核" prop="reconsideration">
                 <el-switch v-model="upShalveDatas.reconsideration" />
               </CampFormItem>
             </ElForm>
           </div>
           <div class="box" v-if="activeStep == 3">
-            <ElForm class="form">
-              <CampFormItem class="formItem" label="招募方式">
-                <ElSelect v-model="form.targetedPromotion">
+            <ElForm class="form" ref="upShalveDatasRef2" :model="upShalveDatas">
+              <CampFormItem class="formItem" label="招募方式" prop="targetedPromotion">
+                <ElSelect v-model="upShalveDatas.targetedPromotion">
                   <ElOption :value="false" label="公开招募上架"></ElOption>
                   <ElOption :value="true" label="定向招募上架"></ElOption>
                 </ElSelect>
               </CampFormItem>
             </ElForm>
-            <div class="qrcode" v-show="form.targetedPromotion == true">
-
-            </div>
-            <div class="linkarea" v-show="form.targetedPromotion == true">
-              <span>下载图片</span> <span @click="copy(Link)">复制链接</span>
+            <div class="linkarea" v-show="upShalveDatas.targetedPromotion == true">
+              <div class="qrcode">
+                <el-image :src="qrCodeUrl"></el-image>
+                <span>下载图片</span>
+              </div>
+              <div @click="copy(Link)">复制链接</div>
             </div>
           </div>
         </div>
@@ -1110,7 +1038,7 @@
             取消
           </el-button>
           <el-button @click="activeStep -= 1" v-show="activeStep > 1">上一步</el-button>
-          <el-button @click="activeStep += 1" v-show="activeStep < 3">
+          <el-button @click="addSteps(upShalveDatasRef1)" v-show="activeStep < 3">
             下一步
           </el-button>
           <el-button type="success" @click="dialogVisible = false, confirmUpShalve()" v-show="activeStep == 3">
@@ -1184,26 +1112,10 @@ const currentTipTitle = ref('特别提示')
 const liabilityChange = () => {
   form.value.insuranceInfo.liabilityInsuranceSelfDetails = undefined
   if (isLiabilitySelf.value) {
-    // ElMessageBox.confirm(
-    //   '若您选择自行购买其他保险，请勾选符合您经营情形的对应选项，并确认该保单能在活动开始前生效。若您不属于以上三种任意一种情形，请选择购买营探定制责任险。否则，依据相关法律规定，我们无法为您的商品上架。',
-    //   '特别提示',
-    //   {
-    //     confirmButtonText: '确定',
-    //     type: 'warning'
-    //   }
-    // )
     currentTipTitle.value = '特别提示'
     currentTipText.value = '若您选择自行购买其他保险，请勾选符合您经营情形的对应选项，并确认该保单能在活动开始前生效。若您不属于以上三种任意一种情形，请选择购买营探定制责任险。否则，依据相关法律规定，我们无法为您的商品上架。'
     centerDialogVisible.value = true
   } else {
-    // ElMessageBox.confirm(
-    //   '营探与第三方保险公司合作，为您提供专属定制保险方案，在作出是否购买的决定前，请务必仔细阅读《保险方案》中的内容。若您同意购买，将视为同意上述《保险方案》中的全部内容，并委托营探向该保险公司投保单，营探将及时向您反馈保险公司的核保结果。',
-    //   '特别提示',
-    //   {
-    //     confirmButtonText: '确定',
-    //     type: 'warning'
-    //   }
-    // )
     currentTipTitle.value = '特别提示'
     currentTipText.value = '营探与第三方保险公司合作，为您提供专属定制保险方案，在作出是否购买的决定前，请务必仔细阅读《保险方案》中的内容。若您同意购买，将视为同意上述《保险方案》中的全部内容，并委托营探向该保险公司投保单，营探将及时向您反馈保险公司的核保结果。'
     centerDialogVisible.value = true
@@ -1213,14 +1125,6 @@ const liabilityChange = () => {
 const accidentChange = () => {
   form.value.insuranceInfo.accidentInsuranceSelfDetails = undefined
   if (isAccidentSelf.value) {
-    // ElMessageBox.confirm(
-    //   '请确保活动开始时，您所自行购买的保险外于生效状态，因保险未按时生效所产生的一切损失由您自行承担。您自行购买的保险需承保活动主办方所可能面临的赔偿责任，为组织者责任险、旅行社责任险等险种。建议非旅行社单位，及时为您自身投保组织者责任险，旅行社单位应依照法律规定投保旅行社责任险。',
-    //   '特别提示',
-    //   {
-    //     confirmButtonText: '确定',
-    //     type: 'warning'
-    //   }
-    // )
     currentTipTitle.value = '特别提示'
     currentTipText.value = '请确保活动开始时，您所自行购买的保险外于生效状态，因保险未按时生效所产生的一切损失由您自行承担。您自行购买的保险需承保活动主办方所可能面临的赔偿责任，为组织者责任险、旅行社责任险等险种。建议非旅行社单位，及时为您自身投保组织者责任险，旅行社单位应依照法律规定投保旅行社责任险。'
     centerDialogVisible.value = true
@@ -1249,11 +1153,13 @@ const chanels = ref([
 ])
 const isGroupLimit = computed(() => radio1.value)
 const upShalveDatas = ref({
-  channel_id: undefined,
-  product_launching_time: undefined,
-  product_expiration_time: undefined,
-  recruit_total: 0,
-  reconsideration: undefined
+  channelId: undefined,
+  saleStartTime: undefined,
+  saleEndTime: undefined,
+  usePlatformCoupon: true,
+  reconsideration: true,
+  targetedPromotion: false,
+  recruitTotal: undefined
 })
 const features = ref([
   {
@@ -1632,10 +1538,27 @@ const deleteActivityAttribute = (i) => {
   }
   form.value.activityAttributeList[attributeSelect.value].optionList.splice(i, 1)
 }
+
+
+const upShalveDatasRef1 = ref()
+const upShalveDatasRef2 = ref()
+const addSteps = async(formEL)=>{
+  if(!formEL){
+    activeStep.value += 1
+    return
+  }
+  try{
+    const valid = await validateForm(formEL)
+    if(valid){
+      activeStep.value += 1
+    }
+  }catch(error){
+    console.error('Error:', error)
+  }
+}
 //商品确认上架
 const confirmUpShalve = () => {
   //校验报名表是否存在
-  getRegistrationFormIsExit()
   if (!RegistrationFormIsExit.value) {
     return
   } else {
@@ -1645,18 +1568,13 @@ const confirmUpShalve = () => {
           userApi.product,
           {
             productId: route.params.id,
-            providerId: store.user?.id
-            // user: {
-            //   id: store.user?.id
-            // },
-            // version: '1.0.0',
-            // create_reason: '商品上架',
-            // work_line_id: 1400,
-            // work_operation: 4600,
-            // content: {
-            //   id: route.params.id,
-            //   ...upShalveDatas.value
-            // }
+            providerId: store.user?.id,
+            saleStartTime: upShalveDatas.value.saleStartTime,
+            saleEndTime: upShalveDatas.value.saleEndTime,
+            usePlatformCoupon: upShalveDatas.value.usePlatformCoupon,
+            reconsideration: upShalveDatas.value.reconsideration,
+            targetedPromotion: upShalveDatas.value.targetedPromotion,
+            recruitTotal: upShalveDatas.value.recruitTotal
           },
           {
             message: true
@@ -2086,8 +2004,10 @@ const getRegistrationFormIsExit = () => {
       productId: route.params.id
     }).then(res => {
       RegistrationFormIsExit.value = res.details
-      if (RegistrationFormIsExit.value != true) {
+      if (!RegistrationFormIsExit.value) {
         dialogForReg.value = true
+      } else {
+        dialogVisible.value = true
       }
     })
 }
@@ -2134,12 +2054,18 @@ const copy = async (msg) => {
 
 //商品点击立即上架操作
 const listings = () => {
+  getQrcode()
   getRegistrationFormIsExit()
-  if (!RegistrationFormIsExit.value) {
-    return
-  } else {
-    dialogVisible.value = true
-  }
+}
+
+//上架获取商品二维码
+const qrCodeUrl = ref('')
+const getQrcode = async () => {
+  await request.post(userApi.getQrcodeAPI, {
+    productId: route.params.id
+  }).then(res => {
+    qrCodeUrl.value = res.details
+  })
 }
 </script>
 <style lang="scss">
@@ -2327,6 +2253,7 @@ const listings = () => {
       width: 100%;
       margin: 10px 0;
     }
+
   }
 
   .schdule-box {
@@ -2573,17 +2500,28 @@ const listings = () => {
             height: 30px;
 
             .number {
-              width: 30%;
+              width: 50%;
             }
           }
         }
+
+
 
         .linkarea {
           display: flex;
           width: 30%;
           margin: 0 auto;
 
-          span {
+          .qrcode {
+
+            .el-image {
+              margin: auto;
+              width: 100px;
+              height: 100px;
+            }
+          }
+
+          div {
             font-family: PingFang SC;
             font-size: 14px;
             font-weight: 400;
@@ -2592,11 +2530,17 @@ const listings = () => {
             text-align: left;
             color: rgb(154, 213, 0);
             margin: 0 10px;
+            display: flex;
+            flex-direction: column;
+            margin-top: auto;
+            text-align: center;
 
             &:hover {
               text-decoration: underline;
               cursor: pointer;
             }
+
+
           }
         }
 
