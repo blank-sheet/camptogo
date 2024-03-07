@@ -11,69 +11,71 @@ export const userRoutes = [
           // 基本信息
           {
             path: 'basicInfo',
-            name:'basicInfo',
+            name: 'user-basicInfo',
             component: () => import('../../view/user/workbench/basic-Info/basic-info.vue')
           },
           // 商品发布
           {
             path: 'productLunch',
-            name:'productLunch',
+            name: 'user-productLunch',
             component: () => import('../../view/user/workbench/product-lunch/product-lunch.vue')
           },
           {
             path: 'product/:id',
-            name: 'product',
+            name: 'user-product',
             component: () => import('../../view/user/workbench/product-lunch/product-detail.vue')
           },
           {
             path: 'product/:id/rgsForm',
-            name: 'rgsForm',
+            name: 'user-rgsForm',
             component: () => import('../../view/user/workbench/product-lunch/product-regForm.vue')
           },
           {
             path: 'schedule/:id',
-            name: 'schedule',
+            name: 'user-schedule',
             component: () => import('../../view/user/workbench/product-lunch/change-schedule.vue')
           },
           // 商品管理
           {
             path: 'product-manage',
-            name: 'product-manage',
+            name: 'user-product-manage',
             component: () => import('../../view/user/workbench/product-manage/product-manage.vue')
           },
           // 主理人设置
           {
             path: 'provider-setting',
-            name: 'provider-setting',
+            name: 'user-provider-setting',
             component: () =>
               import('../../view/user/workbench/provider-setting/ProviderSetting.vue')
           },
           // 订单管理
           {
             path: 'manager-ordering',
-            name: 'manager-ordering',
+            name: 'user-manager-ordering',
             component: () =>
               import('../../view/user/workbench/manager-ordering/manager-ordering.vue')
           },
           // 使用反馈
           {
             path: 'feedback',
-            name: 'feedback',
+            name: 'user-feedback',
             component: () => import('../../view/user/workbench/feedback/feedback.vue')
           },
           {
             path: 'progress',
-            name: 'mprogress',
+            name: 'user-progress',
             component: () => import('../../view/user/workbench/progress/progress.vue')
           }
         ]
       },
       {
         path: 'rule/:id',
+        name: 'user-rule',
         component: () => import('../../view/user/rules/rule.vue')
       },
       {
         path: 'message',
+        name: 'user-message',
         component: () => import('../../view/user/message/message.vue')
       },
       {

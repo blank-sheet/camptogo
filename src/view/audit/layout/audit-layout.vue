@@ -23,37 +23,45 @@ import CampBody from '../../../component/camp-body.vue'
 const navOptions = [
   {
     label: '审核端',
-    navTo: '/audit/basicInfo'
+    navTo: '/audit/basicInfo',
+    name:'audit-basicInfo'
   }
 ]
 const sideNav = [
   {
     label: '基本信息审核',
-    navTo: '/audit/basicInfo'
+    navTo: '/audit/basicInfo',
+    name:'audit-basicInfo'
   },
   {
     label: '主理人设置审核',
-    navTo: '/audit/provider'
+    navTo: '/audit/provider',
+    name:'audit-provider'
   },
   {
     label: '商品管理审核',
-    navTo: '/audit/product'
+    navTo: '/audit/product',
+    name:'audit-product'
   },
   {
     label: '保险支持',
-    navTo: '/audit/insurence'
+    navTo: '/audit/insurence',
+    name:'audit-insurence'
   },
   {
     label: '订单管理审核',
-    navTo: ''
+    navTo: '',
+    name:''
   },
   {
     label: '资管系统审核',
-    navTo: ''
+    navTo: '',
+    name:''
   },
   {
     label: '评价审核',
-    navTo: ''
+    navTo: '',
+    name:''
   }
 ]
 </script>

@@ -6,18 +6,22 @@ export const auditRouter = [
       // 基本信息审核
       {
         path: 'basicInfo',
+        name: 'audit-basicInfo',
         component: () => import('../../view/audit/basic-info/basic-info-audit.vue')
       },
       {
         path: 'provider',
+        name: 'audit-provider',
         component: () => import('../../view/audit/provider/provider-audit.vue')
       },
       {
         path: 'product',
+        name: 'audit-product',
         component: () => import('../../view/audit/product/ProductAudit.vue')
       },
       {
         path: 'insurence',
+        name: 'audit-insurence',
         component: () => import('../../view/audit/Insurence/InsurenceAudit.vue')
       }
     ]

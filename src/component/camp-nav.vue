@@ -24,7 +24,8 @@ const props = defineProps({
     default: [
       {
         label: '',
-        navTo: ''
+        navTo: '',
+        name:''
       }
     ]
   },
@@ -41,7 +42,7 @@ const changeRoute = (index, url) => {
 watch(route, (newV) => {
   if (props.navOptions) {
     props.navOptions.forEach((item, index) => {
-      if (newV.fullPath.slice(0,10) == item.navTo.slice(0,10)) {
+      if (newV.name == item.name) {
         activeNav.value = index
         return
       }

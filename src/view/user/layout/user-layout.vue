@@ -18,7 +18,8 @@ import campHeader from '../../../component/camp-header.vue'
 const navOptions = [
   {
     label: '工作台',
-    navTo: '/user/workbench/basicInfo'
+    navTo: '/user/workbench/basicInfo',
+    name:'user-basicInfo'
   },
   // {
   //   label: '资管系统',
@@ -26,11 +27,13 @@ const navOptions = [
   // },
   {
     label: '规则协议',
-    navTo: '/user/rule/home'
+    navTo: '/user/rule/home',
+    name:'user-rule'
   },
   {
     label: '公告通知',
-    navTo: '/user/message'
+    navTo: '/user/message',
+    name:''
   }
 ]
 </script>
