@@ -1,5 +1,5 @@
 <template>
-  <el-date-picker :value-format="valueFormat" type="date" style="margin-right: 10px" v-model="_date"
+  <el-date-picker :value-format="valueFormat" :type="type" style="margin-right: 10px" v-model="_date"
     :placeholder="placeholder" :disabled="disabled" />
 </template>
 
@@ -21,6 +21,9 @@ const props = defineProps({
   },
   disabled: {
     default: false
+  },
+  type:{
+    default:'date'
   }
 })
 
