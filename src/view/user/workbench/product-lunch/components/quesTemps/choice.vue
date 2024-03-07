@@ -42,18 +42,12 @@
     </div>
     <div class="selects" v-if="ques.questionType == 'MULTIPLE_CHOICE'">
       <el-select class="select" v-model="ques.minCount" placeholder="最少选">
-        <el-option :value="1" label="1项"></el-option>
-        <el-option :value="2" label="2项"></el-option>
-        <el-option :value="3" label="3项"></el-option>
-        <el-option :value="4" label="4项"></el-option>
-        <el-option :value="5" label="5项"></el-option>
+        <el-option v-for="(item, index) in ques.optionList" :value="index + 1" :label="index + 1 + '项'"
+          v-show="index + 1 <= ques.optionList.length"></el-option>
       </el-select>
       <el-select class="select" v-model="ques.maxCount" placeholder="最多选">
-        <el-option :value="1" label="1项" v-show="1 >= ques.minCount"></el-option>
-        <el-option :value="2" label="2项" v-show="2 >= ques.minCount"></el-option>
-        <el-option :value="3" label="3项" v-show="3 >= ques.minCount"></el-option>
-        <el-option :value="4" label="4项" v-show="4 >= ques.minCount"></el-option>
-        <el-option :value="5" label="5项" v-show="5 >= ques.minCount"></el-option>
+        <el-option v-for="(item, index) in ques.optionList" :value="index + 1" :label="index + 1 + '项'"
+          v-show="index + 1 >= ques.minCount && index + 1 <= ques.optionList.length"></el-option>
       </el-select>
     </div>
   </div>
@@ -251,4 +245,5 @@ const showDesc = (index) => {
 .option-leave-to {
   opacity: 0;
   transform: translateX(30px);
-}</style>
+}
+</style>
