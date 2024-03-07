@@ -17,7 +17,7 @@
             首页
           </template>
         </el-menu-item>
-        <el-menu-item index="menu">
+        <el-menu-item index="menu" class="unselect">
           <template #title>
             <i class="iconfont icon-liebiao"></i>
             目录<div class="mulu">
@@ -203,14 +203,17 @@ onMounted(() => {
 }
 
 .el-sub-menu.is-active {
-  color: #95D600 !important;
+  color: #95D600 ;
 }
 
 .el-menu-item.is-active {
   background-color: #F5FFC4;
-  color: #95D600 !important;
+  color: #95D600 ;
 }
-
+.unselect{
+  background-color: #fff !important;
+  color: black !important;
+}
 .title-yt {
   color: #93d500;
   font-family: PingFang SC;
