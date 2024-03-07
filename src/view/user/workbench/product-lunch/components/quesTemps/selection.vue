@@ -1,30 +1,30 @@
 <template>
   <div class="choice" v-if="isEdit == true">
     <div class="title">
-      <el-input class="input" placeholder="编辑题目" v-model="ques.title"></el-input>
-      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()">
+      <el-input class="input" placeholder="编辑题目" v-model="ques.title" :disabled="route.query.isEdit == 0"></el-input>
+      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()" v-show="route.query.isEdit == 1">
       <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '"
-        v-if="ques.description.length == 0">
+        v-if="ques.description.length == 0 && route.query.isEdit == 1">
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description"></el-input>
+      <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description" :disabled="route.query.isEdit == 0"></el-input>
       <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
     </div>
     <div class="options">
-      <draggable animation="100" v-model="ques.optionList" group="people" @start="drag = true" @end="drag = false"
+      <draggable :disabled="route.query.isEdit == 0" animation="100" v-model="ques.optionList" group="people" @start="drag = true" @end="drag = false"
         item-key="id">
         <template #item="{ element, index }">
           <div class="option">
             <div class="content">
               <img class="icon" src="../../../../../../assets/icon/move.svg" alt="">
-              <el-input class="input" placeholder="编辑题目" v-model="element.content">
+              <el-input :disabled="route.query.isEdit == 0" class="input" placeholder="编辑题目" v-model="element.content">
                 <template #prefix>
                   <el-radio class="radio" label=" "></el-radio>
                 </template>
               </el-input>
-              <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)">
-              <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)">
-              <img class="icon2" src="../../../..//../../assets/icon/vector.svg" alt="" @click="showDesc(index)"
+              <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)" v-show="route.query.isEdit == 1">
+              <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)" v-show="route.query.isEdit == 1">
+              <img class="icon2" src="../../../..//../../assets/icon/vector.svg" alt="" @click="showDesc(index)" v-show="route.query.isEdit == 1"
                 v-if="element.description.length == 0">
             </div>
             <div class="desc" v-show="element.description.length > 0">
@@ -34,30 +34,6 @@
           </div>
         </template>
       </draggable>
-      <!-- <TransitionGroup name="option">
-        <div class="option" v-for="(item, index) in ques.optionList" :key="item">
-          <div class="content">
-            <img class="icon" src="../../../../../../assets/icon/move.svg" alt="">
-            <el-input class="input" placeholder="编辑题目" v-model="item.content">
-              <template #prefix>
-                <el-radio class="radio" label=" "></el-radio>
-              </template>
-            </el-input>
-            <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)">
-            <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)">
-            <img class="icon2" src="../../../..//../../assets/icon/vector.svg" alt="" @click="showDesc(index)"
-              v-if="item.description.length == 0">
-          </div>
-          <div class="desc" v-show="item.description.length > 0">
-            <el-input class="desinput" placeholder="编辑选项说明" v-model="item.description"></el-input>
-            <img class="icon2" src="../../../../../../assets/icon/del.svg" alt="" @click="deldesc(index)">
-          </div>
-        </div>
-      </TransitionGroup> -->
-    </div>
-    <div class="selects" v-if="ques.questionType == 'MULTIPLE_CHOICE'">
-      <el-select class="select" placeholder="最少选"></el-select>
-      <el-select class="select" placeholder="最多选"></el-select>
     </div>
   </div>
   <div class="noEdit" v-else>
@@ -73,7 +49,9 @@
 import { inject } from 'vue'
 import { ElMessage } from 'element-plus'
 import draggable from 'vuedraggable'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
 const props = defineProps({
   ques: {
     type: Object

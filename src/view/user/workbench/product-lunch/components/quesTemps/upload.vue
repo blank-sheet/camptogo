@@ -1,18 +1,14 @@
 <template>
   <div class="upload" v-if="isEdit == true">
     <div class="title">
-      <el-input class="input" placeholder="编辑题目" v-model="ques.title"></el-input>
-      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()">
-      <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '"
+      <el-input class="input" placeholder="编辑题目" v-model="ques.title" :disabled="route.query.isEdit == 0"></el-input>
+      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()" v-show="route.query.isEdit == 1">
+      <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '" v-show="route.query.isEdit == 1"
         v-if="ques.description.length == 0">
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description"></el-input>
-      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
-    </div>
-    <div class="selects" v-if="ques.questionType == 'MULTIPLE_CHOICE'">
-      <el-select class="select" placeholder="最少选"></el-select>
-      <el-select class="select" placeholder="最多选"></el-select>
+      <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description" :disabled="route.query.isEdit == 0"></el-input>
+      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''" v-show="route.query.isEdit == 1">
     </div>
   </div>
   <div class="noEdit" v-else>
@@ -26,7 +22,9 @@
 import { inject } from 'vue'
 import CampUpload from '../../../../../../component/camp-upload.vue'
 import { ElMessage } from 'element-plus'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
 const props = defineProps({
   ques: {
     type: Object

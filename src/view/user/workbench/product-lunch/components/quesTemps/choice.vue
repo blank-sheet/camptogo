@@ -1,63 +1,60 @@
 <template>
   <div class="choice" v-if="isEdit == true">
     <div class="title">
-      <el-input class="input" placeholder="编辑题目" v-model="ques.title"></el-input>
-      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()">
+      <el-input class="input" placeholder="编辑题目" v-model="ques.title" :disabled="route.query.isEdit == 0"></el-input>
+      <img class="icon" src="../../../../../../assets/icon/del.svg" v-show="route.query.isEdit == 1" alt=""
+        @click="delQues()">
       <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '"
-        v-if="ques.description.length == 0">
+        v-if="ques.description.length == 0 && route.query.isEdit == 1">
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description"></el-input>
+      <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description"
+        :disabled="route.query.isEdit == 0"></el-input>
       <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
     </div>
     <div class="options">
-      <draggable animation="100" v-model="ques.optionList" group="people" @start="drag = true" @end="drag = false"
-        item-key="id">
+      <draggable :disabled="route.query.isEdit == 0" animation="100" v-model="ques.optionList" group="people"
+        @start="drag = true" @end="drag = false" item-key="id">
         <template #item="{ element, index }">
           <div class="option">
             <div class="content">
               <img class="icon" src="../../../../../../assets/icon/move.svg" alt="">
-              <el-input class="input" placeholder="编辑题目" v-model="element.content">
+              <el-input class="input" placeholder="编辑题目" v-model="element.content" :disabled="route.query.isEdit == 0">
                 <template #prefix>
                   <el-radio class="radio" label=" "></el-radio>
                 </template>
               </el-input>
-              <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)">
-              <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)">
+              <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)"
+                v-show="route.query.isEdit == 1">
+              <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)"
+                v-show="route.query.isEdit == 1">
               <img class="icon2" src="../../../..//../../assets/icon/vector.svg" alt="" @click="showDesc(index)"
-                v-if="element.description.length == 0">
+                v-show="route.query.isEdit == 1" v-if="element.description.length == 0">
             </div>
             <div class="desc" v-show="element.description.length > 0">
-              <el-input class="desinput" placeholder="编辑选项说明" v-model="element.description"></el-input>
+              <el-input :disabled="route.query.isEdit == 0" class="desinput" placeholder="编辑选项说明"
+                v-model="element.description"></el-input>
               <img class="icon2" src="../../../../../../assets/icon/del.svg" alt="" @click="deldesc(index)">
             </div>
           </div>
         </template>
       </draggable>
-      <!-- <TransitionGroup name="option">
-        <div class="option" v-for="(item, index) in ques.optionList" :key="item">
-          <div class="content">
-            <img class="icon" src="../../../../../../assets/icon/move.svg" alt="">
-            <el-input class="input" placeholder="编辑题目" v-model="item.content">
-              <template #prefix>
-                <el-radio class="radio" label=" "></el-radio>
-              </template>
-            </el-input>
-            <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)">
-            <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)">
-            <img class="icon2" src="../../../..//../../assets/icon/vector.svg" alt="" @click="showDesc(index)"
-              v-if="item.description.length == 0">
-          </div>
-          <div class="desc" v-show="item.description.length > 0">
-            <el-input class="desinput" placeholder="编辑选项说明" v-model="item.description"></el-input>
-            <img class="icon2" src="../../../../../../assets/icon/del.svg" alt="" @click="deldesc(index)">
-          </div>
-        </div>
-      </TransitionGroup> -->
     </div>
     <div class="selects" v-if="ques.questionType == 'MULTIPLE_CHOICE'">
-      <el-select class="select" placeholder="最少选"></el-select>
-      <el-select class="select" placeholder="最多选"></el-select>
+      <el-select class="select" v-model="ques.minCount" placeholder="最少选">
+        <el-option :value="1" label="1项"></el-option>
+        <el-option :value="2" label="2项"></el-option>
+        <el-option :value="3" label="3项"></el-option>
+        <el-option :value="4" label="4项"></el-option>
+        <el-option :value="5" label="5项"></el-option>
+      </el-select>
+      <el-select class="select" v-model="ques.maxCount" placeholder="最多选">
+        <el-option :value="1" label="1项" v-show="1 >= ques.minCount"></el-option>
+        <el-option :value="2" label="2项" v-show="2 >= ques.minCount"></el-option>
+        <el-option :value="3" label="3项" v-show="3 >= ques.minCount"></el-option>
+        <el-option :value="4" label="4项" v-show="4 >= ques.minCount"></el-option>
+        <el-option :value="5" label="5项" v-show="5 >= ques.minCount"></el-option>
+      </el-select>
     </div>
   </div>
   <div class="noEdit" v-else @click="isEdit = true">
@@ -65,7 +62,8 @@
     <div class="desc">{{ ques.description }}</div>
     <div class="items">
       <div class="item" v-for="item in ques.optionList" :key="item" v-if="ques.optionList.length > 0">
-        <div><el-radio-group v-model="radio2"><el-radio :value="item.content"></el-radio></el-radio-group>{{ item.content || '请输入选项' }}</div>
+        <div><el-radio-group v-model="radio2"><el-radio :value="item.content"></el-radio></el-radio-group>{{ item.content
+          || '请输入选项' }}</div>
         <div class="text">{{ item.description || '' }}</div>
       </div>
     </div>
@@ -73,10 +71,12 @@
 </template>
 
 <script setup>
-import { inject,ref } from 'vue'
+import { inject, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import draggable from 'vuedraggable'
+import { useRoute } from 'vue-router'
 const radio2 = ref('undefine')
+const route = useRoute()
 const props = defineProps({
   ques: {
     type: Object
@@ -251,5 +251,4 @@ const showDesc = (index) => {
 .option-leave-to {
   opacity: 0;
   transform: translateX(30px);
-}
-</style>
+}</style>

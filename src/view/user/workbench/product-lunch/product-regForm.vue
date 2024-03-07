@@ -179,10 +179,9 @@ const getRegForm = async () => {
 //创建报名表
 const createReForm = async () => {
   for (let i = 0; i < childDoms.value.length; i++) {
-    if(childDoms.value[i].isEdit){
+    if (childDoms.value[i].isEdit) {
       ElMessage.error('题目未保存')
       const scroll = document.getElementById(i)
-      console.log(scroll);
       scroll.scrollIntoView({ behavior: "smooth", block: "center" })
       return
     }
@@ -208,20 +207,23 @@ const createReForm = async () => {
       childs.click()
       return
     }
-    for (let j = 0; j < element.optionList.length; j++) {
-      const ele = element.optionList[j]
-      if (ele.content.length == 0) {
-        ElMessage.error('选项内容不能为空')
-        const scroll = document.getElementById(i)
-        scroll.scrollIntoView({ behavior: "smooth", block: "center" })
-        const childs = scroll.querySelector('.noEdit')
-        childs.click()
-        return
+    if (element.questionType == 'SINGLE_CHOICE' || element.questionType == 'MULTIPLE_CHOICE' || element.questionType == 'DROPDOWN_SINGLE_CHOICE') {
+      for (let j = 0; j < element.optionList.length; j++) {
+        const ele = element.optionList[j]
+        if (ele.content.length == 0) {
+          ElMessage.error('选项内容不能为空')
+          const scroll = document.getElementById(i)
+          scroll.scrollIntoView({ behavior: "smooth", block: "center" })
+          const childs = scroll.querySelector('.noEdit')
+          childs.click()
+          return
+        }
       }
     }
+
   }
   await request.post(userApi.createRegistrationFormAPI, {
-    productId: route.params.id,
+    productId: Number(route.params.id),
     questionList: questionList.value
   }).then(res => {
     ElMessage.success(res.msg)

@@ -4,18 +4,19 @@
     </component>
     <div class="oprations" v-if="isEdit == true">
       <div class="text" @click="addQues()">此题后插入新题</div>
-      <el-select class="select" v-model="ques.isRequired">
+      <el-select :disabled="route.query.isEdit == 0" class="select" v-model="ques.isRequired">
         <el-option :value="1" label="必答"></el-option>
         <el-option :value="0" label="非必答"></el-option>
       </el-select>
-      <el-select class="select" style="marginLeft:0" v-model="ques.questionType">
+      <el-select :disabled="route.query.isEdit == 0" class="select" style="marginLeft:0" v-model="ques.questionType">
         <el-option value="SINGLE_CHOICE" label="单选"></el-option>
         <el-option value="MULTIPLE_CHOICE" label="多选"></el-option>
         <el-option value="FILL_IN_THE_BLANKS" label="填空"></el-option>
         <el-option value="DROPDOWN_SINGLE_CHOICE" label="下拉框单选"></el-option>
         <el-option value="PICTURE" label="上传图片"></el-option>
       </el-select>
-      <el-button class="btn" type="success" @click="isEdit = false">完成编辑</el-button>
+      <el-button class="btn" type="success" @click="isEdit = false">{{ route.query.isEdit == 1 ? '完成编辑' : '完成查看'
+      }}</el-button>
     </div>
   </div>
 </template>
@@ -26,6 +27,8 @@ import fill from "./quesTemps/fill.vue"
 import selection from "./quesTemps/selection.vue"
 import upLoad from "./quesTemps/upload.vue"
 import { ref, computed, inject } from 'vue'
+import { useRoute } from "vue-router"
+const route = useRoute()
 const props = defineProps({
   ques: Object,
   theIndex: {
@@ -49,7 +52,10 @@ const getComponentName = computed(() => {
 
 const addFun = inject('addQues')
 const addQues = () => {
-  addFun(props.theIndex)
+  if (route.query.isEdit == 1) {
+    addFun(props.theIndex)
+  }
+  return
 }
 
 defineExpose({

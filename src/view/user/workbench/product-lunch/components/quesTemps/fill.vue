@@ -1,13 +1,13 @@
 <template>
   <div class="fill" v-if="isEdit == true">
     <div class="title">
-      <el-input class="input" placeholder="编辑题目" v-model="ques.title"></el-input>
-      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()">
-      <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '"
+      <el-input :disabled="route.query.isEdit == 0" class="input" placeholder="编辑题目" v-model="ques.title"></el-input>
+      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()" v-show="route.query.isEdit == 1">
+      <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '" v-show="route.query.isEdit == 1"
         v-if="ques.description.length == 0">
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description"></el-input>
+      <el-input :disabled="route.query.isEdit == 0" class="desinput" placeholder="编辑题目说明" v-model="ques.description"></el-input>
       <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
     </div>
   </div>
@@ -21,6 +21,9 @@
 <script setup>
 import { inject } from 'vue'
 import { ElMessage } from 'element-plus'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 const props = defineProps({
   ques: {
@@ -54,6 +57,7 @@ const delQues = () => {
     font-size: 14px;
     line-height: 24px;
     color: #262626;
+    
   }
 
   .desc {
@@ -86,7 +90,7 @@ const delQues = () => {
 
   .title {
     display: flex;
-
+    margin: 0 auto 0 0; 
     .icon {
       margin: auto 0 auto 20px;
       width: 16px;
