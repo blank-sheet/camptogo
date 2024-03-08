@@ -220,7 +220,24 @@ const createReForm = async () => {
         }
       }
     }
-
+    if (element.questionType == 'MULTIPLE_CHOICE') {
+      if (!element.minCount || element.minCount <= 0) {
+        ElMessage.error('请设置最少选项')
+        const scroll = document.getElementById(i)
+        scroll.scrollIntoView({ behavior: "smooth", block: "center" })
+        const childs = scroll.querySelector('.noEdit')
+        childs.click()
+        return
+      }
+      if (!element.maxCount || element.maxCount < element.minCount) {
+        ElMessage.error('请设置最多选项')
+        const scroll = document.getElementById(i)
+        scroll.scrollIntoView({ behavior: "smooth", block: "center" })
+        const childs = scroll.querySelector('.noEdit')
+        childs.click()
+        return
+      }
+    }
   }
   await request.post(userApi.createRegistrationFormAPI, {
     productId: Number(route.params.id),
