@@ -35,7 +35,8 @@ function gTransform(i) {
 .circle {
   position: absolute;
   top: 450px;
-  left: 60px;
+  left: 50%;
+  transform: translate(-50%);
   z-index: 999;
 }
 </style>

@@ -10,6 +10,16 @@
     </div>
   </header>
 
+
+  <el-tooltip class="box-item" placement="left">
+    <template #content>
+      <el-image src=""></el-image>
+    </template>
+    <div class="kefu">
+      <img src="../../../assets/kefu.png" alt="">
+      <div>联系我们</div>
+    </div>
+  </el-tooltip>
   <!-- 第一部分 -->
   <section class="section1" v-view="'fade-in'">
     <div class="left">
@@ -152,7 +162,6 @@
         </div>
         <img src="../../../assets/rocket2.png" alt="" style="width:40%;" class="bgimg">
       </div>
-
       <div class="item">
         <div class="i-title">先进创新</div>
         <div class="i-text">行业团体服务标准牵头制定单位</div>
@@ -175,7 +184,15 @@
         <img src="../../../assets/starts.png" alt="" class="bgimg">
       </div>
     </div>
+    <div class="panl">
+      <div class="smallFooterPanl panl1"></div>
+      <div class="smallFooterPanl panl2"></div>
+      <div class="smallFooterPanl panl3"></div>
+    </div>
     <div class="footerPanl"></div>
+    <div class="btns">
+      <el-button class="btn" type="success" @click="openServerWechatVisiable = true">立即入驻</el-button>
+    </div>
   </section>
 
   <!-- 第五部分 -->
@@ -219,10 +236,63 @@
     </div>
   </section>
 
+  <!-- 第六部分 -->
   <section class="section6" v-view="'fade-in'">
+    <div class="bigTitle">入职流程</div>
     <div class="map"></div>
     <div class="line2"></div>
-    <div class="setps"></div>
+    <div class="setps">
+      <div class="step" style="marginTop:24vh;">
+        <el-button class="btn" type="success">基本条件</el-button>
+        <div class="s-contain">
+          <div class="s-c-title">个人入驻</div>
+          <div class="s-c-text">1. 境内的完全民事行为能力人</div>
+          <div class="s-c-text">2. 个人专业能力证明</div>
+          <div class="s-c-text">3. 有较为丰富的活动举办经验</div>
+          <div class="s-c-title">机构认证</div>
+          <div class="s-c-text">1. 组织“体验式教育”活动的机构</div>
+          <div class="s-c-text">2. 有效的经营许可证明(如有)：如教育机构、培训机构、旅行社、体育馆、博物馆、科技馆、特种行业经营许可等</div>
+          <div class="s-c-text">3. 商标注册证、经营授权(如有)等</div>
+
+        </div>
+      </div>
+      <div class="step" style="marginTop:16vh;">
+        <el-button class="btn" type="success">入驻申请</el-button>
+        <div class="s-contain">
+          <div class="s-c-title">注册手机号及邮箱</div>
+          <div class="s-c-text">使用可正常通讯的国内手机号码及邮箱注册帐号，并妥善保管</div>
+          <div class="s-c-title">身份资料</div>
+          <div class="s-c-text">入驻机构或个人证明、主要负责人身份证明</div>
+          <div class="s-c-title">入驻申请 </div>
+          <div class="s-c-text">个人入驻申请函/企业入驻公函（前往<span class="link">下载模版</span>）</div>
+        </div>
+      </div>
+      <div class="step" style="marginTop:8vh;">
+        <el-button class="btn" type="success">在线签约</el-button>
+        <div class="s-contain">
+          <div class="s-c-title">入驻审核</div>
+          <div class="s-c-text">请及时接听电话，平台将电话通知审核结果</div>
+          <div class="s-c-title">创建运营工作群</div>
+          <div class="s-c-text">平台指派专门服务经理建群、答疑、辅导，并负责后续运营工作</div>
+          <div class="s-c-title">电子签约</div>
+          <div class="s-c-text">平台规则协议及入驻协议同意签署</div>
+        </div>
+      </div>
+      <div class="step">
+        <el-button class="btn" type="success">商品发布</el-button>
+        <div class="s-contain">
+          <div class="s-c-title">基础信息</div>
+          <div class="s-c-text">补充财税、经营信息等</div>
+          <div class="s-c-title">品牌信息</div>
+          <div class="s-c-text">主理人品牌及团队设置</div>
+          <div class="s-c-title">首款商品发布 </div>
+          <div class="s-c-text">对接商品物料，完成其他账户功能开通及设置</div>
+          <div class="s-c-title">审核通过商品上架</div>
+          <div class="s-c-text">对接运营规程及商品客服说明</div>
+        </div>
+
+      </div>
+    </div>
     <div class="btns">
       <el-button class="btn" type="success" @click="openServerWechatVisiable = true">立即入驻</el-button>
     </div>
@@ -409,6 +479,34 @@ const iconItems = [
 
 }
 
+
+.kefu {
+  width: 4.5vw;
+  height: 4.5vw;
+  background-color: #fff;
+  z-index: 4;
+  position: absolute;
+  right: 0;
+  top: 30%;
+  box-shadow: 0px -1px 2px -2px rgba(0, 0, 0, 0.16), 0px -3px 6px 0px rgba(0, 0, 0, 0.12), 0px -5px 12px 4px rgba(0, 0, 0, 0.09);
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5vw;
+
+  img {
+    width: 1.8vw;
+    height: 1.8vw;
+    margin: auto auto 1vh auto;
+  }
+
+  div {
+    margin: 0 auto auto auto;
+    color: #75B000;
+    font-family: PingFang SC;
+    font-weight: 400;
+    font-size: 0.8vw;
+  }
+}
 
 /* 第一部分样式 */
 .section1 {
@@ -754,14 +852,14 @@ const iconItems = [
     font-weight: 550;
     color: #333333;
     position: absolute;
-    top: 20%;
+    top: 15%;
   }
 
   .itemsBox {
     width: 100%;
     height: 55vh;
     position: absolute;
-    top: 37%;
+    top: 30%;
     display: flex;
 
     .items {
@@ -851,8 +949,43 @@ const iconItems = [
     background-size: 100%;
     position: absolute;
     bottom: 0;
-    z-index: 2;
+    z-index: 3;
   }
+
+  .panl {
+    width: 70%;
+    z-index: 4;
+    bottom: 11%;
+    height: 10vh;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    left: 50%;
+    transform: translate(-50%);
+
+    .smallFooterPanl {
+      width: 23.5%;
+      height: 100%;
+      background-image: url(../../../assets/smallFooterPanl.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      transform: translate(3px);
+    }
+
+    .panl1 {
+      left: 18.5%;
+    }
+
+    .panl2 {
+      left: calc(18.5% * 2);
+    }
+
+    .panl3 {
+      left: calc(18.5% * 3);
+
+    }
+  }
+
 
   .title {
     width: 100%;
@@ -886,17 +1019,18 @@ const iconItems = [
   }
 
   .items {
-    width: 80%;
-    margin: 0 10%;
+    width: 70%;
     height: 45vh;
     display: flex;
     justify-content: space-around;
     position: absolute;
-    top: 38%;
+    top: 35%;
     z-index: 5;
+    left: 50%;
+    transform: translate(-50%);
 
     .item {
-      width: 18%;
+      width: 22%;
       height: 100%;
       background-color: #fff;
       border: 2px solid #75B000;
@@ -945,6 +1079,15 @@ const iconItems = [
         right: 0;
       }
     }
+  }
+
+  .btns {
+    width: 100%;
+    position: absolute;
+    bottom: 6%;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -1046,6 +1189,15 @@ const iconItems = [
   background: #fff;
   position: relative;
 
+  .bigTitle {
+    font-family: PingFang SC;
+    font-size: 2.3vw;
+    font-weight: 550;
+    position: absolute;
+    left: 10%;
+    top: 15%;
+  }
+
   .map {
     width: 95%;
     height: 90%;
@@ -1060,16 +1212,60 @@ const iconItems = [
   }
 
   .setps {
-    width: 70%;
+    width: 75%;
     height: 70%;
-    background-image: url(../../../assets/steps.png);
     background-repeat: no-repeat;
     background-size: 100%;
     z-index: 2;
     position: absolute;
-    bottom: 6%;
+    bottom: 8%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-48%);
+    display: flex;
+    justify-content: space-between;
+
+    .step {
+      width: 23%;
+      height: 100%;
+
+      .btn {
+        width: 9vw;
+        margin-bottom: 2vh;
+      }
+
+      .s-contain {
+        width: 100%;
+
+        .s-c-title {
+          width: 100%;
+          border-left: 3px solid #95D600;
+          padding-left: 0.5vw;
+          font-family: PingFang SC;
+          font-size: 1vw;
+          font-weight: 550;
+          color: #333333;
+          margin: 1vh 0;
+        }
+
+        .s-c-text {
+          width: 78%;
+          font-family: PingFang SC;
+          padding-left: 0.5vw;
+          font-size: 0.9vw;
+          color: #585858;
+          line-height: 2.7vh;
+        }
+      }
+
+      .link {
+        color: #93d500;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 
   .line2 {
@@ -1092,6 +1288,7 @@ const iconItems = [
     bottom: 5%;
     z-index: 5;
   }
+
 }
 
 .footer {
