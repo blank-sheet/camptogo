@@ -228,53 +228,40 @@
     </div>
   </section>
 
-  <!-- <section class="section5" v-view="'fade-in'">
-    <h1>欢迎入驻营探</h1>
-    <div>
-      <el-form :model="form" label-width="140px" status-icon>
-        <el-form-item label="申请人全称：" required="true"
-          ><el-input
-            style="width: 300px"
-            type="text"
-            placeholder="与营业执照/身份证名称保持一致"
-            v-model="form.applicant_name"
-        /></el-form-item>
-        <el-form-item label="注 册 邮 箱：" required="true"
-          ><el-input
-            style="width: 300px"
-            type="text"
-            placeholder="请填写正确的邮箱住址"
-            v-model="form.email"
-        /></el-form-item>
-        <el-form-item label="注册手机号：" required="true"
-          ><el-input
-            style="width: 300px"
-            type="text"
-            placeholder="可通过该手机号找回密码"
-            v-model="form.phoneplatform"
-        /></el-form-item>
-        <el-form-item label="联系人姓名：" required="true"
-          ><el-input
-            style="width: 300px"
-            type="text"
-            placeholder="请填写联系人姓名"
-            v-model="form.contact_name"
-        /></el-form-item>
-        <el-form-item label="联系人职务：" required="true"
-          ><el-input
-            style="width: 300px"
-            type="text"
-            placeholder="请填写联系人职务"
-            v-model="form.contact_job"
-        /></el-form-item>
-        <el-form-item>
-          <el-button type="success" @click="submit"
-            >申请入驻</el-button
-          ></el-form-item
-        >
-      </el-form>
+  <footer class="footer">
+    <div class="left">
+      <div>
+        <a>用户协议</a> <span>|</span> <a>隐私政策</a> <span>|</span> <a>免责声明</a>
+        <span>|</span> <a>关于我们</a>
+      </div>
+      <div>
+        <a>联系电话:010-87511881（工作日9:00-18:00）联系邮箱:services@camptogo.com</a>
+      </div>
+      <div><a>联系地址：北京市海淀区花园路北路25号Epark（花园路社区）</a></div>
+      <div><a>Copyright © 2021-2022 Camptogo. All Right Reserved</a></div>
+      <div>
+        <a>增值电信业务许可证：京B2-20202973 ICP许可证: 京ICP备20200034870号-1</a>
+      </div>
+      <div>
+        <img src="../../../assets/regis.ef881569.png" style="margin-right: 5px" />
+        <a>京公网安备 11010802035862号</a>
+      </div>
     </div>
-  </section> -->
+    <div class="right">
+      <div class="webo">
+        <div class="weiboQR">
+          <img src="../../../assets/weibo.831906f5.png" />
+        </div>
+        <div class="texts">营探官方微博</div>
+      </div>
+      <div class="gonzhonhao">
+        <div class="wechatQR">
+          <img src="../../../assets/miniapp.ec947916.jpg" />
+        </div>
+        <div class="texts">营探官方公众号</div>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script setup>
@@ -1097,13 +1084,111 @@ const iconItems = [
     top: 8%;
   }
 
-  .btns{
+  .btns {
     width: 100%;
     display: flex;
     justify-content: center;
     position: absolute;
     bottom: 5%;
     z-index: 5;
+  }
+}
+
+.footer {
+  background-color: #4d4d4d;
+  height: 237px;
+
+  .left {
+    padding: 34px;
+    float: left;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #fff;
+
+    div {
+      margin: 4px;
+    }
+
+    a {
+      color: #bdbdbd;
+      text-decoration: none;
+      font-size: 12px;
+      text-align: left;
+      cursor: pointer;
+
+      &:hover {
+        color: #93d500;
+      }
+    }
+
+    span {
+      color: #bebebe;
+      margin: 2px;
+    }
+  }
+
+  .right {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+    top: 20px;
+    align-items: center;
+    float: right;
+    width: 400px;
+    height: 180px;
+    margin-right: 70px;
+
+    .webo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .weiboQR {
+        img {
+          height: 95px;
+          margin: 10px;
+          float: right;
+        }
+      }
+
+      .texts {
+        color: #fff;
+        font-size: 10px;
+        position: relative;
+      }
+    }
+
+    .gonzhonhao {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .wechatQR {
+        img {
+          float: right;
+          height: 95px;
+          margin: 10px;
+        }
+      }
+
+      .texts {
+        color: #fff;
+        font-size: 10px;
+        position: relative;
+      }
+    }
+  }
+
+  .texts {
+    font-size: 18px;
+    color: #fff;
+    position: absolute;
   }
 }
 </style>
