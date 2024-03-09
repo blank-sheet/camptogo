@@ -107,7 +107,8 @@
             <div class="t-title">专业市场信用累积</div>
             <div class="t-text">帮助您在互信的商业基础上建立品牌资产，提供可长期持续发展的信用体系建设。</div>
             <div class="imgs">
-              <img class="img1" src="../../../assets/kuai.png" style="width:3vw;height:3vw;margin: auto 1.5vh 1.5vh auto;" alt="">
+              <img class="img1" src="../../../assets/kuai.png" style="width:3vw;height:3vw;margin: auto 1.5vh 1.5vh auto;"
+                alt="">
               <img class="img2" src="../../../assets/lines.png" alt="">
             </div>
           </div>
@@ -141,18 +142,92 @@
       <div class="t-text">营探补贴2元/人/日保险费用*</div>
     </div>
     <div class="items">
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
+      <div class="item">
+        <div class="i-title">零元入驻</div>
+        <div class="i-text">一站管理 理想减负 专业提升</div>
+        <div class="textBox">
+          <div class="tb-text">0元申请费</div>
+          <div class="tb-text">0元会员费</div>
+          <div class="tb-text">0元认证费</div>
+        </div>
+        <img src="../../../assets/rocket2.png" alt="" style="width:40%;" class="bgimg">
+      </div>
+
+      <div class="item">
+        <div class="i-title">先进创新</div>
+        <div class="i-text">行业团体服务标准牵头制定单位</div>
+        <div class="textBox">
+          <div class="tb-text">高质量发展</div>
+          <div class="tb-text">数字化平台</div>
+          <div class="tb-text">专业化市场</div>
+        </div>
+
+        <img src="../../../assets/plant2.png" style="height: 28%;" alt="" class="bgimg">
+      </div>
+      <div class="item">
+        <div class="i-title">超值权益</div>
+        <div class="i-text">资源库跨界合作 转型升级辅导</div>
+        <div class="textBox">
+          <div class="tb-text">商户独立终端</div>
+          <div class="tb-text">行业前沿资讯</div>
+          <div class="tb-text">品牌营销服务</div>
+        </div>
+        <img src="../../../assets/starts.png" alt="" class="bgimg">
+      </div>
     </div>
     <div class="footerPanl"></div>
   </section>
 
-
+  <!-- 第五部分 -->
   <section class="section5" v-view="'fade-in'">
+    <div class="computer"></div>
+    <div class="ques">
+      <div class="q-title">入驻条件</div>
+      <div class="btns">
+        <el-button class="btn" type="success" @click="openServerWechatVisiable = true">立即入驻</el-button>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <img src="../../../assets/card1.png" alt="" class="cardIcon">
+        <div class="container">
+          <div class="c-title">承诺合法经营</div>
+          <div class="c-text">遵守营探平台规则，承诺合法合规经营并落实安全管理责任，以提供高品质服务、保护消费者权益及未成年人发展为己任。</div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../../../assets/card2.png" alt="" class="cardIcon">
+        <div class="container">
+          <div class="c-title">承诺最低价格</div>
+          <div class="c-text">确保消费者在营探购买商品的零售价格，不高于该商品同期其他渠道的零售价格，承诺向营探用户提供最优优惠。</div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../../../assets/card3.png" alt="" class="cardIcon">
+        <div class="container">
+          <div class="c-title">承诺100%投保</div>
+          <div class="c-text">打造可持续的经营发展条件，为自身、工作人员及活动出行人全面购买责任险及意外险的保险保障。</div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../../../assets/card4.png" alt="" class="cardIcon">
+        <div class="container">
+          <div class="c-title">承诺高质量发展</div>
+          <div class="c-text">响应行业规范发展要求，积极培训并提高人员队伍素质，持续向产品研发投入资源，打造优势品牌。</div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- 第五部分 -->
+  <section class="section6" v-view="'fade-in'">
+    <div class="map"></div>
+    <div class="line2"></div>
+    <div class="setps"></div>
+    <div class="btns">
+      <el-button class="btn" type="success" @click="openServerWechatVisiable = true">立即入驻</el-button>
+    </div>
+  </section>
+
   <!-- <section class="section5" v-view="'fade-in'">
     <h1>欢迎入驻营探</h1>
     <div>
@@ -718,11 +793,13 @@ const iconItems = [
           0px -10px 32px rgba(0, 0, 0, 0.05);
         background-color: #fff;
         overflow: hidden;
+
         .text {
           padding: 2vh;
           color: #333333;
           user-select: none;
           position: relative;
+
           .t-title {
             font-family: PingFang SC;
             font-size: 1.4vw;
@@ -730,7 +807,8 @@ const iconItems = [
             margin: 2vh 0;
             color: #333333;
           }
-          .t-text{
+
+          .t-text {
             width: 85%;
             font-family: PingFang SC;
             font-size: 1vw;
@@ -741,7 +819,7 @@ const iconItems = [
             overflow: hidden;
           }
 
-          .imgs{
+          .imgs {
             position: absolute;
             bottom: 2vh;
             right: 0;
@@ -751,12 +829,14 @@ const iconItems = [
             background-size: 100%;
             background-repeat: no-repeat;
             display: flex;
-            .img1{
+
+            .img1 {
               width: 4vw;
               height: 4vw;
               margin: auto 0 0.5vh auto;
             }
-            .img2{
+
+            .img2 {
               width: 1.2vw;
               height: 1.2vw;
               position: absolute;
@@ -814,7 +894,7 @@ const iconItems = [
       font-weight: 400;
       text-align: center;
       margin-top: 2vh;
-      
+
     }
   }
 
@@ -834,6 +914,49 @@ const iconItems = [
       background-color: #fff;
       border: 2px solid #75B000;
       border-radius: 1.3vw;
+      position: relative;
+      user-select: none;
+
+      .i-title {
+        font-size: 1.5vw;
+        width: 100%;
+        color: #75B000;
+        font-weight: 550;
+        text-align: center;
+        font-family: PingFang SC;
+        margin-top: 5vh;
+      }
+
+      .i-text {
+        font-size: 0.9vw;
+        text-align: center;
+        color: #262626;
+        margin: 2vh 0 4vh 0;
+        font-family: PingFang SC;
+      }
+
+      .textBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 20vh;
+        width: 100%;
+
+        .tb-text {
+          margin: auto;
+          font-family: PingFang SC;
+          font-size: 1.1vw;
+          color: #262626;
+        }
+      }
+
+      .bgimg {
+        width: 50%;
+        height: 35%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
     }
   }
 }
@@ -841,5 +964,146 @@ const iconItems = [
 .section5 {
   width: 100%;
   height: 100vh;
+  background: linear-gradient(rgba(198, 230, 115, 0.3), rgba(225, 239, 180, 0));
+  position: relative;
+
+  .computer {
+    width: 30%;
+    height: 75%;
+    background-image: url(../../../assets/computer.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+  }
+
+  .ques {
+    width: 20%;
+    height: 30vh;
+    position: absolute;
+    top: 24%;
+    left: 13%;
+    user-select: none;
+
+    .q-title {
+      font-size: 2.4vw;
+      font-weight: normal;
+      font-family: PingFang SC;
+      color: #333333;
+      font-weight: 550;
+    }
+
+    .btns {
+      .btn {
+        margin: 5vh 0;
+      }
+    }
+  }
+
+  .cards {
+    width: 55%;
+    height: 60vh;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+      width: 44%;
+      height: 43%;
+      margin: auto;
+      border-radius: 1vw;
+      background-color: #fff;
+      border: 2px solid #75B000;
+      box-shadow: 6px 0px 16px -8px rgba(117, 176, 0, 0.08), 9px 0px 28px 0px rgba(117, 176, 0, 0.05), 12px 0px 48px 16px rgba(117, 176, 0, 0.03);
+      display: flex;
+
+      .cardIcon {
+        width: 5vw;
+        height: 5vw;
+        margin: 2vh 0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        margin: 1vh 1vw;
+        padding: 2vh 0;
+
+        .c-title {
+          font-family: PingFang SC;
+          font-size: 1.8vw;
+          font-weight: 500;
+          color: #333333;
+        }
+
+        .c-text {
+          margin-top: 2vh;
+          color: #666;
+          font-family: PingFang SC;
+          font-size: 1vw;
+          font-weight: 400;
+          line-height: 1.3vw;
+        }
+      }
+    }
+  }
+}
+
+
+.section6 {
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  position: relative;
+
+  .map {
+    width: 95%;
+    height: 90%;
+    background-image: url(../../../assets/map.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 1vh;
+  }
+
+  .setps {
+    width: 70%;
+    height: 70%;
+    background-image: url(../../../assets/steps.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: 2;
+    position: absolute;
+    bottom: 6%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .line2 {
+    width: 70%;
+    height: 40%;
+    background-image: url(../../../assets/line2.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: 3;
+    position: absolute;
+    left: 9%;
+    top: 8%;
+  }
+
+  .btns{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 5%;
+    z-index: 5;
+  }
 }
 </style>
