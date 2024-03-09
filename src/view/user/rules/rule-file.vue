@@ -126,7 +126,8 @@ const props = defineProps({
 const files = ref([])
 
 onUpdated(() => {
-  // currentView.value = `${props.index}1`
+  const a =  document.querySelector('.allText')
+  a.scrollIntoView({ behavior: 'smooth', block: 'start' })
 })
 const timer = ref(null)
 //100毫秒延迟获取正确的当前dom
@@ -175,6 +176,7 @@ watch(() => currentView.value, (newV) => {
   const Dom = document.getElementById(newV)
   Dom.scrollIntoView({ behavior: 'smooth', block: 'center' })
 })
+
 </script>
 <style lang="scss" scoped>
 .rule {

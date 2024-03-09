@@ -1,116 +1,157 @@
 <template>
   <!-- 头部 -->
   <header>
-    <div class="headerimg" @click="() => router.push('./')">
+    <div class="headerimg">
       <div class="greencloud"></div>
       <div class="logo"></div>
-      <span>|</span>
-      <span>招商平台</span>
+      <div class="text"><span class="t-text">|&emsp;招商平台</span><span class="t-text"
+          @click="() => router.push('./')">返回官网</span></div>
+      <div class="logo2"></div>
     </div>
   </header>
+
   <!-- 第一部分 -->
   <section class="section1" v-view="'fade-in'">
     <div class="left">
-      <div>
-        <h1 class="pageTitle"><span>营地奇遇</span><span>探手可得</span></h1>
-        <h2>欢迎加入营探平台<span>共创泛营地教育新生态</span></h2>
-      </div>
+      <h1 class="pageTitle"><span>营地奇遇</span>&emsp13;&emsp13;<span>探手可得</span></h1>
+      <h2>聚集优质行业伙伴, 让更多教育需求被满足</h2>
       <div class="buttons">
-        <!-- <el-button
-          class="gotInvestplatform"
-          type="success"
-          @click="() => router.push('./settle-in')"
-          >立即入驻</el-button
-        > -->
-        <el-button class="gotInvestplatform" type="success" @click="openServerWechatVisiable = true">立即入驻</el-button>
+        <el-button class="btn" type="success" @click="openServerWechatVisiable = true">立即0元入驻</el-button>
         <el-dialog v-model="openServerWechatVisiable" title="立即入驻" width="30%">
           <p>请用手机扫码联系客服立即入驻</p>
           <img src="../../../assets/serverwechat.png" alt="" />
         </el-dialog>
-        <el-button @click="() => router.push('./login')" class="gotoworkbench">登录工作台</el-button>
+        <el-button class="btn" @click="() => router.push('./login')">登录工作台</el-button>
       </div>
     </div>
-    <div class="right">
-      <div class="download">
-        <div class="iphone_download">
-          <img src="../../../assets/iphone.png" />
-          <p>iPhone/iPad下载></p>
-        </div>
-
-        <div class="wechat_download">
-          <img src="../../../assets/wechat.png" />
-          <p>Wechat小程序></p>
+    <div class="mask"></div>
+    <div class="cloud1"></div>
+    <div class="cloud2"></div>
+    <div class="cloud3"></div>
+    <div class="cloud4"></div>
+    <div class="cloud5"></div>
+    <div class="bigCloud"></div>
+    <div class="spaceShip"></div>
+    <div class="person"></div>
+    <div class="fog"></div>
+    <div class="balls"></div>
+    <div class="footer">
+      <div class="item" v-for="item in iconItems" :key="item.title">
+        <el-image :src="item.url"></el-image>
+        <div class="text">
+          <div class="t-text1">{{ item.title }}</div>
+          <div class="t-text2">{{ item.desc }}</div>
         </div>
       </div>
     </div>
   </section>
+
   <!-- 第二部分 -->
   <section class="section2" v-view="'fade-in'">
-    <div class="advantage">
-      <img src="../../../assets/quotation.png" alt="" />
-      <h1>我们的<span style="color: #93d500">优势</span></h1>
-      <div>
-        <div>垂直市场全球视野</div>
-        <div></div>
-        更优质的服务 更专业的工具 更广泛的获客
+    <div class="titleBox">
+      <div class="left">
+        <img src="../../../assets/zhangpeng.png" alt="">
+      </div>
+      <div class="right">
+        <div class="r-title">帮助商家展示专业品牌、拓宽获客半径</div>
+        <div class="r-text">搭建一个产品优质、丰富、盈利能力更强的在线市场</div>
       </div>
     </div>
-    <div class="buttons">
-      <!-- <el-button
-        class="gotInvestplatform"
-        type="success"
-        @click="() => router.push('./settle-in')"
-        >立即入驻</el-button
-      > -->
-      <el-button class="gotInvestplatform" type="success" @click="openServerWechatVisiable = true">立即入驻</el-button>
-      <el-button @click="() => router.push('./login')" class="gotoworkbench">登录工作台</el-button>
+    <div class="cards">
+      <div class="card">
+        <img src="../../../assets/people2.png" alt="">
+        <div>亲子营</div>
+      </div>
+      <div class="card">
+        <img src="../../../assets/zhangpeng2.png" alt="">
+        <div>独立营</div>
+      </div>
+      <div class="card">
+        <img src="../../../assets/zhangpeng3.png" alt="">
+        <div>冬夏令营</div>
+      </div>
+      <div class="card">
+        <img src="../../../assets/mao.png" alt="">
+        <div>游学</div>
+      </div>
+      <div class="card">
+        <img src="../../../assets/boat.png" alt="">
+        <div>研学</div>
+      </div>
+      <div class="card">
+        <img style="transform: scale(1.7);" src="../../../assets/moneyHand.png" alt="">
+        <div>社会实践</div>
+      </div>
     </div>
-    <div class="fourgoods">
-      <div class="fourboxs">
-        <img src="../../../assets/fourimg_1.png" alt="1" />
-        <div>快速认证 提示商家权重</div>
-        <div><span>营探核心商家助力池等你jump in</span></div>
-      </div>
-      <div class="fourboxs">
-        <img src="../../../assets/fourimg_2.png" alt="1" />
-        <div>新商户 丰富见面礼</div>
-        <div><span>经营攻略免费学 | 安全守护 | 咨询分享</span></div>
-      </div>
-      <div class="fourboxs">
-        <img src="../../../assets/fourimg_3.png" alt="1" />
-        <div>流量扶持 多维立体展示</div>
-        <div><span>主页流量扶持 | 私域流量扶持 | 品牌联合推广</span></div>
-      </div>
-      <div class="fourboxs">
-        <img src="../../../assets/fourimg_4.png" alt="1" />
-        <div>数字化工作台 运营新革命</div>
-        <div><span>一站式促销管理 | 学员信息管理 | 资金管理</span></div>
-      </div>
+    <div class="btn">
+      <el-button type="success" @click="openServerWechatVisiable = true">立即0元入驻</el-button>
     </div>
   </section>
+
   <!-- 第三部分 -->
   <section class="section3" v-view="'fade-in'">
-    <div class="left">
-      <img src="../../../assets/computer.png" alt="11" />
-      <div>1分钟填写入驻申请</div>
-    </div>
-    <div class="right">
-      <h1><span>营探</span>科技驱动型平台</h1>
-      <h2>聚焦泛营地市场</h2>
-      <div>
-        <p>
-          定制工具 丨 花样跨界 丨 价值认同<br />
-          用科技、智慧、文化的力量，践行报国
-        </p>
-      </div>
-      <div class="Settled">
-        <el-button type="success" @click="openServerWechatVisiable = true">机构入驻</el-button>
-        <el-button type="success" @click="openServerWechatVisiable = true">个人入驻</el-button>
+    <div class="title">营探优势</div>
+    <div class="itemsBox">
+      <div class="items">
+        <div class="item">
+          <div class="text">
+            <div class="t-title">0元快速入驻</div>
+            <div class="t-text">0费用入驻，1日在线审核，标准化入驻流程、专业化在线市场，有效提高入驻效率及品牌形象。</div>
+            <div class="imgs">
+              <img class="img1" src="../../../assets/zhong.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <div class="t-title">专业市场信用累积</div>
+            <div class="t-text">帮助您在互信的商业基础上建立品牌资产，提供可长期持续发展的信用体系建设。</div>
+            <div class="imgs">
+              <img class="img1" src="../../../assets/kuai.png" style="width:3vw;height:3vw;margin: auto 1.5vh 1.5vh auto;" alt="">
+              <img class="img2" src="../../../assets/lines.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <div class="t-title">行业定制保险在线投保</div>
+            <div class="t-text">营探与保险公司、保险经纪公司定制在线投保方案, 保障平台及商户安全, 保护组织者、消费者权益。</div>
+            <div class="imgs">
+              <img class="img1" src="../../../assets/dun.png" alt="">
+              <img class="img2" style="width:2vw;height:5vh;right:1vw;bottom:2vh" src="../../../assets/dun2.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <div class="t-title">标准化商品发布体系</div>
+            <div class="t-text">广泛适用于体验式教育的商品发布体系，适用商品种类多，提升商品发布效率，提高信息流转速度及质量。</div>
+            <div class="imgs">
+              <img class="img1" src="../../../assets/moneyPack.png" alt="">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   <!-- 第四部分 -->
-  <section class="section4" v-view="'fade-in'"></section>
+  <section class="section4" v-view="'fade-in'">
+    <div class="title">
+      <div class="t-title">入驻商户每期享最高<span>300元</span>保险补贴!</div>
+      <div class="t-text">营探补贴2元/人/日保险费用*</div>
+    </div>
+    <div class="items">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <div class="footerPanl"></div>
+  </section>
+
+
+  <section class="section5" v-view="'fade-in'">
+  </section>
+
   <!-- 第五部分 -->
   <!-- <section class="section5" v-view="'fade-in'">
     <h1>欢迎入驻营探</h1>
@@ -164,8 +205,15 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { request } from '../../../api'
+import jiangbenImg from "../../../assets/jiangben.png"
+import bixianImg from "../../../assets/bixian.png"
+import zengyiImg from "../../../assets/zengyi.png"
+import tixiaoImg from "../../../assets/tixiao.png"
+
+
+
 const router = useRouter()
 const openServerWechatVisiable = ref(false)
 const form = reactive({
@@ -189,6 +237,34 @@ const submit = () => {
       if (r.Code == 200) ElMessage('申请成功')
     })
 }
+
+onMounted(() => {
+  const a = document.querySelector('.section1')
+  a.scrollIntoView({ behavior: 'smooth', block: 'start' })
+})
+
+const iconItems = [
+  {
+    title: '降本',
+    desc: '免费入驻、免费咨讯及培训服务',
+    url: jiangbenImg
+  },
+  {
+    title: '增益',
+    desc: '定向推广，增加产品及品牌曝光',
+    url: zengyiImg
+  },
+  {
+    title: '避险',
+    desc: '定制保险，更全面保障组织者权益',
+    url: bixianImg
+  },
+  {
+    title: '提效',
+    desc: '标准化产品发布，专业化行业工具',
+    url: tixiaoImg
+  }
+]
 </script>
 
 <style lang="scss" scoped>
@@ -210,6 +286,8 @@ const submit = () => {
   width: 100%;
   height: 150px;
   z-index: 9999;
+  display: flex;
+  user-select: none;
 
   .greencloud {
     top: 0;
@@ -223,216 +301,97 @@ const submit = () => {
   }
 
   .logo {
-    width: 288px;
+    width: 250px;
     height: 40px;
     background-image: url(../../../assets/white-yintan.png);
     background-position: center;
-    background-size: 85%;
+    background-size: 80%;
     background-repeat: no-repeat;
     position: absolute;
     top: 42px;
-    left: 50%;
-    transform: translate(-235%, -50%);
+    left: 1%;
+    transform: translate(0, -50%);
     z-index: 2;
   }
 
-  span {
+  .logo2 {
+    background-image: url(../../../assets/white-yintan.png);
+    width: 400px;
+    height: 40px;
     position: absolute;
+    z-index: 2;
+    left: 40%;
+    background-size: 65%;
+    background-repeat: no-repeat;
+    transform: translate(0, 73%);
+
+  }
+
+  .text {
+    position: absolute;
+    width: 80%;
     z-index: 3;
-    margin-left: 32px;
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     top: 30px;
-    left: 21%;
+    left: calc(250px + 1%);
+    display: flex;
+    justify-content: space-between;
+    font-family: PingFang SC;
     font-weight: 100;
+
+    .t-text {
+      cursor: pointer;
+    }
   }
 
-  :nth-child(4) {
-    padding-left: 32px;
-    font-weight: 400;
-  }
 }
 
-/* 下载按钮样式 */
-.download {
-  padding-top: 30px;
-  width: 1200;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 25px;
-    height: 25px;
-    margin-right: 4px;
-    margin-left: 5px;
-  }
-
-  .iphone_download {
-    width: 145px;
-    height: 48px;
-    background-color: #999;
-    color: white;
-    margin: 20px;
-    border-radius: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    // cursor: pointer;
-    // &:hover::before {
-    //   content: "敬请期待";
-    //   width: 100px;
-    //   position: absolute;
-    //   top: -50%;
-    //   transform: translate(23%, 20%);
-    //   font-size: 14px;
-    //   color: #333;
-    // }
-    // &:hover {
-    //   transform: scale(0.9);
-    //   transition: transform 0.3s ease-in-out;
-    // }
-  }
-
-  .wechat_download {
-    width: 145px;
-    height: 48px;
-    background-color: #333;
-    color: white;
-    margin: 20px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    cursor: pointer;
-    position: relative;
-
-    &:hover::before {
-      content: '';
-      width: 120px;
-      height: 120px;
-      position: absolute;
-      top: -140%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-image: url('../../../assets/wechatP.jpg');
-      background-size: cover;
-      z-index: 999;
-      opacity: 0;
-    }
-
-    &:hover::before {
-      opacity: 1;
-    }
-
-    &:hover {
-      transform: scale(0.9);
-      transition: transform 0.3s ease-in-out;
-    }
-  }
-}
-
-.buttons {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 25px;
-
-  .el-dialog__body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: 206px;
-      height: 206px;
-
-      margin-left: 50%;
-      transform: translate(-50%, 0);
-    }
-
-    p {
-      height: 24px;
-      width: 224px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      top: 89px;
-      font-size: 16px;
-      color: #000000d9;
-      margin-bottom: 24px;
-      margin-left: 50%;
-      transform: translate(-50%, 0);
-    }
-  }
-
-  .dialog-footer button:first-child {
-    margin-right: 10px;
-  }
-
-  .gotoworkbench {
-    font-size: 16px;
-    margin: 20px;
-    width: 121px;
-    height: 38.5px;
-    border-radius: 8px;
-    border: solid 1px #bfbfbf;
-    color: #bfbfbf;
-  }
-
-  .gotInvestplatform {
-    font-size: 16px;
-    margin: 20px;
-    width: 121px;
-    height: 38.5px;
-    border-radius: 8px;
-    background-color: #93d500;
-  }
-}
 
 /* 第一部分样式 */
 .section1 {
   width: 100%;
-  height: 840px;
+  height: 100vh;
   position: relative;
+  background: linear-gradient(130deg, #E1EFB4 40%, #C2E86B);
 
   .left {
-    float: left;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 25vh;
+    left: 5vw;
 
     .pageTitle {
-      padding-top: 100px;
       display: flex;
-      font-size: 60px;
+      font-size: 4.4vw;
+      margin-bottom: 4vh;
       justify-content: flex-start;
-      padding-top: 200px;
-      padding-left: 200px;
       align-items: center;
       color: #fff;
       font-family: youshe;
       font-weight: normal;
-      text-shadow: 0px 4px 4px rgba(147, 213, 0, 0.25);
-
-      span {
-        margin-left: 30px;
-        margin-right: 30px;
-      }
+      text-shadow: 6px 0px 16px rgba(123, 175, 0, 0.15), 9px 0px 28px rgba(123, 175, 0, 0.17);
     }
 
     h2 {
-      margin-top: 63px;
-      padding-left: 235px;
-      font-size: 30px;
+      font-family: PingFang SC;
+      font-size: 1.5vw;
       font-weight: 400;
+      color: #75B000;
+      margin: 0 0 0 0.5vw;
+    }
 
-      span {
-        font-size: 20px;
-        padding-left: 30px;
-        color: #93d500;
+    .buttons {
+      margin-top: 8vh;
+
+      .btn {
+        margin: 0 3vw 0 0;
       }
     }
+
   }
 
   .right {
@@ -441,213 +400,446 @@ const submit = () => {
     padding-top: 300px;
   }
 
-  .buttons {
-    padding-left: 190px;
-    padding-top: 100px;
+  .mask {
+    width: 100%;
+    height: 280px;
+    z-index: 1;
+    background-image: url(../../../assets/mask.png);
+    background-size: 100%;
+    position: absolute;
+    bottom: 0;
   }
+
+  .cloud1 {
+    width: 5.5vw;
+    height: 8vh;
+    background-image: url(../../../assets/cloud.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: 100%;
+    top: 20%;
+    left: 20%;
+    z-index: 4;
+  }
+
+  .cloud2 {
+    width: 8vw;
+    height: 12vh;
+    background-image: url(../../../assets/cloud.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: 100%;
+    top: 20%;
+    left: 47%;
+    z-index: 4;
+  }
+
+  .cloud3 {
+    width: 10.5vw;
+    height: 23vh;
+    background-image: url(../../../assets/cloud3.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: 100%;
+    bottom: 5%;
+    left: 39%;
+    z-index: 4;
+  }
+
+  .cloud4 {
+    width: 12vw;
+    height: 23vh;
+    background-image: url(../../../assets/cloud4.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: 100%;
+    bottom: 3%;
+    left: 79%;
+    z-index: 4;
+  }
+
+  .cloud5 {
+    width: 5.5vw;
+    height: 8vh;
+    background-image: url(../../../assets/cloud.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: 100%;
+    top: 47%;
+    right: 10%;
+    z-index: 4;
+  }
+
+  .bigCloud {
+    width: 14.5vw;
+    height: 20vh;
+    background-image: url(../../../assets/cloud2.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: 100%;
+    right: 25.5%;
+    bottom: 45%;
+    z-index: 4;
+  }
+
+  .person {
+    width: 17vw;
+    height: 80vh;
+    background-image: url(../../../assets/person.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 30.5%;
+    bottom: 3%;
+    z-index: 5;
+  }
+
+  .fog {
+    width: 11vw;
+    height: 40vh;
+    background-image: url(../../../assets/fog.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 20%;
+    bottom: 12%;
+    z-index: 4;
+  }
+
+  .balls {
+    width: 45vw;
+    height: 20vh;
+    background-image: url(../../../assets/balls.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 12%;
+    bottom: 25%;
+    z-index: 4;
+  }
+
+  .spaceShip {
+    width: 16vw;
+    height: 40vh;
+    background-image: url(../../../assets/spaceShip.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 32%;
+    right: 40%;
+    z-index: 4;
+  }
+
+  .footer {
+    width: 100%;
+    height: 13vh;
+    background-color: rgba(236, 240, 177, 0.5);
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    border-top: 1px solid rgb(212, 224, 140);
+    overflow: hidden;
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: space-evenly;
+    user-select: none;
+
+    .item {
+      width: 20%;
+      height: 100%;
+      display: flex;
+
+      .el-image {
+        width: 3.5vw;
+        height: 3.5vw;
+        margin: auto 0;
+      }
+
+      .text {
+        height: 3.5vw;
+        margin: auto 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-left: 0.5vw;
+
+        .t-text1 {
+          font-family: PingFang SC;
+          font-size: 18px;
+          font-weight: 600;
+        }
+
+        .t-text2 {
+          font-family: PingFang SC;
+          font-size: 14px;
+          font-weight: 400;
+          color: #595959;
+        }
+      }
+    }
+  }
+
 }
 
-/* 第二部分样式 */
 .section2 {
-  height: 840px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  width: 100%;
+  height: 120vh;
+  position: relative;
+  background-color: #fff;
+  background-image: url(../../../assets/greenLinebg.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
 
-  .advantage {
-    box-shadow: 1px 1px 10px rgba(144, 144, 144, 0.25);
-    height: 200px;
-    width: 800px;
-    left: 6694px;
-    top: -781px;
-    background-color: #fff;
-    border-radius: 11.5px;
+  .titleBox {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    user-select: none;
 
-    div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    img {
-      width: 30px;
-      position: absolute;
-      padding-right: 720px;
-      padding-bottom: 130px;
-    }
-  }
-
-  .fourgoods {
-    width: 1180px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    img {
-      padding: 20px;
-    }
-
-    div {
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-radius: 15px;
-      width: 260px;
-      margin: 10px;
-
-      span {
-        font-size: 12px;
-        color: #8a8a8a;
-        padding-bottom: 45px;
+    .left {
+      img {
+        width: 3.5vw;
+        height: 3.5vw;
+        margin: auto 20px auto 0;
       }
     }
 
-    .fourboxs {
-      box-shadow: 1px 1px 10px rgba(144, 144, 144, 0.25);
+    .right {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1vh;
+      height: 15vh;
+
+      .r-title {
+        font-family: PingFang SC;
+        font-size: 2.5vw;
+        font-weight: 550;
+        color: #333333;
+      }
+
+      .r-text {
+        font-family: PingFang SC;
+        font-size: 1.4vw;
+        font-weight: 400;
+        margin: 2vh 0;
+        color: #333333;
+      }
     }
+  }
+
+  .cards {
+    width: 80%;
+    height: 22%;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%);
+
+    .card {
+      height: 100%;
+      width: 12%;
+      background-color: #fff;
+      border-radius: 1.3vw;
+      border: 2px solid #75B000;
+      box-shadow: 6px 0px 8px rgb(210, 230, 161);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      user-select: none;
+
+      img {
+        width: 4vw;
+        height: 4vw;
+        margin: auto auto 0 auto;
+      }
+
+      div {
+        font-family: PingFang SC;
+        font-size: 18px;
+        margin: 2vh auto auto auto;
+        color: #262626;
+      }
+    }
+  }
+
+  .btn {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    position: absolute;
+    top: 78%;
   }
 }
 
 .section3 {
-  height: 840px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #fff;
+  background-image: url(../../../assets/greenLinebg2.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
 
-  .left {
-    float: left;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-
-    img {
-      width: 450px;
-      padding-left: 200px;
-      padding-top: 160px;
-    }
-
-    div {
-      position: absolute;
-      top: 600px;
-      left: 223px;
-      color: #93d500;
-    }
+  .title {
+    width: 100%;
+    text-align: center;
+    font-family: PingFang SC;
+    font-size: 2.4vw;
+    font-weight: 550;
+    color: #333333;
+    position: absolute;
+    top: 20%;
   }
 
-  .right {
-    float: right;
+  .itemsBox {
+    width: 100%;
+    height: 55vh;
+    position: absolute;
+    top: 37%;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 150px;
-    padding-top: 200px;
-    padding-right: 180px;
 
-    h1 {
-      font-style: normal;
-      font-weight: 500;
-      font-size: 45px;
+    .items {
+      width: 74%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      .item {
+        width: 40%;
+        height: 23vh;
+        border: 2px solid #75B000;
+        border-radius: 1.3vw;
+        box-shadow: 3px 6px 16px rgba(0, 0, 0, 0.03),
+          0px -10px 32px rgba(0, 0, 0, 0.05);
+        background-color: #fff;
+        overflow: hidden;
+        .text {
+          padding: 2vh;
+          color: #333333;
+          user-select: none;
+          position: relative;
+          .t-title {
+            font-family: PingFang SC;
+            font-size: 1.4vw;
+            font-weight: 550;
+            margin: 2vh 0;
+            color: #333333;
+          }
+          .t-text{
+            width: 85%;
+            font-family: PingFang SC;
+            font-size: 1vw;
+            font-weight: 400;
+            margin: 2vh 0;
+            color: #333333;
+            height: 12vh;
+            overflow: hidden;
+          }
+
+          .imgs{
+            position: absolute;
+            bottom: 2vh;
+            right: 0;
+            width: 5.5vw;
+            height: 5.5vw;
+            background-image: url(../../../assets/roundbg.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            display: flex;
+            .img1{
+              width: 4vw;
+              height: 4vw;
+              margin: auto 0 0.5vh auto;
+            }
+            .img2{
+              width: 1.2vw;
+              height: 1.2vw;
+              position: absolute;
+              right: 1.6vw;
+              bottom: 3.5vh;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.section4 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #EFF6EA;
+
+  .footerPanl {
+    width: 100%;
+    height: 33vh;
+    background-image: url(../../../assets/footerPanl.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  .title {
+    width: 100%;
+    position: absolute;
+    top: 15%;
+
+    .t-title {
+      width: 100%;
+      text-align: center;
+      font-family: PingFang SC;
+      font-size: 2.4vw;
+      font-weight: 550;
+      color: #333333;
 
       span {
-        padding-right: 30px;
-        color: #93d500;
+        text-decoration: underline;
+        text-decoration-thickness: 1vh;
+        text-decoration-color: rgb(250, 219, 23);
       }
     }
 
-    h2 {
-      font-size: 20px;
+    .t-text {
+      width: 100%;
+      font-family: PingFang SC;
+      font-size: 1.5vw;
       font-weight: 400;
-      color: #4d4d4d;
-      position: relative;
-      left: -142px;
-      top: -5px;
-      padding-bottom: 80px;
+      text-align: center;
+      margin-top: 2vh;
+      
     }
+  }
 
-    :nth-child(3) {
-      position: relative;
-      line-height: 40px;
-      left: -75px;
-      padding-bottom: 40px;
-      color: #4d4d4d;
-    }
+  .items {
+    width: 80%;
+    margin: 0 10%;
+    height: 45vh;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 38%;
+    z-index: 5;
 
-    .Settled {
-      :nth-child(1) {
-        margin-right: 20px;
-        margin-left: 20px;
-      }
-    }
-
-    .el-button {
-      margin-top: 52px;
-      background-color: #93d500;
-      border-radius: 6px;
-      width: 100px;
-      height: 40px;
-      position: relative;
-      left: -103px;
+    .item {
+      width: 18%;
+      height: 100%;
+      background-color: #fff;
+      border: 2px solid #75B000;
+      border-radius: 1.3vw;
     }
   }
 }
 
-/* 第四部分样式 */
-.section4 {
-  height: 840px;
-  background-image: url(../../../assets/mapallcontent.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-}
-
-/* 第五部分样式 */
 .section5 {
-  height: 840px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  span {
-    color: red;
-  }
-
-  .el-button {
-    margin-top: 30px;
-    background-color: #93d500;
-    border-radius: 6px;
-    width: 100px;
-    height: 40px;
-  }
-
-  h1 {
-    padding-bottom: 30px;
-  }
+  width: 100%;
+  height: 100vh;
 }
-
-/* 动画样式 */
-@keyframes fade {
-  0% {
-    transform: translateY(100px);
-    opacity: 0%;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 100%;
-  }
-}
-
-.fade-in {
-
-  h1,
-  h2 {
-    animation: fade 1s ease-in-out 1;
-  }
-}</style>
+</style>

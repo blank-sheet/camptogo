@@ -43,13 +43,19 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref , watch} from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import campBody from '../../../component/camp-body.vue'
 import RuleFile from './rule-file.vue'
 import ruleHome from "./ruleHome.vue"
 const router = useRouter()
 const route = useRoute()
+
+watch(route,(newV)=>{
+  if(newV.params.id != 'home'){
+    cur.value = newV.params.id[0] + '-' + newV.params.id.slice(1)
+  }
+})
 const defaultOpenedsArray = ref([])
 const level0 = [
   '工作台指引',
@@ -116,9 +122,6 @@ const level3 = [
 const files = [level0, level1, level2, level3]
 const selectedSubmenu = ref(-1)
 const cur = ref('0-0')
-const updatedefaultOpenedsArray = () => {
-  defaultOpenedsArray.value = []
-}
 const handleOpen = (key, keyPath) => {
   if (key == 'home') {
     router.push('/user/rule/home')
