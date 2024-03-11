@@ -11,17 +11,13 @@
   </header>
 
 
-  <el-tooltip class="box-item" placement="left">
-    <template #content>
-      <el-image src=""></el-image>
-    </template>
-    <div class="kefu">
-      <img src="../../../assets/kefu.png" alt="">
-      <div>联系我们</div>
-    </div>
-  </el-tooltip>
+
+  <div class="kefu">
+    <img src="../../../assets/kefu.png" alt="">
+    <div>联系我们</div>
+  </div>
   <!-- 第一部分 -->
-  <section class="section1" v-view="'fade-in'">
+  <section class="section1" v-view="'fade-in'" id="section-1">
     <div class="left">
       <h1 class="pageTitle"><span>营地奇遇</span>&emsp13;&emsp13;<span>探手可得</span></h1>
       <h2>聚集优质行业伙伴, 让更多教育需求被满足</h2>
@@ -57,7 +53,7 @@
   </section>
 
   <!-- 第二部分 -->
-  <section class="section2" v-view="'fade-in'">
+  <section class="section2" v-view="'fade-in'" id="section-2">
     <div class="titleBox">
       <div class="left">
         <img src="../../../assets/zhangpeng.png" alt="">
@@ -99,7 +95,7 @@
   </section>
 
   <!-- 第三部分 -->
-  <section class="section3" v-view="'fade-in'">
+  <section class="section3" v-view="'fade-in'" id="section-3">
     <div class="title">营探优势</div>
     <div class="itemsBox">
       <div class="items">
@@ -146,7 +142,7 @@
     </div>
   </section>
   <!-- 第四部分 -->
-  <section class="section4" v-view="'fade-in'">
+  <section class="section4" v-view="'fade-in'" id="section-4">
     <div class="title">
       <div class="t-title">入驻商户每期享最高<span>300元</span>保险补贴!</div>
       <div class="t-text">营探补贴2元/人/日保险费用*</div>
@@ -196,7 +192,7 @@
   </section>
 
   <!-- 第五部分 -->
-  <section class="section5" v-view="'fade-in'">
+  <section class="section5" v-view="'fade-in'" id="section-5">
     <div class="computer"></div>
     <div class="ques">
       <div class="q-title">入驻条件</div>
@@ -237,7 +233,7 @@
   </section>
 
   <!-- 第六部分 -->
-  <section class="section6" v-view="'fade-in'">
+  <section class="section6" v-view="'fade-in'" id="section-6">
     <div class="bigTitle">入职流程</div>
     <div class="map"></div>
     <div class="line2"></div>
@@ -298,7 +294,7 @@
     </div>
   </section>
 
-  <footer class="footer">
+  <footer class="footer" id="section-7">
     <div class="left">
       <div>
         <a>用户协议</a> <span>|</span> <a>隐私政策</a> <span>|</span> <a>免责声明</a>
@@ -320,9 +316,9 @@
     <div class="right">
       <div class="webo">
         <div class="weiboQR">
-          <img src="../../../assets/weibo.831906f5.png" />
+          <img src="../../../assets/qrCode.jpg" />
         </div>
-        <div class="texts">营探官方微博</div>
+        <div class="texts">营探客服</div>
       </div>
       <div class="gonzhonhao">
         <div class="wechatQR">
@@ -332,6 +328,13 @@
       </div>
     </div>
   </footer>
+
+  <button class="jumpbutton" :class="{ highlight: currentSectionIndex === 0 }" @click="scrollToNextSection">
+    <el-icon size="30px" color="white">
+      <ArrowDownBold v-if="currentSectionIndex != 6" :class="{ highlight: currentSectionIndex === 0 }" />
+      <ArrowUpBold v-if="currentSectionIndex === 6" />
+    </el-icon>
+  </button>
 </template>
 
 <script setup>
@@ -397,6 +400,16 @@ const iconItems = [
     url: tixiaoImg
   }
 ]
+
+const currentSectionIndex = ref(0)
+const sections = ['section-1', 'section-2', 'section-3', 'section-4', 'section-5', 'section-6','section-7']
+const scrollToNextSection = () => {
+  currentSectionIndex.value = (currentSectionIndex.value + 1) % sections.length
+  const targetSection = document.getElementById(sections[currentSectionIndex.value])
+  if (targetSection) {
+    targetSection.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -480,18 +493,20 @@ const iconItems = [
 }
 
 
+
 .kefu {
   width: 4.5vw;
   height: 4.5vw;
   background-color: #fff;
   z-index: 4;
-  position: absolute;
-  right: 0;
+  position: sticky;
+  left: 100%;
   top: 30%;
   box-shadow: 0px -1px 2px -2px rgba(0, 0, 0, 0.16), 0px -3px 6px 0px rgba(0, 0, 0, 0.12), 0px -5px 12px 4px rgba(0, 0, 0, 0.09);
   display: flex;
   flex-direction: column;
   border-radius: 0.5vw;
+  cursor: pointer;
 
   img {
     width: 1.8vw;
@@ -505,6 +520,23 @@ const iconItems = [
     font-family: PingFang SC;
     font-weight: 400;
     font-size: 0.8vw;
+  }
+
+  &:hover::before {
+    content: "";
+    width: 4.5vw;
+    height: 4.5vw;
+    position: absolute;
+    left: -101%;
+    background-color: #fff;
+    background-image: url(../../../assets/qrCode.jpg);
+    background-size: cover;
+    z-index: 999;
+    border-radius: 0.5vw;
+  }
+
+  &:hover {
+    transition: transform 0.3s ease-in-out;
   }
 }
 
@@ -1387,5 +1419,28 @@ const iconItems = [
     color: #fff;
     position: absolute;
   }
+}
+
+.jumpbutton {
+  position: fixed;
+  width: 6vh;
+  height: 6vh;
+  bottom: 6vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border-color: #fff;
+  cursor: pointer;
+  border: 2.6px solid white;
+  background: rgba(0, 0, 0, 0);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.highlight {
+  border-color: #dfefb4;
+  color: #dfefb4;
 }
 </style>

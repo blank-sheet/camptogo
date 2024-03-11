@@ -191,9 +191,9 @@
     <div class="right">
       <div class="webo">
         <div class="weiboQR">
-          <img src="../../../assets/weibo.831906f5.png" />
+          <img src="../../../assets/qrCode.jpg" />
         </div>
-        <div class="texts">营探官方微博</div>
+        <div class="texts">营探客服</div>
       </div>
       <div class="gonzhonhao">
         <div class="wechatQR">
