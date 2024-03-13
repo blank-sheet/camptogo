@@ -12,7 +12,7 @@
       </el-tooltip>
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description"
+      <el-input autosize type="textarea" class="desinput" placeholder="编辑题目说明" v-model="ques.description"
         :disabled="route.query.isEdit == 0"></el-input>
       <el-tooltip content="删除题目描述" placement="top">
         <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
@@ -25,7 +25,8 @@
           <div class="option">
             <div class="content">
               <img class="icon" src="../../../../../../assets/icon/move.svg" alt="">
-              <el-input class="input" placeholder="编辑题目" v-model="element.content" :disabled="route.query.isEdit == 0">
+              <el-input autosize type="textarea" class="input" placeholder="编辑题目" v-model="element.content"
+                :disabled="route.query.isEdit == 0">
                 <template #prefix>
                   <el-radio class="radio" label=" "></el-radio>
                 </template>
@@ -42,8 +43,8 @@
               </el-tooltip>
             </div>
             <div class="desc" v-show="element.description.length > 0">
-              <el-input :disabled="route.query.isEdit == 0" class="desinput" placeholder="编辑选项说明"
-                v-model="element.description"></el-input>
+              <el-input autosize type="textarea" :disabled="route.query.isEdit == 0" class="desinput"
+                placeholder="编辑选项说明" v-model="element.description"></el-input>
               <el-tooltip content="删除选项描述" placement="top">
                 <img class="icon2" src="../../../../../../assets/icon/del.svg" alt="" @click="deldesc(index)">
               </el-tooltip>
@@ -145,7 +146,7 @@ const showDesc = (index) => {
 }
 
 .noEdit {
-  padding: 24px 0;
+  padding: 2vh 0;
   background-color: #fff;
   cursor: pointer;
 
@@ -153,8 +154,8 @@ const showDesc = (index) => {
     font-family: 'PingFang SC';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 1vw;
+    line-height: 1.6;
     color: #262626;
     width: 95%;
     word-wrap: break-word;
@@ -162,24 +163,23 @@ const showDesc = (index) => {
 
   .desc {
     /* 这是题目说明 */
-    height: 24px;
     font-family: 'PingFang SC';
     font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 24px;
+    font-size: 0.8vw;
+    line-height: 1.6;
     /* 文字/常规 */
     color: #595959;
-
+    width: 90%;
+    word-wrap: break-word;
+    margin: 1vh 0;
   }
 
   .items {
     .item {
       font-family: 'PingFang SC';
       font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 22px;
+      font-size: 1vw;
+      line-height: 1.6;
       color: #585858;
 
       .i-contain {
@@ -192,6 +192,9 @@ const showDesc = (index) => {
       .text {
         font-size: 12px;
         margin-left: 20px;
+        width: 70%;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
@@ -220,9 +223,7 @@ const showDesc = (index) => {
       font-size: 1vw;
       user-select: none;
       cursor: pointer;
-
     }
-
   }
 }
 
@@ -243,7 +244,6 @@ const showDesc = (index) => {
         height: 1vw;
         font-size: 1vw;
         cursor: pointer;
-
       }
     }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="upload" v-if="isEdit == true">
     <div class="title">
-      <el-input class="input" placeholder="编辑题目" v-model="ques.title" :disabled="route.query.isEdit == 0"></el-input>
+      <el-input autosize type="textarea" class="input" placeholder="编辑题目" v-model="ques.title" :disabled="route.query.isEdit == 0"></el-input>
       <el-tooltip content="删除该题目" placement="top">
         <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()"
           v-show="route.query.isEdit == 1">
@@ -12,7 +12,7 @@
       </el-tooltip>
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description"
+      <el-input  autosize type="textarea" class="desinput" placeholder="编辑题目说明" v-model="ques.description"
         :disabled="route.query.isEdit == 0"></el-input>
       <el-tooltip content="删除题目描述" placement="top" v-show="route.query.isEdit == 1">
         <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
@@ -55,16 +55,18 @@ const delQues = () => {
 
 <style lang="scss" scoped>
 .noEdit {
-  padding: 24px 0;
+  padding: 2vh 0;
+
   background-color: #fff;
 
 
   .title {
     font-family: 'PingFang SC';
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 1vw;
+
+    line-height: 1.6;
+
     color: #262626;
     width: 95%;
     word-wrap: break-word;
@@ -72,15 +74,15 @@ const delQues = () => {
 
   .desc {
     /* 这是题目说明 */
-    height: 24px;
     font-family: 'PingFang SC';
     font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 24px;
+    font-size: 0.8vw;
+    line-height: 1.6;
     /* 文字/常规 */
     color: #595959;
-
+    width: 90%;
+    margin: 1vh 0;
+    word-wrap: break-word;
   }
 }
 
