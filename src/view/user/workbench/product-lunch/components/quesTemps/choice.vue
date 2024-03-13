@@ -2,15 +2,20 @@
   <div class="choice" v-if="isEdit == true">
     <div class="title">
       <el-input class="input" placeholder="编辑题目" v-model="ques.title" :disabled="route.query.isEdit == 0"></el-input>
-      <img class="icon" src="../../../../../../assets/icon/del.svg" v-show="route.query.isEdit == 1" alt=""
-        @click="delQues()">
-      <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '"
-        v-if="ques.description.length == 0 && route.query.isEdit == 1">
+      <el-tooltip content="删除该题目" placement="top">
+        <img class="icon" src="../../../../../../assets/icon/del.svg" v-show="route.query.isEdit == 1" alt=""
+          @click="delQues()">
+      </el-tooltip>
+      <el-tooltip content="添加题目描述" placement="top" v-if="ques.description.length == 0 && route.query.isEdit == 1">
+        <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '">
+      </el-tooltip>
     </div>
     <div class="title" v-show="ques.description.length > 0">
       <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description"
         :disabled="route.query.isEdit == 0"></el-input>
-      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
+      <el-tooltip content="删除题目描述" placement="top">
+        <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
+      </el-tooltip>
     </div>
     <div class="options">
       <draggable :disabled="route.query.isEdit == 0" animation="100" v-model="ques.optionList" group="people"
@@ -24,17 +29,25 @@
                   <el-radio class="radio" label=" "></el-radio>
                 </template>
               </el-input>
-              <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)"
-                v-show="route.query.isEdit == 1">
-              <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)"
-                v-show="route.query.isEdit == 1">
-              <img class="icon2" src="../../../..//../../assets/icon/vector.svg" alt="" @click="showDesc(index)"
-                v-show="route.query.isEdit == 1" v-if="element.description.length == 0">
+              <el-tooltip content="插入选项" placement="top" v-show="route.query.isEdit == 1">
+                <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)"
+                  >
+              </el-tooltip>
+              <el-tooltip content="删除该选项" placement="top" v-show="route.query.isEdit == 1">
+                <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)"
+                  >
+              </el-tooltip>
+              <el-tooltip content="添加选项描述" placement="top"
+                v-if="route.query.isEdit == 1 && element.description.length == 0">
+                <img class="icon2" src="../../../..//../../assets/icon/vector.svg" alt="" @click="showDesc(index)">
+              </el-tooltip>
             </div>
             <div class="desc" v-show="element.description.length > 0">
               <el-input :disabled="route.query.isEdit == 0" class="desinput" placeholder="编辑选项说明"
                 v-model="element.description"></el-input>
-              <img class="icon2" src="../../../../../../assets/icon/del.svg" alt="" @click="deldesc(index)">
+              <el-tooltip content="删除选项描述" placement="top">
+                <img class="icon2" src="../../../../../../assets/icon/del.svg" alt="" @click="deldesc(index)">
+              </el-tooltip>
             </div>
           </div>
         </template>
@@ -56,8 +69,9 @@
     <div class="desc">{{ ques.description }}</div>
     <div class="items">
       <div class="item" v-for="item in ques.optionList" :key="item" v-if="ques.optionList.length > 0">
-        <div><el-radio-group v-model="radio2"><el-radio :value="item.content"></el-radio></el-radio-group>{{ item.content
-          || '请输入选项' }}</div>
+        <div><el-radio-group v-model="radio2"><el-radio :value="item.content"></el-radio></el-radio-group>{{
+    item.content
+    || '请输入选项' }}</div>
         <div class="text">{{ item.description || '' }}</div>
       </div>
     </div>
@@ -133,6 +147,7 @@ const showDesc = (index) => {
 .noEdit {
   padding: 24px 0;
   background-color: #fff;
+  cursor: pointer;
 
   .title {
     font-family: 'PingFang SC';
@@ -197,6 +212,8 @@ const showDesc = (index) => {
       height: 16px;
       font-size: 16px;
       user-select: none;
+      cursor: pointer;
+
     }
 
   }
@@ -218,6 +235,8 @@ const showDesc = (index) => {
         width: 16px;
         height: 16px;
         font-size: 16px;
+        cursor: pointer;
+
       }
     }
 
@@ -232,6 +251,7 @@ const showDesc = (index) => {
       width: 16px;
       height: 16px;
       user-select: none;
+      cursor: pointer;
     }
   }
 }

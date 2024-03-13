@@ -2,13 +2,20 @@
   <div class="fill" v-if="isEdit == true">
     <div class="title">
       <el-input :disabled="route.query.isEdit == 0" class="input" placeholder="编辑题目" v-model="ques.title"></el-input>
-      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()" v-show="route.query.isEdit == 1">
-      <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '" v-show="route.query.isEdit == 1"
-        v-if="ques.description.length == 0">
+      <el-tooltip content="删除该题目" placement="top">
+        <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()"
+          v-show="route.query.isEdit == 1">
+      </el-tooltip>
+      <el-tooltip content="添加题目描述" placement="top" v-if="route.query.isEdit == 1 && ques.description.length == 0">
+        <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '">
+      </el-tooltip>
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input :disabled="route.query.isEdit == 0" class="desinput" placeholder="编辑题目说明" v-model="ques.description"></el-input>
-      <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
+      <el-input :disabled="route.query.isEdit == 0" class="desinput" placeholder="编辑题目说明"
+        v-model="ques.description"></el-input>
+      <el-tooltip content="删除题目描述" placement="top">
+        <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
+      </el-tooltip>
     </div>
   </div>
   <div class="noEdit" v-else>
@@ -49,6 +56,7 @@ const delQues = () => {
 .noEdit {
   padding: 24px 0;
   background-color: #fff;
+  cursor: pointer;
 
   .title {
     font-family: 'PingFang SC';
@@ -57,7 +65,7 @@ const delQues = () => {
     font-size: 14px;
     line-height: 24px;
     color: #262626;
-    
+
   }
 
   .desc {
@@ -90,12 +98,15 @@ const delQues = () => {
 
   .title {
     display: flex;
-    margin: 0 auto 0 0; 
+    margin: 0 auto 0 0;
+
     .icon {
       margin: auto 0 auto 20px;
       width: 16px;
       height: 16px;
       font-size: 16px;
+      cursor: pointer;
+
     }
 
   }
