@@ -18,16 +18,16 @@
             <template #header>
               <div class="card-header">
                 <span>查看团期</span>
-                <el-icon @click.stop="showPeriod = !showPeriod" class="close"
-                  ><CircleCloseFilled
-                /></el-icon>
+                <el-icon @click.stop="showPeriod = !showPeriod" class="close">
+                  <CircleCloseFilled />
+                </el-icon>
               </div>
             </template>
             <div class="list">
               <li v-for="i in period">
                 <span :key="i">{{
-                  getTime(i.activity_start_time) + ' - ' + getTime(i.activity_end_time)
-                }}</span>
+    getTime(i.activity_start_time) + ' - ' + getTime(i.activity_end_time)
+  }}</span>
               </li>
             </div>
           </el-card>
@@ -37,7 +37,9 @@
     <div class="small">{{ area }}</div>
     <div class="tags">
       <el-tag class="ml-2" type="warning">{{ getProductStatus(lunchStatus) }}</el-tag>
-      <el-tag class="ml-2" type="success" @click.stop="() => emits('changeSchedule')">管理排期</el-tag>
+      <el-tooltip content="管理排期" placement="top">
+        <el-tag class="ml-2" type="success" @click.stop="() => emits('changeSchedule')">...</el-tag>
+      </el-tooltip>
     </div>
   </div>
 </template>
@@ -80,7 +82,7 @@ const getPrice = (p = 100) => p / 100
 const showPeriod = ref(false)
 const emits = defineEmits(['goToDetail', 'changeSchedule'])
 const changeSchedule = () => {
-  
+
 }
 </script>
 
@@ -90,11 +92,13 @@ const changeSchedule = () => {
   z-index: 99;
   width: 200px;
   height: 224px;
+
   .close {
     position: relative;
     margin-left: 90px;
     margin-top: 4px;
   }
+
   .card-header {
     :nth-child(1) {
       font-family: PingFang SC;
@@ -112,6 +116,7 @@ const changeSchedule = () => {
     height: 154px;
     margin-top: -15px;
     margin-right: -10px;
+
     li {
       list-style: none;
       color: #8a8a8a;
@@ -120,6 +125,7 @@ const changeSchedule = () => {
       font-weight: 400;
       line-height: 31px;
       text-align: center;
+
       &:hover {
         background-color: #eff9d9;
         color: #93d500;
@@ -127,6 +133,7 @@ const changeSchedule = () => {
     }
   }
 }
+
 .product-card {
   display: flex;
   flex-direction: column;
@@ -136,25 +143,30 @@ const changeSchedule = () => {
   margin: 10px;
   border-radius: 6px;
   box-shadow: -1px -2px 5px 5px rgb(0 0 0 / 4%);
+
   &:hover {
     cursor: pointer;
   }
+
   .image {
     width: 170px;
     height: 120px;
     position: relative;
     margin-bottom: 6px;
+
     img {
       border-radius: 6px;
       width: 100%;
       height: 100%;
     }
+
     .price {
       position: absolute;
       bottom: 0;
       right: 0;
     }
   }
+
   p {
     width: 170px;
     height: 40px;
@@ -163,15 +175,18 @@ const changeSchedule = () => {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .small {
     font-size: small;
     color: gray;
     width: 170px;
     margin: 6px 0;
   }
+
   .ml-2 {
     align-self: end;
   }
+
   .tags {
     width: 100%;
     display: flex;
