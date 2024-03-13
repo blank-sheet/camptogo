@@ -1,7 +1,8 @@
 <template>
   <div class="choice" v-if="isEdit == true">
     <div class="title">
-      <el-input class="input" placeholder="编辑题目" v-model="ques.title" :disabled="route.query.isEdit == 0"></el-input>
+      <el-input autosize type="textarea" class="input" placeholder="编辑题目" v-model="ques.title"
+        :disabled="route.query.isEdit == 0"></el-input>
       <el-tooltip content="删除该题目" placement="top">
         <img class="icon" src="../../../../../../assets/icon/del.svg" v-show="route.query.isEdit == 1" alt=""
           @click="delQues()">
@@ -133,14 +134,13 @@ const showDesc = (index) => {
 
 <style lang="scss" scoped>
 .selects {
-  margin-top: 24px;
+  margin-top: 3vh;
   display: flex;
   justify-content: right;
 
   .select {
-    width: 120px;
-    height: 32px;
-    margin: auto 8px;
+    width: 12%;
+    margin: auto 0.5%;
   }
 }
 
@@ -198,28 +198,26 @@ const showDesc = (index) => {
 }
 
 .input {
-  width: 650px;
-  height: 32px;
+  width: 65%;
 }
 
 
 .choice {
-  padding: 24px;
+  padding: 1vw;
 
   .desinput {
-    margin: 8px 0 0 0;
-    width: 650px;
-    height: 32px;
+    margin: 0.5% 0 0 0;
+    width: 65%;
   }
 
   .title {
     display: flex;
 
     .icon {
-      margin: auto 0 auto 20px;
-      width: 16px;
-      height: 16px;
-      font-size: 16px;
+      margin: auto 0 auto 1.2vw;
+      width: 1vw;
+      height: 1vw;
+      font-size: 1vw;
       user-select: none;
       cursor: pointer;
 
@@ -240,10 +238,10 @@ const showDesc = (index) => {
       display: flex;
 
       .icon {
-        margin: auto 10px auto 0;
-        width: 16px;
-        height: 16px;
-        font-size: 16px;
+        margin: auto 0.5vw auto 0;
+        width: 1vw;
+        height: 1vw;
+        font-size: 1vw;
         cursor: pointer;
 
       }
@@ -256,9 +254,10 @@ const showDesc = (index) => {
 
 
     .icon2 {
-      margin: auto 0 auto 20px;
-      width: 16px;
-      height: 16px;
+      margin: auto 0 auto 1.2vw;
+      width: 1vw;
+      height: 1vw;
+      font-size: 1vw;
       user-select: none;
       cursor: pointer;
     }

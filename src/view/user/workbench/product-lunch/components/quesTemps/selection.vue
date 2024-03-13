@@ -141,28 +141,26 @@ const showDesc = (index) => {
 
 
 .input {
-  width: 650px;
-  height: 32px;
+  width: 65%;
 }
 
 
 .choice {
-  padding: 24px;
+  padding: 1vw;
 
   .desinput {
-    margin: 8px 0 0 0;
-    width: 650px;
-    height: 32px;
+    margin: 0.5% 0 0 0;
+    width: 65%;
   }
 
   .title {
     display: flex;
 
     .icon {
-      margin: auto 0 auto 20px;
-      width: 16px;
-      height: 16px;
-      font-size: 16px;
+      margin: auto 0 auto 1.2vw;
+      width: 1vw;
+      height: 1vw;
+      font-size: 1vw;
       user-select: none;
     }
 
