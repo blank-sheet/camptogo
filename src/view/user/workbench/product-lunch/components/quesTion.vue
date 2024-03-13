@@ -16,7 +16,7 @@
         <el-option value="PICTURE" label="上传图片"></el-option>
       </el-select>
       <el-button class="btn" type="success" @click="isEdit = false">{{ route.query.isEdit == 1 ? '完成编辑' : '完成查看'
-      }}</el-button>
+        }}</el-button>
     </div>
   </div>
 </template>
@@ -85,6 +85,11 @@ defineExpose({
     /* 品牌色/标准 */
     color: #93D600;
     margin: auto 5px;
+    user-select: none;
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+    }
   }
 
   .select {
