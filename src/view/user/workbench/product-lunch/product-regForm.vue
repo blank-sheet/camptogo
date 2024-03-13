@@ -104,7 +104,7 @@
           </CampFormItem>
         </template>
       </product-form>
-      <product-form title="自定义信息">
+      <product-form title="自定义信息" v-show="questionList.length > 0">
         <template #form>
           <quesTion v-for="(item, index) in questionList" :key="item" :ques="item" :theIndex="index" :id="index"
             ref="childDoms">
