@@ -121,6 +121,8 @@ const showDesc = (index) => {
     font-size: 14px;
     line-height: 24px;
     color: #262626;
+    width: 95%;
+    word-wrap: break-word;
   }
 
   .desc {

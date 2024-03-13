@@ -8,15 +8,15 @@
       </el-tooltip>
       <el-tooltip content="添加题目描述" placement="top">
         <img class="icon" src="../../../../../../assets/icon/vector.svg" alt="" @click="ques.description = ' '"
-        v-show="route.query.isEdit == 1" v-if="ques.description.length == 0">
+          v-show="route.query.isEdit == 1" v-if="ques.description.length == 0">
       </el-tooltip>
     </div>
     <div class="title" v-show="ques.description.length > 0">
       <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description"
         :disabled="route.query.isEdit == 0"></el-input>
-        <el-tooltip content="删除题目描述" placement="top" v-show="route.query.isEdit == 1">
-          <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
-        </el-tooltip>
+      <el-tooltip content="删除题目描述" placement="top" v-show="route.query.isEdit == 1">
+        <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
+      </el-tooltip>
     </div>
   </div>
   <div class="noEdit" v-else>
@@ -58,6 +58,7 @@ const delQues = () => {
   padding: 24px 0;
   background-color: #fff;
 
+
   .title {
     font-family: 'PingFang SC';
     font-style: normal;
@@ -65,6 +66,8 @@ const delQues = () => {
     font-size: 14px;
     line-height: 24px;
     color: #262626;
+    width: 95%;
+    word-wrap: break-word;
   }
 
   .desc {

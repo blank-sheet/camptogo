@@ -30,12 +30,10 @@
                 </template>
               </el-input>
               <el-tooltip content="插入选项" placement="top" v-show="route.query.isEdit == 1">
-                <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)"
-                  >
+                <img class="icon2" src="../../../../../../assets/icon/add.svg" alt="" @click="addOption(index)">
               </el-tooltip>
               <el-tooltip content="删除该选项" placement="top" v-show="route.query.isEdit == 1">
-                <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)"
-                  >
+                <img class="icon2" src="../../../../../../assets/icon/sub.svg" alt="" @click="delOption(index)">
               </el-tooltip>
               <el-tooltip content="添加选项描述" placement="top"
                 v-if="route.query.isEdit == 1 && element.description.length == 0">
@@ -69,9 +67,11 @@
     <div class="desc">{{ ques.description }}</div>
     <div class="items">
       <div class="item" v-for="item in ques.optionList" :key="item" v-if="ques.optionList.length > 0">
-        <div><el-radio-group v-model="radio2"><el-radio :value="item.content"></el-radio></el-radio-group>{{
-    item.content
-    || '请输入选项' }}</div>
+        <div class="i-contain">
+          <el-radio-group v-model="radio2"><el-radio :value="item.content"></el-radio>
+          </el-radio-group>
+          {{ item.content || '请输入选项' }}
+        </div>
         <div class="text">{{ item.description || '' }}</div>
       </div>
     </div>
@@ -156,6 +156,8 @@ const showDesc = (index) => {
     font-size: 14px;
     line-height: 24px;
     color: #262626;
+    width: 95%;
+    word-wrap: break-word;
   }
 
   .desc {
@@ -179,6 +181,13 @@ const showDesc = (index) => {
       font-size: 14px;
       line-height: 22px;
       color: #585858;
+
+      .i-contain {
+        width: 80%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
 
       .text {
         font-size: 12px;
