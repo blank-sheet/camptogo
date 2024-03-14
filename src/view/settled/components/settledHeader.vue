@@ -5,7 +5,7 @@
     </div>
     <div class="right">
       <span>已有帐号？</span>
-      <span style="color:#578A00">请点此登录</span>
+      <span style="color:#578A00;cursor: pointer;">请点此登录</span>
     </div>
   </div>
 </template>
@@ -56,7 +56,7 @@ const props = defineProps({
     display: flex;
     height: 100%;
     padding-right: 2vw;
-
+    user-select: none;
     span {
       height: 7.5vh;
       line-height: 7.5vh;

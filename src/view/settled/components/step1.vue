@@ -12,7 +12,7 @@
         <span>3. 入驻申请函 </span>
       </div>
       <div class="btn">
-        <el-button type="success">去入驻</el-button>
+        <el-button type="success" @click="handlerToStep2('personal')">去入驻</el-button>
       </div>
     </div>
     <div class="right card">
@@ -27,14 +27,21 @@
         <span>3. 申请认证公函</span>
       </div>
       <div class="btn">
-        <el-button type="success">去入驻</el-button>
+        <el-button type="success" @click="handlerToStep2('institution')">去入驻</el-button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
+const route = useRoute()
+const router = useRouter()
+const handlerToStep2 = (type) => {
+  router.push(`/settled/step2/${type}`)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -64,13 +71,15 @@
     display: flex;
     flex-direction: column;
     user-select: none;
+
     .title {
       text-align: right;
       color: #95D600;
       font-size: 1vw;
       font-family: PingFang SC;
       cursor: pointer;
-      &:hover{
+
+      &:hover {
         text-decoration: underline;
       }
     }
@@ -93,18 +102,20 @@
       }
     }
 
-    .text{
-      color: rgb(89,89,89);
+    .text {
+      color: rgb(89, 89, 89);
       font-family: PingFang SC;
       font-size: 1.1vw;
       line-height: 3vh;
       display: flex;
       flex-direction: column;
-      span{
+
+      span {
         margin: 0.5vh 0;
       }
     }
-    .btn{
+
+    .btn {
       display: flex;
       justify-content: center;
       margin: auto auto 1vh auto;

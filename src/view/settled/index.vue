@@ -8,7 +8,7 @@
     <div class="contain">
       <router-view></router-view>
     </div>
-    <div class="tips">
+    <div class="tips" v-show="route.name == 'step1'">
       <div>海外商家，<span>点击此处进行注册</span></div>
       <div>Overseas merchants, click here <span>to register</span></div>
     </div>
@@ -18,7 +18,10 @@
 <script setup>
 import { ref } from "vue"
 import settledHeader from "./components/settledHeader.vue"
+import { useRoute, useRouter } from 'vue-router'
 
+const route = useRoute()
+const router = useRouter()
 const steps = ref([])
 </script>
 
@@ -86,12 +89,12 @@ const steps = ref([])
       font-weight: 400;
       color: rgb(172, 172, 172);
       line-height: 4vh;
+      
     }
 
     span {
       color: #95D600;
       cursor: pointer;
-
       &:hover {
         text-decoration: underline;
       }
