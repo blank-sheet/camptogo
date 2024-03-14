@@ -22,7 +22,7 @@
       <h1 class="pageTitle"><span>营地奇遇</span>&emsp13;&emsp13;<span>探手可得</span></h1>
       <h2>聚集优质行业伙伴, 让更多教育需求被满足</h2>
       <div class="buttons">
-        <el-button class="btn" type="success" @click="openServerWechatVisiable = true">立即0元入驻</el-button>
+        <el-button class="btn" type="success" @click="handlerToSettled()">立即0元入驻</el-button>
         <el-dialog v-model="openServerWechatVisiable" title="立即入驻" width="30%">
           <p>请用手机扫码联系客服立即入驻</p>
           <img src="../../../assets/serverwechat.png" alt="" />
@@ -90,7 +90,7 @@
       </div>
     </div>
     <div class="btn">
-      <el-button type="success" @click="openServerWechatVisiable = true">立即0元入驻</el-button>
+      <el-button type="success" @click="handlerToSettled()">立即0元入驻</el-button>
     </div>
   </section>
 
@@ -187,7 +187,7 @@
     </div>
     <div class="footerPanl"></div>
     <div class="btns">
-      <el-button class="btn" type="success" @click="openServerWechatVisiable = true">立即入驻</el-button>
+      <el-button class="btn" type="success" @click="handlerToSettled()">立即入驻</el-button>
     </div>
   </section>
 
@@ -197,7 +197,7 @@
     <div class="ques">
       <div class="q-title">入驻条件</div>
       <div class="btns">
-        <el-button class="btn" type="success" @click="openServerWechatVisiable = true">立即入驻</el-button>
+        <el-button class="btn" type="success" @click="handlerToSettled()">立即入驻</el-button>
       </div>
     </div>
     <div class="cards">
@@ -290,7 +290,7 @@
       </div>
     </div>
     <div class="btns">
-      <el-button class="btn" type="success" @click="openServerWechatVisiable = true">立即入驻</el-button>
+      <el-button class="btn" type="success" @click="handlerToSettled()">立即入驻</el-button>
     </div>
   </section>
 
@@ -346,10 +346,12 @@ import jiangbenImg from "../../../assets/jiangben.png"
 import bixianImg from "../../../assets/bixian.png"
 import zengyiImg from "../../../assets/zengyi.png"
 import tixiaoImg from "../../../assets/tixiao.png"
-
-
-
 const router = useRouter()
+
+const handlerToSettled =()=>{
+  router.push('/settled')
+}
+
 const openServerWechatVisiable = ref(false)
 const form = reactive({
   email: '',
@@ -359,19 +361,6 @@ const form = reactive({
   phoneplatform: '',
   phoneplatform: ''
 })
-const submit = () => {
-  request
-    .post('/api/e9b849a515a84327b424af7ccdbf2949/mobile/common/v1_0_0/coop/collect', {
-      content: {
-        ...form,
-        platform: 'web'
-      },
-      version: '1.0.0'
-    })
-    .then(r => {
-      if (r.Code == 200) ElMessage('申请成功')
-    })
-}
 
 onMounted(() => {
   const a = document.querySelector('.section1')
