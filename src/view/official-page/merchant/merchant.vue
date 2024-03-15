@@ -349,7 +349,7 @@ import tixiaoImg from "../../../assets/tixiao.png"
 const router = useRouter()
 
 const handlerToSettled =()=>{
-  router.push('/settled')
+  router.push('/settled/step1')
 }
 
 const openServerWechatVisiable = ref(false)

@@ -18,6 +18,11 @@ export const settledRoutes = [
         path: 'step3/:type',
         name: 'step3',
         component: () => import('../../view/settled/components/step3.vue')
+      },
+      {
+        path: 'step4/:type',
+        name: 'step4',
+        component: () => import('../../view/settled/components/step4.vue')
       }
     ]
   }

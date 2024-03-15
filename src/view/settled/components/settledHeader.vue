@@ -24,12 +24,12 @@ const props = defineProps({
   width: 100vw;
   height: 9vh;
   background: #95D600;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
   justify-content: space-between;
-  
+  z-index: 999;
   .left {
     display: flex;
     padding-left: 2vw;

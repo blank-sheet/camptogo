@@ -8,13 +8,17 @@
           </el-input>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="邮箱验证码">
-          <el-input placeholder="请输入邮箱验证码"></el-input>
+          <el-input placeholder="请输入邮箱验证码">
+            <template #suffix>
+              <div>发送</div>
+            </template>
+          </el-input>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="设置密码">
-          <el-input placeholder="请设置至少12位字符 (包含英文大小写、字符)"></el-input>
+          <el-input placeholder="请设置至少12位字符 (包含英文大小写、字符)" type="password" show-password ></el-input>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="校对密码">
-          <el-input placeholder="请确认自己的密码"></el-input>
+        <CampFormItem class="CampFormItem" label="校对密码" >
+          <el-input placeholder="请确认自己的密码"  type="password"  show-password></el-input>
         </CampFormItem>
       </el-form>
     </div>
@@ -23,7 +27,7 @@
       <div>我已阅读并同意<span>《营探用户协议》</span><span>《营探隐私政策》</span></div>
     </div>
     <div class="btn">
-      <el-button type="success" @click="handlerToStep3()">确认</el-button>
+      <el-button type="success" @click="handlerToStep4()">注册帐号并入驻</el-button>
     </div>
   </div>
 </template>
@@ -35,8 +39,8 @@ import CampFormItem from '../../../component/camp-form-item.vue'
 
 const route = useRoute()
 const router = useRouter()
-const handlerToStep3 = () => {
-  router.push(`/settled/step3/${route.params.type}`)
+const handlerToStep4 = () => {
+  router.push(`/settled/step4/${route.params.type}`)
 }
 onMounted(() => {
 })
@@ -59,7 +63,7 @@ const select = ref(1)
   .contain {
     display: flex;
     flex-direction: column;
-
+    margin: auto 0;
     .CampFormItem {
       margin: 5vh auto;
       width: 50%;
