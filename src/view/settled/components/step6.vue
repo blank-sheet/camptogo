@@ -165,6 +165,8 @@ const select = ref(1)
       padding: 0 2vw;
       color: #595959;
       font-family: PingFang SC;
+      cursor: pointer;
+
       .text1{
         font-size: 1.2vw;
         line-height: 2vw;
@@ -189,7 +191,7 @@ const select = ref(1)
         display: flex;
         border: 1px solid rgb(217, 217, 217);
         border-radius: 10px;
-
+        cursor: pointer;
         img {
           width: 2vw;
           height: 2vw;
@@ -218,6 +220,7 @@ const select = ref(1)
             font-size: 0.9vw;
             line-height: 1.2vw;
             width: 97%;
+            opacity: 0.8;
           }
         }
 
@@ -280,7 +283,7 @@ const select = ref(1)
   .btn {
     display: flex;
     justify-content: center;
-    margin: 5vh 0 0 0;
+    margin: 5vh 0;
   }
 }
 
