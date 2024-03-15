@@ -5,10 +5,10 @@
       <el-form ref="formRef">
         <CampFormItem class="CampFormItem" label="上传身份证">
           <div class="box">
-            <el-upload :show-file-list="false" :on-success="handleAvatarSuccess" accept=".jpg, .jpeg, .png,">
+            <el-upload :show-file-list="false"  accept=".jpg, .jpeg, .png,">
               <img src="../../../assets/sfz1.png" class="avatar" />
             </el-upload>
-            <el-upload :show-file-list="false" :on-success="handleAvatarSuccess" accept=".jpg, .jpeg, .png,">
+            <el-upload :show-file-list="false"  accept=".jpg, .jpeg, .png,">
               <img src="../../../assets/sfz2.png" class="avatar" />
             </el-upload>
           </div>
@@ -55,7 +55,7 @@
       </el-form>
     </div>
     <div class="btn">
-      <el-button type="success" @click="handlerToStep4()">下一步</el-button>
+      <el-button type="success" @click="handlerTostep5()">下一步</el-button>
     </div>
   </div>
 </template>
@@ -70,8 +70,8 @@ import CampPlace from '../../../component/camp-place.vue'
 
 const route = useRoute()
 const router = useRouter()
-const handlerTostep4 = () => {
-  router.push(`/settled/step4/${route.params.type}`)
+const handlerTostep5 = () => {
+  router.push(`/settled/step5/${route.params.type}`)
 }
 onMounted(() => {
 })
@@ -91,7 +91,7 @@ const select = ref(1)
   .contain {
     display: flex;
     flex-direction: column;
-    padding: 1vh 1vw;
+    padding: 2vh 1vw;
 
 
     .CampFormItem {
