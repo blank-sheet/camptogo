@@ -24,7 +24,7 @@
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="服务内容标识">
           <div>
-            <el-button><i class="iconfont icon-tianjia"></i>点击选择</el-button>
+            <el-button class="dashd"><i class="iconfont icon-tianjia"></i>点击选择</el-button>
             <div class="text">温馨提示：按照个人实际经营情况选择对应内容，建议1-2个。个人主体不可以选择经营性质、企业/单位性质；个人应选择与个人经营范围、资质相符合的内容。若选择内容与主体性质、经营范围不相符，将无法通过备案审核。<span>查看服务内容标识选择指引</span></div>
           </div>
         </CampFormItem>
@@ -144,7 +144,9 @@ const select = ref(1)
 }
 
 
-.el-button{
-  border-style: dashed;
+.dashd{
+  border:2px dashed #BFBFBF;
+  background-color: #FAFBFD;
+  margin-bottom: 3vh;
 }
 </style>
