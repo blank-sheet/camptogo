@@ -30,8 +30,8 @@
       </div>
     </div>
     <div class="btn">
-      <el-button @click="handlerTostep4()">上一步</el-button>
-      <el-button type="success" @click="handlerTostep6()">完成</el-button>
+      <el-button @click="handlerTostep6()">上一步</el-button>
+      <el-button type="success" @click="">完成</el-button>
     </div>
   </div>
 </template>
@@ -45,8 +45,11 @@ const router = useRouter()
 const handlerTostep7 = () => {
   router.push(`/settled/step7/${route.params.type}`)
 }
-
+const handlerTostep6 = () => {
+  router.push(`/settled/step6/${route.params.type}`)
+}
 onMounted(() => {
+  
 })
 const formRef = ref(null)
 const select = ref(1)
@@ -59,7 +62,7 @@ const select = ref(1)
   border-radius: 0.5vw;
   display: flex;
   flex-direction: column;
-  margin: 3vh 0;
+  margin: 3vh 0 10% 0;
   height: 85vh;
 
   .contain {

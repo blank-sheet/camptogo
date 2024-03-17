@@ -3,7 +3,25 @@
     <div class="title">主体负责人信息</div>
     <div class="contain">
       <el-form ref="formRef">
-        <CampFormItem class="CampFormItem" label="应急手机号">
+        <div v-if="route.params.type != 'personal'">
+          <CampFormItem class="CampFormItem" label="申请认证公函">
+          <div>
+            <CampUpload></CampUpload>
+            <div class="text">
+              提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。图片必须是最新的纸质证件原件拍照或彩色扫描件，否则将无法通过备案审核。请确保证件四周有圆角，卡证边缘清晰。如有水印，务必放置在证件空白位置，不得遮挡文字和图像信息。<span>下载模版</span>
+            </div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="经营资质">
+          <div>
+            <CampUpload></CampUpload>
+            <div class="text">
+              温馨提示：各级奖项、荣誉资质、出版物、职称、职业认证等第三方专业机构出具的相关证明。<span>上传资质说明</span>
+            </div>
+          </div>
+        </CampFormItem>
+        </div>
+        <CampFormItem class="CampFormItem" label="应急手机号" v-if="route.params.type == 'personal'">
           <div>
             <el-input placeholder="请输入"></el-input>
             <div class="text">
@@ -28,7 +46,7 @@
             <div class="text">温馨提示：按照个人实际经营情况选择对应内容，建议1-2个。个人主体不可以选择经营性质、企业/单位性质；个人应选择与个人经营范围、资质相符合的内容。若选择内容与主体性质、经营范围不相符，将无法通过备案审核。<span>查看服务内容标识选择指引</span></div>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="个人能力证明">
+        <CampFormItem class="CampFormItem" label="个人能力证明" v-if="route.params.type == 'personal'">
           <div>
             <CampUpload></CampUpload>
             <div class="text">
@@ -38,7 +56,7 @@
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="主营业务介绍">
           <div>
-            <el-input placeholder="例: 我是非遗传承人"></el-input>
+            <el-input type="textarea" autosize placeholder="例: 我是非遗传承人"></el-input>
             <div class="text">请具体描述个人实际经营内容、主要服务内容，该信息为营探法务部门审核重要依据，字数限制20-200，若有已发布产品的链接请粘贴于填写框内。</div>
           </div>
         </CampFormItem>
@@ -79,7 +97,7 @@ const select = ref(1)
   border-radius: 0.5vw;
   display: flex;
   flex-direction: column;
-  margin: 3vh 0;
+  margin: 3vh 0 10% 0;
 
   .contain {
     display: flex;

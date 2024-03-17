@@ -12,6 +12,9 @@
       <div>海外商家，<span>点击此处进行注册</span></div>
       <div>Overseas merchants, click here <span>to register</span></div>
     </div>
+    <div class="tips1" v-show="route.name != 'step1'">
+      <span>关于我们</span>|<span>联系我们</span>|<span>广告服务</span>|<span>营探APP</span>|<span>English Site</span>
+    </div>
   </div>
 </template>
 
@@ -31,6 +34,7 @@ const steps = ref([])
   min-height: 100vh;
   background: #F5F5F5;
   position: relative;
+
   .kefu {
     width: 4.5vw;
     height: 4.5vw;
@@ -89,19 +93,41 @@ const steps = ref([])
       font-weight: 400;
       color: rgb(172, 172, 172);
       line-height: 4vh;
-      
+
     }
 
     span {
       color: #95D600;
       cursor: pointer;
+
       &:hover {
         text-decoration: underline;
       }
     }
   }
 
-  .contain{
+  .tips1 {
+    color: #8C8C8C;
+    font-family: PingFang SC;
+    font-size: 1vw;
+    font-weight: 400;
+    display: flex;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%);
+    span{
+      margin: 0 0.4vw;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover{
+        color: #95D600;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .contain {
     width: 100%;
     display: flex;
     justify-content: center;

@@ -3,12 +3,43 @@
     <div class="title">主体负责人信息</div>
     <div class="contain">
       <el-form ref="formRef">
+        <div v-if="route.params.type != 'personal'">
+          <CampFormItem class="CampFormItem" label="营业执照">
+            <CampUpload></CampUpload>
+          </CampFormItem>
+          <CampFormItem class="CampFormItem" label="名称">
+            <el-input placeholder=""></el-input>
+          </CampFormItem>
+          <CampFormItem class="CampFormItem" label="有效期限">
+            <div>
+              <div>
+                <CampDatePicker placeholder="选择日期"></CampDatePicker><i class="iconfont icon-single_arrow"></i>&emsp13;
+                <CampDatePicker placeholder="选择日期"></CampDatePicker><el-radio-group><el-radio
+                    label="长期"></el-radio></el-radio-group>
+              </div>
+              <div class="text">温馨提示：新版营业执照需要自行在国家信息网查询营业期限到期日期，且保证填写时间与国家企业信用信息公示系统数据保持一致。</div>
+            </div>
+          </CampFormItem>
+          <CampFormItem class="CampFormItem" label="统一社会信用代码">
+            <el-input placeholder=""></el-input>
+          </CampFormItem>
+          <CampFormItem class="CampFormItem" label="住所">
+            <CampPlace placeholder="省 > 市 > 区"></CampPlace>
+          </CampFormItem>
+          <CampFormItem class="CampFormItem" label="">
+            <div>
+              <el-input placeholder="街道, 小区, 门牌号等" style="width: 50vw;"></el-input>
+              <div class="text">
+                温馨提示：住所需要精确到具体房间号，省、市、区无需重复填写，若所填写地址无门牌号且已是最详细地址，在下方“备注”位置说明情况。如“通讯地址已是最详细地址。”若未填写最详细通讯地址，将无法通过备案审核。</div>
+            </div>
+          </CampFormItem>
+        </div>
         <CampFormItem class="CampFormItem" label="上传身份证">
           <div class="box">
-            <el-upload :show-file-list="false"  accept=".jpg, .jpeg, .png,">
+            <el-upload :show-file-list="false" accept=".jpg, .jpeg, .png,">
               <img src="../../../assets/sfz1.png" class="avatar" />
             </el-upload>
-            <el-upload :show-file-list="false"  accept=".jpg, .jpeg, .png,">
+            <el-upload :show-file-list="false" accept=".jpg, .jpeg, .png,">
               <img src="../../../assets/sfz2.png" class="avatar" />
             </el-upload>
           </div>
@@ -49,7 +80,15 @@
         <CampFormItem class="CampFormItem" label="">
           <div>
             <el-input placeholder="街道, 小区, 门牌号等" style="width: 50vw;"></el-input>
-            <div class="text">温馨提示：通讯地址需要精确到具体房间号，省、市、区无需重复填写。通讯地址建议与固定经营区域保持一致。</div>
+            <div class="text" v-if="route.params.type != 'institution'">温馨提示：通讯地址需要精确到具体房间号，省、市、区无需重复填写。通讯地址建议与固定经营区域保持一致。</div>
+            <div class="text" v-else>
+              温馨提示：住所需要精确到具体房间号，省、市、区无需重复填写，若所填写地址无门牌号且已是最详细地址，在下方“备注”位置说明情况。如“通讯地址已是最详细地址。”若未填写最详细通讯地址，将无法通过备案审核。</div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="应急联系人" v-if="route.params.type != 'personal'">
+          <div>
+            <el-input placeholder="请输入法定代表人或实际控制人的有效手机号码"></el-input>
+            <div class="text">温馨提示：需填写法定代表人或实际控制人的有效手机号码，且没有给其他人使用过进行备案的。若应急手机号存在多人重复使用，将无法通过备案审核。</div>
           </div>
         </CampFormItem>
       </el-form>
@@ -86,7 +125,7 @@ const select = ref(1)
   border-radius: 0.5vw;
   display: flex;
   flex-direction: column;
-  margin: 3vh 0;
+  margin: 3vh 0 10% 0;
 
   .contain {
     display: flex;
