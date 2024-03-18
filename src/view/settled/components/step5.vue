@@ -42,7 +42,10 @@
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="服务内容标识">
           <div>
-            <el-button class="dashd"><i class="iconfont icon-tianjia"></i>点击选择</el-button>
+            <div class="tags">
+              <el-tag class="tag" closable type="info"></el-tag>
+              <el-button class="dashd"><i class="iconfont icon-tianjia"></i>点击选择</el-button>
+            </div>
             <div class="text">
               温馨提示：按照个人实际经营情况选择对应内容，建议1-2个。个人主体不可以选择经营性质、企业/单位性质；个人应选择与个人经营范围、资质相符合的内容。若选择内容与主体性质、经营范围不相符，将无法通过备案审核。<span>查看服务内容标识选择指引</span>
             </div>
@@ -50,7 +53,7 @@
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="个人能力证明" v-if="route.params.type == 'personal'">
           <div>
-            <CampUpload></CampUpload>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
             <div class="text">
               温馨提示：各级奖项、荣誉资质、出版物、职称、职业认证等第三方专业机构出具的相关证明, 可上传多张图片。
             </div>
@@ -124,7 +127,7 @@ const userData = ref({
     url: "http://example.com/applicant_letter.jpg",
     name: "认证申请函"
   },
-  emergencyPhone: "18966667777",
+  emergencyPhone: "",
   businessAreasList: [
     []
   ],
@@ -220,6 +223,18 @@ const addArea = (index)=>{
           &:hover {
             text-decoration: underline;
           }
+        }
+      }
+
+      .tags{
+        display: flex;
+        flex-wrap: wrap;
+        .tag{
+          height: 4.5vh;
+          margin: 0 1% 0 0;
+        }
+        .dashd{
+          height: 4.5vh;
         }
       }
     }
