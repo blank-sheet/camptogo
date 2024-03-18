@@ -5,18 +5,25 @@
     </div>
     <div class="right">
       <span>已有帐号？</span>
-      <span style="color:#578A00;cursor: pointer;">请点此登录</span>
+      <span style="color:#578A00;cursor: pointer;" @click="handlerLogin()">请点此登录</span>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 const props = defineProps({
   title: {
     type: String,
     default: 'title'
   }
 })
+
+const handlerLogin = ()=>{
+  router.push('/login')
+}
 </script>
 
 <style lang="scss" scoped>

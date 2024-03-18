@@ -2,20 +2,20 @@
   <div class="step2">
     <div class="title">{{ route.params.type === 'personal' ? '个人入驻' : '机构入驻' }}</div>
     <div class="contain">
-      <el-form ref="formRef">
-        <CampFormItem class="CampFormItem" label="注册手机">
-          <el-input placeholder="请使用公司负责人常用手机号">
+      <el-form ref="formRef" :model="userDate">
+        <CampFormItem class="CampFormItem" label="注册手机" prop="phoneNumber">
+          <el-input placeholder="请使用公司负责人常用手机号" v-model="userDate.phoneNumber" @blur="status = true">
             <template #prepend>
-              <el-select v-model="select" placeholder="" style="width: 115px">
+              <el-select :class="!status ? 'error' : ''" v-model="select" placeholder="" style="width: 120px">
                 <el-option label="中国大陆 +86" :value="1" />
               </el-select>
             </template>
           </el-input>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="手机验证码">
-          <el-input placeholder="请输入短信验证码">
+        <CampFormItem class="CampFormItem" label="手机验证码" prop="captcha">
+          <el-input placeholder="请输入短信验证码" v-model="userDate.captcha">
             <template #suffix>
-              <div>发送</div>
+              <div @click="getVerifyCode" style="cursor: pointer;">{{ showTime || '发送' }}</div>
             </template>
           </el-input>
         </CampFormItem>
@@ -35,16 +35,89 @@
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import CampFormItem from '../../../component/camp-form-item.vue'
+import { settledApi } from "../../../api/modules/settled/settled"
+import { request } from '../../../api/index.js'
+import { ElMessage } from 'element-plus'
 
 const route = useRoute()
 const router = useRouter()
-const handlerToStep3 = () => {
-  router.push(`/settled/step3/${route.params.type}`)
+const handlerToStep3 = async () => {
+  const valid = validateForm(formRef.value)
+  if (valid) {
+    status.value = false
+    return
+  } else {
+    await request.post(settledApi.phoneVerifyAPI, {
+      phoneNumber: userDate.value.phoneNumber,
+      captcha: userDate.value.captcha
+    }).then(res => {
+      if (res.details.isRegistered == true) {
+        router.push(`/settled/step3/${route.params.type}`)
+      }
+    })
+  }
+
 }
 onMounted(() => {
 })
 const formRef = ref(null)
 const select = ref(1)
+const userDate = ref({
+  phoneNumber: null,
+  captcha: null
+})
+
+const showTimer = ref(null)
+const showTime = ref('发送')
+const changeShowTIme = () => {
+  if (showTimer.value) {
+    clearTimeout(showTimer.value)
+  }
+  showTimer.value = setTimeout(() => {
+    if (showTime.value == 0) {
+      showTime.value = '发送'
+      clearTimeout(showTimer.value)
+    }
+    showTime.value -= 1
+    changeShowTIme()
+  }, 1000)
+}
+const preTime = ref(0)
+const getVerifyCode = async () => {
+  const phoneNumberRegex = /^1[3-9]\d{9}$/
+  if (userDate.value.phoneNumber) {
+    if (!phoneNumberRegex.test(userDate.value.phoneNumber)) {
+      ElMessage.error("请输入正确手机号")
+      return
+    }
+  } else {
+    ElMessage.error("请输入手机号")
+    return
+  }
+  const now = Date.now()
+  if (now - preTime.value >= 60000) {
+    preTime.value = now
+    showTime.value = 60
+    changeShowTIme()
+    await request.post(settledApi.getPhoneCaptchaAPI, {
+      phoneNumber: userDate.value.phoneNumber
+    }).then(res => {
+      console.log(res)
+    })
+  } else {
+    ElMessage.warning("请勿频繁发送请求")
+    return
+  }
+}
+
+const status = ref(true)
+const validateForm = (formEl) =>
+  formEl.validate((valid) => {
+    if (document.querySelector('.is-error')) {
+      document.querySelector('.is-error').scrollIntoView()
+    }
+    return valid
+  })
 </script>
 
 <style lang="scss" scoped>
@@ -57,22 +130,32 @@ const select = ref(1)
   flex-direction: column;
   position: absolute;
   top: 50%;
-  transform: translate(0,-50%);
-  .contain{
+  transform: translate(0, -50%);
+
+  .contain {
     display: flex;
     flex-direction: column;
-    
-    .CampFormItem{
+
+    .CampFormItem {
       margin: 5vh auto;
       width: 50%;
-      .el-input{
+
+      .el-input {
         width: 80%;
       }
-      .el-select{
+
+      .el-select {
         width: 10vw !important;
+      }
+
+      .error {
+        border: 2px solid #f56c6c;
+        border-right: 0px;
+        border-radius: 4px 0 0 4px;
       }
     }
   }
+
   .title {
     font-family: PingFang SC;
     font-size: 1.1vw;
@@ -85,6 +168,7 @@ const select = ref(1)
     display: flex;
     justify-content: center;
     user-select: none;
+
     div {
       font-size: 1vw;
       margin: auto 1vw;
@@ -93,7 +177,8 @@ const select = ref(1)
         color: #93D600;
         font-family: PingFang SC;
         cursor: pointer;
-        &:hover{
+
+        &:hover {
           text-decoration: underline;
         }
       }
@@ -105,5 +190,9 @@ const select = ref(1)
     justify-content: center;
     margin: auto 0 3% 0;
   }
+}
+
+.el-select {
+  background-color: #fff;
 }
 </style>
