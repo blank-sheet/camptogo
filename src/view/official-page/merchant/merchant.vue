@@ -234,7 +234,7 @@
 
   <!-- 第六部分 -->
   <section class="section6" v-view="'fade-in'" id="section-6">
-    <div class="bigTitle">入职流程</div>
+    <div class="bigTitle">入驻流程</div>
     <div class="map"></div>
     <div class="line2"></div>
     <div class="setps">
