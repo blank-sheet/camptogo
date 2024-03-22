@@ -5,12 +5,12 @@
 2. 对象：通过obj.attr来校验对象的某个属性是否为空
 3. 数组：isArr
    -->
-  <el-form-item :class=" labelTop ? 'labelTop' : '' " :label="label" :prop="prop" :rules="{
+  <el-form-item :class="labelTop ? 'labelTop' : ''" :label="label" :prop="prop" :rules="{
     trigger: 'blur',
     message: msg,
     required: true
   }">
-    <template #label>
+    <template #label v-if="isShowLabel">
       <slot name="label"></slot>
     </template>
     <slot></slot>
@@ -33,6 +33,9 @@ const props = defineProps({
   },
   msg: {
     default: '该选择为必填项'
+  },
+  isShowLabel: {
+    default: true
   }
 })
 </script>
@@ -41,5 +44,15 @@ const props = defineProps({
 .labelTop {
   display: flex;
   flex-direction: column;
+}
+
+
+</style>
+
+<style>
+.el-form-item__label{
+  white-space: nowrap;
+  margin-right: 1vw;
+  font-size: 1vw;
 }
 </style>

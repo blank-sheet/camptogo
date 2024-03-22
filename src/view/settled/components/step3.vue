@@ -8,9 +8,10 @@
           </el-input>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="邮箱验证码" prop="captcha">
-          <el-input placeholder="请输入邮箱验证码" v-model="userData.captcha">
+          <el-input placeholder="请输入邮箱验证码" v-model="userData.emailCaptcha">
             <template #suffix>
-              <div @click="getVerifyCode" style="cursor: pointer;">{{ showTime || '发送' }}</div>
+              <div @click="getVerifyCode" style="cursor: pointer;" :style="{ 'color': isReadyToSend ? '#93D600' : '' }">{{
+                showTime || '发送' }}</div>
             </template>
           </el-input>
         </CampFormItem>
@@ -34,7 +35,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import CampFormItem from '../../../component/camp-form-item.vue'
 import { settledApi } from "../../../api/modules/settled/settled"
@@ -46,21 +47,28 @@ const router = useRouter()
 const handlerToStep4 = () => {
   const valid = validateForm(formRef.value)
   if (valid) {
-
+    return
   } else {
-    router.push(`/settled/step4/${route.params.type}`)
+    if (userData.value.password != userData.value.password2) {
+      ElMessage.error("两次输入密码不一致")
+      return
+    }
+    request.post(settledApi.emailVerifyAPI, userData.value).then(res => {
+      console.log(res)
+    })
   }
 
 }
 onMounted(() => {
 })
 const formRef = ref(null)
-const select = ref(1)
 const userData = ref({
   email: null,
-  captcha: null,
+  emailCaptcha: null,
   password: null,
-  password2: null
+  password2: null,
+  username: '',
+  mobile: '17338763009'
 })
 
 
@@ -72,7 +80,7 @@ const changeShowTIme = () => {
   }
   showTimer.value = setTimeout(() => {
     if (showTime.value == 0) {
-      showTime.value = '发送'
+      showTime.value = '重新发送'
       clearTimeout(showTimer.value)
     }
     showTime.value -= 1
@@ -116,6 +124,15 @@ const validateForm = (formEl) =>
     }
     return valid
   })
+
+
+const isReadyToSend = computed(() => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  if ((showTime.value == '重新发送' || showTime.value == '发送') && emailRegex.test(userData.value.email)) {
+    return true
+  }
+  return false
+})
 </script>
 
 <style lang="scss" scoped>

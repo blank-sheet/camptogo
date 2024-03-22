@@ -6,7 +6,7 @@
         <CampFormItem class="CampFormItem" label="注册手机" prop="phoneNumber">
           <el-input placeholder="请使用公司负责人常用手机号" v-model="userDate.phoneNumber" @blur="status = true">
             <template #prepend>
-              <el-select :class="!status ? 'error' : ''" v-model="select" placeholder="" style="width: 120px">
+              <el-select v-model="select" placeholder="" style="width: 120px">
                 <el-option label="中国大陆 +86" :value="1" />
               </el-select>
             </template>
@@ -15,7 +15,7 @@
         <CampFormItem class="CampFormItem" label="手机验证码" prop="captcha">
           <el-input placeholder="请输入短信验证码" v-model="userDate.captcha">
             <template #suffix>
-              <div @click="getVerifyCode" style="cursor: pointer;">{{ showTime || '发送' }}</div>
+              <div @click="getVerifyCode" style="cursor: pointer;" :style="{'color':isReadyToSend?'#93D600':''}">{{ showTime || '发送' }}</div>
             </template>
           </el-input>
         </CampFormItem>
@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import CampFormItem from '../../../component/camp-form-item.vue'
 import { settledApi } from "../../../api/modules/settled/settled"
@@ -75,7 +75,7 @@ const changeShowTIme = () => {
   }
   showTimer.value = setTimeout(() => {
     if (showTime.value == 0) {
-      showTime.value = '发送'
+      showTime.value = '重新发送'
       clearTimeout(showTimer.value)
     }
     showTime.value -= 1
@@ -105,7 +105,7 @@ const getVerifyCode = async () => {
       console.log(res)
     })
   } else {
-    ElMessage.warning("请勿频繁发送请求")
+    ElMessage.warning("验证码仍有效, 请勿重复操作")
     return
   }
 }
@@ -118,6 +118,13 @@ const validateForm = (formEl) =>
     }
     return valid
   })
+
+const isReadyToSend = computed(()=>{
+  if((showTime.value == '重新发送' || showTime.value == '发送') && userDate.value.phoneNumber && userDate.value.phoneNumber.length == 11){
+    return true
+  }
+  return false
+})
 </script>
 
 <style lang="scss" scoped>
