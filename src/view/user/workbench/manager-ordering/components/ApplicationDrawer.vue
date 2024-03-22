@@ -1,62 +1,114 @@
 <template>
   <!-- 查看报名表抽屉 -->
   <el-drawer v-model="show" title="查看退款信息" :with-header="false" size="40%">
-    <h4>这是一个商品名称{{}}<el-divider /></h4>
+    <h4>这是一个商品名称<div>{{}}</div><el-divider /></h4>
     <div>
-      <img src="../../../../../assets/frogopeneyes.png" />
-      <span>基本信息</span>
-      <p>昵称：{{ info.enrollName }}</p>
-      <p>地区/家乡：{{ info.locationHome }}</p>
-      <!-- <p>就读年级：{{}}</p>
-      <p>证件资料：{{}}</p> -->
-      <p>{{ info.photoPath }}</p>
-    </div>
-    <div>
-      <img src="../../../../../assets/frogopeneyes.png" />
-      <span>监护人信息</span>
-      <p>姓名：{{ info.guardName }}</p>
-      <p>手机号：{{ info.guardPhone }}</p>
-      <p>关系：{{ info.guardRelation }}</p>
-    </div>
-    <!-- <div>
-      <img src="../../../../../assets/frogopeneyes.png" />
-      <span>紧急联系人</span>
-      <p>姓名：{{}}</p>
-      <p>手机号：{{}}</p>
-      <p>关系：{{}}</p>
-    </div> -->
-    <div>
-      <img src="../../../../../assets/frogopeneyes.png" />
-      <span>基本身体情况</span>
-
-      <p>身高：{{ info.height }}</p>
-      <p>体重：{{ info.weight }}</p>
-      <p>血型：{{ info.bloodType }}</p>
-    </div>
-    <div>
-      <img src="../../../../../assets/frogopeneyes.png" />
-      <span>基本健康情况</span>
-
-      <p>过敏反应：{{ info.allergyIf }}</p>
-      <p>饮食禁忌：{{ info.dietDetail }}</p>
-      <p>食物禁忌详细: {{ info.dietDetail }}</p>
-      <p>健康状况：{{ info.healthCondition }}</p>
-      <p>
-        {{ info.healthDetail }}
+      <div class="title">
+        <img src="../../../../../assets/frogopeneyes.png" />
+        <span>基本信息</span>
+      </div>
+      <p class="item"><span>姓名：</span>
+      <div>{{info.enrollName }}</div>
+      </p>
+      <p class="item"><span>性别：</span>
+      <div>{{ info.locationHome }}</div>
+      </p>
+      <p class="item"><span>国家：</span>
+      <div>{{ info.locationHome }}</div>
+      </p>
+      <p class="item"><span>家乡/地区：</span>
+      <div>{{ info.locationHome }}</div>
+      </p>
+      <p class="item"><span>出生年月日：</span>
+      <div>{{ info.locationHome }}</div>
+      </p>
+      <p class="item"><span>证件照：</span>
+      <div><img src="../../../../../assets/0.png" alt=""></div>
+      </p>
+      <p class="item"><span>电话号码：</span>
+      <div>{{ info.locationHome }}</div>
       </p>
     </div>
     <div>
-      <img src="../../../../../assets/frogopeneyes.png" />
-      <span class="titled">更多信息</span>
-      <p>特长：{{ info.specialities }}</p>
-      <p>爱好：{{ info.hobbies }}</p>
-      <p>期望/收获：{{ info.gains }}</p>
-      <p>其他：{{ info.other }}</p>
+      <div class="title">
+        <img src="../../../../../assets/frogopeneyes.png" />
+        <span>紧急联系人</span>
+      </div>
+      <p class="item"><span>紧急联系人姓名：</span>
+      <div>{{ info.guardName }}</div>
+      </p>
+      <p class="item"><span>紧急联系人电话号码：</span>
+      <div>{{ info.guardPhone }}</div>
+      </p>
+      <p class="item"><span>与紧急联系人的关系：</span>
+      <div>{{ info.guardRelation }}</div>
+      </p>
     </div>
     <div>
-      <el-divider />
-      <el-button plain>审核不通过</el-button>
-      <el-button type="success" @click="show = false">审核通过</el-button>
+      <div class="title">
+        <img src="../../../../../assets/frogopeneyes.png" />
+        <span>基本身体情况</span>
+      </div>
+      <p class="item"><span>身高/cm：</span>
+      <div>{{ info.height }}</div>
+      </p>
+      <p class="item"><span>体重/kg：</span>
+      <div>{{ info.weight }}</div>
+      </p>
+      <p class="item"><span>鞋码/EUR：</span>
+      <div>{{ info.bloodType }}</div>
+      </p>
+      <p class="item"><span>血型：</span>
+      <div>{{ info.bloodType }}</div>
+      </p>
+    </div>
+    <div>
+      <div class="title">
+        <img src="../../../../../assets/frogopeneyes.png" />
+        <span>基本健康情况</span>
+      </div>
+      <p class="item"><span>过敏反应：</span>
+      <div>{{ info.height }}</div>
+      </p>
+      <p class="item"><span>请列出过敏源：</span>
+      <div>{{ info.weight }}</div>
+      </p>
+      <p class="item"><span>饮食需求：</span>
+      <div>{{ info.bloodType }}</div>
+      </p>
+      <p class="item"><span>请列出饮食需求：</span>
+      <div>{{ info.bloodType }}</div>
+      </p>
+      <p class="item"><span>健康状况：</span>
+      <div>{{ info.bloodType }}</div>
+      </p>
+      <p class="item"><span>请填写健康状况说明：</span>
+      <div>{{ info.bloodType }}</div>
+      </p>
+      <p class="item"><span>是否需要特殊照顾：</span>
+      <div>{{ info.bloodType }}</div>
+      </p>
+      <p class="item"><span>请填写需要特殊照顾的原因：</span>
+      <div>{{ info.bloodType }}</div>
+      </p>
+    </div>
+    <div>
+      <div class="title">
+        <img src="../../../../../assets/frogopeneyes.png" />
+        <span class="titled">自定义信息</span>
+      </div>
+      <p class="item"><span>特长：</span>
+      <div>{{ info.specialities }}</div>
+      </p>
+      <p class="item"><span>爱好：</span>
+      <div>{{ info.hobbies }}</div>
+      </p>
+      <p class="item"><span>期望/收获：</span>
+      <div>{{ info.gains }}</div>
+      </p>
+      <p class="item"><span>其他：</span>
+      <div>{{ info.other }}</div>
+      </p>
     </div>
   </el-drawer>
 </template>
@@ -103,26 +155,49 @@ defineExpose({
 })
 </script>
 
-<style lang="scss" scoped>
-div {
-  margin-bottom: 20px;
+<style lang="scss" scoped>.title {
+  display: flex;
+  margin: 20px 0;
+
   img {
     height: 20px;
     width: 20px;
     margin-right: 10px;
+
   }
+
   span {
     color: #00000073;
+    height: 20px;
+    line-height: 20px;
     size: 14px;
     font-weight: 400;
-    margin-bottom: 24px;
-  }
-  p {
-    color: #333;
-    size: 14px;
-    font-weight: 400;
-    margin-left: 68px;
-    padding: 16px 0 16px 0;
   }
 }
-</style>
+
+.item {
+  color: rgba(38, 38, 38, 1);
+  font-weight: 400;
+  margin-left: 30px;
+  padding: 10px 0;
+  display: flex;
+  width: 90%;
+
+  span {
+    width: 20%;
+    word-wrap: break-word;
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  div {
+    width: 80%;
+    white-space: pre-wrap;
+    word-break: break-all;
+    img{
+      width: 60%;
+      height: 20vh;
+      border-radius: 10px;
+    }
+  }
+
+}</style>
