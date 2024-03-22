@@ -17,53 +17,70 @@
 </template>
 
 <script setup>
+import { onBeforeMount, onMounted,ref } from 'vue'
 import CampHeader from '../../../component/camp-header.vue'
 import CampNav from '../../../component/camp-nav.vue'
 import CampBody from '../../../component/camp-body.vue'
+import { useStore } from '../../../store'
+import { useRouter } from 'vue-router'
 const navOptions = [
   {
     label: '审核端',
     navTo: '/audit/basicInfo',
-    name:'audit-basicInfo'
+    name: 'audit-basicInfo'
   }
 ]
-const sideNav = [
+const sideNav = ref([
   {
     label: '基本信息审核',
     navTo: '/audit/basicInfo',
-    name:'audit-basicInfo'
+    name: 'audit-basicInfo'
   },
   {
     label: '主理人设置审核',
     navTo: '/audit/provider',
-    name:'audit-provider'
+    name: 'audit-provider'
   },
   {
     label: '商品管理审核',
     navTo: '/audit/product',
-    name:'audit-product'
+    name: 'audit-product'
   },
   {
     label: '保险支持',
     navTo: '/audit/insurence',
-    name:'audit-insurence'
+    name: 'audit-insurence'
   },
   {
     label: '订单管理审核',
     navTo: '',
-    name:''
+    name: ''
   },
   {
     label: '资管系统审核',
     navTo: '',
-    name:''
+    name: ''
   },
   {
     label: '评价审核',
     navTo: '',
-    name:''
+    name: ''
   }
-]
+])
+const router = useRouter()
+onBeforeMount(() => {
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+  // if (userInfo.role == "AUDITOR") {
+  //   sideNav.value = [
+  //     {
+  //       label: '保险支持',
+  //       navTo: '/audit/insurence',
+  //       name: 'audit-insurence'
+  //     }
+  //   ]
+  //   router.push(`/audit/insurence`)
+  // }
+})
 </script>
 
 <style lang="scss">

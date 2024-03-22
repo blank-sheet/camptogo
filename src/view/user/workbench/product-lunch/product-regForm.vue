@@ -187,7 +187,13 @@ const createReForm = async () => {
     }
   }
   if (questionList.value.length == 0) {
-    ElMessage.error("请填写相关问题")
+    await request.post(userApi.createRegistrationFormAPI, {
+      productId: Number(route.params.id),
+      questionList: questionList.value
+    }).then(res => {
+      ElMessage.success(res.msg)
+      router.push(`/user/workbench/product/${route.params.id}`)
+    })
     return
   }
   for (let i = 0; i < questionList.value.length; i++) {
