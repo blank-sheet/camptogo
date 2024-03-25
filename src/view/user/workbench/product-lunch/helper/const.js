@@ -200,10 +200,10 @@ const insurenceOptions = [
 const liabilityOptions = [
   {
     label: '自行购买其他保险',
-    value: false
+    value: true
   },
   {
-    value: true,
+    value: false,
     label: '购买与营探合作的第三方保险'
   }
 ]

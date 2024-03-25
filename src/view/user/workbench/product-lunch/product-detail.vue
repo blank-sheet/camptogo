@@ -577,18 +577,18 @@
                 v-model="insurence.liability" :options="liabilityOptions" placeholder="请选择保险信息" /> -->
               <ElSelect v-model="insurence.liability" v-on:change="liabilityChange"
                 style="width: 80%; margin-bottom: 20px" placeholder="请选择保险信息">
-                <ElOption v-for="(item, level) in liabilityOptions" :label="item.label" :value="!item.value">
+                <ElOption v-for="(item, level) in liabilityOptions" :label="item.label" :value="item.value">
                 </ElOption>
               </ElSelect>
-              <div v-if="insurence.liability">
+              <div v-if="!insurence.liability">
                 <ElSelect v-model="form.insuranceInfo.liabilityInsuranceGradeId" style="width: 400px"
-                  v-if="!isLiabilitySelf">
+                  v-if="isLiabilitySelf">
                   <ElOption v-for="(item, level) in liabilityGradeList" :key="level" :label="item.title"
                     :value="item.insuranceGradeId">
                   </ElOption>
                 </ElSelect>
               </div>
-              <ElSelect style="width: 300px" v-if="isLiabilitySelf"
+              <ElSelect style="width: 300px" v-if="!isLiabilitySelf"
                 v-model="form.insuranceInfo.liabilityInsuranceSelfDetails">
                 <ElOption label="作为组织者，已在保险公司获准购买组织者责任险" value="作为组织者，已在保险公司获准购买组织者责任险"></ElOption>
                 <ElOption label="作为场地业主，已为活动场地购买场地责任险" value="作为场地业主，已为活动场地购买场地责任险"></ElOption>
@@ -1621,7 +1621,7 @@ const createProduct = async (formEl) => {
         certificate: item.certificate?.url,
       }))
       //这里是取值相反
-      form.value.insuranceInfo.liabilityInsuranceSelfIf = !insurence.liability
+      form.value.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
       form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
       //dateindex 与 dailyIndex置换
       form.value.dailyScheduleList.map((a) => {
@@ -1657,7 +1657,7 @@ const saveDraft = () => {
     certificate: item.certificate?.url,
   }))
   //这里是取值相反
-  form.value.insuranceInfo.liabilityInsuranceSelfIf = !insurence.liability
+  form.value.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
   form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
   //dateindex 与 dailyIndex置换
   form.value.dailyScheduleList.map((a) => {
@@ -1697,7 +1697,7 @@ const copyProduct = () => {
     certificate: item.certificate?.url,
   }))
   //这里是取值相反
-  form.value.insuranceInfo.liabilityInsuranceSelfIf = !insurence.liability
+  form.value.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
   form.value.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
   //dateindex 与 dailyIndex置换
   form.value.dailyScheduleList.map((a, b) => {
