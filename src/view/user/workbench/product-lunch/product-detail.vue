@@ -1113,7 +1113,7 @@ const currentTipText = ref('')
 const currentTipTitle = ref('特别提示')
 const liabilityChange = () => {
   form.value.insuranceInfo.liabilityInsuranceSelfDetails = undefined
-  if (isLiabilitySelf.value) {
+  if (!isLiabilitySelf.value) {
     currentTipTitle.value = '特别提示'
     currentTipText.value = '若您选择自行购买其他保险，请勾选符合您经营情形的对应选项，并确认该保单能在活动开始前生效。若您不属于以上三种任意一种情形，请选择购买营探定制责任险。否则，依据相关法律规定，我们无法为您的商品上架。'
     centerDialogVisible.value = true
