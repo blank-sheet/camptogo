@@ -1,7 +1,7 @@
 <template>
   <div class="choice" v-if="isEdit == true">
     <div class="title">
-      <el-input autosize type="textarea" class="input" placeholder="编辑题目" v-model="ques.title"
+      <el-input maxlength="500" autosize type="textarea" class="input" placeholder="编辑题目" v-model="ques.title"
         :disabled="route.query.isEdit == 0"></el-input>
       <el-tooltip content="删除该题目" placement="top">
         <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()"
@@ -12,7 +12,7 @@
       </el-tooltip>
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input  class="desinput" placeholder="编辑题目说明" v-model="ques.description"
+      <el-input maxlength="500"  class="desinput" placeholder="编辑题目说明" v-model="ques.description"
         :disabled="route.query.isEdit == 0"></el-input>
       <el-tooltip content="删除题目描述" placement="top">
         <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
@@ -43,7 +43,7 @@
               </el-tooltip>
             </div>
             <div class="desc" v-show="element.description.length > 0">
-              <el-input class="desinput" placeholder="编辑选项说明"
+              <el-input maxlength="500" class="desinput" placeholder="编辑选项说明"
                 v-model="element.description"></el-input>
               <el-tooltip content="删除题目描述" placement="top">
                 <img class="icon2" src="../../../../../../assets/icon/del.svg" alt="" @click="deldesc(index)">

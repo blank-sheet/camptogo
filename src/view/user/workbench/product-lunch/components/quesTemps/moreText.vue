@@ -1,7 +1,7 @@
 <template>
   <div class="fill" v-if="isEdit == true">
     <div class="title">
-      <el-input autosize type="textarea" :disabled="route.query.isEdit == 0" class="input" placeholder="编辑题目"
+      <el-input maxlength="500" autosize type="textarea" :disabled="route.query.isEdit == 0" class="input" placeholder="编辑题目"
         v-model="ques.title"></el-input>
       <el-tooltip content="删除该题目" placement="top">
         <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="delQues()"
@@ -12,7 +12,7 @@
       </el-tooltip>
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input :disabled="route.query.isEdit == 0" class="desinput" placeholder="编辑题目说明"
+      <el-input maxlength="500" :disabled="route.query.isEdit == 0" class="desinput" placeholder="编辑题目说明"
         v-model="ques.description"></el-input>
       <el-tooltip content="删除题目描述" placement="top">
         <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
@@ -22,7 +22,7 @@
   <div class="noEdit" v-else>
     <div class="title">{{ ques.title }}</div>
     <div class="desc">{{ ques.description }}</div>
-    <el-input type="textarea"  :rows="2" class="input" disabled placeholder="用户填写"></el-input>
+    <el-input maxlength="500" type="textarea"  :rows="2" class="input" disabled placeholder="用户填写"></el-input>
   </div>
 </template>
 
