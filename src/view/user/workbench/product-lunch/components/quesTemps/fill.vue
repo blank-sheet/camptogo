@@ -12,7 +12,7 @@
       </el-tooltip>
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input autosize type="textarea" :disabled="route.query.isEdit == 0" class="desinput" placeholder="编辑题目说明"
+      <el-input :disabled="route.query.isEdit == 0" class="desinput" placeholder="编辑题目说明"
         v-model="ques.description"></el-input>
       <el-tooltip content="删除题目描述" placement="top">
         <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">

@@ -12,7 +12,7 @@
       </el-tooltip>
     </div>
     <div class="title" v-show="ques.description.length > 0">
-      <el-input autosize type="textarea" class="desinput" placeholder="编辑题目说明" v-model="ques.description"
+      <el-input class="desinput" placeholder="编辑题目说明" v-model="ques.description"
         :disabled="route.query.isEdit == 0"></el-input>
       <el-tooltip content="删除题目描述" placement="top">
         <img class="icon" src="../../../../../../assets/icon/del.svg" alt="" @click="ques.description = ''">
@@ -43,7 +43,7 @@
               </el-tooltip>
             </div>
             <div class="desc" v-show="element.description.length > 0">
-              <el-input autosize type="textarea" :disabled="route.query.isEdit == 0" class="desinput"
+              <el-input :disabled="route.query.isEdit == 0" class="desinput"
                 placeholder="编辑选项说明" v-model="element.description"></el-input>
               <el-tooltip content="删除选项描述" placement="top">
                 <img class="icon2" src="../../../../../../assets/icon/del.svg" alt="" @click="deldesc(index)">
