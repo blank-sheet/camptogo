@@ -14,6 +14,7 @@
         <el-option value="FILL_IN_THE_BLANKS" label="填空"></el-option>
         <el-option value="DROPDOWN_SINGLE_CHOICE" label="下拉框单选"></el-option>
         <el-option value="PICTURE" label="上传图片"></el-option>
+        <el-option value="MULTI_LINE_TEXT" label="多行文本"></el-option>
       </el-select>
       <el-button class="btn" type="success" @click="isEdit = false">{{ route.query.isEdit == 1 ? '完成编辑' : '完成查看'
         }}</el-button>
@@ -26,6 +27,7 @@ import choice from "./quesTemps/choice.vue"
 import fill from "./quesTemps/fill.vue"
 import selection from "./quesTemps/selection.vue"
 import upLoad from "./quesTemps/upload.vue"
+import moreText from "./quesTemps/moreText.vue"
 import { ref, computed, inject } from 'vue'
 import { useRoute } from "vue-router"
 const route = useRoute()
@@ -44,7 +46,9 @@ const getComponentName = computed(() => {
     return fill
   } else if (props.ques.questionType == 'DROPDOWN_SINGLE_CHOICE') {
     return selection
-  } else {
+  } else if(props.ques.questionType == 'MULTI_LINE_TEXT'){
+    return moreText
+  }else{
     return upLoad
   }
 })
