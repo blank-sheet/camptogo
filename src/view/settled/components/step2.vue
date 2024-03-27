@@ -4,18 +4,21 @@
     <div class="contain">
       <el-form ref="formRef" :model="userDate">
         <CampFormItem class="CampFormItem" label="注册手机" prop="phoneNumber">
-          <el-input placeholder="请使用公司负责人常用手机号" v-model="userDate.phoneNumber" @blur="status = true">
+          <el-input placeholder="请使用公司负责人常用手机号" v-model="userDate.phoneNumber" @blur="isError = false">
             <template #prepend>
-              <el-select v-model="select" placeholder="" style="width: 120px">
-                <el-option label="中国大陆 +86" :value="1" />
-              </el-select>
+              <CampFormItem :is-show-label="false" prop="select">
+                <el-select v-model="userDate.select" placeholder="" style="width: 120px" :class="isError?'error':''">
+                  <el-option label="中国大陆 +86" :value="1" />
+                </el-select>
+              </CampFormItem>
             </template>
           </el-input>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="手机验证码" prop="captcha">
           <el-input placeholder="请输入短信验证码" v-model="userDate.captcha">
             <template #suffix>
-              <div @click="getVerifyCode" style="cursor: pointer;" :style="{'color':isReadyToSend?'#93D600':''}">{{ showTime || '发送' }}</div>
+              <div @click="getVerifyCode" style="cursor: pointer;" :style="{ 'color': isReadyToSend ? '#93D600' : '' }">{{
+                showTime || '发送' }}</div>
             </template>
           </el-input>
         </CampFormItem>
@@ -44,7 +47,7 @@ const router = useRouter()
 const handlerToStep3 = async () => {
   const valid = validateForm(formRef.value)
   if (valid) {
-    status.value = false
+    isError.value = true
     return
   } else {
     await request.post(settledApi.phoneVerifyAPI, {
@@ -61,10 +64,10 @@ const handlerToStep3 = async () => {
 onMounted(() => {
 })
 const formRef = ref(null)
-const select = ref(1)
 const userDate = ref({
   phoneNumber: null,
-  captcha: null
+  captcha: null,
+  select:1
 })
 
 const showTimer = ref(null)
@@ -109,7 +112,7 @@ const getVerifyCode = async () => {
     return
   }
 }
-
+const isError = ref(false)
 const status = ref(true)
 const validateForm = (formEl) =>
   formEl.validate((valid) => {
@@ -119,8 +122,8 @@ const validateForm = (formEl) =>
     return valid
   })
 
-const isReadyToSend = computed(()=>{
-  if((showTime.value == '重新发送' || showTime.value == '发送') && userDate.value.phoneNumber && userDate.value.phoneNumber.length == 11){
+const isReadyToSend = computed(() => {
+  if ((showTime.value == '重新发送' || showTime.value == '发送') && userDate.value.phoneNumber && userDate.value.phoneNumber.length == 11) {
     return true
   }
   return false
@@ -155,10 +158,12 @@ const isReadyToSend = computed(()=>{
         width: 10vw !important;
       }
 
+    
       .error {
+        box-sizing: border-box;
         border: 2px solid #f56c6c;
         border-right: 0px;
-        border-radius: 4px 0 0 4px;
+        border-radius: 5px 0 0 5px;
       }
     }
   }

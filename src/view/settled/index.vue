@@ -13,7 +13,7 @@
       <div>Overseas merchants, click here <span>to register</span></div>
     </div>
     <div class="tips1" v-show="route.name != 'step1'">
-      <span>关于我们</span>|<span>联系我们</span>|<span>广告服务</span>|<span>营探APP</span>|<span>English Site</span>
+      <span>关于我们</span>|<span>营探小程序</span>|<span>English Site</span>
     </div>
   </div>
 </template>

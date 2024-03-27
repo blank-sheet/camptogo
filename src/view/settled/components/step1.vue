@@ -12,7 +12,7 @@
         <span>3. 入驻申请函 </span>
       </div>
       <div class="btn">
-        <el-button type="success" @click="handlerToStep2('personal')">去入驻</el-button>
+        <el-button type="success" @click="">去入驻</el-button>
       </div>
     </div>
     <div class="right card">

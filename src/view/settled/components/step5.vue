@@ -1,84 +1,81 @@
 <template>
   <div class="step5">
-    <div class="title">经营事项信息</div>
+    <div class="title">合作经营信息</div>
     <div class="contain">
       <el-form ref="formRef" :model="userData">
-        <div v-if="route.params.type != 'personal'">
-          <CampFormItem class="CampFormItem" label="申请认证公函">
-            <div>
-              <CampUpload></CampUpload>
-              <div class="text">
-                提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。图片必须是最新的纸质证件原件拍照或彩色扫描件，否则将无法通过备案审核。请确保证件四周有圆角，卡证边缘清晰。如有水印，务必放置在证件空白位置，不得遮挡文字和图像信息。<span>下载模版</span>
-              </div>
-            </div>
-          </CampFormItem>
-          <CampFormItem class="CampFormItem" label="经营资质">
-            <div>
-              <CampUpload></CampUpload>
-              <div class="text">
-                温馨提示：各级奖项、荣誉资质、出版物、职称、职业认证等第三方专业机构出具的相关证明。<span>上传资质说明</span>
-              </div>
-            </div>
-          </CampFormItem>
-        </div>
-        <CampFormItem class="CampFormItem" label="应急手机号" v-if="route.params.type == 'personal'" prop="emergencyPhone">
+        <CampFormItem class="CampFormItem" label="合作模式">
+          <el-checkbox-group>
+            <el-checkbox label="佣金发票（营探向商家开的发票）" value="Value A" />
+            <el-checkbox label="底价发票（商家向营探开的发票）" value="Value A" />
+          </el-checkbox-group>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="入驻身份">
+          <el-select class="select" placeholder="请选择">
+            <el-option></el-option>
+          </el-select>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="特殊经营品类">
+          <el-radio-group>
+            <el-radio value="1" size="large">含特殊经营品类</el-radio>
+            <el-radio value="1" size="large">不含特殊经营品类</el-radio>
+          </el-radio-group>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="品牌类型">
           <div>
-            <el-input placeholder="请输入" v-model="userData.emergencyPhone"></el-input>
-            <div class="text">
-              温馨提示：需填写除主体负责人以外的有效手机号码，且没有给其他人使用过进行备案的。若应急手机号存在多人重复使用，将无法通过备案审核。填写应急手机号是为了在紧急情况下能够及时联系到您，以确保能够快速解决问题或提供支持。
-            </div>
+            <el-checkbox-group>
+              <el-checkbox label="自主品牌" value="Value A" />
+              <el-checkbox label="代理品牌" value="Value A" />
+            </el-checkbox-group>
+            <div class="text">品牌使用人和品牌持有人一致，即商标注册证上注册人=开店主体，即品牌商标持有人自己开店；品牌使用人经过持有人授权，品牌持有人为授权方，品牌使用人为被授权方。</div>
           </div>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="主要经营区域">
           <div>
-            <div style="display:flex" v-for="(item, index) in userData.businessAreasList" :key="item">
-              <CampPlace placeholder="省 > 市 > 区" v-model:location="userData.businessAreasList[index]"></CampPlace><span
-                class="btnSpan" @click="addArea(index)">添加</span><span class="btnSpan" @click="delArea(index)">删除</span>
+            <div>
+              <el-input class="baozhengjin" disabled></el-input>元
             </div>
-            <div class="text">
-              温馨提示：主要经营区域若在中国境内需要精确到省市区，经营区域若包含省内/市内所有区域，选择全域。如“湖北省武汉市全域”、“湖北省全域”。经营区域涉及到海外，需要精确到市。若包含州内所有区域，选择全域。如“美国纽约州全域”。最多填写三个区域。
-            </div>
+            <div class="text">2024年12月31日24点前签约入驻营探的服务商，营探允许服务商先行入驻平台并使用平台基础服务而暂缓缴纳基础保证金。</div>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="服务内容标识">
+        <CampFormItem class="CampFormItem" label="上传相关资质">
           <div>
-            <div class="tags">
-              <el-tag v-for="(item, index) in userData.activityTypeRanges" :key="index" class="tag" closable @close="handleClose(index)"
-                type="info">{{ item }}</el-tag>
-              <el-button class="dashd" @click="isShowModel = true"><i class="iconfont icon-tianjia"></i>点击选择</el-button>
-            </div>
+            <div class="text2">旅游业务许可证</div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
             <div class="text">
-              温馨提示：按照个人实际经营情况选择对应内容，建议1-2个。个人主体不可以选择经营性质、企业/单位性质；个人应选择与个人经营范围、资质相符合的内容。若选择内容与主体性质、经营范围不相符，将无法通过备案审核。<span>查看服务内容标识选择指引</span>
+              可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。需提供有效的旅游业务许可证，或其他监管部门认可的具有同等法律效力的证件，并且照片清晰完整。<span>查看示例</span>
             </div>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="个人能力证明" v-if="route.params.type == 'personal'">
+        <CampFormItem class="CampFormItem" label="">
+          <div>
+            <div class="text2">上传其他备案资质</div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
+            <div class="text">
+              可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
+            </div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="能力证明（选填）">
           <div>
             <CampUpload v-model:images="userData.evidences"></CampUpload>
             <div class="text">
-              温馨提示：各级奖项、荣誉资质、出版物、职称、职业认证等第三方专业机构出具的相关证明, 可上传多张图片。
+              各级奖项、荣誉资质、出版物、职称、职业认证等第三方专业机构出具的相关证明。
             </div>
-          </div>
-        </CampFormItem>
-        <CampFormItem class="CampFormItem" label="主营业务介绍" prop="describe">
-          <div>
-            <el-input type="textarea" autosize placeholder="例: 我是非遗传承人" v-model="userData.describe"></el-input>
-            <div class="text">请具体描述个人实际经营内容、主要服务内容，该信息为营探法务部门审核重要依据，字数限制20-200，若有已发布产品的链接请粘贴于填写框内。</div>
           </div>
         </CampFormItem>
       </el-form>
     </div>
     <div class="btn">
       <el-button @click="handlerTostep4()">上一步</el-button>
-      <el-button type="success" @click="handlerTostep6()">完成</el-button>
+      <el-button type="success" @click="handlerTostep6()">下一步</el-button>
     </div>
   </div>
   <el-dialog class="dialog" v-model="isShowModel" title="活动特色(可多选)" width="800" align-center>
     <div class="tags">
-        <div class="tag" :class="userData.activityTypeRanges.includes(item.value) ? 'activeTag' : ''" v-for="(item, index) in activityTypes"
-          :key="item.value" @click="updateSelected(item.value)">{{
-            item.label }}</div>
-      </div>
+      <div class="tag" :class="userData.activityTypeRanges.includes(item.value) ? 'activeTag' : ''"
+        v-for="(item, index) in activityTypes" :key="item.value" @click="updateSelected(item.value)">{{
+          item.label }}</div>
+    </div>
     <template #footer>
       <div class="dialog-footer">
         <span class="selected">已选<span>{{ userData.activityTypeRanges.length }}</span>项</span>
@@ -266,6 +263,22 @@ const handleClose = (index) => {
 
 
     .CampFormItem {
+      .text2 {
+        white-space: nowrap;
+        margin-right: 1vw;
+        font-size: 1vw;
+        margin:0 0 5px 0;
+      }
+
+      .select {
+        width: 20%;
+      }
+
+      .baozhengjin {
+        width: 15%;
+        margin-right: 10px;
+      }
+
       .box {
         display: flex;
 
@@ -341,7 +354,7 @@ const handleClose = (index) => {
   .tags {
     display: flex;
     flex-wrap: wrap;
-    
+
     .tag {
       height: 3vh;
       line-height: 3vh;
@@ -362,7 +375,8 @@ const handleClose = (index) => {
       border-color: #93D600;
     }
   }
-  .dialog-footer{
+
+  .dialog-footer {
     border-top: 1px solid rgb(232, 230, 230);
     padding-top: 1vh;
     margin-top: 10vh;

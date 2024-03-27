@@ -1,119 +1,105 @@
 <template>
   <div class="step4">
-    <div class="title">主体负责人信息</div>
+    <div class="title">机构基本信息</div>
     <div class="contain">
       <el-form ref="formRef" :model="userData">
-        <div v-if="route.params.type != 'personal'">
-          <CampFormItem class="CampFormItem" label="营业执照">
-            <div>
-              <CampUpload></CampUpload>
-              <div class="text">1.需提供三证合一的最新营业执照原件扫描件或加盖公司公章的营业执照复印件</div>
-              <div class="text">2.确保未在企业经营异常名录中且所售商品在营业执照经营范围内</div>
-              <div class="text">3.距离有效期截止时间应在6个月以上</div>
-              <div class="text">4.须露出证件四角，请勿遮挡或模糊，保持信息清晰可见</div>
-              <div class="text">5.图片尺寸为800*800px以上，支持PNG、JPG和JPEG格式，大小不超过5MB<span>查看示例</span></div>
-            </div>
+        <CampFormItem class="CampFormItem" label="执照类型" prop="name">
+          <el-select class="select" v-model="userData.name" placeholder="请选择执照类型">
+            <el-option></el-option>
+          </el-select>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="营业执照">
+          <div>
+            <CampUpload></CampUpload>
+            <div class="text">请根据登记证书选择结果上传执照类型材料。<span>执照上传说明</span></div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="机构全称" prop="name">
+          <el-input v-model="userData.name" placeholder="请输入机构全称"></el-input>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="统一社会信用代码">
+          <el-input placeholder="请输入统一社会信用代码/注册号"></el-input>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="机构类型" prop="name">
+          <el-select class="select" v-model="userData.name" placeholder="请选择机构类型">
+            <el-option></el-option>
+          </el-select>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="法定代表人" prop="name">
+          <el-input v-model="userData.name" placeholder="请输入机构法定代表"></el-input>
+        </CampFormItem>
+        <div class="zheceziben">
+          <CampFormItem class="CampFormItem" label="注册资本" >
+            <el-input type="number"  placeholder="请输入数字"></el-input>
           </CampFormItem>
-          <CampFormItem class="CampFormItem" label="公司名称" prop="name">
-            <el-input v-model="userData.name" placeholder="请输入公司名称"></el-input>
-          </CampFormItem>
-          <CampFormItem class="CampFormItem" label="有效期限">
-            <div>
-              <div class="date">
-                <CampFormItem :isShowLabel="false" prop="idValidStart">
-                  <CampDatePicker placeholder="选择日期" v-model:date="userData.idValidStart"></CampDatePicker>
-                </CampFormItem>
-                <i class="iconfont icon-single_arrow"></i>&emsp13;
-                <CampFormItem :isShowLabel="false" prop="idValidEnd">
-                  <CampDatePicker placeholder="选择日期" v-model:date="userData.idValidEnd"></CampDatePicker>
-                </CampFormItem>
-                <el-radio-group v-model="isForever"><el-radio label="长期" :value="true"></el-radio></el-radio-group>
-              </div>
-              <div class="text">温馨提示：新版营业执照需要自行在国家信息网查询营业期限到期日期，且保证填写时间与国家企业信用信息公示系统数据保持一致。</div>
-            </div>
-          </CampFormItem>
-          <CampFormItem class="CampFormItem" label="统一社会信用代码">
-            <el-input placeholder=""></el-input>
-          </CampFormItem>
-          <CampFormItem class="CampFormItem" label="住所">
-            <CampPlace placeholder="省 > 市 > 区"></CampPlace>
-          </CampFormItem>
-          <CampFormItem class="CampFormItem" label="">
-            <div>
-              <el-input placeholder="街道, 小区, 门牌号等" style="width: 50vw;"></el-input>
-              <div class="text">
-                温馨提示：住所需要精确到具体房间号，省、市、区无需重复填写，若所填写地址无门牌号且已是最详细地址，在下方“备注”位置说明情况。如“通讯地址已是最详细地址。”若未填写最详细通讯地址，将无法通过备案审核。</div>
-            </div>
+          <CampFormItem class="CampFormItem" :isShowLabel="false">
+            <el-select class="select" placeholder="单位">
+              <el-option></el-option>
+            </el-select>
           </CampFormItem>
         </div>
-        <CampFormItem class="CampFormItem" label="上传身份证">
-          <div class="box">
-            <el-upload :show-file-list="false" accept=".jpg, .jpeg, .png,">
-              <img src="../../../assets/sfz1.png" class="avatar" />
-            </el-upload>
-            <el-upload :show-file-list="false" accept=".jpg, .jpeg, .png,">
-              <img src="../../../assets/sfz2.png" class="avatar" />
-            </el-upload>
-          </div>
-          <div class="text">
-            图片要求：上传本人身份证，大小不超过2M，分辨率不低于720*1280。图片必须是最新的纸质证件原件拍照或彩色扫描件，若未使用最新证件照，则将无法通过备案审核。请确保证件四周有圆角，卡证边缘清晰。如有水印，务必放置在证件空白位置，不得遮挡文字和图像信息。<span>查看示例</span>
-          </div>
+        <CampFormItem class="CampFormItem" label="成立日期">
+          <CampDatePicker placeholder="日期选择" v-model:date="userData.idValidStart"></CampDatePicker>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="姓名" prop="realName">
-          <el-input placeholder="请输入主体负责人姓名" v-model="userData.realName"></el-input>
-        </CampFormItem>
-        <CampFormItem class="CampFormItem" label="身份证号" prop="realId">
-          <div>
-            <el-input style="width: 20vw;" v-model="userData.realId" placeholder="请输入主体负责人身份证号" type="password"
-              show-password></el-input>
-            <div class="text">温馨提示:请核对负责人身份号码</div>
-          </div>
-        </CampFormItem>
-        <CampFormItem class="CampFormItem" label="身份证有效期">
+        <CampFormItem class="CampFormItem" label="执照有效期">
           <div>
             <div class="date">
               <CampFormItem :isShowLabel="false" prop="idValidStart">
-                <CampDatePicker placeholder="选择日期" v-model:date="userData.idValidStart"></CampDatePicker>
+                <CampDatePicker placeholder="日期选择" v-model:date="userData.idValidStart"></CampDatePicker>
               </CampFormItem>
               <i class="iconfont icon-single_arrow"></i>&emsp13;
               <CampFormItem :isShowLabel="false" prop="idValidEnd">
-                <CampDatePicker placeholder="选择日期" v-model:date="userData.idValidEnd"></CampDatePicker>
+                <CampDatePicker placeholder="日期选择" v-model:date="userData.idValidEnd"></CampDatePicker>
               </CampFormItem>
               <el-radio-group v-model="isForever">
                 <el-radio label="长期" :value="true"></el-radio>
               </el-radio-group>
             </div>
-            <div class="text">温馨提示：请核对负责人证件有效期，确保所填写证件有效期与上传证件信息完全一致，若填写不一致，将无法通过审核。</div>
+            <div class="text">请保证填写时间与国家企业信用信息公示系统数据保持一致。</div>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="入驻申请函" prop="applicantLetterImg">
+        <CampFormItem class="CampFormItem" label="经营范围">
           <div>
-            <CampUpload v-model:images="userData.applicantLetterImg"></CampUpload>
-            <div class="text">
-              提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。图片必须是最新的纸质证件原件拍照或彩色扫描件，否则将无法通过备案审核。请确保证件四周有圆角，卡证边缘清晰。如有水印，务必放置在证件空白位置，不得遮挡文字和图像信息。<span>下载模版</span>
-            </div>
+            <CampPlace placeholder="请输入"></CampPlace>
+            <div class="text">请保证与国家企业信用信息公示系统数据保持一致。</div>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="通讯地址" prop="emailAddressList">
-          <CampPlace placeholder="省 > 市 > 区" v-model:location="userData.emailAddressList"></CampPlace>
+        <CampFormItem class="CampFormItem" label="执照注册地" prop="emailAddressList">
+          <CampPlace placeholder="国家 > 省 > 市 > 区" v-model:location="userData.emailAddressList"></CampPlace>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="" prop="detailAddress">
           <div>
-            <el-input placeholder="街道, 小区, 门牌号等" style="width: 50vw;" v-model="userData.detailAddress"></el-input>
-            <div class="text" v-if="route.params.type != 'institution'">温馨提示：通讯地址需要精确到具体房间号，省、市、区无需重复填写。通讯地址建议与固定经营区域保持一致。
-            </div>
-            <div class="text" v-else>
-              温馨提示：住所需要精确到具体房间号，省、市、区无需重复填写，若所填写地址无门牌号且已是最详细地址，在下方“备注”位置说明情况。如“通讯地址已是最详细地址。”若未填写最详细通讯地址，将无法通过备案审核。</div>
+            <el-input placeholder="请填写详细地址" style="width: 50vw;" v-model="userData.detailAddress"></el-input>
+            <div class="text">请保证与国家企业信用信息公示系统数据保持一致。</div>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="应急联系人" v-if="route.params.type != 'personal'" prop="emergencyPhone">
+        <CampFormItem class="CampFormItem" label="实际通讯地址" prop="emailAddressList">
+          <CampPlace placeholder="国家 > 省 > 市 > 区" v-model:location="userData.emailAddressList"></CampPlace>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="" prop="detailAddress">
           <div>
-            <el-input v-model="userData.emergencyPhone" placeholder="请输入法定代表人或实际控制人的有效手机号码"></el-input>
-            <div class="text">温馨提示：需填写法定代表人或实际控制人的有效手机号码，且没有给其他人使用过进行备案的。若应急手机号存在多人重复使用，将无法通过备案审核。</div>
+            <el-input placeholder="请填写详细地址" style="width: 50vw;" v-model="userData.detailAddress"></el-input>
+            <div class="text">住所需要精确到具体门牌号最详细地址，省、市、区无需重复填写。</div>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="备注" prop="describe" v-if="route.params.type != 'personal'">
-          <el-input placeholder="请输入备注信息" v-model="userData.describe"></el-input>
+        <CampFormItem class="CampFormItem" label="主要经营区域">
+          <div>
+            <div style="display:flex;margin: 0 0 10px 0;" v-for="(item, index) in userData.businessAreasList" :key="item">
+              <CampPlace placeholder="国家 > 省 > 市 > 区" v-model:location="userData.businessAreasList[index]"></CampPlace>
+              <span class="btnSpan" @click="addArea(index)">添加</span>
+              <span class="btnSpan" @click="delArea(index)">删除</span>
+            </div>
+            <div class="text">
+              最多填写三个区域，用于推送及搜索服务。主要经营区域若在中国境内需要精确到省市区，经营区域若包含省内/市内所有区域，选择全域。如“湖北省武汉市全域”、“湖北省全域”。经营区域涉及到海外，需要精确到市。若包含州内所有区域，选择全域。如“美国纽约州全域”。
+            </div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="主营业务介绍" prop="describe">
+          <div>
+            <el-input type="textarea" autosize placeholder="请输入" maxlength="500" showWordLimit
+              v-model="userData.describe"></el-input>
+            <div class="text">请描述主营业务及特色、优势，并附相关链接于填写框内，限500字。</div>
+          </div>
         </CampFormItem>
       </el-form>
     </div>
@@ -130,6 +116,7 @@ import CampFormItem from '../../../component/camp-form-item.vue'
 import CampDatePicker from '../../../component/camp-date-picker.vue'
 import CampUpload from '../../../component/camp-upload.vue'
 import CampPlace from '../../../component/camp-place.vue'
+import { ElMessage } from 'element-plus'
 
 const route = useRoute()
 const router = useRouter()
@@ -143,27 +130,34 @@ onMounted(() => {
 })
 const formRef = ref(null)
 
+
 const userData = ref({
   userId: null,
   name: "",
   email: "",
   identityImgs: [
     {
-      url: "",
+      url: "http://example.com/identity1.jpg",
       name: "身份证正面"
     },
     {
-      url: "",
+      url: "http://example.com/identity2.jpg",
       name: "身份证反面"
     }
   ],
-  realName: "",
-  realId: "",
-  idValidStart: null,
-  idValidEnd: null,
-  emailAddressList: [],
+  realName: "张三",
+  realId: "1234567890",
+  idValidStart: "2023-01-01",
+  idValidEnd: "2028-12-31",
+  emailAddressList: [
+    "中国",
+    "安徽省",
+    "合肥市",
+    "蜀山区",
+    "长江西路130号"
+  ],
   applicantLetterImg: {
-    url: "",
+    url: "http://example.com/applicant_letter.jpg",
     name: "认证申请函"
   },
   emergencyPhone: "",
@@ -173,18 +167,22 @@ const userData = ref({
   activityTypeRanges: [
   ],
   activityParticipationRange: [
+    "亲子",
+    "单飞"
   ],
   evidences: [
     {
-      url: "",
+      url: "http://example.com/evidence1.jpg",
       name: "证明材料1"
+    },
+    {
+      url: "http://example.com/evidence2.jpg",
+      name: "证明材料2"
     }
   ],
   describe: "",
-  mobile: "",
-  detailAddress: ""
+  mobile: ""
 })
-
 watch(() => userData.value, (newV) => {
   if (newV.idValidStart || newV.idValidEnd) {
     isForever.value = false
@@ -201,6 +199,22 @@ const validateForm = (formEl) =>
     }
     return valid
   })
+
+
+const delArea = (index) => {
+  if (userData.value.businessAreasList <= 1) {
+    ElMessage.error("至少保留一个选项")
+    return
+  }
+  userData.value.businessAreasList.splice(index, 1)
+}
+const addArea = (index) => {
+  if (userData.value.businessAreasList.length >= 3) {
+    ElMessage.error("至多添加3个选项")
+    return
+  }
+  userData.value.businessAreasList.splice(index + 1, 0, [])
+}
 </script>
 
 <style lang="scss" scoped>
@@ -217,11 +231,46 @@ const validateForm = (formEl) =>
     flex-direction: column;
     padding: 2vh 1vw;
 
+    .zheceziben {
+      display: flex;
+      margin: 0 0 20px 0;
+
+      .CampFormItem {
+        width: 30%;
+        margin: auto 10px auto 0;
+
+        .btnSpan {
+          color: #595959;
+          font-size: 1vw;
+          cursor: pointer;
+          margin: auto 0.8vw;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .select {
+          width: 30%;
+        }
+      }
+    }
 
     .CampFormItem {
       .date {
         display: flex;
 
+      }
+
+      .btnSpan {
+        color: #595959;
+        margin: 0 0.8vw;
+        font-size: 1vw;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
       .box {
@@ -247,6 +296,10 @@ const validateForm = (formEl) =>
             text-decoration: underline;
           }
         }
+      }
+
+      .select {
+        width: 20%;
       }
     }
   }

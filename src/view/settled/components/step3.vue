@@ -3,7 +3,7 @@
     <div class="title">{{ route.params.type === 'personal' ? '个人入驻' : '机构入驻' }}</div>
     <div class="contain">
       <el-form ref="formRef" :model="userData">
-        <CampFormItem class="CampFormItem" label="注册邮箱" prop="email">
+        <!-- <CampFormItem class="CampFormItem" label="注册邮箱" prop="email">
           <el-input placeholder="请设置公司负责人邮箱为登录名" v-model="userData.email">
           </el-input>
         </CampFormItem>
@@ -14,7 +14,7 @@
                 showTime || '发送' }}</div>
             </template>
           </el-input>
-        </CampFormItem>
+        </CampFormItem> -->
         <CampFormItem class="CampFormItem" label="设置密码" prop="password">
           <el-input placeholder="请设置至少12位字符 (包含英文大小写、字符)" type="password" show-password
             v-model="userData.password"></el-input>
@@ -138,7 +138,7 @@ const isReadyToSend = computed(() => {
 <style lang="scss" scoped>
 .step3 {
   width: 80%;
-  height: 80vh;
+  height: 50vh;
   background-color: #fff;
   border-radius: 0.5vw;
   display: flex;
