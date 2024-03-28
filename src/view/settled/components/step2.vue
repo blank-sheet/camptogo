@@ -6,11 +6,9 @@
         <CampFormItem class="CampFormItem" label="注册手机" prop="phoneNumber">
           <el-input placeholder="请使用公司负责人常用手机号" v-model="userDate.phoneNumber" @blur="isError = false">
             <template #prepend>
-              <CampFormItem :is-show-label="false" prop="select">
-                <el-select v-model="userDate.select" placeholder="" style="width: 120px" :class="isError?'error':''">
-                  <el-option label="中国大陆 +86" :value="1" />
-                </el-select>
-              </CampFormItem>
+              <el-select v-model="userDate.select" style="width: 120px" :class="isError ? 'error' : ''">
+                <el-option label="中国大陆 +86" :value="1" />
+              </el-select>
             </template>
           </el-input>
         </CampFormItem>
@@ -25,7 +23,7 @@
       </el-form>
     </div>
     <div class="tips">
-      <el-checkbox></el-checkbox>
+      <el-checkbox v-model="isAgree"></el-checkbox>
       <div>我已阅读并同意<span>《营探用户协议》</span><span>《营探隐私政策》</span></div>
     </div>
     <div class="btn">
@@ -35,7 +33,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import CampFormItem from '../../../component/camp-form-item.vue'
 import { settledApi } from "../../../api/modules/settled/settled"
@@ -46,20 +44,18 @@ const route = useRoute()
 const router = useRouter()
 const handlerToStep3 = async () => {
   const valid = validateForm(formRef.value)
-  if (valid) {
-    isError.value = true
-    return
-  } else {
-    await request.post(settledApi.phoneVerifyAPI, {
-      phoneNumber: userDate.value.phoneNumber,
-      captcha: userDate.value.captcha
-    }).then(res => {
-      if (res.details.isRegistered == true) {
-        router.push(`/settled/step3/${route.params.type}`)
+  valid.then(res => {
+    if (res) {
+      if (!isAgree.value) {
+        ElMessage.warning("请勾选同意平台相关协议~")
+        return
       }
-    })
-  }
-
+      sendToValidate()
+    } else {
+      isError.value = true
+      return
+    }
+  })
 }
 onMounted(() => {
 })
@@ -67,9 +63,20 @@ const formRef = ref(null)
 const userDate = ref({
   phoneNumber: null,
   captcha: null,
-  select:1
+  select: 1
 })
-
+const sendToValidate = async () => {
+  await request.post(settledApi.phoneVerifyAPI, {
+    phoneNumber: userDate.value.phoneNumber,
+    captcha: userDate.value.captcha
+  }).then(res => {
+    if (res?.details.isRegistered == true) {
+      router.push(`/settled/step3/${route.params.type}`)
+    } else {
+      ElMessage.error("验证码不匹配")
+    }
+  })
+}
 const showTimer = ref(null)
 const showTime = ref('发送')
 const changeShowTIme = () => {
@@ -113,7 +120,6 @@ const getVerifyCode = async () => {
   }
 }
 const isError = ref(false)
-const status = ref(true)
 const validateForm = (formEl) =>
   formEl.validate((valid) => {
     if (document.querySelector('.is-error')) {
@@ -127,6 +133,11 @@ const isReadyToSend = computed(() => {
     return true
   }
   return false
+})
+
+const isAgree = ref(false)
+watch(() => isAgree.value, (newV) => {
+  console.log(newV)
 })
 </script>
 
@@ -158,7 +169,7 @@ const isReadyToSend = computed(() => {
         width: 10vw !important;
       }
 
-    
+
       .error {
         box-sizing: border-box;
         border: 2px solid #f56c6c;

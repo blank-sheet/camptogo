@@ -5,7 +5,7 @@
       <el-form ref="formRef" :model="userData">
         <CampFormItem class="CampFormItem" label="执照类型" prop="name">
           <el-select class="select" v-model="userData.name" placeholder="请选择执照类型">
-            <el-option></el-option>
+            <el-option v-for="item in licence" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="营业执照">
@@ -29,8 +29,8 @@
           <el-input v-model="userData.name" placeholder="请输入机构法定代表"></el-input>
         </CampFormItem>
         <div class="zheceziben">
-          <CampFormItem class="CampFormItem" label="注册资本" >
-            <el-input type="number"  placeholder="请输入数字"></el-input>
+          <CampFormItem class="CampFormItem" label="注册资本">
+            <el-input type="number" placeholder="请输入数字"></el-input>
           </CampFormItem>
           <CampFormItem class="CampFormItem" :isShowLabel="false">
             <el-select class="select" placeholder="单位">
@@ -60,7 +60,7 @@
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="经营范围">
           <div>
-            <CampPlace placeholder="请输入"></CampPlace>
+            <el-input placeholder="请输入" style="width: 50vw;" v-model="userData.detailAddress"></el-input>
             <div class="text">请保证与国家企业信用信息公示系统数据保持一致。</div>
           </div>
         </CampFormItem>
@@ -74,7 +74,12 @@
           </div>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="实际通讯地址" prop="emailAddressList">
-          <CampPlace placeholder="国家 > 省 > 市 > 区" v-model:location="userData.emailAddressList"></CampPlace>
+          <div class="place">
+            <CampPlace class="item" placeholder="国家 > 省 > 市 > 区" v-model:location="userData.emailAddressList"></CampPlace>
+            <el-radio-group class="item">
+              <el-radio label="与执照注册地一致" ></el-radio>
+            </el-radio-group>
+          </div>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="" prop="detailAddress">
           <div>
@@ -129,7 +134,33 @@ const handlerTostep5 = () => {
 onMounted(() => {
 })
 const formRef = ref(null)
+const licence = [
+  {
+    label: '企业法人营业执照',
+    value: 0
+  },
+  {
+    label: '民办非企业单位登记证书',
+    value: 1
+  },
+  {
+    label: '事业单位法人证书',
+    value: 2
+  },
+  {
+    label: '政府机关统一社会信用代码证书',
+    value: 3
+  },
+  {
+    label: '社会团体法人证书',
+    value: 4
+  },
+  {
+    label: '宗教活动场所登记证',
+    value: 5
+  }
 
+]
 
 const userData = ref({
   userId: null,
@@ -239,6 +270,7 @@ const addArea = (index) => {
         width: 30%;
         margin: auto 10px auto 0;
 
+
         .btnSpan {
           color: #595959;
           font-size: 1vw;
@@ -257,6 +289,14 @@ const addArea = (index) => {
     }
 
     .CampFormItem {
+      .place {
+        width: 100%;
+        display: flex;
+        .item {
+          width: 25%;
+        }
+      }
+
       .date {
         display: flex;
 

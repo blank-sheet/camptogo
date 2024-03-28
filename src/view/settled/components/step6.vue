@@ -1,227 +1,295 @@
 <template>
-  <div class="step5" v-if="route.params.type == 'personal'">
+  <div class="step5">
+    <div class="title">合作签约信息</div>
     <div class="contain">
-      <div class="title">认证方式</div>
-      <div class="box">
-        <div class="card" :class="userData.personal.authenticationWay == 0 ? 'activeCard' : ''"
-          @click="changePersonalWay(0)">
-          <img src="../../../assets/face.png" alt="">
-          <div>人脸识别</div>
-        </div>
-        <div class="card" :class="userData.personal.authenticationWay == 1 ? 'activeCard' : ''"
-          @click="changePersonalWay(1)">
-          <img src="../../../assets/phone.png" alt="">
-          <div>手机认证</div>
-        </div>
-      </div>
-      <transition>
-        <div class="title" v-show="userData.personal.authenticationWay == 0">选择刷脸方式</div>
-      </transition>
-      <transition>
-        <div class="box" v-show="userData.personal.authenticationWay == 0">
-          <div class="card">
-            <img class="img2" src="../../../assets/zfb.png" alt="">
-            <div class="c-text">
-              <div>支付宝</div>
-              <span>需要唤起支付宝APP完成人脸识别</span>
+      <el-form ref="formRef" :model="userData">
+        <CampFormItem class="CampFormItem" label="签约人">
+          <el-radio-group>
+            <el-radio label="公司/法人签约" />
+            <el-radio label="公司/法人委托签约" />
+          </el-radio-group>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="上传授权委托书">
+          <div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
+            <div class="text">
+              公司/法人授权委托需要上传授权委托书。<span>查看示例</span>
             </div>
           </div>
-          <div class="card">
-            <img class="img2" src="../../../assets/fastFace.png" alt="">
-            <div class="c-text">
-              <div>快捷刷脸</div>
-              <span>请根据提示进行人脸识别</span>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="证件类型">
+          <el-select class="select" placeholder="请选择">
+            <el-option v-for="item in documents" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="上传身份证件">
+          <div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
+            <div class="text">
+              1.上传法定代表人身份证件<br>
+              &emsp13;(1)中国大陆：须提供二代身份证的正反面照片<br>
+              &emsp13;(2)中国香港/澳门/台湾：须提供港澳居民来往内地通行证或台湾居民来往大陆通行证的正反面照片<br>
+              &emsp13;(3)海外：须提供护照首页照片<br>
+              2.每张图片大小不超过2M，分辨率不低于720*1280。图片必须是最新的纸质证件原件拍照或彩色扫描件，若未使用最新证件照，则将无法通过备案审核。请确保证件四周有圆角，卡证边缘清晰。如有水印，务必放置在证件空白位置，不得遮挡文字和图像信息。<span>查看示例</span>
             </div>
           </div>
-        </div>
-      </transition>
-      <transition>
-        <el-form v-show="userData.personal.authenticationWay == 1">
-          <div class="CampFormItems">
-            <CampFormItem class="CampFormItem" label="姓名" :labelTop="true">
-              <el-input placeholder="输入本人真实姓名"></el-input>
-            </CampFormItem>
-            <CampFormItem class="CampFormItem" label="身份证号" :labelTop="true">
-              <el-input placeholder="输入本人身份证号"></el-input>
-            </CampFormItem>
-            <CampFormItem class="CampFormItem" label="手机号" :labelTop="true">
-              <el-input placeholder="输入本人手机号码"></el-input>
-            </CampFormItem>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="姓名">
+          <div>
+            <el-input placeholder="请输入"></el-input>
+            <div class="text">此处姓名需与上传证件上的姓名一致</div>
           </div>
-        </el-form>
-      </transition>
-    </div>
-    <div class="tips">
-      <el-checkbox></el-checkbox>
-      <div>我已阅读并同意<span>《营探服务协议》</span><span>《营探隐私政策》</span><span>《数字证书服务协议》</span>并同意申请天津中环AC证书</div>
-    </div>
-    <div class="tips" v-show="userData.personal.authenticationWay == 0">
-      <el-checkbox></el-checkbox>
-      <div>我同意营探采集人脸识别数据用于认证服务</div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="身份证件号">
+          <div>
+            <el-input placeholder="请输入"></el-input>
+            <div class="text">
+              1.上传身份证件为身份证的身份证号会自动识别身份证号，请商家仔细核对，若有错误请改正；<br>
+              2.上传身份证件不为身份证的商家需要自己填写身份证号<br>
+              &emsp13;(1)上传证件照为港澳居民来往内地通行证或台湾居民来往大陆通行证填写通行证证件号码<br>
+              &emsp13;(2)上传身份证件为护照的请填写护照号码<br>
+            </div>
+
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="有效期限">
+          <div>
+            <div class="date">
+              <CampFormItem :isShowLabel="false" prop="idValidStart">
+                <CampDatePicker placeholder="日期选择" v-model:date="userData.idValidStart"></CampDatePicker>
+              </CampFormItem>
+              <i class="iconfont icon-single_arrow"></i>&emsp13;
+              <CampFormItem :isShowLabel="false" prop="idValidEnd">
+                <CampDatePicker placeholder="日期选择" v-model:date="userData.idValidEnd"></CampDatePicker>
+              </CampFormItem>
+              <el-radio-group v-model="isForever">
+                <el-radio label="长期" :value="true"></el-radio>
+              </el-radio-group>
+            </div>
+            <div class="text">请核对身份证件有效期，确保所填写证件有效期与上传证件信息完全一致，若填写不一致，将无法通过审核。</div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="签约人名下手机号">
+          <div>
+            <el-input placeholder="请输入请输入经营者手机号"></el-input>
+            <div class="text">需填写实际经营者的有效手机号码，且没有给其他人使用过进行备案的。若手机号存在多人重复使用，将无法通过备案审核。</div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="绑定邮箱">
+          <el-input placeholder="请绑定经营者邮箱"></el-input>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="申请认证公函">
+          <div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
+            <div class="text">
+              提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。图片必须是最新的纸质证件原件拍照或彩色扫描件，否则将无法通过备案审核。请确保证件四周有圆角，卡证边缘清晰。如有水印，务必放置在证件空白位置，不得遮挡文字和图像信息。<span>下载模板</span>
+            </div>
+          </div>
+        </CampFormItem>
+     </el-form>
     </div>
     <div class="btn">
-      <el-button type="success" @click="handlerTostep7()">同意并继续</el-button>
-    </div>
-    <div class="tip">
-      <div>非中国大陆居民, <span>点击此处进行验证</span></div>
+      <el-button @click="handlerTostep5()">上一步</el-button>
+      <el-button type="success" @click="handlerTostep7()">下一步</el-button>
     </div>
   </div>
-  <div class="step5" v-else>
-    <div class="contain">
-      <div class="title">认证方式</div>
-      <div class="box">
-        <div class="card" :class="userData.institution.payment == 0 ? 'activeCard' : ''" @click="changePayment(0)">
-          <img src="../../../assets/faren.png" alt="">
-          <div>法定代表人认证</div>
-        </div>
-        <div class="card" :class="userData.institution.payment == 1 ? 'activeCard' : ''" @click="changePayment(1)">
-          <img src="../../../assets/duigon.png" alt="">
-          <div>对公打款认证</div>
-        </div>
+  <el-dialog class="dialog" v-model="isShowModel" title="活动特色(可多选)" width="800" align-center>
+    <div class="tags">
+      <div class="tag" :class="userData.activityTypeRanges.includes(item.value) ? 'activeTag' : ''"
+        v-for="(item, index) in activityTypes" :key="item.value" @click="updateSelected(item.value)">{{
+          item.label }}</div>
+    </div>
+    <template #footer>
+      <div class="dialog-footer">
+        <span class="selected">已选<span>{{ userData.activityTypeRanges.length }}</span>项</span>
+        <el-button @click="isShowModel = false">取消</el-button>
+        <el-button type="primary" @click="isShowModel = false">
+          确定
+        </el-button>
       </div>
-      <div class="bigcard">
-        <div class="text1">当前认证组织: 北京金益邦科技有限公司</div>
-        <div class="text2">请进行法人本人意愿确认，即可完成企业实名认证</div>
-      </div>
-      <div v-if="userData.institution.payment == 0">
-        <div class="title">认证方式</div>
-        <div class="box">
-          <div class="card" :class="userData.institution.authenticationWay == 0 ? 'activeCard' : ''"
-            @click="changeInstitutionWay(0)">
-            <img src="../../../assets/face.png" alt="">
-            <div class="c-text">
-              <div>人脸认证</div>
-              <span>请进行法人本人意愿确认,即可完成企业使命认证</span>
-            </div>
-          </div>
-          <div class="card" :class="userData.institution.authenticationWay == 1 ? 'activeCard' : ''"
-            @click="changeInstitutionWay(1)">
-            <img src="../../../assets/phone.png" alt="">
-            <div class="c-text">
-              <div>手机号认证</div>
-              <span>需法定代表人本人身份证办理手机号接收短信完成认证</span>
-            </div>
-          </div>
-        </div>
-        <transition>
-          <div class="title" v-show="userData.institution.authenticationWay == 0">选择刷脸方式</div>
-        </transition>
-        <transition>
-          <div class="box" v-show="userData.institution.authenticationWay == 0">
-            <div class="card">
-              <img class="img2" src="../../../assets/zfb.png" alt="">
-              <div class="c-text">
-                <div>支付宝</div>
-                <span>需要唤起支付宝APP完成人脸识别</span>
-              </div>
-            </div>
-            <div class="card">
-              <img class="img2" src="../../../assets/fastFace.png" alt="">
-              <div class="c-text">
-                <div>快捷刷脸</div>
-                <span>请根据提示进行人脸识别</span>
-              </div>
-            </div>
-          </div>
-        </transition>
-        <transition>
-          <el-form v-show="userData.institution.authenticationWay == 1">
-            <div class="CampFormItems">
-              <CampFormItem class="CampFormItem" label="姓名" :labelTop="true">
-                <el-input placeholder="输入本人真实姓名"></el-input>
-              </CampFormItem>
-              <CampFormItem class="CampFormItem" label="身份证号" :labelTop="true">
-                <el-input placeholder="输入本人身份证号"></el-input>
-              </CampFormItem>
-              <CampFormItem class="CampFormItem" label="手机号" :labelTop="true">
-                <el-input placeholder="输入本人手机号码"></el-input>
-              </CampFormItem>
-            </div>
-          </el-form>
-        </transition>
-      </div>
-      <div v-else>
-        <el-form >
-          <div class="CampFormItems">
-            <CampFormItem class="CampFormItem" label="机构名称" :labelTop="true">
-              <el-input placeholder="输入组织机构名称"></el-input>
-            </CampFormItem>
-            <CampFormItem class="CampFormItem" label="企业对公帐户" :labelTop="true">
-              <el-input placeholder="输入企业对公账户"></el-input>
-            </CampFormItem>
-            <CampFormItem class="CampFormItem" label="开户银行" :labelTop="true">
-              <el-input placeholder="输入开户银行名称"></el-input>
-            </CampFormItem>
-          </div>
-        </el-form>
-      </div>
-    </div>
-    <div class="tips" v-show="userData.institution.payment == 0">
-      <el-checkbox></el-checkbox>
-      <div>我已阅读并同意<span>《营探服务协议》</span><span>《营探隐私政策》</span><span>《数字证书服务协议》</span>并同意申请天津中环AC证书</div>
-    </div>
-    <div class="tips" v-show="userData.institution.authenticationWay == 0 && userData.institution.payment == 0">
-      <el-checkbox></el-checkbox>
-      <div>我同意营探采集人脸识别数据用于认证服务</div>
-    </div>
-    <div class="btn">
-      <el-button type="success" @click="handlerTostep7()">同意并继续</el-button>
-    </div>
-    <div class="tip">
-      <div>不知道对公账户信息？<span>点击此处进行验证</span></div>
-    </div>
-  </div>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import CampFormItem from '../../../component/camp-form-item.vue'
+import CampUpload from '../../../component/camp-upload.vue'
+import CampDatePicker from '../../../component/camp-date-picker.vue'
+
+import { settledApi } from "../../../api/modules/settled/settled"
+import { request } from '../../../api/index.js'
+import { ElMessage } from 'element-plus'
 
 const route = useRoute()
 const router = useRouter()
+const handlerTostep5 = () => {
+  route.go(-1)
+}
 const handlerTostep7 = () => {
   router.push(`/settled/step7/${route.params.type}`)
 }
-
 onMounted(() => {
 })
 const formRef = ref(null)
-const select = ref(1)
 
-const userData = ref({
-  personal: {
-    //0 人脸认证
-    //1 手机号认证
-    authenticationWay: 0,
-    //是否大陆用户
-    //0 否
-    //1 是
-    isOutOfSea: 1
+const documents = [
+  {
+    label: '中国居民身份证',
+    value: 0
   },
-  institution: {
-    //0 人脸认证
-    //1 手机号认证
-    authenticationWay: 0,
-    //0 法定代表人认证
-    //1 对公打款认证
-    payment: 0
+  {
+    label: '港澳居民来往内地通行证',
+    value: 1
+  },
+  {
+    label: '台湾居民来往大陆通行证',
+    value: 2
+  },
+  {
+    label: '护照',
+    value: 3
   }
+]
+const userData = ref({
+  userId: null,
+  name: "",
+  email: "",
+  identityImgs: [
+    {
+      url: "http://example.com/identity1.jpg",
+      name: "身份证正面"
+    },
+    {
+      url: "http://example.com/identity2.jpg",
+      name: "身份证反面"
+    }
+  ],
+  realName: "张三",
+  realId: "1234567890",
+  idValidStart: "2023-01-01",
+  idValidEnd: "2028-12-31",
+  emailAddressList: [
+    "中国",
+    "安徽省",
+    "合肥市",
+    "蜀山区",
+    "长江西路130号"
+  ],
+  applicantLetterImg: {
+    url: "http://example.com/applicant_letter.jpg",
+    name: "认证申请函"
+  },
+  emergencyPhone: "",
+  businessAreasList: [
+    []
+  ],
+  activityTypeRanges: [
+  ],
+  activityParticipationRange: [
+    "亲子",
+    "单飞"
+  ],
+  evidences: [
+    {
+      url: "http://example.com/evidence1.jpg",
+      name: "证明材料1"
+    },
+    {
+      url: "http://example.com/evidence2.jpg",
+      name: "证明材料2"
+    }
+  ],
+  describe: "",
+  mobile: ""
 })
-const changePersonalWay = (value) => {
-  userData.value.personal.authenticationWay = value
+
+const delArea = (index) => {
+  if (userData.value.businessAreasList <= 1) {
+    ElMessage.error("至少保留一个选项")
+    return
+  }
+  userData.value.businessAreasList.splice(index, 1)
 }
-const changeInstitutionWay = (value) => {
-  userData.value.institution.authenticationWay = value
+const addArea = (index) => {
+  if (userData.value.businessAreasList.length >= 20) {
+    ElMessage.error("至多添加20个选项")
+    return
+  }
+  userData.value.businessAreasList.splice(index + 1, 0, [])
 }
-const changePayment = (value) => {
-  userData.value.institution.payment = value
+
+
+// 活动类型
+const activityTypes = [
+  {
+    label: '亲子营',
+    value: '亲子营',
+    desc: '【亲子营】指家长陪伴孩子共同参与的，有益于儿童成长的体验式教育形式。'
+  },
+  {
+    label: '亲子单飞营',
+    value: '亲子单飞营',
+    desc: '【亲子单飞营】指家长与孩子共同参与，有亲子互动环节，也有各自独立安排的体验式教育形式。'
+  },
+  {
+    label: '独立日间营',
+    value: '独立日间营',
+    desc: '【独立日间营】指孩子短时独立参与的，有益于儿童成长的体验式教育形式。'
+  },
+
+  {
+    label: '冬夏令营',
+    value: '冬夏令营',
+    desc: '【夏令营】指在假期期间以团队生活形式参与的，有益于促进生理、心理、社交等能力综合等提升的体验式教育形式。'
+  },
+  {
+    label: '游学',
+    value: '游学',
+    desc: '【游学】指参与人以游览为主、学习为辅的体验式教育形式。'
+  },
+  {
+    label: '研学',
+    value: '研学',
+    desc: '【研学】指参与人以研究性学习为主、游览娱乐休闲为辅的体验式教育形式。'
+  },
+
+  {
+    label: '产融实践',
+    value: '产融实践',
+    desc: '【产融实践】指参与人根据其已学习掌握的某些特定领域技能和知识，以实践为目标走入实际场景中应用的体验式教育形式。'
+  },
+  {
+    label: '赛事集训',
+    value: '赛事集训',
+    desc: '【赛事集训】指参与人就某些特定领域以获得竞赛成绩为目标参与的，短期体验式教育形式。'
+  },
+  {
+    label: '其他',
+    value: '其他',
+    desc: '【其他】不属于上述类型的其他形式活动。'
+  }
+]
+const isShowModel = ref(false)
+
+const updateSelected = (value) => {
+  if (userData.value.activityTypeRanges.includes(value)) {
+    const index = userData.value.activityTypeRanges.findIndex(ele => (ele == value))
+    userData.value.activityTypeRanges.splice(index, 1)
+  } else {
+    userData.value.activityTypeRanges.push(value)
+  }
+}
+
+const handleClose = (index) => {
+  userData.value.activityTypeRanges.splice(index, 1)
 }
 </script>
 
 <style lang="scss" scoped>
 .step5 {
-  width: 75%;
+  width: 80%;
   background-color: #fff;
   border-radius: 0.5vw;
   display: flex;
@@ -232,189 +300,146 @@ const changePayment = (value) => {
     display: flex;
     flex-direction: column;
     padding: 2vh 1vw;
-    display: flex;
-    flex-direction: column;
 
-    .title {
-      width: 75%;
-      margin: 0 auto;
-      font-family: PingFang SC;
-      font-size: 1vw;
-      color: #595959;
-    }
 
-    .bigcard {
-      margin: 1vh auto 4vh auto;
-      width: calc(75% - 4vw);
-      height: 13vh;
-      display: flex;
-      border: 1px solid rgb(217, 217, 217);
-      border-radius: 10px;
-      background-color: rgb(249, 249, 249);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 2vw;
-      color: #595959;
-      font-family: PingFang SC;
-      cursor: pointer;
-
-      .text1 {
-        font-size: 1.2vw;
-        line-height: 2vw;
-      }
+    .CampFormItem {
 
       .text2 {
+        white-space: nowrap;
+        margin-right: 1vw;
         font-size: 1vw;
-        line-height: 2vw;
-        opacity: 0.8;
+        margin: 0 0 5px 0;
       }
-    }
-
-    .box {
-      width: 75%;
-      margin: 2vh auto 4vh auto;
-      height: 13vh;
-      display: flex;
-      justify-content: space-between;
-
-      .card {
-        width: 47%;
-        height: 100%;
+      .date {
         display: flex;
-        border: 1px solid rgb(217, 217, 217);
-        border-radius: 10px;
-        cursor: pointer;
-        transition: 0.2s linear;
-        user-select: none;
+      }
+      .select {
+        width: 20%;
+      }
 
-        img {
-          width: 2vw;
-          height: 2vw;
-          margin: auto 1vw auto 2vw;
-        }
+      .baozhengjin {
+        width: 15%;
+        margin-right: 10px;
+      }
 
-        .img2 {
-          width: 5vw;
-          height: 5vw;
-          margin: auto 1vw auto 2vw;
-        }
+      .box {
+        display: flex;
 
-        .c-text {
-          font-family: PingFang SC;
-          color: #595959;
-          display: flex;
-          flex-direction: column;
-          width: 80%;
-
-          div {
-            font-size: 1.3vw;
-            line-height: 1.8vw;
-          }
-
-          span {
-            font-size: 0.9vw;
-            line-height: 1.2vw;
-            width: 97%;
-            opacity: 0.8;
-          }
-        }
-
-        div {
-          margin: auto auto auto 0;
-          color: #595959;
-          font-family: PingFang SC;
+        .avatar {
+          margin: 0 1vw 0 0;
         }
       }
 
-      .activeCard {
-        border-color: #93D600;
-      }
-    }
-
-    .CampFormItems {
-      width: 75%;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-
-      .CampFormItem {
-        width: 45%;
-
-        .el-input {
-          width: 100%;
-        }
-      }
-    }
-  }
-
-  .tips {
-    width: 70%;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    display: flex;
-    justify-content: left;
-    user-select: none;
-
-    div {
-      font-size: 1vw;
-      margin: auto 1vw;
-
-      span {
-        color: #93D600;
-        font-family: PingFang SC;
+      .btnSpan {
+        color: #595959;
+        margin: 0 1vw;
+        font-size: 1vw;
         cursor: pointer;
 
         &:hover {
           text-decoration: underline;
         }
       }
-    }
-  }
 
-  .tip {
-    width: 100%;
-    text-align: center;
-    margin: 3vh 0;
+      .icon-tianjia {
+        font-size: 1.2vw;
+      }
 
-    div {
-      font-size: 1vw;
-      margin: auto 1vw;
-      color: #8C8C8C;
-
-      span {
-        color: #93D600;
+      .text {
+        margin: 1vh 0 0 0;
         font-family: PingFang SC;
-        cursor: pointer;
+        font-size: 0.9vw;
+        line-height: 1.4vw;
+        color: rgb(140, 140, 140);
 
-        &:hover {
-          text-decoration: underline;
+        span {
+          color: #93D600;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+
+        .tag {
+          height: 4.5vh;
+          margin: 0 1% 0 0;
+        }
+
+        .dashd {
+          height: 4.5vh;
         }
       }
     }
+  }
+
+  .title {
+    font-family: PingFang SC;
+    font-size: 1.1vw;
+    padding: 2vh 0 2vh 1vw;
+    border-bottom: 1px solid rgb(217, 217, 217);
+    color: #262626;
   }
 
   .btn {
     display: flex;
     justify-content: center;
-    margin: 5vh 0;
+    margin: auto 0 3% 0;
   }
 }
 
+.dialog {
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
 
-.el-button {
-  border-style: dashed;
+    .tag {
+      height: 3vh;
+      line-height: 3vh;
+      min-width: 1vw;
+      padding: 0.5vh 1vw;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 1vw;
+      text-align: center;
+      margin: 0 1.3vw 2vh 0;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .activeTag {
+      color: #93D600;
+      border-color: #93D600;
+    }
+  }
+
+  .dialog-footer {
+    border-top: 1px solid rgb(232, 230, 230);
+    padding-top: 1vh;
+    margin-top: 10vh;
+  }
+
+  .selected {
+    font-size: 0.9vw;
+    display: inline-block;
+    margin: auto 1vw;
+
+    span {
+      margin: auto 2px;
+      color: #93D600;
+    }
+  }
 }
 
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
+.dashd {
+  border: 2px dashed #BFBFBF;
+  background-color: #FAFBFD;
+  margin-bottom: 3vh;
 }
 </style>

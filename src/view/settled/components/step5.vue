@@ -11,7 +11,7 @@
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="入驻身份">
           <el-select class="select" placeholder="请选择">
-            <el-option></el-option>
+            <el-option v-for="item in travelAgency" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="特殊经营品类">
@@ -43,6 +43,60 @@
             <CampUpload v-model:images="userData.evidences"></CampUpload>
             <div class="text">
               可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。需提供有效的旅游业务许可证，或其他监管部门认可的具有同等法律效力的证件，并且照片清晰完整。<span>查看示例</span>
+            </div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="">
+          <div>
+            <div class="text2">所有权证书</div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
+            <div class="text">
+              可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
+            </div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="">
+          <div>
+            <div class="text2">特殊经营品类资质</div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
+            <div class="text">
+              可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
+            </div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="">
+          <div>
+            <div class="text2">教育相关许可证</div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
+            <div class="text">
+              可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
+            </div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="">
+          <div>
+            <div class="text2">办学许可证</div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
+            <div class="text">
+              可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
+            </div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="">
+          <div>
+            <div class="text2">商标注册证（选填）</div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
+            <div class="text">
+              可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
+            </div>
+          </div>
+        </CampFormItem>
+        <CampFormItem class="CampFormItem" label="">
+          <div>
+            <div class="text2">品牌授权书</div>
+            <CampUpload v-model:images="userData.evidences"></CampUpload>
+            <div class="text">
+              可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
             </div>
           </div>
         </CampFormItem>
@@ -111,7 +165,24 @@ onMounted(() => {
 const formRef = ref(null)
 const select = ref(1)
 
-
+const travelAgency = [
+  {
+    label:'旅行社',
+    value:0
+  },
+  {
+    label:'场地方官方',
+    value:1
+  },
+  {
+    label:'教培机构',
+    value:2
+  },
+  {
+    label:'其他',
+    value:3
+  }
+]
 const userData = ref({
   userId: null,
   name: "",

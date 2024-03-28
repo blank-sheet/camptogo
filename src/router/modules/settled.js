@@ -38,6 +38,16 @@ export const settledRoutes = [
         path: 'step7/:type',
         name: 'step7',
         component: () => import('../../view/settled/components/step7.vue')
+      },
+      {
+        path: 'step8/:type',
+        name: 'step8',
+        component: () => import('../../view/settled/components/step8.vue')
+      },
+      {
+        path: 'step9/:type',
+        name: 'step9',
+        component: () => import('../../view/settled/components/step9.vue')
       }
     ]
   }
