@@ -4,108 +4,127 @@
     <div class="contain">
       <el-form ref="formRef" :model="userData">
         <CampFormItem class="CampFormItem" label="执照类型" prop="name">
-          <el-select class="select" v-model="userData.name" placeholder="请选择执照类型">
+          <el-select class="select" v-model="userData.licenseType" placeholder="请选择执照类型">
             <el-option v-for="item in licence" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="营业执照">
           <div>
             <CampUpload></CampUpload>
-            <div class="text">请根据登记证书选择结果上传执照类型材料。<span>执照上传说明</span></div>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="机构全称" prop="name">
-          <el-input v-model="userData.name" placeholder="请输入机构全称"></el-input>
+        <div class="text">请根据登记证书选择结果上传执照类型材料。<span>执照上传说明</span></div>
+
+        <CampFormItem class="CampFormItem" label="机构全称" prop="institutionName">
+          <el-input v-model="userData.institutionName" placeholder="请输入机构全称"></el-input>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="统一社会信用代码">
-          <el-input placeholder="请输入统一社会信用代码/注册号"></el-input>
+
+        <CampFormItem class="CampFormItem" label="统一社会信用代码" prop="authNumber">
+          <el-input placeholder="请输入统一社会信用代码/注册号" v-model="userData.authNumber"></el-input>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="机构类型" prop="name">
-          <el-select class="select" v-model="userData.name" placeholder="请选择机构类型">
-            <el-option></el-option>
+
+        <CampFormItem class="CampFormItem" label="机构类型" prop="institutionType">
+          <el-select class="select" v-model="userData.institutionType" placeholder="请选择机构类型">
+            <el-option v-for="item in institutionType" :key="item.value" :value="item.value"
+              :label="item.label"></el-option>
           </el-select>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="法定代表人" prop="name">
-          <el-input v-model="userData.name" placeholder="请输入机构法定代表"></el-input>
+
+        <CampFormItem class="CampFormItem" label="法定代表人" prop="legalPersonName">
+          <el-input v-model="userData.legalPersonName" placeholder="请输入机构法定代表"></el-input>
         </CampFormItem>
         <div class="zheceziben">
-          <CampFormItem class="CampFormItem" label="注册资本">
-            <el-input type="number" placeholder="请输入数字"></el-input>
+          <CampFormItem class="CampFormItem" label="注册资本" prop="registeredCapital">
+            <el-input type="number" placeholder="请输入数字" v-model="userData.registeredCapital"></el-input>
           </CampFormItem>
-          <CampFormItem class="CampFormItem" :isShowLabel="false">
-            <el-select class="select" placeholder="单位">
-              <el-option></el-option>
+          <CampFormItem class="CampFormItem" :isShowLabel="false" prop="registeredCapitalUnit">
+            <el-select class="select" placeholder="单位" v-model="userData.registeredCapitalUnit">
+              <el-option v-for="item in unit" :key="item.value" :value="item.value" :label="item.label"></el-option>
             </el-select>
           </CampFormItem>
         </div>
-        <CampFormItem class="CampFormItem" label="成立日期">
-          <CampDatePicker placeholder="日期选择" v-model:date="userData.idValidStart"></CampDatePicker>
+
+        <CampFormItem class="CampFormItem" label="成立日期" prop="establishDate">
+          <CampDatePicker placeholder="日期选择" v-model:date="userData.establishDate"></CampDatePicker>
         </CampFormItem>
+
         <CampFormItem class="CampFormItem" label="执照有效期">
           <div>
             <div class="date">
-              <CampFormItem :isShowLabel="false" prop="idValidStart">
-                <CampDatePicker placeholder="日期选择" v-model:date="userData.idValidStart"></CampDatePicker>
+              <CampFormItem :isShowLabel="false" prop="licenceStartTime">
+                <CampDatePicker placeholder="日期选择" v-model:date="userData.licenceStartTime"></CampDatePicker>
               </CampFormItem>
               <i class="iconfont icon-single_arrow"></i>&emsp13;
-              <CampFormItem :isShowLabel="false" prop="idValidEnd">
-                <CampDatePicker placeholder="日期选择" v-model:date="userData.idValidEnd"></CampDatePicker>
+              <CampFormItem :isShowLabel="false">
+                <CampDatePicker :disabled="isForever" placeholder="日期选择" v-model:date="userData.licenceEndTime">
+                </CampDatePicker>
               </CampFormItem>
               <el-radio-group v-model="isForever">
                 <el-radio label="长期" :value="true"></el-radio>
               </el-radio-group>
             </div>
-            <div class="text">请保证填写时间与国家企业信用信息公示系统数据保持一致。</div>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="经营范围">
+        <div class="text">请保证填写时间与国家企业信用信息公示系统数据保持一致。</div>
+
+        <CampFormItem class="CampFormItem" label="经营范围" prop="businessAddress">
           <div>
-            <el-input placeholder="请输入" style="width: 50vw;" v-model="userData.detailAddress"></el-input>
-            <div class="text">请保证与国家企业信用信息公示系统数据保持一致。</div>
+            <el-input placeholder="请输入" style="width: 50vw;" v-model="userData.businessAddress"></el-input>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="执照注册地" prop="emailAddressList">
-          <CampPlace placeholder="国家 > 省 > 市 > 区" v-model:location="userData.emailAddressList"></CampPlace>
+        <div class="text">请保证与国家企业信用信息公示系统数据保持一致。</div>
+
+        <CampFormItem class="CampFormItem" label="执照注册地" prop="licenseRegistrationPlace">
+          <CampPlace @update:location="isSame = false" placeholder="国家 > 省 > 市 > 区" v-model:location="userData.licenseRegistrationPlace"></CampPlace>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="" prop="detailAddress">
+
+        <CampFormItem class="CampFormItem" label="" prop="licenseRegistrationPlaceDetail">
           <div>
-            <el-input placeholder="请填写详细地址" style="width: 50vw;" v-model="userData.detailAddress"></el-input>
-            <div class="text">请保证与国家企业信用信息公示系统数据保持一致。</div>
+            <el-input placeholder="请填写详细地址" style="width: 50vw;" @change="isSame = false"
+              v-model="userData.licenseRegistrationPlaceDetail"></el-input>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="实际通讯地址" prop="emailAddressList">
+        <div class="text">请保证与国家企业信用信息公示系统数据保持一致。</div>
+
+        <CampFormItem class="CampFormItem" label="实际通讯地址" prop="correspondenceAddress">
           <div class="place">
-            <CampPlace class="item" placeholder="国家 > 省 > 市 > 区" v-model:location="userData.emailAddressList"></CampPlace>
-            <el-radio-group class="item">
-              <el-radio label="与执照注册地一致" ></el-radio>
+            <CampPlace @update:location="isSame = false" class="item" placeholder="国家 > 省 > 市 > 区"
+              v-model:location="userData.correspondenceAddress">
+            </CampPlace>
+            <el-radio-group class="item" v-model="isSame">
+              <el-radio :label="true"
+                @click="userData.correspondenceAddress = userData.licenseRegistrationPlace, userData.correspondenceAddressDetail = userData.licenseRegistrationPlaceDetail">与执照注册地一致</el-radio>
             </el-radio-group>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="" prop="detailAddress">
+
+        <CampFormItem class="CampFormItem" label="" prop="correspondenceAddressDetail">
           <div>
-            <el-input placeholder="请填写详细地址" style="width: 50vw;" v-model="userData.detailAddress"></el-input>
-            <div class="text">住所需要精确到具体门牌号最详细地址，省、市、区无需重复填写。</div>
+            <el-input placeholder="请填写详细地址" style="width: 50vw;" v-model="userData.correspondenceAddressDetail"
+              @change="isSame = false"></el-input>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="主要经营区域">
+        <div class="text">住所需要精确到具体门牌号最详细地址，省、市、区无需重复填写。</div>
+
+        <CampFormItem class="CampFormItem" label="主要经营区域" prop="mainBusinessAreas">
           <div>
-            <div style="display:flex;margin: 0 0 10px 0;" v-for="(item, index) in userData.businessAreasList" :key="item">
-              <CampPlace placeholder="国家 > 省 > 市 > 区" v-model:location="userData.businessAreasList[index]"></CampPlace>
+            <div style="display:flex;margin: 0 0 10px 0;" v-for="(item, index) in userData.mainBusinessAreas" :key="item">
+              <CampPlace placeholder="国家 > 省 > 市 > 区" v-model:location="userData.mainBusinessAreas[index]"></CampPlace>
               <span class="btnSpan" @click="addArea(index)">添加</span>
               <span class="btnSpan" @click="delArea(index)">删除</span>
             </div>
-            <div class="text">
-              最多填写三个区域，用于推送及搜索服务。主要经营区域若在中国境内需要精确到省市区，经营区域若包含省内/市内所有区域，选择全域。如“湖北省武汉市全域”、“湖北省全域”。经营区域涉及到海外，需要精确到市。若包含州内所有区域，选择全域。如“美国纽约州全域”。
-            </div>
           </div>
         </CampFormItem>
-        <CampFormItem class="CampFormItem" label="主营业务介绍" prop="describe">
-          <div>
-            <el-input type="textarea" autosize placeholder="请输入" maxlength="500" showWordLimit
-              v-model="userData.describe"></el-input>
-            <div class="text">请描述主营业务及特色、优势，并附相关链接于填写框内，限500字。</div>
-          </div>
+        <div class="text">
+          最多填写三个区域，用于推送及搜索服务。主要经营区域若在中国境内需要精确到省市区，经营区域若包含省内/市内所有区域，选择全域。如“湖北省武汉市全域”、“湖北省全域”。经营区域涉及到海外，需要精确到市。若包含州内所有区域，选择全域。如“美国纽约州全域”。
+        </div>
+
+        <CampFormItem class="CampFormItem" label="主营业务介绍" prop="businessIntroduction">
+          <el-input type="textarea" autosize placeholder="请输入" maxlength="500" showWordLimit style="width: 50vw;"
+            v-model="userData.businessIntroduction"></el-input>
         </CampFormItem>
+        <div class="text">请描述主营业务及特色、优势，并附相关链接于填写框内，限500字。</div>
+
       </el-form>
     </div>
     <div class="btn">
@@ -127,9 +146,13 @@ const route = useRoute()
 const router = useRouter()
 const handlerTostep5 = () => {
   const valid = validateForm(formRef.value)
-  if (!valid) {
-    router.push(`/settled/step5/${route.params.type}`)
-  }
+  valid.then(res => {
+    if (res) {
+      //发送添加表单请求
+    } else {
+
+    }
+  })
 }
 onMounted(() => {
 })
@@ -137,91 +160,101 @@ const formRef = ref(null)
 const licence = [
   {
     label: '企业法人营业执照',
-    value: 0
+    value: 'ENTERPRISE_LEGAL_PERSON'
   },
   {
     label: '民办非企业单位登记证书',
-    value: 1
+    value: 'PRIVATE_NON_ENTERPEISE'
   },
   {
     label: '事业单位法人证书',
-    value: 2
+    value: 'PUBLIC_INSTITUTION'
   },
   {
     label: '政府机关统一社会信用代码证书',
-    value: 3
+    value: 'GOVERNMENT_ORGANS'
   },
   {
     label: '社会团体法人证书',
-    value: 4
+    value: 'SOCIAL_GROUP'
   },
   {
     label: '宗教活动场所登记证',
-    value: 5
+    value: 'RELIGIOUS_ACTIVITY'
   }
 
 ]
+const institutionType = [
+  {
+    label: '旅行社总社',
+    value: 'TRAVEL_AGENCY'
+  },
+  {
+    label: '景区',
+    value: 'SCENIC_SPOT'
+  },
+  {
+    label: '代理商',
+    value: 'AGENT'
+  },
+  {
+    label: '旅行社分社',
+    value: 'TRAVEL_AGENCY_BRANCHES'
+  },
+]
+const unit = [
+  {
+    label: '万人民币',
+    value: '万人民币'
+  },
+  {
+    label: '亿人民币',
+    value: '亿人民币'
+  }
+]
 
 const userData = ref({
-  userId: null,
-  name: "",
-  email: "",
-  identityImgs: [
-    {
-      url: "http://example.com/identity1.jpg",
-      name: "身份证正面"
-    },
-    {
-      url: "http://example.com/identity2.jpg",
-      name: "身份证反面"
-    }
-  ],
-  realName: "张三",
-  realId: "1234567890",
-  idValidStart: "2023-01-01",
-  idValidEnd: "2028-12-31",
-  emailAddressList: [
-    "中国",
-    "安徽省",
-    "合肥市",
-    "蜀山区",
-    "长江西路130号"
-  ],
-  applicantLetterImg: {
-    url: "http://example.com/applicant_letter.jpg",
-    name: "认证申请函"
+  providerId: null,
+  licenseType: "",
+  businessLicense: {
+    name: "",
+    url: ""
   },
-  emergencyPhone: "",
-  businessAreasList: [
-    []
+  institutionName: "",
+  authNumber: "",
+  institutionType: "",
+  registeredCapital: null,
+  registeredCapitalUnit: "",
+  establishDate: "",
+  licenceStartTime: "",
+  licenceEndTime: "",
+  businessAddress: "",
+  legalPersonName: "",
+  licenseRegistrationPlace: [
   ],
-  activityTypeRanges: [
+  licenseRegistrationPlaceDetail: "",
+  correspondenceAddress: [
   ],
-  activityParticipationRange: [
-    "亲子",
-    "单飞"
+  correspondenceAddressDetail: '',
+  mainBusinessAreas: [
+    [
+    ]
   ],
-  evidences: [
-    {
-      url: "http://example.com/evidence1.jpg",
-      name: "证明材料1"
-    },
-    {
-      url: "http://example.com/evidence2.jpg",
-      name: "证明材料2"
-    }
-  ],
-  describe: "",
-  mobile: ""
+  businessIntroduction: ""
 })
 watch(() => userData.value, (newV) => {
-  if (newV.idValidStart || newV.idValidEnd) {
+  if (newV.licenceStartTime && newV.licenceEndTime) {
     isForever.value = false
   }
 }, { deep: true })
 //身份证是否长期
 const isForever = ref(false)
-
+watch(() => isForever.value, (newV) => {
+  if (newV) {
+    userData.value.licenceEndTime = ''
+  }
+})
+const isSame = ref(false)
 
 const validateForm = (formEl) =>
   formEl.validate((valid) => {
@@ -233,18 +266,18 @@ const validateForm = (formEl) =>
 
 
 const delArea = (index) => {
-  if (userData.value.businessAreasList <= 1) {
+  if (userData.value.mainBusinessAreas.length <= 1) {
     ElMessage.error("至少保留一个选项")
     return
   }
-  userData.value.businessAreasList.splice(index, 1)
+  userData.value.mainBusinessAreas.splice(index, 1)
 }
 const addArea = (index) => {
-  if (userData.value.businessAreasList.length >= 3) {
+  if (userData.value.mainBusinessAreas.length >= 3) {
     ElMessage.error("至多添加3个选项")
     return
   }
-  userData.value.businessAreasList.splice(index + 1, 0, [])
+  userData.value.mainBusinessAreas.splice(index + 1, 0, [])
 }
 </script>
 
@@ -288,10 +321,13 @@ const addArea = (index) => {
       }
     }
 
+
+
     .CampFormItem {
       .place {
         width: 100%;
         display: flex;
+
         .item {
           width: 25%;
         }
@@ -321,22 +357,7 @@ const addArea = (index) => {
         }
       }
 
-      .text {
-        margin: 1vh 0 0 0;
-        font-family: PingFang SC;
-        font-size: 0.9vw;
-        line-height: 1.4vw;
-        color: rgb(140, 140, 140);
 
-        span {
-          color: #93D600;
-          cursor: pointer;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
 
       .select {
         width: 20%;
@@ -356,6 +377,24 @@ const addArea = (index) => {
     display: flex;
     justify-content: center;
     margin: auto 0 3% 0;
+  }
+}
+
+.text {
+  padding-left: 9.3vw;
+  margin: 0 0 1vh 0;
+  font-family: PingFang SC;
+  font-size: 0.9vw;
+  line-height: 1.4vw;
+  color: rgb(140, 140, 140);
+
+  span {
+    color: #93D600;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 </style>
