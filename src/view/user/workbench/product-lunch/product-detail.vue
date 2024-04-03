@@ -841,7 +841,7 @@
       <template
         v-if="isNewProdoct || (form.productStatus && 'DRAFT/CREATED_WAIT_REVIEW'.includes(form.productStatus.toString()))">
         <el-button type="success" @click="createProduct(formRef)">提交审核</el-button>
-        <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button>
+        <!-- <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button> -->
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
         <ElButton v-show="form.productStatus == 'DRAFT'" type="danger" @click="deleteProduct">删除商品</ElButton>
       </template>
@@ -849,7 +849,7 @@
       <template v-if="form.productStatus && 'ONLINE_WAIT_REVIEW'.includes(form.productStatus.toString())">
         <el-button type="success" @click="copyProduct">复制商品</el-button>
         <el-button type="success" @click="getPreview">查看预览</el-button>
-        <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button>
+        <!-- <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button> -->
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
         <ElButton type="danger" @click="deleteProduct">删除商品</ElButton>
       </template>

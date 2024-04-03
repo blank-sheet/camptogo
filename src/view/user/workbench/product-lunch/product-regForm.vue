@@ -171,7 +171,9 @@ provide('addQues', addQues)
 //获取报名表
 const getRegForm = async () => {
   await request.post(userApi.getRegistrationFormAPI, {
-    productId: route.params.id
+    productId: route.params.id,
+    //传0只返回自定义问题 传1只返回固定问题 不传则都返回
+    isFixed: 0,
   }).then(res => {
     questionList.value = res?.details?.questionList || []
   })

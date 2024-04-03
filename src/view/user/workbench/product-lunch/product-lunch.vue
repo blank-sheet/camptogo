@@ -95,23 +95,8 @@ const datas = computed(() => {
 });
 const handleSearch = () => {
   handleCurrentChange(1);
-  // producets.value = totalProducts.value.filter((p) => {
-  //   if (!keyword.value) return true;
-  //   if (selectTag.value === "id") {
-  //     return String(p.id || "").includes(keyword.value);
-  //   }
-  //   if (selectTag.value === "status") {
-  //     return showStatusStr(p.status).includes(keyword.value);
-  //   }
-  // });
 };
-// watch(activeTab, () => {
-//   if (activeTab.value === "all") producets.value = totalProducts.value;
-//   else
-//     producets.value = totalProducts.value.filter((p) => {
-//       if (activeTab.value.includes(p.status)) return p;
-//     });
-// });
+
 const goPublishProduct = () => {
   router.push("/user/workbench/product/new");
 };
