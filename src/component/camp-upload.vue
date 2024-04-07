@@ -1,5 +1,5 @@
 <template>
-  <el-upload :disabled="disabled" name="image" :headers="authHeader" :on-success="handleSuccess" :action="userApi.video"
+  <el-upload :limit="5" :disabled="disabled" name="image" :headers="authHeader" :on-success="handleSuccess" :action="userApi.video"
     v-model:file-list="fileList" :class="{
       hiddenUpload: !isArr && images?.length
     }" auto-upload class="camp-uploader" list-type="picture-card" :on-remove="update" accept=".jpg, .jpeg, .mp4,.png,"
