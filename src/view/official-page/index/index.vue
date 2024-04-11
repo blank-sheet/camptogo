@@ -163,7 +163,7 @@
     <div class="Logos">
       <img class="logo" src="../../../assets/ICF_LOGO.15c136c2.png" />
       <img class="logo" src="../../../assets/chinaums.b787daac.png" />
-      <img class="logo" src="../../../assets/zhongjian.dac24e40.png" />
+      <img class="logo" style="height:5vh" src="../../../assets/Ebao.png" />
       <img class="logo" src="../../../assets/tianan.babc5765.png" />
       <img class="logo" src="../../../assets/icbc.5063a679.png" />
     </div>
