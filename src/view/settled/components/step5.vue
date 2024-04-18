@@ -13,6 +13,13 @@
           <el-select class="select" placeholder="请选择" v-model="userData.residencyStatus">
             <el-option v-for="item in travelAgency" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
+          &emsp;
+          <el-tooltip content="<span>（1）旅行社（旅行社许可证，上传其他备案资质，含分社和总社）<br>（2）场地方官方（酒店/博物馆/体育馆/文化馆/爱国主义基地/研究院/景区官方/学校，所有权证书）<br>（3）教培机构（教育相关许可证，办学许可证，艺术类/学科类/体育类）<br>（4）其他（组织文化艺术交流、科普教育活动...等经营事项）（公益机构/政府部门/志愿者服务）<span>" raw-content
+            placement="right">
+            <el-icon>
+              <QuestionFilled />
+            </el-icon>
+          </el-tooltip>
         </CampFormItem>
         <CampFormItem class="CampFormItem" label="特殊经营品类" prop="specialCategories"
           v-if="userData.residencyStatus === 'VENUE_OWNER'">
@@ -20,6 +27,13 @@
             <el-radio size="large" :label="true">含特殊经营品类</el-radio>
             <el-radio size="large" :label="false">不含特殊经营品类</el-radio>
           </el-radio-group>
+          &emsp;
+          <el-tooltip content="合作门票除了提供商家的营业执照信息外,一些特殊品类需要取得相关行政许可。<br>例如滑雪、潜水、攀岩需要取得《高危险体育项目经营许可证》;演艺演出需要<br>取得《营业性演出许可证》等,这些品类对应的资质叫特殊品类资质(是区别于<br>商户正常的营业执照、旅行社经营许可)。要求:如果销售特殊品类,则需要勾选并<br>上传对应的许可。上产品的时候方可以选择该品类进行上线,否则不予上线该品<br>类的deal。" raw-content
+            placement="right">
+            <el-icon>
+              <QuestionFilled />
+            </el-icon>
+          </el-tooltip>
         </CampFormItem>
 
         <CampFormItem class="CampFormItem" label="品牌类型" prop="brandType">
@@ -29,12 +43,19 @@
           </el-checkbox-group>
         </CampFormItem>
         <div class="text">品牌使用人和品牌持有人一致，即商标注册证上注册人=开店主体，即品牌商标持有人自己开店；品牌使用人经过持有人授权，品牌持有人为授权方，品牌使用人为被授权方。</div>
-       
+
         <CampFormItem class="CampFormItem" label="保证金">
           <el-input class="baozhengjin" disabled></el-input>元
+          &emsp;
+          <el-tooltip content="保证金作为甲方履行合同、保障用户权益及遵守平台相关管理规则的保证。<br>若甲方违反合同或平台管理规则，乙方有权根据合同及平台相关管理规则<br>扣除相应金额的保证金。具体保证金的条款内容请以合同为准。" raw-content
+            placement="right">
+            <el-icon>
+              <QuestionFilled />
+            </el-icon>
+          </el-tooltip>
         </CampFormItem>
         <div class="text">2024年12月31日24点前签约入驻营探的服务商，营探允许服务商先行入驻平台并使用平台基础服务而暂缓缴纳基础保证金。</div>
-        
+
         <CampFormItem class="CampFormItem" label="上传相关资质" v-if="userData.residencyStatus === 'TRAVEL'">
           <div>
             <div class="text2">旅游业务许可证</div>
@@ -44,7 +65,7 @@
         <div class="text" v-if="userData.residencyStatus === 'TRAVEL'">
           可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。需提供有效的旅游业务许可证，或其他监管部门认可的具有同等法律效力的证件，并且照片清晰完整。<span>查看示例</span>
         </div>
-        
+
         <CampFormItem class="CampFormItem" label="上传相关资质" v-if="userData.residencyStatus === 'VENUE_OWNER'">
           <div>
             <div class="text2">所有权证书</div>
@@ -54,7 +75,7 @@
         <div class="text" v-if="userData.residencyStatus === 'VENUE_OWNER'">
           可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
         </div>
-        
+
         <CampFormItem class="CampFormItem" label=""
           v-if="userData.residencyStatus === 'VENUE_OWNER' && userData.specialCategories == true">
           <div>
@@ -65,7 +86,7 @@
         <div class="text" v-if="userData.residencyStatus === 'VENUE_OWNER' && userData.specialCategories == true">
           可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
         </div>
-        
+
         <CampFormItem class="CampFormItem" label="上传相关资质" v-if="userData.residencyStatus == 'EDUCATION'">
           <div>
             <div class="text2">教育相关许可证</div>
@@ -75,7 +96,7 @@
         <div class="text" v-if="userData.residencyStatus == 'EDUCATION'">
           可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
         </div>
-        
+
         <CampFormItem class="CampFormItem" label="" v-if="userData.residencyStatus == 'EDUCATION'">
           <div>
             <div class="text2">办学许可证</div>
@@ -85,7 +106,7 @@
         <div class="text" v-if="userData.residencyStatus == 'EDUCATION'">
           可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
         </div>
-        
+
         <CampFormItem class="CampFormItem" label="" v-if="userData.brandType.includes('OWN_BRAND')">
           <div>
             <div class="text2">商标注册证（选填）</div>
@@ -95,7 +116,7 @@
         <div class="text" v-if="userData.brandType.includes('OWN_BRAND')">
           可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
         </div>
-        
+
         <CampFormItem class="CampFormItem" label="" v-if="userData.brandType.includes('AGENT_BRAND')">
           <div>
             <div class="text2">品牌授权书</div>
@@ -105,7 +126,7 @@
         <div class="text" v-if="userData.brandType.includes('AGENT_BRAND')">
           可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
         </div>
-        
+
         <CampFormItem class="CampFormItem" :label="userData.residencyStatus === 'OTHER' ? '上传相关资质' : ''"
           v-if="userData.residencyStatus === 'TRAVEL' || userData.residencyStatus === 'OTHER'">
           <div>
@@ -116,14 +137,14 @@
         <div class="text" v-if="userData.residencyStatus === 'TRAVEL' || userData.residencyStatus === 'OTHER'">
           可上传多张图片，提交的图片需符合以下规定：大小不超过2M，分辨率不低于720*1280。
         </div>
-        
+
         <CampFormItem class="CampFormItem" label="能力证明（选填）">
           <CampUpload v-model:images="userData.evidences"></CampUpload>
         </CampFormItem>
         <div class="text">
           各级奖项、荣誉资质、出版物、职称、职业认证等第三方专业机构出具的相关证明。
         </div>
-        
+
       </el-form>
     </div>
     <div class="btn">
