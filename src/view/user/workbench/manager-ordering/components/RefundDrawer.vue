@@ -5,14 +5,14 @@
     <div>
       <img src="../../../../../assets/frogopeneyes.png" />
       <span>订单信息</span>
-      <p>姓名：{{}}</p>
-      <p>手机号：{{}}</p>
+      <p>姓名：{{name}}</p>
+      <p>手机号：{{phone}}</p>
     </div>
     <div>
       <img src="../../../../../assets/frogopeneyes.png" />
       <span>退款原因</span>
 
-      <p>{{}}</p>
+      <p>{{refundReason}}</p>
     </div>
     <div>
       <img src="../../../../../assets/frogopeneyes.png" />
@@ -29,7 +29,7 @@
     <div>
       <el-divider />
       <el-button plain>联系客服补充材料</el-button>
-      <el-button type="success" @click="show = false">确认退款信息</el-button>
+      <el-button type="success" @click="confirmRefund">确认退款信息</el-button>
     </div>
   </ElDrawer>
 </template>
@@ -38,17 +38,39 @@
 import { ref } from 'vue'
 import { request } from '../../../../../api'
 import { userApi } from '../../../../../api/modules/user/user'
+import { auditApi } from '../../../../../api/modules/audit'
+import { useStore } from '../../../../../store'
 const show = ref(false)
 const info = ref({})
+const name = ref('')
+const phone = ref('')
+const refundReason = ref('')
+const workTicketId = ref('')
+const store = useStore()
+const emits = defineEmits(['change-page'])
 
 defineExpose({
-  getInfo: (id = 0) => {
+  getInfo: (providerId = 0, orderId = 0, userName = '', userPhone = '', workTicket = '') => {
     show.value = true
-    // request.post(userApi.getTable, { providerId: props.providerId }).then(resp => {
-    //   info.value = (resp as any).details
-    // })
+    workTicketId.value = workTicket
+    console.log(workTicketId.value);
+    
+    request.post(userApi.getRefundInfo, { providerId: providerId, orderId: orderId }).then(res => {
+      refundReason.value = res.details.reason.split(',').join('、')
+      name.value = userName
+      phone.value = userPhone
+    })
   }
 })
+
+const confirmRefund = () => {
+  request.post(auditApi.productApprove, { workTicketId: workTicketId.value, reviewRemark: '商户通过用户退款申请', userId: store.user.id }).then(res => {
+    if (res.Code == 200) {
+      show.value = false
+      emits('change-page')
+    }
+  })
+}
 </script>
 
 <style lang="scss" scoped>

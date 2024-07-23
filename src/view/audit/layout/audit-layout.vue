@@ -52,6 +52,11 @@ const sideNav = ref([
     name: 'audit-insurence'
   },
   {
+    label: '退款审核',
+    navTo: '/audit/refund',
+    name: 'audit-refund'
+  },
+  {
     label: '订单管理审核',
     navTo: '',
     name: ''

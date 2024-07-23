@@ -26,7 +26,7 @@
         </el-input>
         <div class="buttons" style="margin-left: 40px">
           <el-button @click="keyword = ''">重置</el-button>
-          <el-button type="primary">查询</el-button>
+          <el-button type="primary" @click="handleSearch">查询</el-button>
           <el-button type="primary" @click="() => goPublishProduct()">发布商品</el-button>
           <span class="desc" style="color: gray; font-size: small; margin-left: 20px">*已上架商品请前往商品管理模块进行操作</span>
         </div>

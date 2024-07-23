@@ -1,18 +1,11 @@
 <template>
   <div class="commodity">
-    <h2>订单管理</h2>
-    <CampDataShow :datas="datas" />
-    <!-- <OrderTab /> -->
     <div class="tool-bar">
       <el-tabs v-model="activeTab"  @tab-change="tabChange">
-        <el-tab-pane label="全部订单" name=""></el-tab-pane>
-        <el-tab-pane label="待审核" name="PAID"></el-tab-pane>
-        <el-tab-pane label="审核通过" name="WAIT_CLUSTERING/CLUSTERED/ACTIVE"></el-tab-pane>
-        <el-tab-pane label="审核未通过" name="REFUNDING"></el-tab-pane>
-        <el-tab-pane label="订单取消" name="CANCELED"></el-tab-pane>
-        <el-tab-pane label="订单退款" name="REFUND_REVIEW/REFUNDED"></el-tab-pane>
-        <el-tab-pane label="异常订单" name="ABNORMAL"></el-tab-pane>
-        <el-tab-pane label="订单完成" name="COMPLETE"></el-tab-pane>
+        <el-tab-pane label="全部" name="REFUNDING/REFUND_REVIEW/REFUNDED"></el-tab-pane>
+        <el-tab-pane label="退款中" name="REFUNDING"></el-tab-pane>
+        <el-tab-pane label="退款待审核" name="REFUND_REVIEW"></el-tab-pane>
+        <el-tab-pane label="已退款" name="REFUNDED"></el-tab-pane>
       </el-tabs>
       <div class="search-bar">
         <el-input
@@ -47,7 +40,7 @@
       </el-table-column>
       <el-table-column prop="info" label="商品信息" width="360">
         <template #default="scope">
-          <img src="../../../../assets/0.png" style="width: auto; height: 86px" />
+          <img src="../../../assets/0.png" style="width: auto; height: 86px" />
           <div style="float: right">
             <div>商品ID号：{{ scope.row.snapshot?.productId }}</div>
             <div>商品名称：{{ scope.row.snapshot?.product.fullName }}</div>
@@ -140,21 +133,12 @@
       <el-table-column label="操作" fixed="right" width="200" class="operate" prop="info">
         <template #default="scope">
           <div class="controllers">
-            <el-button @click="confirmOrder(scope.row.snapshot.id)">订单审核通过</el-button>
-            <el-button @click="refuseOrder(scope.row.snapshot.id)">订单审核不通过</el-button>
-            <el-button @click="showRegisterDrawer(scope.row.snapshot.id, scope.row.snapshot.userId, scope.row.snapshot.productId)">查看报名表</el-button>
             <el-button v-if="scope.row.snapshot?.orderStatus == 'REFUND_REVIEW' || scope.row.snapshot?.orderStatus == 'REFUNDING'" @click="showRefundDrawer(scope.row.snapshot?.product?.providerId, scope.row.snapshot?.id, scope.row.snapshot?.directContactName, scope.row.snapshot?.directContactMobile, scope.row.workTicketId)">查看退款信息</el-button>
-            <el-button @click="showMaterialDialog">联系客服补充材料</el-button>
-            <el-button v-if="scope.row.orderStatus === '异常' ? true : false">查看异常信息</el-button>
           </div>
         </template>
       </el-table-column>
     </el-table>
-    <ApplicationDrawer ref="applicationDrawerRef" />
     <RefundDrawer ref="refundDrawerRef" @change-page="handleCurrentChange" />
-    <MaterialDialog ref="materialDialogRef" />
-    <OrderFefuseDialog />
-    <CampPagination :total="totalPage" @change-page="handleCurrentChange" />
   </div>
 </template>
 
@@ -164,22 +148,17 @@ import { Search } from '@element-plus/icons-vue'
 const searchWord = ref('')
 const selectTag = ref('')
 const activeTab = ref('first')
-import CampDataShow from '../../../../component/camp-data-show.vue'
-import { userApi } from '../../../../api/modules/user/user'
-import { request } from '../../../../api'
+import { userApi } from '../../../api/modules/user/user'
+import { request } from '../../../api'
 import { onMounted } from 'vue'
-import { useStore } from '../../../../store'
-import ApplicationDrawer from './components/ApplicationDrawer.vue'
-import RefundDrawer from './components/RefundDrawer.vue'
-import CampPagination from '../../../../component/camp-pagination.vue'
-import MaterialDialog from './components/MaterialDialog.vue'
-import OrderTab from './components/OrderTab.vue'
-import OrderFefuseDialog from './components/OrderFefuseDialog.vue'
+import { useStore } from '../../../store'
+import RefundDrawer from '../../user/workbench/manager-ordering/components/RefundDrawer.vue'
+import OrderTab from '../../user/workbench/manager-ordering/components/OrderTab.vue'
 const store = useStore()
 const materialDialogRef = ref(null)
 const applicationDrawerRef = ref(null)
 const refundDrawerRef = ref(null)
-const selectStatus = ref(null)
+const selectStatus = ref(['REFUNDING','REFUND_REVIEW','REFUNDED'])
 const datas = ref([
   {
     label: '未完订单',
@@ -226,30 +205,12 @@ const formatPrice = (priceInCent) => {
 
 // 分页查询
 const handleCurrentChange = (next = 1, pageSize = 10) => {
-  // request
-  //   .post(userApi.ordersSearch, {
-  //     currentPage: next,
-  //     pageSize: pageSize,
-  //     // 商品ID
-  //     productId: selectTag == 2 ? searchWord.value : '',
-  //     // 订单编号,非必须
-  //     orderCode: selectTag == 1 ? searchWord.value : '',
-  //     providerId: store.providerId,
-  //     statuses: selectStatus.value,
-  //     sortParam: {
-  //       sort: "id",
-  //       sortOrder: "DESC"
-  //     },
-  //   })
-  //   .then(res => {
-  //     tableData.value = res.details.list
-  //     totalPage.value = res.details.total
-  //   })
+  console.log(store.user);
   request
     .post(userApi.orderList, {
       currentPage: next,
       pageSize: pageSize,
-      userId: store.providerId,
+      userId: store.user.id,
       // 商品ID
       productId: selectTag == 2 ? searchWord.value : '',
       // 订单编号,非必须

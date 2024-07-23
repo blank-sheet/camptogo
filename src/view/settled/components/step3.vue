@@ -2,7 +2,7 @@
   <div class="step3">
     <div class="title">{{ route.params.type === 'personal' ? '个人入驻' : '机构入驻' }}</div>
     <div class="contain">
-      <el-form ref="formRef" :model="userData">
+      <el-form ref="formRef" :model="userData" label-width="auto" :rules="rules">
         <!-- <CampFormItem class="CampFormItem" label="注册邮箱" prop="email">
           <el-input placeholder="请设置公司负责人邮箱为登录名" v-model="userData.email">
           </el-input>
@@ -25,17 +25,17 @@
       </el-form>
     </div>
     <div class="tips">
-      <el-checkbox></el-checkbox>
+      <el-checkbox v-model="agreeChecked" size="large" />
       <div>我已阅读并同意<span>《营探用户协议》</span><span>《营探隐私政策》</span></div>
     </div>
     <div class="btn">
-      <el-button type="success" @click="handlerToStep4()">注册帐号并入驻</el-button>
+      <el-button type="success" @click="handlerToStep4()">注册账号并入驻</el-button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, ref, computed, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import CampFormItem from '../../../component/camp-form-item.vue'
 import { settledApi } from "../../../api/modules/settled/settled"
@@ -44,19 +44,55 @@ import { ElMessage } from 'element-plus'
 
 const route = useRoute()
 const router = useRouter()
-const handlerToStep4 = () => {
-  const valid = validateForm(formRef.value)
-  if (valid) {
-    return
+
+const validateConfirmPassword = (rule, value, callback) => {
+  if (value == userData.value.password) {
+    callback();
   } else {
-    if (userData.value.password != userData.value.password2) {
-      ElMessage.error("两次输入密码不一致")
+    callback(new Error('两次输入的密码不一致'));
+  }
+}
+
+const rules = reactive({
+  password: [
+    { required: true, message: '请输入密码', trigger: 'blur' },
+    { pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/, message: '密码需包含英文大小写字母、数字和特殊字符，且长度至少为12位', trigger: 'blur' }
+  ],
+  password2: [
+    { required: true, message: '请确认密码', trigger: 'blur' },
+    { validator: validateConfirmPassword, trigger: 'blur' }
+  ]
+})
+
+const handlerToStep4 = async () => {
+  // const valid = validateForm(formRef.value)
+  // if (valid) {
+  //   return
+  // } else {
+  //   if (userData.value.password != userData.value.password2) {
+  //     ElMessage.error("两次输入密码不一致")
+  //     return
+  //   }
+  //   request.post(settledApi.emailVerifyAPI, userData.value).then(res => {
+  //     console.log(res)
+  //   })
+  // }
+  if (!agreeChecked.value) {
+    ElMessage.error("请先阅读并同意《营探用户协议》和《营探隐私政策》")
+    return
+  }
+  if (!formRef.value) return
+  await formRef.value.validate((valid, fields) => {
+    if (valid) {
+      request.post(settledApi.emailVerifyAPI, userData.value).then(res => {
+        if(res.Code == 200) {
+          router.push(`/settled/step4/${route.params.type}`)
+        }
+      })
+    } else {
       return
     }
-    request.post(settledApi.emailVerifyAPI, userData.value).then(res => {
-      console.log(res)
-    })
-  }
+  })
 
 }
 onMounted(() => {
@@ -70,7 +106,7 @@ const userData = ref({
   username: '',
   mobile: '17338763009'
 })
-
+const agreeChecked = ref(false)
 
 const showTimer = ref(null)
 const showTime = ref('发送')

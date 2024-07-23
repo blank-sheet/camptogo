@@ -37,9 +37,19 @@
     <div class="small">{{ area }}</div>
     <div class="tags">
       <el-tag class="ml-2" type="warning">{{ getProductStatus(lunchStatus) }}</el-tag>
-      <el-tooltip content="管理排期" placement="top">
+      <el-popover popper-class="more-popover" placement="top-start" :width="60" trigger="hover">
+        <div class="list-box">
+          <div class="item-btn" @click.stop="() => emits('changeSchedule')">
+            <p>管理排期</p>
+          </div>
+        </div>
+        <template #reference>
+          <el-button link>...</el-button>
+        </template>
+      </el-popover>
+      <!-- <el-tooltip content="管理排期" placement="top">
         <el-tag class="ml-2" type="success" @click.stop="() => emits('changeSchedule')">...</el-tag>
-      </el-tooltip>
+      </el-tooltip> -->
     </div>
   </div>
 </template>
@@ -192,6 +202,19 @@ const changeSchedule = () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }  
+}
+
+.more-popover {
+  padding: 0;
+  width: 84px !important;
+  min-width: 84px !important;
+  .list-box {
+    >div {
+      text-align: center;
+      cursor: pointer;
+      font-size: 14px;
+    }
   }
 }
 </style>

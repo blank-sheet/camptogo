@@ -7,6 +7,8 @@ export const PRODUCT_STATUS = {
   CREATED_REVIEWED: '平台已审核（待核保审核）',
   // 已核保审核（待申请上架）
   UNDERWRITING_REVIEWED: '已核保审核（待申请上架）',
+  // 待上架（自投保待上架）
+  WAIT_ONLINE: '待申请上架',
   // 上架待审核
   ONLINE_WAIT_REVIEW: '上架待审核',
   // 已上架(待弃用)

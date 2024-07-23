@@ -23,11 +23,27 @@ export const auditRouter = [
         path: 'insurence',
         name: 'audit-insurence',
         component: () => import('../../view/audit/Insurence/InsurenceAudit.vue')
-      }
+      },
+      {
+        path: 'refund',
+        name: 'audit-refund',
+        component: () => import('../../view/audit/refund/refund-audit.vue')
+      },
     ]
   },
   {
     path: '/login/audit',
     component: () => import('../../view/audit/login/audit-login.vue')
+  },
+  {
+    path: '/insurence',
+    component: () => import('../../view/audit/layout/insurance-layout.vue'),
+    children: [
+      {
+        path: 'audit',
+        name: 'insurence-audit',
+        component: () => import('../../view/audit/Insurence/InsurenceAudit.vue')
+      }
+    ]
   }
 ]

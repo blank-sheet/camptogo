@@ -1,7 +1,9 @@
 <template>
   <!-- 联系客服补充材料卡片 -->
   <el-dialog v-model="show" title="联系客服补充材料" width="30%">
-    <img src="../../../../../assets/serverimg.png" style="width: 300px; margin-left: 43px" />
+    <div class="flex-box">
+      <img src="../../../../../assets/server.jpg" style="width: 300px;" />
+    </div>
     <template #footer>
       <span>
         <el-button @click="show = false">取消</el-button>
@@ -15,6 +17,18 @@
 import { ref } from 'vue'
 
 const show = ref(false)
+
+defineExpose({
+  getInfo: () => {
+    show.value = true
+  }
+})
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.flex-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

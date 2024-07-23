@@ -45,7 +45,7 @@ const submitForm = () => {
     )
     .then(res => {
       useStore().setUserInfo(res.details)
-      router.push(res.details.role == 'AUDITOR' ? '/audit' : props.loginTo)
+      router.push(res.details.role == 'AUDITOR' ? '/audit' : res.details.role == 'INSURANCE_COMPANY' ? '/insurence/audit' : props.loginTo)
       window.localStorage.setItem(
         window.location.href,
         JSON.stringify({

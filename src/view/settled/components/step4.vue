@@ -2,7 +2,7 @@
   <div class="step4">
     <div class="title">机构基本信息</div>
     <div class="contain">
-      <el-form ref="formRef" :model="userData">
+      <el-form ref="formRef" :model="userData" label-width="auto">
         <CampFormItem class="CampFormItem" label="执照类型" prop="name">
           <el-select class="select" v-model="userData.licenseType" placeholder="请选择执照类型">
             <el-option v-for="item in licence" :key="item.value" :label="item.label" :value="item.value"></el-option>
@@ -25,7 +25,7 @@
           </CampFormItem>
 
           <CampFormItem class="CampFormItem" label="机构类型" prop="institutionType">
-            <el-select class="select" v-model="userData.businessLicense" placeholder="请选择机构类型">
+            <el-select class="select" v-model="userData.institutionType" placeholder="请选择机构类型">
               <el-option v-for="item in institutionType" :key="item.value" :value="item.value"
                 :label="item.label"></el-option>
             </el-select>
@@ -36,10 +36,10 @@
           </CampFormItem>
           <div class="zheceziben">
             <CampFormItem class="CampFormItem" label="注册资本" prop="registeredCapital">
-              <el-input type="number" placeholder="请输入数字" v-model="userData.registeredCapital"></el-input>
+              <el-input-number v-model="userData.registeredCapital" :min="0" controls-position="right"/>
             </CampFormItem>
             <CampFormItem class="CampFormItem" :isShowLabel="false" prop="registeredCapitalUnit">
-              <el-select class="select" placeholder="单位" v-model="userData.registeredCapitalUnit">
+              <el-select class="select" placeholder="单位" v-model="userData.registeredCapitalUnit" style="width: 110px;">
                 <el-option v-for="item in unit" :key="item.value" :value="item.value" :label="item.label"></el-option>
               </el-select>
             </CampFormItem>
@@ -60,9 +60,10 @@
                   <CampDatePicker :disabled="isForever" placeholder="日期选择" v-model:date="userData.licenceEndTime">
                   </CampDatePicker>
                 </CampFormItem>
-                <el-radio-group v-model="isForever">
+                <el-checkbox v-model="isForever">长期</el-checkbox>
+                <!-- <el-radio-group v-model="isForever">
                   <el-radio label="长期" :value="true"></el-radio>
-                </el-radio-group>
+                </el-radio-group> -->
               </div>
             </div>
           </CampFormItem>
@@ -91,7 +92,7 @@
 
         <CampFormItem class="CampFormItem" label="实际通讯地址" prop="correspondenceAddress">
           <div class="place">
-            <CampPlace @update:location="isSame = false" class="item" placeholder="国家 > 省 > 市 > 区"
+            <CampPlace @update:location="isSame = false" :key="isSame" class="item" placeholder="国家 > 省 > 市 > 区"
               v-model:location="userData.correspondenceAddress">
             </CampPlace>
             <el-radio-group class="item" v-model="isSame">
@@ -240,20 +241,13 @@ const userData = ref(
     licenceStartTime: "2022-01-01",
     licenceEndTime: "2025-01-01",
     businessScope: "销售商品、提供服务",
-    licenseRegistrationPlace: [
-      "China",
-      "Guangdong",
-      "Shenzhen",
-      "Futian District",
-      " No. 123 Zhenxing Road"
-    ],
+    licenseRegistrationPlace: [],
     correspondenceAddress: [
-      "China",
-      "Guangdong",
-      "Shenzhen",
-      "Nanshan District",
-      " No. 456 Liuxian Avenue"
+      "北京市",
+      "市辖区",
+      "东城区"
     ],
+    correspondenceAddressDetail: "",
     mainBusinessAreas: [
       [
         "China",

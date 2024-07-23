@@ -23,7 +23,7 @@
         </ElTableColumn>
         <ElTableColumn label='保险报价'>
           <template #default="scope">
-            <span class=" text-green-600">{{ getPrice(ratioInfo[ageMap[scope.row.index]]) }}</span>
+            <span class=" text-green-600">{{ (getPrice(ratioInfo[ageMap[scope.row.index]]) / 100).toFixed(2) }}</span>
             (单位:元每人每天)</template>
         </ElTableColumn>
       </ElTable>
@@ -54,6 +54,8 @@ import { reactive, ref, watch, computed, onMounted } from 'vue'
 import CampCheckBox from '../../../../component/camp-check-box.vue'
 import { request } from '../../../../api'
 import { auditApi } from '../../../../api/modules/audit'
+import { useStore } from '../../../../store'
+const store = useStore()
 const props = defineProps({
   show: Boolean,
   productId: Number,
@@ -137,6 +139,7 @@ const approve = () => {
     auditApi.insurenceApprove,
     {
       workTicketId: props.workTicketId,
+      userId: store.user.id,
       ...ratioInfo,
       ...form
     },

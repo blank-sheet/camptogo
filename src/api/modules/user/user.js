@@ -34,8 +34,11 @@ export const userApi = {
   submitTable: '/api/e9b849a515a84327b424af7ccdbf2949/mobile/v1_0_0/enroll/create',
   //获取报名表信息
   getTable: '/api/e9b849a515a84327b424af7ccdbf2949/mobile/v1_0_0/enroll/get',
+  //获取报名表信息
+  getApplication: '/api/e9b849a515a84327b424af7ccdbf2949/app/v1_0_0/application_form_submission/query',
   //订单的分页查询
   ordersSearch: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/order/page',
+  orderList: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/work_ticket/order/page_get',
   confirmOrder: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/order/confirm',
   refuseOrder: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/order/refuse',
   //订单审核状态修改
@@ -59,5 +62,7 @@ export const userApi = {
   //更新报名表
   updateRegistrationFormAPI: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/application_form/update',
   //获取报名表详情
-  getRegistrationFormAPI: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/application_form/query'
+  getRegistrationFormAPI: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/application_form/query',
+  // 获取退款信息详情
+  getRefundInfo: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/order_refund_info/query',
 }

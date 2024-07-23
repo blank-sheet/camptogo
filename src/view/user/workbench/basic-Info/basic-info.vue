@@ -384,10 +384,13 @@ let info = ref({
   staffSize: null
 })
 const submit = () => {
+  let infoData = JSON.parse(JSON.stringify(info.value))
+  infoData.taxPayerCountry = infoData.taxPayerCountry.length > 0 ? infoData.taxPayerCountry.join('/') : null
+  infoData.businessAddress = infoData.businessAddress.length > 0 ? infoData.businessAddress.join('/') : null
   request.post(
     userApi.basicInfoSubmit,
     {
-      ...info.value,
+      infoData,
       providerId: store.providerId
     },
     {

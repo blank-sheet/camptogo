@@ -10,6 +10,7 @@ export const auditApi = {
   // 获取核保列表:
   insurenceList: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/work_ticket/insurance/page_get',
   // 审核通过,保险因子
-  insurenceApproveInfo:
-    '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/insurance/pre_conform'
+  insurenceApproveInfo: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/insurance/pre_conform',
+  // 审核人员确认用户退款
+  confirmManualOrder: '/api/e9b849a515a84327b424af7ccdbf2949/web/v2_0_0/work_ticket/manual_order_confirm'
 }

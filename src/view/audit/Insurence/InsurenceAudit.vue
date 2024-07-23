@@ -21,20 +21,20 @@
         <template #default="scope">{{ scope.row.index }}</template>
       </el-table-column>
       <el-table-column label="商品ID" width="180">
-        <template #default="scope"><span>{{ scope.row.snapshot.identifier }}</span></template>
+        <template #default="scope"><span>{{ scope.row.snapshot?.identifier }}</span></template>
       </el-table-column>
       <el-table-column label="创建时间" width="180">
         <template #default="scope">
-          {{ scope.row.snapshot.createTime?.split('.')[0]?.replace('T', ' ') }}</template>
+          {{ scope.row.snapshot?.createTime?.split('.')[0]?.replace('T', ' ') }}</template>
       </el-table-column>
       <el-table-column label="商品名称" width="180">
         <template #default="scope">
-          <span>{{ scope.row.snapshot.fullName }}</span>
+          <span>{{ scope.row.snapshot?.fullName }}</span>
         </template>
       </el-table-column>
       <el-table-column label="商品状态" width="180">
         <template #default="scope">
-          <span>{{ getProductStatus(scope.row.snapshot.productStatus) }}</span>
+          <span>{{ getProductStatus(scope.row.snapshot?.productStatus) }}</span>
         </template>
       </el-table-column>
       <el-table-column label="审核意见" width="80">
@@ -44,8 +44,8 @@
       </el-table-column>
       <el-table-column label="详情" width="100">
         <template #default="scope">
-          <el-button type="primary" v-show="scope.row.snapshot.productId">
-            <a :href="'http://123.57.13.5:82/#/user/workbench/product/' + scope.row.snapshot.productId
+          <el-button type="primary" v-show="scope.row.snapshot?.productId">
+            <a :href="'http://123.57.13.5:82/#/user/workbench/product/' + scope.row.snapshot?.productId
             " target="_blank">查看</a>
           </el-button>
         </template>
@@ -68,7 +68,7 @@
               </template>
             </el-popover>
 
-            <el-button :disabled="scope.row.snapshot.productStatus !== 'CREATED_REVIEWED'" type="success"
+            <el-button :disabled="scope.row.snapshot?.productStatus !== 'CREATED_REVIEWED'" type="success"
               @click="approveInsurence(scope.row)">审核</el-button>
           </div>
 
@@ -99,6 +99,8 @@ import CampPagination from '../../../component/camp-pagination.vue'
 import RejectDialog from './components/RejectDialog.vue'
 import ApproveDialog from './components/ApproveDialog.vue'
 import RejectReason from './components/RejectReason.vue'
+import { useStore } from '../../../store'
+const store = useStore()
 import { getProductStatus, PRODUCT_STATUS } from '../../../utils/getProductStatus'
 
 const activeTab = ref('')
@@ -159,6 +161,7 @@ const updateList = (currentPage = 1, pageSize = 10) => {
     .post(auditApi.insurenceList, {
       currentPage,
       pageSize,
+      userId: store.user.id,
       ...searchInfo
     }, { loading: true })
     .then(v => {

@@ -28,7 +28,7 @@
                 <div class="l-date">{{ item.date }}</div>
             </div>
             <div class="right">
-              <img src="../../../assets/icon/Group 110.svg" alt="">
+              <img src="../../../assets/icon/Group-110.svg" alt="">
               <span class="text">{{ item.title }}</span>
             </div>
           </div>

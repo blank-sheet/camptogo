@@ -95,6 +95,8 @@
 <script setup>
 import { onMounted, reactive, ref, watch, h } from 'vue'
 import { request } from '../../../api'
+import { useStore } from '../../../store'
+const store = useStore()
 import { auditApi } from '../../../api/modules/audit'
 import CampPagination from '../../../component/camp-pagination.vue'
 import { getProductStatus, PRODUCT_STATUS } from '../../../utils/getProductStatus'
@@ -152,6 +154,7 @@ const updateList = (currentPage = 1, pageSize = 10) => {
     .post(auditApi.productList, {
       currentPage,
       pageSize,
+      userId: store.user.id,
       ...searchInfo
     })
     .then(v => {
@@ -176,6 +179,7 @@ const approve = (id = 0) => {
         auditApi.productApprove,
         {
           workTicketId: id,
+          userId: store.user.id,
           reviewRemark: '通过'
         },
         {
@@ -244,6 +248,7 @@ const reject = (id = 0) => {
           auditApi.productOrInsurenceReject,
           {
             workTicketId: id,
+            userId: store.user.id,
             reviewRemark: reviewRemark.value
           },
           {
