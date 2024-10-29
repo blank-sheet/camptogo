@@ -1,0 +1,125 @@
+/* 宽屏幕 */
+
+@media only screen and (min-width: 40.063em) {
+
+    /* .spaceBox:hover .lightBg {
+        background-size: auto 100%;
+        opacity: 1;
+    }
+
+    .planetBg:hover {
+        transform: scale(1.1);
+        background-image: url(../../assets/page1/planet.gif);
+    } */
+    /* section {
+        height: 100vh !important;
+    } */
+
+    .marginBottomPitch {
+        margin-bottom: var(--padding-agreements-y-space) !important;
+    }
+
+    .plane {
+        background: #DFEFB4 !important;
+    }
+
+    .homeSection {
+        background: #c2e76b !important;
+    }
+
+    .wpaddingb5 {
+        padding-bottom: var(--padding-agreements-y-space);
+    }
+
+    div.mobile-w {
+        display: none;
+    }
+
+    .map {
+        background-size: auto 100%;
+        /* 宽屏高度大于宽度不能指定背景图片100%显示否则会被拉伸，所以这里做一下适配 */
+    }
+
+    .QRCDes {
+        justify-content: space-between;
+    }
+
+    .bottom-frog {
+        bottom: 0;
+        right: 30px;
+    }
+
+    .wtos6 {
+        transform-origin: left;
+        transform: scale(0.9);
+    }
+
+    .pEng {
+        margin-top: 2rem !important;
+        margin-bottom: -1rem;
+    }
+
+    h1 {
+        font-weight: 900;
+
+    }
+
+    .hp-slide {
+        padding-top: 6vw;
+    }
+
+    .plane {
+        color: #1a1a1a;
+        height: 100%;
+    }
+
+    .benowrap p {
+        display: inline;
+    }
+
+    .benowrap {
+        white-space: nowrap;
+    }
+
+    .code-wrapper {
+        margin-top: 0;
+    }
+
+    .top-logo {
+        top: 40px;
+        left: 3%;
+        background-size: 100% 100%;
+        height: 86px;
+        width: 240px;
+        z-index: 1100;
+    }
+
+    .bottom-frog {
+        position: absolute;
+        transform: translateX(-50%);
+        background-image: url("../assets/flog.png");
+
+        background-size: 100% 100%;
+        height: 120px;
+        width: 120px;
+        bottom: -40px;
+
+        right: 30px;
+    }
+
+    .features {
+        transform-origin: center;
+        transform: scale(0.8);
+        line-height: 1.2;
+    }
+
+    .code-wrapper {
+        transform: translateY(-40%) scale(0.75);
+        margin-top: max(8vh, 5em) !important;
+    }
+
+    .aboutUs {
+        padding-right: var(--padding-agreements-right);
+
+    }
+}

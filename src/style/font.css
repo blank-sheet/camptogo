@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "youshe";
+  src: url("./font/Youshe.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* @font-face {
+  font-family: "siyuan"; 
+  src: url("./font/siyuanBMedium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  
+} */
+@font-face {
+  font-family: "siyuan";
+  font-display: swap;
+  src: url("//at.alicdn.com/t/webfont_3m0izg2mdmt.eot"); /* IE9*/
+  src: url("//at.alicdn.com/t/webfont_3m0izg2mdmt.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("//at.alicdn.com/t/webfont_3m0izg2mdmt.woff2")
+      format("woff2"),
+    url("//at.alicdn.com/t/webfont_3m0izg2mdmt.woff") format("woff"),
+    /* chrome、firefox */ url("//at.alicdn.com/t/webfont_3m0izg2mdmt.ttf")
+      format("truetype"),
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+      url("//at.alicdn.com/t/webfont_3m0izg2mdmt.svg#思源黑体-粗") format("svg"); /* iOS 4.1- */
+}
+@font-face {
+  font-family: "dinpro";
+  src: url("./font/DINPro-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("./font/Nunito-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* @font-face {
+  font-family: "siyuanl"; 
+  src: url("./font/sclight.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+} */
+@font-face {
+  font-family: "siyuanl";
+  font-display: swap;
+  src: url("//at.alicdn.com/t/webfont_9xcdpry0ho4.eot"); /* IE9*/
+  src: url("//at.alicdn.com/t/webfont_9xcdpry0ho4.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("//at.alicdn.com/t/webfont_9xcdpry0ho4.woff2")
+      format("woff2"),
+    url("//at.alicdn.com/t/webfont_9xcdpry0ho4.woff") format("woff"),
+    /* chrome、firefox */ url("//at.alicdn.com/t/webfont_9xcdpry0ho4.ttf")
+      format("truetype"),
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+      url("//at.alicdn.com/t/webfont_9xcdpry0ho4.svg#思源黑体-细") format("svg"); /* iOS 4.1- */
+}

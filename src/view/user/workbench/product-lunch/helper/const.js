@@ -189,22 +189,22 @@ const activityTypes = [
 // 保险
 const insurenceOptions = [
   {
-    label: '自行购买其他保险',
+    label: '我选择其他保险投保',
     value: true
   },
   {
     value: false,
-    label: '购买与营探合作的第三方保险'
+    label: '我在营探投保'
   }
 ]
 const liabilityOptions = [
   {
-    label: '自行购买其他保险',
+    label: '我选择其他保险投保',
     value: true
   },
   {
     value: false,
-    label: '购买与营探合作的第三方保险'
+    label: '我在营探投保'
   }
 ]
 const navs = [

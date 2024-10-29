@@ -167,7 +167,7 @@ import { ElMessage } from 'element-plus'
 const route = useRoute()
 const router = useRouter()
 const handlerTostep6 = () => {
-
+  router.push(`/settled/step6/${route.params.type}`)
 }
 const handlerTostep4 = () => {
   router.push(`/settled/step4/${route.params.type}`)

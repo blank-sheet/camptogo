@@ -29,7 +29,7 @@ const handleConfirm = () => {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .el-dialog__header {
   border-bottom: 1px solid lightgray;
   height: 65px;

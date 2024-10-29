@@ -35,6 +35,21 @@ export const userRoutes = [
             name: 'user-schedule',
             component: () => import('../../view/user/workbench/product-lunch/change-schedule.vue')
           },
+          {
+            path: 'addinsurance/:id',
+            name: 'add-insurance',
+            component: () => import('../../view/user/workbench/product-lunch/add-insurance.vue')
+          },
+          {
+            path: 'insuranceinfo',
+            name: 'insurance-info',
+            component: () => import('../../view/user/workbench/product-lunch/insurance-info.vue')
+          },
+          {
+            path: 'verifyinsurance/:id/:subProductId',
+            name: 'verify-insurance',
+            component: () => import('../../view/user/workbench/product-lunch/verify-insurance.vue')
+          },
           // 商品管理
           {
             path: 'product-manage',
@@ -65,7 +80,20 @@ export const userRoutes = [
             path: 'progress',
             name: 'user-progress',
             component: () => import('../../view/user/workbench/progress/progress.vue')
-          }
+          },
+          // 保险管理
+          {
+            path: 'insurance-manage',
+            name: 'insurance-manage',
+            component: () =>
+              import('../../view/user/workbench/insurance-manage/insurance-manage.vue')
+          },
+          {
+            path: 'insurance-users',
+            name: 'insurance-users',
+            component: () =>
+              import('../../view/user/workbench/insurance-manage/insurance-users.vue')
+          },
         ]
       },
       {

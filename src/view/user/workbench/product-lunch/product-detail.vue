@@ -11,7 +11,7 @@
               <el-tooltip content="<span>作为商品标题显示，请填写商品特色和优势的关键词，无<br>需出现“招生年龄，时间地点，活动天数”等重复信息<span>" raw-content
                 placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
             </CampFormItem>
@@ -140,7 +140,7 @@
               <el-tooltip content="划线是将之前的商品价格用横线划去的标识方式，划线价格可以是商品的正品零<br>售价、商家指导价或该商品曾经展示过的销售价格，并非原价，仅供消费者参考。"
                 raw-content placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
             </CampFormItem>
@@ -149,7 +149,7 @@
               <span class="desc">*原价（单位：元）</span>
               <el-tooltip content="未划线价格指商品的实时标价，实际售价，<br>但实际成交价格以订单结算页面为准。" raw-content placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
             </CampFormItem>
@@ -160,7 +160,7 @@
               <el-tooltip content="【有条件退】自服务商对订单确认通过之时起，如需<br>退订，须按照所购买商品的具体退费规则和比例办理<br>退款，服务商应在发布商品时设置合法有效的退改标<br>准。"
                 raw-content placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
               <div v-show="form.refundPlanType == 'CAUSE' || true" class="back-ontainer">
@@ -172,9 +172,9 @@
                 <section>
                   <div>
                     <p>行程前</p>
-                    <el-input-number :min="0" v-model="form.refundPlanList[0].rightDays" controls-position="right"
+                    <el-input-number :min="0" v-model="form.refundPlanList[0].leftDays" controls-position="right"
                       placeholder="整数" />
-                    <p>日以前</p>
+                    <p>日以前 (n ≥ {{ form.refundPlanList[0].leftDays }})</p>
                   </div>
                   <div>
                     <p>商品费用总额的</p>
@@ -191,7 +191,7 @@
                     <p>至</p>
                     <el-input-number v-model="form.refundPlanList[index + 1].rightDays" :min="0" controls-position="right"
                       placeholder="整数" />
-                    <p>日</p>
+                    <p>日 ({{ form.refundPlanList[index + 1].leftDays }} ≤ n &lt; {{ form.refundPlanList[index + 1].rightDays }})</p>
                   </div>
                   <div>
                     <p>商品费用总额的</p>
@@ -215,10 +215,11 @@
                 </div>
                 <section>
                   <div>
-                    <p>行程前</p>
-                    <el-input-number v-model="form.refundPlanList.at(-1).leftDays" :min="0" controls-position="right"
+                    <p>行程前0日</p>
+                    <p>至</p>
+                    <el-input-number v-model="form.refundPlanList.at(-1).rightDays" :min="0" controls-position="right"
                       placeholder="整数" />
-                    <p>至1日</p>
+                    <p>日 (0 ≤ n &lt; {{ form.refundPlanList.at(-1).rightDays }})</p>
                   </div>
                   <div>
                     <p>商品费用总额的</p>
@@ -236,7 +237,7 @@
                 </span>
               </template>
 
-              <el-select :teleported="false" class="features" multiple placeholder="请选择2-7项活动特色"
+              <el-select :teleported="false" class="feature" multiple placeholder="请选择2-7项活动特色"
                 v-model="form.generalFeatureList" style="width: 640px">
                 <el-option v-for="item in features" :key="item.featureId" :label="item.name"
                   :value="item.featureId.toString()" />
@@ -279,7 +280,7 @@
               <el-input-number :min="0" v-model="form.ageMax" controls-position="right" placeholder="整数" />
               <el-tooltip content="请确认您所投保保险的年龄承保范围，不<br>符合要求的，保险公司可能不予承保。" raw-content placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
             </CampFormItem>
@@ -300,7 +301,7 @@
               <el-tooltip content="1星为无门槛<br>2星为入门级<br>3星为需要一定经验<br>4星为有一定专业背景<br>5星为需达到考核标准" raw-content
                 placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
             </CampFormItem>
@@ -342,7 +343,7 @@
                 show-word-limit></el-input>
               <el-tooltip content="宣传标语是对商品优势卖点的归纳" placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
             </CampFormItem>
@@ -350,7 +351,7 @@
                 placeholder="请对活动主题做出描述" maxlength="20" autosize show-word-limit />
               <el-tooltip content="主题指您在“商品基本信息-商品主题”中选择的单个或多个类别" placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
             </CampFormItem>
@@ -362,7 +363,7 @@
                 placeholder="请填写副宣传语" maxlength="14" show-word-limit />
               <el-tooltip content="副宣传语是对商品优势卖点的补充" placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
             </CampFormItem>
@@ -545,13 +546,9 @@
                 <div style="display: flex">
                   <h4>第 {{ index + 1 }} 天</h4>
                   <ElButton v-show="index >= 1" style="margin:auto 20px" @click="() => {
-                    const dailyIndex = form.dailyScheduleList[index].dailyIndex + 1
-                    const dateIndex = form.dailyScheduleList[index].dateIndex + 1
-                    form.dailyScheduleList[index] = JSON.parse(
-                      JSON.stringify(form.dailyScheduleList[index - 1])
-                    ),
-                      form.dailyScheduleList[index].dailyIndex = dailyIndex
-                    form.dailyScheduleList[index].dateIndex = dateIndex
+                    form.dailyScheduleList[index].itemList = JSON.parse(
+                      JSON.stringify(form.dailyScheduleList[index - 1].itemList)
+                    )
                   }
                   ">复制前一天行程</ElButton>
                 </div>
@@ -582,11 +579,14 @@
           </template>
         </product-form>
         <product-form title="保险信息" id="5" v-on:update:active="setActive">
+          <template #header>
+            <el-button type="primary" link style="margin-left: 12px; font-size: 14px;" @click="agreementShow = true">查看保险规则</el-button>
+          </template>
           <template #form>
             <CampFormItem label="组织者责任险：">
               <ElSelect v-model="insurence.liability" v-on:change="liabilityChange"
                 style="width: 80%; margin-bottom: 20px" placeholder="请选择保险信息">
-                <ElOption v-for="(item, level) in liabilityOptions" :label="item.label" :value="item.value">
+                <ElOption v-for="(item, level) in liabilityOptions" :key="level" :label="item.label" :value="item.value">
                 </ElOption>
               </ElSelect>
               <div v-if="!insurence.liability && isLiabilitySelf">
@@ -605,15 +605,16 @@
               <el-tooltip content="您选择“购买与营探合作的第三方保险”并提交商品审核的行为，即视为您授权营探将您所<br>录入的商品信息提交至上述保险公司，上述信息将作为核保及日后理赔的依据"
                 raw-content placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
             </CampFormItem>
             <CampFormItem v-if="insurence.liability">
-              <CampUpload v-model:images="form.insuranceInfo.liabilityInsuranceResourceList"></CampUpload>
+              <CampFileUpload v-model:files="form.insuranceInfo.liabilityResourceList"></CampFileUpload>
+              <!-- <CampUpload v-model:images="form.insuranceInfo.liabilityResourceList"></CampUpload> -->
               <el-tooltip placement="top">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
                 <template #content>
                   <div style="width:600px">
@@ -626,37 +627,50 @@
               </el-tooltip>
             </CampFormItem>
             <CampFormItem label="人身意外险：">
-              <ElSelect v-model="insurence.accidence" v-on:change="accidentChange" style="width: 80%; margin-bottom: 20px"
+              <!-- <div style="width: 100%">
+                <p>是否赠送人身意外险</p>
+                <el-radio-group class="groupLimitIf" v-model="form.insuranceInfo.freeAccidentInsurance">
+                  <el-radio :label="true">是</el-radio>
+                  <el-radio :label="false">否</el-radio>
+                </el-radio-group>
+              </div> -->
+              <ElSelect v-model="insurence.freeAccidentInsuranceSelfIf" v-on:change="accidentChange" style="width: 80%; margin: 15px 0"
                 placeholder="请选择保险信息">
-                <ElOption v-for="(item, level) in insurenceOptions" :label="item.label" :value="item.value">
-                </ElOption>
+                <ElOption v-for="(item, level) in insurenceOptions" :label="item.label" :value="item.value" :key="level"></ElOption>
+                <ElOption label="我不赠送客户意外险" :value="2"></ElOption>
               </ElSelect>
-              <el-tooltip content="您选择“购买与营探合作的第三方保险”并提交商品审核的行为，即视为您授权营探将您<br>所录入的商品信息提交至上述保险公司，上述信息将作为核保及日后理赔的依据"
+              <el-tooltip v-if="form.insuranceInfo.freeAccidentInsurance" content="您选择“购买与营探合作的第三方保险”并提交商品审核的行为，即视为您授权营探将您<br>所录入的商品信息提交至上述保险公司，上述信息将作为核保及日后理赔的依据"
                 raw-content placement="top-start">
                 <el-icon>
-                  <QuestionFilled />
+                  <InfoFilled />
                 </el-icon>
               </el-tooltip>
-              <div v-if="insurence.accidence == false">
-                <ElSelect v-if="!isAccidentSelf" style="width: 400px"
-                  v-model="form.insuranceInfo.accidentInsuranceGradeId">
+              <div v-if="insurence.freeAccidentInsuranceSelfIf == false">
+                <ElSelect v-if="!isAccidentSelf" style="width: 400px" v-model="form.insuranceInfo.accidentInsuranceGradeId">
                   <ElOption v-for="(item, level) in accidentGradeList" :key="level" :label="item.title"
                     :value="item.insuranceGradeId">
                   </ElOption>
                 </ElSelect>
               </div>
-              <div v-if="isAccidentSelf" style="width: 100%">
-                <p>请描述您自购的人身意外险保险方案以及名称</p>
-                <ElInput style="width:80%" v-model="form.insuranceInfo.accidentInsuranceSelfDetails" type="textarea"
-                  placeholder="例：主办方将为您投保由中国平安财产保险公司承保的福寿安康人身意外险，保额10万元，医药费赔偿限额为1万元，免赔额100元起，财产损失赔付限额1000元，具体保单条款请于报名后详询主办方。" />
-              </div>
-              <div v-if="isAccidentSelf" style="width: 100%">
-                <p>保险价格</p>
-                <el-input-number :min="0" v-model="form.insuranceInfo.accidentInsuranceUnitPrice" style="width: 200px"
-                  :precision="2" controls-position="right" placeholder="自投保的保险价格" />
-                <p>自投保说明文件</p>
-                <CampFileUpload v-model:files="form.insuranceInfo.accidentPurchaseGuideList"></CampFileUpload>
-              </div>
+              <template v-if="insurence.freeAccidentInsuranceSelfIf == true">
+                <div style="width: 100%">
+                  <p>保险名称</p>
+                  <ElInput style="width:60%" v-model="form.insuranceInfo.accidentInsuranceSelfName" placeholder="例：福寿安康人身意外险" />
+                </div>
+                <div style="width: 100%">
+                  <p>保险公司名称</p>
+                  <ElInput style="width:60%" v-model="form.insuranceInfo.accidentInsuranceSelfCompanyName" placeholder="请输入保险公司名称" />
+                </div>
+                <div style="width: 100%">
+                  <p>保险保额</p>
+                  <el-input-number :min="0" v-model="form.insuranceInfo.accidentInsuranceSelfCoverage" style="width: 200px"
+                     controls-position="right" placeholder="自投保的保险保额" /> 万元/人
+                  <p>自购意外险购买须知文件（选填）</p>
+                  <CampFileUpload v-model:files="form.insuranceInfo.accidentResourceList"></CampFileUpload>
+                  <p>自购意外险相关证明文件（选填）</p>
+                  <CampFileUpload v-model:files="form.insuranceInfo.accidentPurchaseGuideList"></CampFileUpload>
+                </div>
+              </template>
             </CampFormItem>
             <CampFormItem label="最终核保结果：">
               <div>
@@ -665,7 +679,7 @@
                                     证件号码、性别、出生年月，平台将在T-1日19时一次性向保险公司发送被保险人信息。因您自身原因导致上述被保险人信息未能报送成功的，营探不承担责任。"
                   raw-content placement="top-start">
                   <el-icon>
-                    <QuestionFilled />
+                    <InfoFilled />
                   </el-icon>
                 </el-tooltip>
                 <div class="tag">
@@ -754,12 +768,13 @@
                   <el-input placeholder="请输入详细地址" v-model="form.activityLocation.startLocationDetailed" />
                 </div>
                 <div v-if="activityArea == 1" style="display: flex;">
-                  <el-input style="margin-left: 10px" placeholder="请输入国家"
+                  <CampWorldPlace v-if="worldData.length > 0" style="margin: 0 10px" v-model:location="form.activityLocation.startLocation" :worldMap="worldData"></CampWorldPlace>
+                  <!-- <el-input style="margin-left: 10px" placeholder="请输入国家"
                     v-model="form.activityLocation.startLocation[0]" />
                   <el-input style="margin-left: 10px" placeholder="请输入省份"
                     v-model="form.activityLocation.startLocation[1]" />
                   <el-input style="margin-left: 10px" placeholder="请输入市区"
-                    v-model="form.activityLocation.startLocation[2]" />
+                    v-model="form.activityLocation.startLocation[2]" /> -->
                   <el-input style="margin-left: 10px" placeholder="请输入详细地址"
                     v-model="form.activityLocation.startLocationDetailed" />
                 </div>
@@ -771,12 +786,13 @@
                   <el-input placeholder="请输入详细地址" v-model="form.activityLocation.endLocationDetailed" />
                 </div>
                 <div v-if="activityArea == 1" style="display: flex;">
-                  <el-input style="margin-left: 10px" placeholder="请输入国家"
+                  <CampWorldPlace v-if="worldData.length > 0" style="margin: 0 10px" v-model:location="form.activityLocation.endLocation" :worldMap="worldData"></CampWorldPlace>
+                  <!-- <el-input style="margin-left: 10px" placeholder="请输入国家"
                     v-model="form.activityLocation.endLocation[0]" />
                   <el-input style="margin-left: 10px" placeholder="请输入省份"
                     v-model="form.activityLocation.endLocation[1]" />
                   <el-input style="margin-left: 10px" placeholder="请输入市区"
-                    v-model="form.activityLocation.endLocation[2]" />
+                    v-model="form.activityLocation.endLocation[2]" /> -->
                   <el-input style="margin-left: 10px" placeholder="请输入详细地址"
                     v-model="form.activityLocation.endLocationDetailed" />
                 </div>
@@ -810,43 +826,6 @@
             </CampFormItem>
           </template>
         </product-form>
-        <!-- <product-form title="销售信息">
-          <template #form>
-            <CampFormItem label="销售价格" prop="price">
-              <div>
-                <p class=" text-gray-500">
-                  *根据您与营探的协议约定，您通过营探平台发布的商品和服务的价格（包括但不限于商品销售价、优惠价、到手价、成交价等），不得高于您同款商品和服务在其他渠道的历史最低销售价格（包括门店线下销售、官方在线销售渠道的销售价格）；若高于上述价格，您须立刻返还差价给营探平台消费者，并下调平台展示的商品和服务价格（该销售价格指不包含任何优惠折扣的原价），对于营探平台因此遭受的损失以及维权所花费用予以赔偿。
-                </p>
-                <div class="flex">
-                  <ElFormItem label="基础价格(元)">
-
-                    <el-input placeholder="请输入价格" v-model="form.price" />
-                  </ElFormItem>
-                  <ElFormItem label="未划线价格(元)">
-                    <el-input placeholder="请输入价格" v-model="form.price" />
-                  </ElFormItem>
-                </div>
-              </div>
-            </CampFormItem>
-            <div>
-              <span>销售规格</span>
-              <span>*需写明产品规格及选项，如住宿条件（单人间、双人间）套餐类型（儿童单人、家庭双人）等；最多可添加3组规格。</span>
-            </div>
-            <div>
-              <ElSelect placeholder="请选择销售规格">
-                <ElOption label="可选套餐" value="1" />
-                <ElOption label="住宿增值" value="1" />
-                <ElOption label="增值项目" value="1" />
-              </ElSelect>
-            </div>
-            <div>
-              <span>库存价格</span>
-              <span>只有销售规格填写内容了才会展示这张必填的表格，如果销售规格不填相当于按之前的流程走</span>
-            </div>
-            <CampFormItem label="退改方案">
-            </CampFormItem>
-          </template>
-        </product-form> -->
       </el-form>
     </main>
 
@@ -856,18 +835,21 @@
       </el-dialog>
       <!-- 创建商品 -->
       <el-button @click="router.push('/user/workbench/productLunch')">返回</el-button>
+      <el-button v-if="form.productStatus" type="success" @click="copyProduct">复制商品</el-button>
       <!-- 新商品,或者草稿商品 -->
       <!-- <template v-if="isNewProdoct || (form.status && '5100'.includes(form.status.toString()))"> -->
       <template
         v-if="isNewProdoct || (form.productStatus && 'DRAFT/CREATED_WAIT_REVIEW'.includes(form.productStatus.toString()))">
         <el-button type="success" @click="createProduct(formRef)">提交审核</el-button>
         <!-- <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button> -->
+        <!-- <el-button type="success" v-if="form.productStatus && 'DRAFT/CREATED_WAIT_REVIEW'.includes(form.productStatus.toString())" @click="copyProduct">复制商品</el-button> -->
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
-        <ElButton v-show="form.productStatus == 'DRAFT'" type="danger" @click="deleteProduct">删除商品</ElButton>
+        <el-button type="success" @click="getPreview">查看预览</el-button>
+        <ElButton type="danger" @click="deleteProduct">删除商品</ElButton>
       </template>
       <!-- 上架待审核 -->
       <template v-if="form.productStatus && 'ONLINE_WAIT_REVIEW'.includes(form.productStatus.toString())">
-        <el-button type="success" @click="copyProduct">复制商品</el-button>
+        <!-- <el-button type="success" @click="copyProduct">复制商品</el-button> -->
         <el-button type="success" @click="getPreview">查看预览</el-button>
         <!-- <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button> -->
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
@@ -877,7 +859,7 @@
       <!-- 平台审核通过后 -->
       <template v-if="form.productStatus && 'CREATED_REVIEWED'.includes(form.productStatus.toString())">
         <el-button type="success" @click="getPreview">查看预览</el-button>
-        <el-button type="success" @click="copyProduct">复制商品</el-button>
+        <!-- <el-button type="success" @click="copyProduct">复制商品</el-button> -->
         <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button>
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
         <ElButton type="danger" @click="deleteProduct">删除商品</ElButton>
@@ -886,7 +868,7 @@
       <template v-if="form.productStatus && ('UNDERWRITING_REVIEWED'.includes(form.productStatus.toString()) || 'WAIT_ONLINE'.includes(form.productStatus.toString()))">
         <el-button type="success" @click="createProduct(formRef)">提交修改</el-button>
         <el-button type="success" @click="getPreview">查看预览</el-button>
-        <el-button type="success" @click="copyProduct">复制商品</el-button>
+        <!-- <el-button type="success" @click="copyProduct">复制商品</el-button> -->
         <el-button type="success" @click="setRegistrationForm()">设置报名表</el-button>
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
         <el-button type="success" @click="listings()">点击上架</el-button>
@@ -897,6 +879,10 @@
         <el-button type="success" @click="() => createProduct(formRef)">提交修改</el-button>
         <el-button type="success" @click="setRegistrationForm(0)">查看报名表</el-button>
         <el-button type="success" @click="saveDraft">保存草稿</el-button>
+      </template>
+      <!-- 在售中 -->
+      <template v-if="form.productStatus && 'ON_SALE'.includes(form.productStatus.toString())">
+        <!-- <el-button type="success" @click="copyProduct">复制商品</el-button> -->
       </template>
     </camp-footer>
     <nav class="product-nav">
@@ -912,13 +898,6 @@
         </li>
       </ul>
     </nav>
-
-    <!-- <camp-back-to-top
-      :custom-style="backToTopStyle"
-      :visibility-height="300"
-      :back-position="50"
-      transition-name="fade"
-    /> -->
 
     <el-dialog class="dialog" v-model="centerDialogVisible" width="500" align-center :show-close="false">
       <template #header="{ close, titleId, titleClass }">
@@ -939,6 +918,9 @@
         </div>
       </template>
     </el-dialog>
+
+    <!-- 保险规则弹窗 -->
+    <CampAgreementDialog :isVisible="agreementShow" @cancel="agreementShow = false"></CampAgreementDialog>
 
     <el-dialog class="dialog" v-model="dialogForReg" width="500" align-center :show-close="false">
       <template #header="{ close, titleId, titleClass }">
@@ -1111,7 +1093,8 @@ import CampUpload from '../../../../component/camp-upload.vue'
 import CampFileUpload from '../../../../component/camp-file-upload.vue'
 import CampPlace from '../../../../component/camp-place.vue'
 import CampTool from '../../../../component/camp-tool.vue'
-import CampBackToTop from "../../../../component/camp-back-to-top.vue";
+import CampWorldPlace from '../../../../component/camp-world-place.vue'
+import CampAgreementDialog from '../../../../component/camp-agreement-dialog.vue'
 import { isIlleagle } from './helper/wordReview.js'
 import { useRouter, useRoute } from 'vue-router'
 import { ElMessage, ElMessageBox, ElSelect } from 'element-plus'
@@ -1122,6 +1105,7 @@ import campTimeSelector from '../../../../component/camp-time-selector.vue'
 import campNumber from '../../../../component/camp-number.vue'
 import { getAccidentInsurenceDetails } from './helper/insurence.js'
 import useClipboard from 'vue-clipboard3'
+import axios from 'axios';
 import {
   certifiedFeatures,
   backOptions,
@@ -1143,8 +1127,10 @@ const router = useRouter()
 const route = useRoute()
 const insurence = reactive({
   accidence: undefined,
-  liability: undefined
+  liability: undefined,
+  freeAccidentInsuranceSelfIf: undefined
 })
+const selectedLocation = ref('');
 const liabilityGradeList = ref([])
 const accidentGradeList = ref([])
 const insurenceAuditDetail = ref({
@@ -1177,9 +1163,9 @@ const liabilityChange = () => {
 const accidentChange = () => {
   form.value.insuranceInfo.accidentInsuranceSelfDetails = undefined
   form.value.insuranceInfo.accidentInsuranceUnitPrice = undefined
-  if (isAccidentSelf.value) {
+  if (insurence.freeAccidentInsuranceSelfIf == true) {
     currentTipTitle.value = '特别提示'
-    currentTipText.value = '请确保活动开始时，您所自行购买的保险外于生效状态，因保险未按时生效所产生的一切损失由您自行承担。您自行购买的保险需承保活动主办方所可能面临的赔偿责任，为组织者责任险、旅行社责任险等险种。建议非旅行社单位，及时为您自身投保组织者责任险，旅行社单位应依照法律规定投保旅行社责任险。'
+    currentTipText.value = '自行购买其他保险的，请确保活动开始时，保险处于生效状态，以保障消费者及主办方自身的权益。'
     centerDialogVisible.value = true
   }
 }
@@ -1192,7 +1178,7 @@ const InputRef = ref(null)
 const editableInput = ref([])
 const editable = ref([])
 const editText = ref('')
-
+const agreementShow = ref(false)
 const isLiabilitySelf = computed(() => insurence.liability === false)
 const isAccidentSelf = computed(() => insurence.accidence === true)
 const chanels = ref([
@@ -1205,6 +1191,7 @@ const chanels = ref([
   }
 ])
 const isGroupLimit = computed(() => radio1.value)
+// const freeAccidentInsurance = computed(() => form.value.freeAccidentInsuranceSelfIf == 2)
 const upShalveDatas = ref({
   channelId: undefined,
   saleStartTime: undefined,
@@ -1244,6 +1231,7 @@ const categoryOptions = ref([
     thumbnail: undefined
   }
 ])
+const worldData = ref([])
 const attributeSelect = ref(0)
 const form = ref({
   fullName: undefined,
@@ -1283,13 +1271,19 @@ const form = ref({
   languageList: [],
   insuranceInfo: {
     liabilityInsuranceSelfIf: isLiabilitySelf.value,
-    accidentInsuranceSelfIf: isAccidentSelf.value,
-    liabilityInsuranceResourceList: [],
+    // accidentInsuranceSelfIf: isAccidentSelf.value,
+    liabilityResourceList: undefined,
     liabilityInsuranceGradeId: undefined,
     liabilityInsuranceSelfDetails: undefined,
+    freeAccidentInsurance: false,
+    freeAccidentInsuranceSelfIf: false,
+    accidentInsuranceSelfName: undefined,
+    accidentInsuranceSelfCompanyName: undefined,
+    accidentInsuranceSelfCoverage: undefined,
     accidentInsuranceSelfDetails: undefined,
     accidentInsuranceGradeId: undefined,
     accidentInsuranceUnitPrice: undefined,
+    accidentResourceList: undefined,
     accidentPurchaseGuideList: undefined
   },
   mainSlogon: undefined,
@@ -1332,6 +1326,7 @@ const form = ref({
   dailyScheduleList: [
     {
       dailyIndex: 1,
+      dateIndex: 1,
       itemList: [
         {
           timeRange: [undefined, undefined],
@@ -1528,8 +1523,16 @@ const getDurationTime = (beginTime, endTime) => {
   }
 }
 
+watch(insurence, (newVal) => {
+  if (newVal.freeAccidentInsuranceSelfIf == 2) {
+    form.value.insuranceInfo.freeAccidentInsurance = false
+  } else {
+    form.value.insuranceInfo.freeAccidentInsurance = true
+  }
+})
+
 watch(duration, (newV) => {
-  const arr = []
+  let arr = []
   for (let i = 0; i < newV; i++) {
     if (form.value.dailyScheduleList[i]) {
       arr.push(form.value.dailyScheduleList[i])
@@ -1667,12 +1670,32 @@ const createProduct = async (formEl) => {
       //这里是取值相反
       copyForm.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
       copyForm.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
+      copyForm.insuranceInfo.freeAccidentInsuranceSelfIf = insurence.freeAccidentInsuranceSelfIf
       copyForm.insuranceInfo.accidentInsuranceUnitPrice = copyForm.insuranceInfo.accidentInsuranceUnitPrice * 100
       //dateindex 与 dailyIndex置换
       copyForm.dailyScheduleList.map((a) => {
-        a.dailyIndex = a.dateIndex || 0
+        a.dailyIndex = a.dateIndex || 1
         return a
       })
+      copyForm.refundPlanList[0].rightDays = 0
+      copyForm.refundPlanList[copyForm.refundPlanList.length - 1].leftDays = 0
+      // copyForm.freeAccidentInsurance = freeAccidentInsurance.value
+      if (!copyForm.insuranceInfo.freeAccidentInsurance) {
+        copyForm.insuranceInfo.freeAccidentInsuranceSelfIf = undefined
+        copyForm.insuranceInfo.accidentInsuranceSelfName = undefined
+        copyForm.insuranceInfo.accidentInsuranceSelfCompanyName = undefined
+        copyForm.insuranceInfo.accidentInsuranceSelfCoverage = undefined
+        copyForm.insuranceInfo.accidentInsuranceUnitPrice = undefined
+        copyForm.insuranceInfo.accidentResourceList = undefined
+        copyForm.insuranceInfo.accidentPurchaseGuideList = undefined
+      }
+      if (!/new/.test(window.location.href) && ((copyForm.multigroupProductType == 'MULTIGROUP_PARENT' && copyForm.groupPeriodList?.length == 0) || (copyForm.multigroupProductType == 'NOT_MULTIGROUP' && !copyForm.activityStartDateTime && !copyForm.activityEndDateTime))) {
+        ElMessage({
+          type: 'error',
+          message: '当前商品缺少团期'
+        })
+        return
+      }
       const response = await request.post(
         userApi.createProduct,
         {
@@ -1684,10 +1707,24 @@ const createProduct = async (formEl) => {
           loading: true
         }
       )
-      if (response) {
+      if (response && !/new/.test(window.location.href)) {
+        request
+        .post(
+          userApi.deleteProduct,
+          { productId: form.value.productId },
+          {
+            message: true
+          }
+        )
+        .then(() => {
+          // 清除缓存
+          window.localStorage.removeItem('camptogoProd')
+          router.push('/user/workbench/productLunch')
+        })
+      } else {
         // 清除缓存
         window.localStorage.removeItem('camptogoProd')
-        router.push('/user/workbench/productLunch')
+          router.push('/user/workbench/productLunch')
       }
     }
   } catch (error) {
@@ -1704,12 +1741,32 @@ const saveDraft = () => {
   //这里是取值相反
   copyForm.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
   copyForm.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
+  copyForm.insuranceInfo.freeAccidentInsuranceSelfIf = insurence.freeAccidentInsuranceSelfIf
   copyForm.insuranceInfo.accidentInsuranceUnitPrice = copyForm.insuranceInfo.accidentInsuranceUnitPrice * 100
+  copyForm.refundPlanList[0].rightDays = 0
+  copyForm.refundPlanList[copyForm.refundPlanList.length - 1].leftDays = 0
+  // copyForm.freeAccidentInsurance = freeAccidentInsurance.value
+  if (!copyForm.insuranceInfo.freeAccidentInsurance) {
+    copyForm.insuranceInfo.freeAccidentInsuranceSelfIf = undefined
+    copyForm.insuranceInfo.accidentInsuranceSelfName = undefined
+    copyForm.insuranceInfo.accidentInsuranceSelfCompanyName = undefined
+    copyForm.insuranceInfo.accidentInsuranceSelfCoverage = undefined
+    copyForm.insuranceInfo.accidentInsuranceUnitPrice = undefined
+    copyForm.insuranceInfo.accidentResourceList = undefined
+    copyForm.insuranceInfo.accidentPurchaseGuideList = undefined
+  }
   //dateindex 与 dailyIndex置换
   copyForm.dailyScheduleList.map((a) => {
-    a.dailyIndex = a.dateIndex || 0
+    a.dailyIndex = a.dateIndex || 1
     return a
   })
+  if (!/new/.test(window.location.href) && ((copyForm.multigroupProductType == 'MULTIGROUP_PARENT' && copyForm.groupPeriodList?.length == 0) || (copyForm.multigroupProductType == 'NOT_MULTIGROUP' && !copyForm.activityStartDateTime && !copyForm.activityEndDateTime))) {
+    ElMessage({
+      type: 'error',
+      message: '当前商品缺少团期'
+    })
+    return
+  }
   request
     .post(
       userApi.updateProduct,
@@ -1733,7 +1790,21 @@ const saveDraft = () => {
       }
     )
     .then(r => {
-      if (r && r.Code == 200) {
+      if (r && r.Code == 200 && !/new/.test(window.location.href)) {
+        request
+        .post(
+          userApi.deleteProduct,
+          { productId: form.value.productId },
+          {
+            message: true
+          }
+        )
+        .then(() => {
+          // 清除缓存
+          window.localStorage.removeItem('camptogoProd')
+          router.push('/user/workbench/productLunch')
+        })
+      } else {
         // 清除缓存
         window.localStorage.removeItem('camptogoProd')
         router.push('/user/workbench/productLunch')
@@ -1750,12 +1821,25 @@ const copyProduct = () => {
   //这里是取值相反
   copyForm.insuranceInfo.liabilityInsuranceSelfIf = insurence.liability
   copyForm.insuranceInfo.accidentInsuranceSelfIf = insurence.accidence
+  copyForm.insuranceInfo.freeAccidentInsuranceSelfIf = insurence.freeAccidentInsuranceSelfIf
   copyForm.insuranceInfo.accidentInsuranceUnitPrice = copyForm.insuranceInfo.accidentInsuranceUnitPrice * 100
   //dateindex 与 dailyIndex置换
   copyForm.dailyScheduleList.map((a, b) => {
-    a.dailyIndex = a.dateIndex || 0
+    a.dailyIndex = a.dateIndex || 1
     return a
   })
+  copyForm.refundPlanList[0].rightDays = 0
+  copyForm.refundPlanList[copyForm.refundPlanList.length - 1].leftDays = 0
+  // copyForm.freeAccidentInsurance = freeAccidentInsurance.value
+  if (!copyForm.insuranceInfo.freeAccidentInsurance) {
+    copyForm.insuranceInfo.freeAccidentInsuranceSelfIf = undefined
+    copyForm.insuranceInfo.accidentInsuranceSelfName = undefined
+    copyForm.insuranceInfo.accidentInsuranceSelfCompanyName = undefined
+    copyForm.insuranceInfo.accidentInsuranceSelfCoverage = undefined
+    copyForm.insuranceInfo.accidentInsuranceUnitPrice = undefined
+    copyForm.insuranceInfo.accidentResourceList = undefined
+    copyForm.insuranceInfo.accidentPurchaseGuideList = undefined
+  }
   request
     .post(
       userApi.updateProduct,
@@ -1936,6 +2020,9 @@ watch(
 
 onMounted(() => {
   isLoading.value = true
+  axios.get('https://www.mxnzp.com/api/address/v2/list?app_id=9oirmelftrugownn&app_secret=rIFXWZpwJ5o3Wfpm5qZYvyu3Jo2BuMXa').then(res => {
+    worldData.value = res.data.data
+  })
   // 获取保险挡位列表
   request.post(userApi.getInsuranceGrade, {
     insuranceType: 'LIABILITY'
@@ -1966,6 +2053,7 @@ onMounted(() => {
         })
         insurence.liability = product.insuranceInfo?.liabilityInsuranceSelfIf
         insurence.accidence = product.insuranceInfo?.accidentInsuranceSelfIf
+        insurence.freeAccidentInsuranceSelfIf = !product.insuranceInfo?.freeAccidentInsurance ? 2 : product.insuranceInfo?.freeAccidentInsuranceSelfIf
         product.categoryList = product.categoryList.map(item => item.categoryId.toString())
         product.certifiedFeatureList = product.certifiedFeatureList.map(item => ({
           ...item,
@@ -1998,7 +2086,7 @@ onMounted(() => {
           endLocation = [endProvince, endCity, endDistrict]
         }
         product.activityLocation.endLocation = endLocation || []
-        activityArea.value = /(省|市|自治区|行政区)/.test(product.activityLocation.startLocation) ? 0 : 1
+        activityArea.value = /(省|市|自治区|行政区)/.test(product.activityLocation.startLocation[0]) ? 0 : 1
         if (product.multigroupProductType == 'MULTIGROUP_SUB') {
           // 为子商品,只会有一个团期
           product.multigroupProductType = 'NOT_MULTIGROUP'
@@ -2008,6 +2096,17 @@ onMounted(() => {
             product.activityStartDateTime ? product.activityStartDateTime : null,
             product.activityEndDateTime ? product.activityEndDateTime : null
           ]
+        }
+        if (!product.team) {
+          product.team = {
+            teamNums: 0,
+            detail: undefined,
+            // 是否有专职拍摄人员
+            isProfessional: false,
+            // 拍摄人数
+            captureNums: 0,
+            captureDetail: undefined
+          }
         }
         product.insuranceInfo.accidentInsuranceUnitPrice = product.insuranceInfo.accidentInsuranceUnitPrice / 100
         form.value = product
@@ -2165,8 +2264,8 @@ const disabledDate2 = (time) => {
   .el-dialog {
     .el-dialog__body {
       display: flex;
-      justify-content: flex-start;
-      padding-left: 50px;
+      justify-content: center;
+      // padding-left: 50px;
       align-items: center;
     }
 
@@ -2174,9 +2273,9 @@ const disabledDate2 = (time) => {
       width: 300px;
     }
 
-    .el-dialog__footer {
-      padding-right: 100px;
-    }
+    // .el-dialog__footer {
+    //   padding-right: 100px;
+    // }
   }
 
   .w-20 {
@@ -2722,13 +2821,13 @@ const disabledDate2 = (time) => {
     color: #262626;
   }
 
-  .el-dialog__body {
-    padding-left: 0 !important;
-  }
+  // .el-dialog__body {
+  //   padding-left: 0 !important;
+  // }
 
-  .el-dialog__footer {
-    padding-right: 0 !important;
-  }
+  // .el-dialog__footer {
+  //   padding-right: 0 !important;
+  // }
 
 }
 

@@ -1,15 +1,25 @@
 <template>
   <!-- 头部 -->
-  <header>
+  <!-- <header>
     <div class="headerimg">
       <div class="greencloud"></div>
-      <div class="logo"></div>
-      <div class="text"><span class="t-text">|&emsp;招商平台</span><span class="t-text"
-          @click="() => router.push('./')">返回官网</span></div>
+      <div class="text"><span class="t-text">招商平台</span><span class="t-text"
+          @click="() => router.push('./')">返回首页</span></div>
       <div class="logo2"></div>
     </div>
-  </header>
-
+  </header> -->
+  <div class="header header-zhaoshang" ref="header">
+    <div class="t-text text-left">招商平台</div>
+    <div class="yingtan">
+      <img class="yingtanimg" src="../../../assets/white-yintan.png" alt="" />
+    </div>
+    <div class="t-text text-right" @click="() => router.push('./')">返回首页</div>
+    <div class="logo2"></div>
+    <div class="header-upper">
+      <div class="routerTest"></div>
+    </div>
+    <div class="header-lower"></div>
+  </div>
 
 
   <div class="kefu">
@@ -22,12 +32,12 @@
       <h1 class="pageTitle"><span>营地奇遇</span>&emsp13;&emsp13;<span>探手可得</span></h1>
       <h2>聚集优质行业伙伴, 让更多教育需求被满足</h2>
       <div class="buttons">
-        <el-button class="btn" type="success" @click="handlerToSettled()">立即0元入驻</el-button>
+        <el-button class="btn" type="success" @click="handlerToSettled()" style="color: #fff;">立即入驻</el-button>
         <el-dialog v-model="openServerWechatVisiable" title="立即入驻" width="30%">
           <p>请用手机扫码联系客服立即入驻</p>
           <img src="../../../assets/serverwechat.png" alt="" />
         </el-dialog>
-        <el-button class="btn" @click="() => router.push('./login')">登录工作台</el-button>
+        <el-button class="btn btn2" style="border: 1px solid rgba(191, 191, 191, 1);" @click="() => router.push('./login')">登录工作台</el-button>
       </div>
     </div>
     <div class="mask"></div>
@@ -70,7 +80,7 @@
       </div>
       <div class="card">
         <img src="../../../assets/zhangpeng2.png" alt="">
-        <div>独立营</div>
+        <div>日间营</div>
       </div>
       <div class="card">
         <img src="../../../assets/zhangpeng3.png" alt="">
@@ -86,56 +96,70 @@
       </div>
       <div class="card">
         <img style="transform: scale(1.7);" src="../../../assets/moneyHand.png" alt="">
-        <div>社会实践</div>
+        <div>课题竞赛</div>
       </div>
     </div>
-    <div class="btn">
+    <!-- <div class="btn">
       <el-button type="success" @click="handlerToSettled()">立即0元入驻</el-button>
-    </div>
+    </div> -->
   </section>
 
   <!-- 第三部分 -->
   <section class="section3" v-view="'fade-in'" id="section-3">
     <div class="title">营探优势</div>
     <div class="itemsBox">
-      <div class="items">
+      <div class="items items1">
         <div class="item">
           <div class="text">
-            <div class="t-title">0元快速入驻</div>
-            <div class="t-text">0费用入驻，1日在线审核，标准化入驻流程、专业化在线市场，有效提高入驻效率及品牌形象。</div>
-            <div class="imgs">
+            <div class="t-title">快速入驻</div>
+            <div class="t-text">在线申请1日审核，标准化入驻流程，专业化在线市场，有效提高入驻效率及品牌形象。</div>
+            <!-- <div class="imgs">
               <img class="img1" src="../../../assets/zhong.png" alt="">
-            </div>
+            </div> -->
+          </div>
+          <div class="new-img">
+            <img src="../../../assets/zhong3.png" alt="">
           </div>
         </div>
         <div class="item">
           <div class="text">
-            <div class="t-title">专业市场信用累积</div>
-            <div class="t-text">帮助您在互信的商业基础上建立品牌资产，提供可长期持续发展的信用体系建设。</div>
-            <div class="imgs">
+            <div class="t-title">专业市场</div>
+            <div class="t-text">专业市场服务，以高效、专业的方式，为您的品牌推广、产品展示、营销获客提供全方位支持。</div>
+            <!-- <div class="imgs">
               <img class="img1" src="../../../assets/kuai.png" style="width:3vw;height:3vw;margin: auto 1.5vh 1.5vh auto;"
                 alt="">
               <img class="img2" src="../../../assets/lines.png" alt="">
-            </div>
+            </div> -->
+          </div>
+          <div class="new-img">
+            <img src="../../../assets/book3.png" alt="">
           </div>
         </div>
+      </div>
+      <div class="items items2">
         <div class="item">
           <div class="text">
-            <div class="t-title">行业定制保险在线投保</div>
-            <div class="t-text">营探与保险公司、保险经纪公司定制在线投保方案, 保障平台及商户安全, 保护组织者、消费者权益。</div>
-            <div class="imgs">
+            <div class="t-title">在线投保</div>
+            <div class="t-text">专业团队定制在线投保方案，入驻可享投保补贴，全程保护商家和消费者权益。</div>
+            <!-- <div class="imgs">
               <img class="img1" src="../../../assets/dun.png" alt="">
               <img class="img2" style="width:2vw;height:5vh;right:1vw;bottom:2vh" src="../../../assets/dun2.png" alt="">
-            </div>
+            </div> -->
+          </div>
+          <div class="new-img">
+            <img src="../../../assets/dun3.png" alt="">
           </div>
         </div>
         <div class="item">
           <div class="text">
-            <div class="t-title">标准化商品发布体系</div>
-            <div class="t-text">广泛适用于体验式教育的商品发布体系，适用商品种类多，提升商品发布效率，提高信息流转速度及质量。</div>
-            <div class="imgs">
+            <div class="t-title">标准体系</div>
+            <div class="t-text">标准化商品发布体系，适用商品种类多、范围广，提升发布效率，提高信息流转速度及质量。</div>
+            <!-- <div class="imgs">
               <img class="img1" src="../../../assets/moneyPack.png" alt="">
-            </div>
+            </div> -->
+          </div>
+          <div class="new-img">
+            <img src="../../../assets/moneyPack3.png" alt="">
           </div>
         </div>
       </div>
@@ -144,51 +168,62 @@
   <!-- 第四部分 -->
   <section class="section4" v-view="'fade-in'" id="section-4">
     <div class="title">
-      <div class="t-title">入驻商户每期享最高<span>300元</span>保险补贴!</div>
-      <div class="t-text">营探补贴2元/人/日保险费用*</div>
+      <div class="t-title">立即入驻享免费代运营！</div>
+      <div class="t-text">同时可享2元/人/日平台保费补贴，最高300元/期*</div>
     </div>
     <div class="items">
-      <div class="item">
-        <div class="i-title">零元入驻</div>
-        <div class="i-text">一站管理 理想减负 专业提升</div>
-        <div class="textBox">
-          <div class="tb-text">0元申请费</div>
-          <div class="tb-text">0元会员费</div>
-          <div class="tb-text">0元认证费</div>
+      <div class="card-items">
+        <div class="card-item">
+          <div class="item">
+            <div class="i-title">零元入驻</div>
+            <div class="i-text">一站管理 理想减负 专业提升</div>
+            <div class="textBox">
+              <div class="tb-text">0元申请费</div>
+              <div class="tb-text">0元会员费</div>
+              <div class="tb-text">0元认证费</div>
+            </div>
+            <img src="../../../assets/rocket2.png" alt="" style="width:40%;" class="bgimg">
+          </div>
+          <div class="smallFooterPanl panl1"></div>
         </div>
-        <img src="../../../assets/rocket2.png" alt="" style="width:40%;" class="bgimg">
-      </div>
-      <div class="item">
-        <div class="i-title">先进创新</div>
-        <div class="i-text">行业团体服务标准牵头制定单位</div>
-        <div class="textBox">
-          <div class="tb-text">高质量发展</div>
-          <div class="tb-text">数字化平台</div>
-          <div class="tb-text">专业化市场</div>
+        <div class="card-item">
+          <div class="item">
+            <div class="i-title">先进创新</div>
+            <div class="i-text">行业团体服务标准牵头制定单位</div>
+            <div class="textBox">
+              <div class="tb-text">高质量发展</div>
+              <div class="tb-text">数字化平台</div>
+              <div class="tb-text">专业化市场</div>
+            </div>
+            <img src="../../../assets/plant2.png" style="height: 28%;" alt="" class="bgimg">
+          </div>
+          <div class="smallFooterPanl panl2"></div>
         </div>
-
-        <img src="../../../assets/plant2.png" style="height: 28%;" alt="" class="bgimg">
-      </div>
-      <div class="item">
-        <div class="i-title">超值权益</div>
-        <div class="i-text">资源库跨界合作 转型升级辅导</div>
-        <div class="textBox">
-          <div class="tb-text">商户独立终端</div>
-          <div class="tb-text">行业前沿资讯</div>
-          <div class="tb-text">品牌营销服务</div>
+        <div class="card-item">
+          <div class="item">
+            <div class="i-title">超值权益</div>
+            <div class="i-text">资源库跨界合作 转型升级辅导</div>
+            <div class="textBox">
+              <div class="tb-text">商户独立终端</div>
+              <div class="tb-text">行业前沿资讯</div>
+              <div class="tb-text">品牌营销服务</div>
+            </div>
+            <img src="../../../assets/starts.png" alt="" class="bgimg">
+          </div>
+          <div class="smallFooterPanl panl3"></div>
         </div>
-        <img src="../../../assets/starts.png" alt="" class="bgimg">
       </div>
     </div>
-    <div class="panl">
+    <!-- <div class="panl">
       <div class="smallFooterPanl panl1"></div>
       <div class="smallFooterPanl panl2"></div>
       <div class="smallFooterPanl panl3"></div>
-    </div>
+    </div> -->
     <div class="footerPanl"></div>
-    <div class="btns">
+    <div class="footer-text">*详见《<span>营探组织者责任险补贴政策（2024）</span>》</div>
+    <!-- <div class="btns">
       <el-button class="btn" type="success" @click="handlerToSettled()">立即入驻</el-button>
-    </div>
+    </div> -->
   </section>
 
   <!-- 第五部分 -->
@@ -196,9 +231,9 @@
     <div class="computer"></div>
     <div class="ques">
       <div class="q-title">入驻条件</div>
-      <div class="btns">
+      <!-- <div class="btns">
         <el-button class="btn" type="success" @click="handlerToSettled()">立即入驻</el-button>
-      </div>
+      </div> -->
     </div>
     <div class="cards">
       <div class="card">
@@ -238,64 +273,239 @@
     <div class="map"></div>
     <div class="line2"></div>
     <div class="setps">
-      <div class="step" style="marginTop:24vh;">
-        <el-button class="btn" type="success">基本条件</el-button>
+      <div class="step step1">
+        <el-button class="btn" type="success">入驻类型</el-button>
         <div class="s-contain">
-          <div class="s-c-title">个人入驻</div>
+          <div class="s-c-title">个人</div>
           <div class="s-c-text">1. 境内的完全民事行为能力人</div>
           <div class="s-c-text">2. 个人专业能力证明</div>
           <div class="s-c-text">3. 有较为丰富的活动举办经验</div>
-          <div class="s-c-title">机构认证</div>
+          <div class="s-c-title" style="margin-top: 20px;">机构</div>
           <div class="s-c-text">1. 组织“体验式教育”活动的机构</div>
-          <div class="s-c-text">2. 有效的经营许可证明(如有)：如教育机构、培训机构、旅行社、体育馆、博物馆、科技馆、特种行业经营许可等</div>
+          <div class="s-c-text">2. 有效的经营许可证明(如有)</div>
           <div class="s-c-text">3. 商标注册证、经营授权(如有)等</div>
-
         </div>
       </div>
-      <div class="step" style="marginTop:16vh;">
+      <div class="step step2">
         <el-button class="btn" type="success">入驻申请</el-button>
         <div class="s-contain">
-          <div class="s-c-title">注册手机号及邮箱</div>
-          <div class="s-c-text">使用可正常通讯的国内手机号码及邮箱注册帐号，并妥善保管</div>
-          <div class="s-c-title">身份资料</div>
-          <div class="s-c-text">入驻机构或个人证明、主要负责人身份证明</div>
-          <div class="s-c-title">入驻申请 </div>
-          <div class="s-c-text">个人入驻申请函/企业入驻公函（前往<span class="link">下载模版</span>）</div>
+          <div class="s-c-title">绑定注册</div>
+          <div class="s-c-text">有效的国内手机及国内邮箱</div>
+          <div class="s-c-title">身份认证</div>
+          <div class="s-c-text">提供资质及法定代表人身份证明</div>
+          <div class="s-c-title">入驻函</div>
+          <div class="s-c-text">入驻申请函/入驻公函(<span class="link">下载模版</span>)</div>
         </div>
       </div>
-      <div class="step" style="marginTop:8vh;">
+      <div class="step step3">
         <el-button class="btn" type="success">在线签约</el-button>
         <div class="s-contain">
           <div class="s-c-title">入驻审核</div>
-          <div class="s-c-text">请及时接听电话，平台将电话通知审核结果</div>
+          <div class="s-c-text">请及时接听电话并查看审核短信</div>
           <div class="s-c-title">创建运营工作群</div>
-          <div class="s-c-text">平台指派专门服务经理建群、答疑、辅导，并负责后续运营工作</div>
-          <div class="s-c-title">电子签约</div>
-          <div class="s-c-text">平台规则协议及入驻协议同意签署</div>
+          <div class="s-c-text">平台指派专门服务经理建群、答疑、辅导及后续运营</div>
+          <div class="s-c-title">激活账号</div>
+          <div class="s-c-text">补充财税、经营信息等，完成其他账户功能开通及设置</div>
+          <div class="s-c-title">签约并开通功能</div>
+          <div class="s-c-text">规则、协议查看并签署</div>
         </div>
       </div>
-      <div class="step">
+      <div class="step step4">
         <el-button class="btn" type="success">商品发布</el-button>
         <div class="s-contain">
-          <div class="s-c-title">基础信息</div>
-          <div class="s-c-text">补充财税、经营信息等</div>
           <div class="s-c-title">品牌信息</div>
           <div class="s-c-text">主理人品牌及团队设置</div>
           <div class="s-c-title">首款商品发布 </div>
-          <div class="s-c-text">对接商品物料，完成其他账户功能开通及设置</div>
-          <div class="s-c-title">审核通过商品上架</div>
-          <div class="s-c-text">对接运营规程及商品客服说明</div>
+          <div class="s-c-text">对接商品信息及物料、投保</div>
+          <div class="s-c-title">商品审核</div>
+          <div class="s-c-text">平台及保险核保审核</div>
+          <div class="s-c-title">商品上架</div>
+          <div class="s-c-text">确认信息、库存、售价及优惠等</div>
         </div>
-
       </div>
     </div>
     <div class="btns">
-      <el-button class="btn" type="success" @click="handlerToSettled()">立即入驻</el-button>
+      <el-button class="btn" style="color: #fff;" type="success" @click="handlerToSettled()">立即入驻</el-button>
+      <el-button style="margin-left: 30px;border: 1px solid rgba(191, 191, 191, 1);" @click="() => router.push('./login')" class="gotoworkbench btn">登录工作台</el-button>
     </div>
   </section>
 
   <footer class="footer" id="section-7">
-    <div class="left">
+    <div class="footer">
+      <div class="bot-wrapper" v-if="!isPhone">
+        <div class="agreements">
+          <a
+            href="/agreements.html/6d2182627917deaf79ee081ef4530598"
+            target="_blank"
+            >用户协议 |
+          </a>
+          <a
+            href="/agreements.html/17e6e460c5937c117744ce96cef64585"
+            target="_blank"
+            >隐私政策 |
+          </a>
+          <a
+            href="/agreements.html/7ad7327497c095e7d1f8b85a1bfc7f99"
+            target="_blank"
+            >免责声明 |
+          </a>
+          <!--          <a-->
+          <!--            href="/agreements.html/e8e134a6e1f8211c12e7d0bcf8da2dff"-->
+          <!--            target="_blank"-->
+          <!--            >版权声明 |-->
+          <!--          </a>-->
+          <!-- <a href="/dynamic.html/investment" target="_blank">营探招商平台 | </a> -->
+          <a href="/agreements.html/aboutus" target="_blank">关于我们</a>
+        </div>
+        <p class="marginBottomPitch">
+          联系电话:010-87511881&nbsp;&nbsp;(工作日9:00-18:00)&nbsp;&nbsp;联系邮箱:services@camptogo.com&nbsp;&nbsp;&nbsp;&nbsp;
+        </p>
+        <!-- <p class="wpaddingb5">信箱:complaint@camptogo.com</p> -->
+        <p class="marginBottomPitch">
+          联系地址:
+          北京市海淀区花园北路25号Epark(花园路社区)&nbsp;&nbsp;&nbsp;&nbsp;
+          <!-- 工作时间:09:00-18:00 -->
+        </p>
+        <div class="wtos6">
+          <div class="copyrights marginTop0">
+            <p>Copyright © 2021-2022 Camptogo. All Right Reserved</p>
+          </div>
+          <!-- 许可 -->
+          <!-- <p>联系我们: services@camptogo.com</p> -->
+          <div class="allowance">
+            <div class="benowrap">
+              <p>增值电信业务许可证：京B2-20202973</p>
+              <p class="icp">ICP许可证：京ICP备2020034870号-1</p>
+            </div>
+            <a
+              class="wideScreen ycenter"
+              target="_blank"
+              href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035862"
+            >
+              <img
+                src="../../../assets/regis.ef881569.png"
+                style="float: left; width: 1.3vw; height: 1.3vw"
+              />
+              <p style="float: left; margin: 0px 0px 0px 5px">
+                京公网安备 11010802035862号
+              </p>
+            </a>
+          </div>
+          <!-- <p class="mobile icp">ICP许可证：京ICP备2020034870号-1</p> -->
+          <a
+            class="mobile icp ycenter"
+            target="_blank"
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035862"
+          >
+            <img
+              src="../../../assets/regis.ef881569.png"
+              style="float: left; width: 1em; height: 1em"
+            />
+            <p style="float: left; margin: 0px 0px 0px 5px">
+              京公网安备 11010802035862号
+            </p>
+          </a>
+          <!-- <p>业务合作，请访问营探微信小程序/APP登记信息</p> -->
+        </div>
+      </div>
+      <div class="bot-wrapper pppppp" v-if="isPhone">
+        <div class="agreements">
+          <a
+            href="/agreements.html/6d2182627917deaf79ee081ef4530598"
+            target="_blank"
+            >用户协议 |
+          </a>
+          <a
+            href="/agreements.html/17e6e460c5937c117744ce96cef64585"
+            target="_blank"
+            >隐私政策 |
+          </a>
+          <a
+            href="/agreements.html/7ad7327497c095e7d1f8b85a1bfc7f99"
+            target="_blank"
+            >免责声明 |
+          </a>
+          <!-- <p> -->
+          <!--          <a-->
+          <!--            href="/agreements.html/e8e134a6e1f8211c12e7d0bcf8da2dff"-->
+          <!--            target="_blank"-->
+          <!--            >版权声明 |-->
+          <!--          </a>-->
+          <a href="/agreements.html/aboutus" target="_blank">关于我们</a>
+          <!-- </p> -->
+        </div>
+
+        <p class="marginBottomPitch">
+          联系电话:010-87511881&nbsp;&nbsp;(工作日9:00-18:00)
+        </p>
+        <p class="marginBottomPitch">联系邮箱:services@camptogo.com</p>
+        <p class="marginBottomPitch">
+          联系地址:北京市海淀区花园北路25号Epark(花园路社区)
+        </p>
+        <div class="wtos6">
+          <div class="copyrights marginTop0">
+            <p>Copyright © 2021-2022 Camptogo. All Right Reserved</p>
+          </div>
+          <div class="allowance">
+            <div>增值电信业务许可证：京B2-20202973</div>
+            <p>ICP许可证：京ICP备2020034870号-1</p>
+            <a
+              class="wideScreen ycenter"
+              target="_blank"
+              href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035862"
+            >
+              <img
+                src="../../../assets/regis.ef881569.png"
+                style="float: left; width: 1.3vw; height: 1.3vw"
+              />
+              <p style="float: left; margin: 0px 0px 0px 5px">
+                京公网安备 11010802035862号
+              </p>
+            </a>
+          </div>
+          <a
+            class="mobile icp ycenter"
+            target="_blank"
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035862"
+          >
+            <img
+              src="../../../assets/regis.ef881569.png"
+              style="float: left; width: 1em; height: 1em"
+            />
+            <p style="float: left; margin: 0px 0px 0px 5px">
+              京公网安备 11010802035862号
+            </p>
+          </a>
+        </div>
+      </div>
+      <div class="aboutUs" v-if="!isPhone">
+        <div class="xbox">
+          <div class="QRCode"></div>
+          <div class="xboxText windowSpecial">
+            <p>营探官方公众号</p>
+          </div>
+        </div>
+        <div class="xbox windowSpecial">
+          <div class="QRCode weibo"></div>
+          <div class="xboxText windowSpecial">
+            <p>营探客服</p>
+          </div>
+        </div>
+      </div>
+      <div class="aboutUs phonePitch" v-if="isPhone">
+        <div class="xbox">
+          <div class="QRCode"></div>
+          <div class="xboxText">营探官方公众号</div>
+        </div>
+        <div class="xbox">
+          <div class="QRCode weibo"></div>
+          <div class="xboxText">
+            <p>营探客服</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="left">
       <div>
         <a>用户协议</a> <span>|</span> <a>隐私政策</a> <span>|</span> <a>免责声明</a>
         <span>|</span> <a>关于我们</a>
@@ -316,22 +526,22 @@
     <div class="right">
       <div class="webo">
         <div class="weiboQR">
-          <img src="../../../assets/qrCode.jpg" />
-        </div>
-        <div class="texts">营探客服</div>
-      </div>
-      <div class="gonzhonhao">
-        <div class="wechatQR">
           <img src="../../../assets/miniapp.ec947916.jpg" />
         </div>
         <div class="texts">营探官方公众号</div>
       </div>
-    </div>
+      <div class="gonzhonhao">
+        <div class="wechatQR">
+          <img src="../../../assets/qrCode1.png" />
+        </div>
+        <div class="texts">营探客服</div>
+      </div>
+    </div> -->
   </footer>
 
-  <button class="jumpbutton" :class="{ highlight: currentSectionIndex === 0 }" @click="scrollToNextSection">
+  <button class="jumpbutton" :class="{ highlight: currentSectionIndex != 0 }" @click="scrollToNextSection">
     <el-icon size="30px" color="white">
-      <ArrowDownBold v-if="currentSectionIndex != 6" :class="{ highlight: currentSectionIndex === 0 }" />
+      <ArrowDownBold v-if="currentSectionIndex != 6" :class="{ highlight: currentSectionIndex != 0 }" />
       <ArrowUpBold v-if="currentSectionIndex === 6" />
     </el-icon>
   </button>
@@ -353,6 +563,7 @@ const handlerToSettled =()=>{
 }
 
 const openServerWechatVisiable = ref(false)
+const isPhone = ref(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent));
 const form = reactive({
   email: '',
   applicant_name: '',
@@ -402,6 +613,11 @@ const scrollToNextSection = () => {
 </script>
 
 <style lang="scss" scoped>
+@import "../../../style/cssvars.css";
+@import "../../../style/App.css";
+@import "../../../style/window.css";
+@import "../../../style/mobile.css";
+@import "../../../style/stylefix.css";
 @font-face {
   font-family: 'youshe';
   src: url('../../../assets/font/Youshe.ttf');
@@ -410,6 +626,34 @@ const scrollToNextSection = () => {
 @font-face {
   font-family: 'Nunito';
   src: url('../../../assets/font/Nunito-Black.ttf');
+}
+
+div, p, h1, h2, h3, h4, h5 {
+  letter-spacing: 0.06em;
+}
+
+.header {
+  z-index: 10001 !important;
+  font-size: 1em;
+}
+
+.header-zhaoshang {
+  color: #fff;
+  .t-text {
+    cursor: pointer;
+  }
+  .text-left {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    transform: translate(5%, -50%);
+  }
+  .text-right {
+    position: absolute;
+    top: 40%;
+    right: 5%;
+    transform: translate(5%, -50%);
+  }
 }
 
 /* 头部样式 */
@@ -428,7 +672,7 @@ const scrollToNextSection = () => {
     width: 100%;
     height: 118px;
     background-image: url(../../../assets/banner.png);
-    background-position: center 120px;
+    background-position: center 125px;
     background-size: cover;
     position: absolute;
     z-index: 1;
@@ -457,18 +701,18 @@ const scrollToNextSection = () => {
     left: 40%;
     background-size: 65%;
     background-repeat: no-repeat;
-    transform: translate(0, 73%);
+    transform: translate(0, 64%);
 
   }
 
   .text {
     position: absolute;
-    width: 80%;
+    width: calc(100% - 10vw);
     z-index: 3;
     color: #fff;
     font-size: 18px;
     top: 30px;
-    left: calc(250px + 1%);
+    left: 5vw;
     display: flex;
     justify-content: space-between;
     font-family: PingFang SC;
@@ -478,29 +722,28 @@ const scrollToNextSection = () => {
       cursor: pointer;
     }
   }
-
 }
 
-
-
 .kefu {
-  width: 4.5vw;
-  height: 4.5vw;
+  width: 4.8em;
+  height: 4.8em;
   background-color: #fff;
-  z-index: 4;
-  position: sticky;
-  left: 100%;
-  top: 30%;
+  z-index: 20000;
+  position: fixed;
+  right: 0;
+  top: 20%;
   box-shadow: 0px -1px 2px -2px rgba(0, 0, 0, 0.16), 0px -3px 6px 0px rgba(0, 0, 0, 0.12), 0px -5px 12px 4px rgba(0, 0, 0, 0.09);
   display: flex;
   flex-direction: column;
-  border-radius: 0.5vw;
+  border-radius: 0.4em;
+  padding: 0.4em;
+  font-size: 0.8em;
   cursor: pointer;
 
   img {
-    width: 1.8vw;
-    height: 1.8vw;
-    margin: auto auto 1vh auto;
+    width: 1.6em;
+    height: 1.6em;
+    margin: auto auto 0.5em auto;
   }
 
   div {
@@ -508,20 +751,21 @@ const scrollToNextSection = () => {
     color: #75B000;
     font-family: PingFang SC;
     font-weight: 400;
-    font-size: 0.8vw;
+    font-size: 0.6em;
   }
 
   &:hover::before {
     content: "";
-    width: 4.5vw;
-    height: 4.5vw;
+    width: 5em;
+    height: 5em;
     position: absolute;
-    left: -101%;
+    left: -120%;
+    top: -8%;
     background-color: #fff;
-    background-image: url(../../../assets/qrCode.jpg);
+    background-image: url(../../../assets/qrCode1.png);
     background-size: cover;
     z-index: 999;
-    border-radius: 0.5vw;
+    border-radius: 0.5em;
   }
 
   &:hover {
@@ -533,6 +777,8 @@ const scrollToNextSection = () => {
 .section1 {
   width: 100%;
   height: 100vh;
+  // margin-top: -10px;
+  // transform: translate(0, -8.177%);
   position: relative;
   background: linear-gradient(130deg, #E1EFB4 40%, #C2E86B);
 
@@ -563,16 +809,27 @@ const scrollToNextSection = () => {
       font-weight: 400;
       color: #75B000;
       margin: 0 0 0 0.5vw;
+      letter-spacing: 0.06em;
     }
 
     .buttons {
       margin-top: 8vh;
 
       .btn {
-        margin: 0 3vw 0 0;
+        // margin: 0 3vw 0 0;
+        font-size: 1vw;
+        padding: 0 1.4vw;
+        height: 36px;
+        border-radius: 1vh;
+        z-index: 999;
+        border: none;
+        color: #93d500;
+        // box-shadow: 0 0 3vh rgb(145 213 0 / 86%);
+      }
+      .btn2 {
+        margin-left: 2vw;
       }
     }
-
   }
 
   .right {
@@ -586,6 +843,7 @@ const scrollToNextSection = () => {
     height: 280px;
     z-index: 1;
     background-image: url(../../../assets/mask.png);
+    background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
     bottom: 0;
@@ -712,7 +970,7 @@ const scrollToNextSection = () => {
   }
 
   .footer {
-    width: 100%;
+    width: 100vw;
     height: 13vh;
     background-color: rgba(236, 240, 177, 0.5);
     position: absolute;
@@ -726,13 +984,13 @@ const scrollToNextSection = () => {
     user-select: none;
 
     .item {
-      width: 20%;
+      width: 20vw;
       height: 100%;
       display: flex;
 
       .el-image {
-        width: 3.5vw;
-        height: 3.5vw;
+        width: 3.8vw;
+        height: 3.8vw;
         margin: auto 0;
       }
 
@@ -764,7 +1022,7 @@ const scrollToNextSection = () => {
 
 .section2 {
   width: 100%;
-  height: 120vh;
+  height: 100vh;
   position: relative;
   background-color: #fff;
   background-image: url(../../../assets/greenLinebg.png);
@@ -774,7 +1032,7 @@ const scrollToNextSection = () => {
   .titleBox {
     display: flex;
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%);
     user-select: none;
@@ -783,7 +1041,7 @@ const scrollToNextSection = () => {
       img {
         width: 3.5vw;
         height: 3.5vw;
-        margin: auto 20px auto 0;
+        margin: 10px 20px auto 0;
       }
     }
 
@@ -798,25 +1056,26 @@ const scrollToNextSection = () => {
         font-size: 2.5vw;
         font-weight: 550;
         color: #333333;
+        letter-spacing: 0.06em;
       }
 
       .r-text {
         font-family: PingFang SC;
         font-size: 1.4vw;
         font-weight: 400;
-        margin: 2vh 0;
+        margin: 2.4vh 0;
         color: #333333;
       }
     }
   }
 
   .cards {
-    width: 80%;
+    width: 90vw;
     height: 22%;
     position: absolute;
     display: flex;
-    justify-content: space-around;
-    top: 45%;
+    justify-content: space-between;
+    top: 43%;
     left: 50%;
     transform: translate(-50%);
 
@@ -852,7 +1111,7 @@ const scrollToNextSection = () => {
     width: 100vw;
     justify-content: center;
     position: absolute;
-    top: 78%;
+    top: 70%;
   }
 }
 
@@ -873,15 +1132,15 @@ const scrollToNextSection = () => {
     font-weight: 550;
     color: #333333;
     position: absolute;
-    top: 15%;
+    top: 18%;
   }
 
   .itemsBox {
     width: 100%;
     height: 55vh;
     position: absolute;
-    top: 30%;
-    display: flex;
+    top: 32%;
+    // display: flex;
 
     .items {
       width: 74%;
@@ -891,6 +1150,7 @@ const scrollToNextSection = () => {
       flex-wrap: wrap;
 
       .item {
+        position: relative;
         width: 40%;
         height: 23vh;
         border: 2px solid #75B000;
@@ -901,7 +1161,7 @@ const scrollToNextSection = () => {
         overflow: hidden;
 
         .text {
-          padding: 2vh;
+          padding: 2vh 3vh;
           color: #333333;
           user-select: none;
           position: relative;
@@ -910,8 +1170,8 @@ const scrollToNextSection = () => {
             font-family: PingFang SC;
             font-size: 1.4vw;
             font-weight: 550;
-            margin: 2vh 0;
-            color: #333333;
+            margin: 1.6vh 0;
+            color: rgba(51, 51, 51, 1);
           }
 
           .t-text {
@@ -919,8 +1179,9 @@ const scrollToNextSection = () => {
             font-family: PingFang SC;
             font-size: 1vw;
             font-weight: 400;
+            line-height: 1.6vw;
             margin: 2vh 0;
-            color: #333333;
+            color: rgba(0, 0, 0, 0.6);
             height: 12vh;
             overflow: hidden;
           }
@@ -951,7 +1212,31 @@ const scrollToNextSection = () => {
             }
           }
         }
+
+        .new-img {
+          position: absolute;
+          width: 8vw;
+          height: 8vw;
+          right: 0;
+          bottom: 0;
+          img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 1vw;
+            left: 1vw;
+          }
+        }
       }
+    }
+
+    .items1 {
+      transform: translate(-8%, 0);
+    }
+
+    .items2 {
+      transform: translate(8%, 0);
+      margin-top: 6%;
     }
   }
 }
@@ -971,6 +1256,18 @@ const scrollToNextSection = () => {
     position: absolute;
     bottom: 0;
     z-index: 3;
+  }
+
+  .footer-text {
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
+    font-size: 1vw;
+    z-index: 999;
+    color: #333333;
+    span {
+      text-decoration: underline;
+    }
   }
 
   .panl {
@@ -1034,7 +1331,7 @@ const scrollToNextSection = () => {
       font-size: 1.5vw;
       font-weight: 400;
       text-align: center;
-      margin-top: 2vh;
+      margin-top: 2.5vh;
 
     }
   }
@@ -1042,62 +1339,107 @@ const scrollToNextSection = () => {
   .items {
     width: 70%;
     height: 45vh;
-    display: flex;
-    justify-content: space-around;
+    // display: flex;
+    // justify-content: space-around;
     position: absolute;
     top: 35%;
     z-index: 5;
     left: 50%;
     transform: translate(-50%);
 
-    .item {
-      width: 22%;
-      height: 100%;
-      background-color: #fff;
-      border: 2px solid #75B000;
-      border-radius: 1.3vw;
-      position: relative;
-      user-select: none;
+    .card-items {
+      // width: 70%;
+      height: 45vh;
+      display: flex;
+      justify-content: space-around;
+      // position: absolute;
+      // top: 35%;
+      // z-index: 5;
+      // left: 50%;
+      // transform: translate(-50%);
+      .card-item {
+        width: 22%;
+        height: 100%;
+        .item {
+          // width: 22%;
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          border: 2px solid #75B000;
+          border-radius: 1.3vw;
+          position: relative;
+          user-select: none;
 
-      .i-title {
-        font-size: 1.5vw;
-        width: 100%;
-        color: #75B000;
-        font-weight: 550;
-        text-align: center;
-        font-family: PingFang SC;
-        margin-top: 5vh;
-      }
+          .i-title {
+            font-size: 1.5vw;
+            width: 100%;
+            color: #75B000;
+            font-weight: 550;
+            text-align: center;
+            font-family: PingFang SC;
+            margin-top: 5vh;
+          }
 
-      .i-text {
-        font-size: 0.9vw;
-        text-align: center;
-        color: #262626;
-        margin: 2vh 0 4vh 0;
-        font-family: PingFang SC;
-      }
+          .i-text {
+            font-size: 0.9vw;
+            text-align: center;
+            color: rgba(38, 38, 38, 0.6);
+            margin: 2vh 0 4vh 0;
+            font-family: PingFang SC;
+          }
 
-      .textBox {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 20vh;
-        width: 100%;
+          .textBox {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 20vh;
+            width: 100%;
 
-        .tb-text {
-          margin: auto;
-          font-family: PingFang SC;
-          font-size: 1.1vw;
-          color: #262626;
+            .tb-text {
+              margin: auto;
+              font-family: PingFang SC;
+              font-size: 1.1vw;
+              color: #262626;
+            }
+          }
+
+          .bgimg {
+            width: 50%;
+            height: 35%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+          }
         }
-      }
 
-      .bgimg {
-        width: 50%;
-        height: 35%;
-        position: absolute;
-        bottom: 0;
-        right: 0;
+        .smallFooterPanl {
+          width: 100%;
+          z-index: 4;
+          bottom: 11%;
+          height: 10vh;
+          margin-top: -4px;
+          display: flex;
+          justify-content: space-around;
+          transform: translate(-50%);
+          // width: 23.5%;
+          // height: 100%;
+          background-image: url(../../../assets/smallFooterPanl.png);
+          background-repeat: no-repeat;
+          background-size: 100%;
+          transform: translate(3px);
+        }
+
+        .panl1 {
+          left: 18.5%;
+        }
+
+        .panl2 {
+          left: calc(18.5% * 2);
+        }
+
+        .panl3 {
+          left: calc(18.5% * 3);
+        }
       }
     }
   }
@@ -1130,11 +1472,11 @@ const scrollToNextSection = () => {
   }
 
   .ques {
-    width: 20%;
+    width: 30%;
     height: 30vh;
     position: absolute;
     top: 24%;
-    left: 13%;
+    left: 5vw;
     user-select: none;
 
     .q-title {
@@ -1154,17 +1496,18 @@ const scrollToNextSection = () => {
 
   .cards {
     width: 55%;
-    height: 60vh;
+    height: 68vh;
     position: absolute;
     right: 5%;
-    bottom: 10%;
+    bottom: 5%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 
     .card {
-      width: 44%;
-      height: 43%;
-      margin: auto;
+      width: 45%;
+      height: 38%;
+      // margin: auto;
       border-radius: 1vw;
       background-color: #fff;
       border: 2px solid #75B000;
@@ -1185,7 +1528,7 @@ const scrollToNextSection = () => {
 
         .c-title {
           font-family: PingFang SC;
-          font-size: 1.8vw;
+          font-size: 1.4vw;
           font-weight: 500;
           color: #333333;
         }
@@ -1196,7 +1539,7 @@ const scrollToNextSection = () => {
           font-family: PingFang SC;
           font-size: 1vw;
           font-weight: 400;
-          line-height: 1.3vw;
+          line-height: 1.5vw;
         }
       }
     }
@@ -1215,7 +1558,7 @@ const scrollToNextSection = () => {
     font-size: 2.3vw;
     font-weight: 550;
     position: absolute;
-    left: 10%;
+    left: 5vw;
     top: 15%;
   }
 
@@ -1225,7 +1568,7 @@ const scrollToNextSection = () => {
     background-image: url(../../../assets/map.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    z-index: 1;
+    z-index: 0;
     position: absolute;
     left: 50%;
     transform: translate(-50%);
@@ -1233,15 +1576,15 @@ const scrollToNextSection = () => {
   }
 
   .setps {
-    width: 75%;
+    width: 100%;
     height: 70%;
     background-repeat: no-repeat;
     background-size: 100%;
     z-index: 2;
     position: absolute;
     bottom: 8%;
-    left: 50%;
-    transform: translate(-48%);
+    left: 5vw;
+    // transform: translate(-48%);
     display: flex;
     justify-content: space-between;
 
@@ -1250,8 +1593,11 @@ const scrollToNextSection = () => {
       height: 100%;
 
       .btn {
-        width: 9vw;
+        // width: 9vw;
+        padding: 0 20px;
         margin-bottom: 2vh;
+        color: #fff;
+        font-size: 16px;
       }
 
       .s-contain {
@@ -1274,7 +1620,7 @@ const scrollToNextSection = () => {
           padding-left: 0.5vw;
           font-size: 0.9vw;
           color: #585858;
-          line-height: 2.7vh;
+          line-height: 3.6vh;
         }
       }
 
@@ -1287,18 +1633,30 @@ const scrollToNextSection = () => {
         }
       }
     }
+
+    .step1 {
+      margin-top: 24vh;
+    }
+
+    .step2 {
+      margin-top: 16vh;
+    }
+
+    .step3 {
+      margin-top: 8vh;
+    }
   }
 
   .line2 {
-    width: 70%;
+    width: 80%;
     height: 40%;
-    background-image: url(../../../assets/line2.png);
+    background-image: url(../../../assets/line3.png);
     background-repeat: no-repeat;
     background-size: 100%;
     z-index: 3;
     position: absolute;
-    left: 9%;
-    top: 8%;
+    left: 5vw;
+    top: 5%;
   }
 
   .btns {
@@ -1308,13 +1666,21 @@ const scrollToNextSection = () => {
     position: absolute;
     bottom: 5%;
     z-index: 5;
+    .btn {
+      font-size: 1vw;
+      padding: 0 1.4vw;
+      height: 4.7vh;
+      border-radius: 1vh;
+      z-index: 999;
+      border: none;
+      color: #93d500;
+    }
   }
-
 }
 
 .footer {
-  background-color: #4d4d4d;
-  height: 237px;
+  // background-color: #4d4d4d;
+  // height: 237px;
 
   .left {
     padding: 34px;
@@ -1414,7 +1780,7 @@ const scrollToNextSection = () => {
   position: fixed;
   width: 6vh;
   height: 6vh;
-  bottom: 6vh;
+  bottom: 25px;
   left: 50%;
   transform: translate(-50%, 0);
   border-radius: 50%;
@@ -1431,5 +1797,474 @@ const scrollToNextSection = () => {
 .highlight {
   border-color: #dfefb4;
   color: #dfefb4;
+}
+
+.bot-wrapper {
+  padding-left: 50px;
+}
+
+div.bot-wrapper div {
+  margin-top: 0;
+}
+.bot-wrapper .agreements {
+  margin-bottom: 1em !important;
+  padding-top: 1em !important;
+  white-space: nowrap;
+}
+.wtos6 {
+  margin-top: -5px !important;
+}
+.wtos6 div {
+  margin-bottom: 1em !important;
+}
+.bot-wrapper > p {
+  margin-bottom: 1em !important;
+}
+.shouldKnow {
+  transform: translateY(100%);
+  width: 0;
+  white-space: nowrap;
+  font-size: 0.7rem;
+  color: #4d4d4d;
+}
+.shouldKnow > a {
+  text-decoration: none;
+  color: #93d500;
+}
+.weibo {
+  background-image: url(../../../assets/qrCode1.png) !important;
+  margin-right: 2em;
+}
+.phonePitch {
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+  transform: scale(0.7);
+  transform-origin: left;
+  padding-left: 1em;
+}
+.xbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: min-content;
+  padding-right: 1em;
+}
+.xboxText {
+  padding-top: 1rem;
+  width: min-content;
+  font-size: 0.7em;
+  color: white;
+  white-space: nowrap;
+}
+.xbox .weibo {
+  margin: 0;
+}
+common-button24277 {
+  margin-right: 3em;
+}
+.pppppp div,
+.pppppp p {
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 483px) {
+  .section1 {
+    // transform: translate(0, -15%);
+    .left {
+      top: 10vh;
+      width: 95%;
+      .pageTitle {
+        font-size: 2.4em;
+        margin-bottom: 2.4vh;
+      }
+      h2 {
+        font-size: 1em;
+      }
+      .buttons {
+        margin-top: 5vh;
+        .btn {
+          padding: 0.8em 1.5em;
+          height: auto;
+          font-size: 0.8em;
+        }
+        .btn2 {
+          margin-left: 4vw;
+        }
+      }
+    }
+    .person {
+      width: 8.46em;
+      height: 15.4em;
+      bottom: 26%;
+      right: 18%;
+    }
+    .fog {
+      width: 4.6em;
+      height: 5.4em;
+      bottom: 30%;
+      right: 6%;
+    }
+    .spaceShip {
+      width: 7.4em;
+      height: 7.6em;
+      top: 50%;
+      right: 38%;
+    }
+    .bigCloud {
+      width: 7.2em;
+      height: 3.2em;
+      right: 6%;
+      bottom: 42%;
+    }
+    .mask {
+      // background-size: 120%;
+      background-position: 0 3vh;
+      background-image: url(../../../assets/mask-1.png);
+    }
+    .cloud1 {
+      width: 2.4em;
+      height: 1.66em;
+      top: 38%;
+      left: 2%;
+    }
+    .cloud2 {
+      width: 2.4em;
+      height: 1.66em;
+      top: 46%;
+      left: 90%;
+    }
+    .cloud3 {
+      width: 4.4em;
+      height: 3.2em;
+      transform: scale(1, 1);
+      top: 67%;
+      left: 20%;
+    }
+    .cloud4 {
+      width: 4.9em;
+      height: 2.1em;
+      top: 66%;
+      left: 82%;
+      transform: scale(1.2);
+    }
+    .cloud5 {
+      width: 3.6em;
+      height: 2.5em;
+      top: 40%;
+      left: 40%;
+    }
+    .balls {
+      width: 18em;
+      height: 2.8em;
+      bottom: 42%;
+      right: 3%;
+    }
+    .footer {
+      flex-wrap: wrap;
+      height: 24vh;
+      border-top: none;
+      bottom: 2vh;
+      background-color: rgb(0, 0, 0, 0);;
+      .item {
+        width: 50vw;
+        height: 50%;
+        .el-image {
+          // width: 2.5em;
+          // height: 2.5em;
+          width: 10vw;
+          height: 10vw;
+        }
+        .text {
+          width: 76%;
+          margin-left: 2vw;
+          .t-text1 {
+            font-size: 1em;
+            margin-bottom: 0.6vh;
+          }
+          .t-text2 {
+            font-size: 0.6em;
+          }
+        }
+      }
+      .item:nth-child(2n-1) {
+        padding-left: 5vw;
+      }
+      .item:nth-child(2n) {
+        padding-right: 5vw;
+      }
+    }
+  }
+  .section2 {
+    background-image: url(../../../assets/greenLinebg-1.png);
+    .titleBox {
+      top: 10%;
+      left: 5%;
+      transform: translate(0);
+      margin: 0 auto;
+      .left {
+        img {
+          width: 1.8em;
+          height: 1.8em;
+          margin: 0.6em 0.6em auto 0;
+        }
+      }
+      .right {
+        .r-title {
+          font-size: 1em;
+        }
+        .r-text {
+          margin: 1.2em 0;
+          font-size: 0.8em;
+        }
+      }
+    }
+    .cards {
+      height: 46%;
+      flex-wrap: wrap;
+      top: 25%;
+      .card {
+        height: 36%;
+        width: 30%;
+        border: 1px solid #75B000;
+        border-radius: 10px;
+        box-shadow: 3px 0px 8px rgb(210 230 161);
+        img {
+          width: 3em;
+          height: 3em;
+        }
+        div {
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+  .section3 {
+    background-image: url(../../../assets/greenLinebg2-1.png);
+    .title {
+      padding-left: 5%;
+      text-align: left;
+      top: 12%;
+      font-size: 1.1em;
+    }
+    .itemsBox {
+      top: 20%;
+      .items1,
+      .items2 {
+        transform: translate(0, 0);
+      }
+      .items2 {
+        margin-top: 0;
+      }
+      .items {
+        flex-direction: column;
+        width: 80%;
+        .item {
+          width: 100%;
+          height: 16vh;
+          border: 1px solid #75B000;
+          border-radius: 10px;
+          margin-bottom: 1em;
+          .text {
+            padding: 2vw 3vw;
+            .t-title {
+              font-size: 1em;
+              margin: 2vw 0;
+            }
+            .t-text {
+              width: 90%;
+              height: auto;
+              line-height: normal;
+              font-size: 0.8em;
+              margin: 2vw 0;
+            }
+          }
+          .new-img {
+            width: 3em;
+            height: 3em;
+          }
+        }
+      }
+    }
+  }
+  .section4 {
+    .title {
+      top: 14%;
+      left: 10%;
+      .t-title {
+        font-size: 1.1em;
+        text-align: left;
+      }
+      .t-text {
+        font-size: 0.8em;
+        text-align: left;
+        margin-top: 0.8em;
+      }
+    }
+    .footer-text {
+      font-size: 0.8em;
+    }
+    .items {
+      width: 100%;
+      top: 40%;
+      height: 55vh;
+      overflow: auto;
+      .card-items {
+        width: 235vw;
+        height: 44vh;
+        padding: 0 20vw;
+        justify-content: space-between;
+        .card-item {
+          height: 42vh;
+          width: 60vw;
+          .item {
+            width: 60vw;
+            border: 1px solid #75B000;
+            border-radius: 10px;
+            box-shadow: 7.24px 0px 19.3px -9.65px rgba(117, 176, 0, 0.1), 10.86px 0px 33.78px 0px rgba(117, 176, 0, 0.08);
+            .i-title {
+              font-size: 1.2em;
+            }
+            .i-text {
+              margin: 2em 0 3em 0;
+              font-size: 0.8em;
+            }
+            .textBox {
+              .tb-text {
+                font-size: 0.8em;
+              }
+            }
+          }
+        }
+      }
+    }
+    .footerPanl {
+      background-size: 300%;
+      background-position: -50vw 3em;
+    }
+  }
+  .section5 {
+    background: none;
+    .computer {
+      width: 66.4vw;
+      height: 69.3vw;
+      bottom: 50vh;
+    }
+    .ques {
+      top: 14%;
+      .q-title {
+        font-size: 1.1em;
+      }
+    }
+    .cards {
+      width: 80%;
+      height: 72vh;
+      right: 10%;
+      flex-direction: column;
+      .card {
+        width: 100%;
+        height: 22%;
+        border: 1px solid #75B000;
+        border-radius: 10px;
+        box-shadow: 7.24px 0px 19.3px -9.65px rgba(117, 176, 0, 0.1), 10.86px 0px 33.78px 0px rgba(117, 176, 0, 0.08);
+        .cardIcon {
+          width: 4em;
+          height: 4em;
+          margin: auto 0;
+        }
+        .container {
+          padding: 0.5em 0;
+          .c-title {
+            font-size: 1em;
+          }
+          .c-text {
+            font-size: 0.8em;
+            margin-top: 0.8em;
+            line-height: normal;
+          }
+        }
+      }
+    }
+  }
+  .section6 {
+    .bigTitle {
+      font-size: 1.1em;
+      top: 14%;
+    }
+    .map {
+      background-image: url(../../../assets/map-1.png);
+    }
+    .line2 {
+      width: 72%;
+      height: 72%;
+      left: 24vw;
+      top: 14%;
+      z-index: 0;
+      background-image: url(../../../assets/line3-1.png);
+    }
+    .setps {
+      width: 90%;
+      bottom: 10%;
+      .step {
+        position: absolute;
+        width: 50%;
+        height: auto;
+        .btn {
+          font-size: 0.8em;
+          color: #fff;
+          padding: 0 1em;
+          margin-bottom: 0.6em;
+        }
+        .s-contain {
+          .s-c-title {
+            border-left: 2px solid #95D600;
+            padding-left: 0.6em;
+            font-size: 0.8em;
+            margin: 0.4em 0 !important;
+          }
+          .s-c-text {
+            width: 100%;
+            padding-left: 0;
+            line-height: 1.8em;
+            font-size: 0.6em;
+          }
+        }
+      }
+      .step1 {
+        margin-top: 0;
+      }
+      .step2 {
+        position: absolute;
+        margin-top: 0;
+        left: 55%;
+        top: 2%;
+      }
+      .step3 {
+        position: absolute;
+        margin-top: 0;
+        left: 5%;
+        top: 38%;
+      }
+      .step4 {
+        position: absolute;
+        margin-top: 0;
+        left: 60%;
+        top: 40%;
+      }
+    }
+    .btns {
+      bottom: 12%;
+      .btn {
+        font-size: 0.8em;
+        height: auto;
+        padding: 0.8em 1.5em;
+      }
+    }
+  }
+  .footer {
+    .left {
+      width: 60%;
+    }
+  }
 }
 </style>

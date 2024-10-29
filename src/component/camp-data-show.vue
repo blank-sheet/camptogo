@@ -3,7 +3,8 @@
     <section
       v-for="(data, index) in datas"
       :class="{
-        link_show: index === 0
+        link_show: index === 0,
+        section_sty: true
       }">
       <div>{{ data.label }}</div>
       <div>{{ data.value }}</div>
@@ -28,9 +29,11 @@ defineProps({
 <style lang="scss" scoped>
 .link_show {
   border-right: solid #999 1.5px;
-  height: 80px;
   padding-right: 100px;
   margin-right: -80px;
+}
+.section_sty {
+  height: 80px !important;
 }
 .data-show {
   margin-left: 24px;

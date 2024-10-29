@@ -52,7 +52,7 @@ const handleSubmit = () => {
     color: black;
 
     header {
-        border-bottom: 2px solid lightgray;
+        border-bottom: 1px solid lightgray;
         margin-right: 0;
     }
 

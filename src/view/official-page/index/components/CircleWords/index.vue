@@ -9,10 +9,11 @@ import { computed } from 'vue'
 import Three from './Three.vue'
 const ideaScreen = {
   window: { width: 1920, height: 1080 },
-  phone: { width: 1000, height: 1800 }
+  phone: { width: 375, height: 667 }
 }
 const reactive = computed(() => {
-  const device = 'window'
+  // const device = 'window'
+  const device = window.innerWidth < 768 ? 'phone' : 'window'
   const wpx = window.innerWidth / ideaScreen[device].width
   const hpx = window.innerHeight / ideaScreen[device].height
   return {

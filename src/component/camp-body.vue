@@ -6,7 +6,7 @@
           <slot name="side"> </slot>
         </el-aside>
         <el-main>
-          <div style="padding-bottom: 10vh">
+          <div class="camp-body">
             <slot name="main"></slot>
           </div>
         </el-main>
@@ -33,6 +33,10 @@ const width = computed(() => {
 .user-layout {
   width: 100vw;
   height: 92vh;
+
+  .camp-body {
+    padding-bottom: 10vh;
+  }
 
   .el-main {
     background-color: #f5f5f5;

@@ -1,0 +1,608 @@
+
+/* 手机窄屏幕 */
+@media only screen and (max-width: 483px) {
+
+    .marginBottomPitch{
+        margin-bottom: 1px!important;
+    }
+    .spaceBox:hover .lightBg {
+        background-size: auto 0;
+        opacity: 0;
+    }
+
+    .planetBg:hover {
+        transform: none;
+        background-image: url(../assets/page1/planet.png);
+    }
+
+
+    .cloudBg {
+        background-image: url(../assets/page1/doublecloudphone.png);
+    }
+
+    div.spacemanBg.spaceman_ {
+        animation: spaceman 1s steps(1, end) 2 backwards;
+    }
+
+    div.spacemanBg.spaceman_0 {
+        animation-name: spaceman0;
+    }
+
+    div.spaceBox .space_.spaceBg {
+        animation: space 1.4s steps(1, end) 1 backwards;
+    }
+
+    div.spaceBox .space_0.spaceBg {
+        animation-name: space0;
+    }
+
+    .spaceBox div.lightBg.spaceBoxlightBg {
+        background-size: auto 100%;
+        opacity: 1;
+    }
+
+    div.planetBg.planet_0 {
+        /* transform: scale(1.1); */
+        background-image: url(../assets/page1/planet.gif);
+    }
+
+    div.flogBg.flog_ {
+        animation: flog 1.2s steps(1, end) 1 backwards;
+    }
+
+    div.flogBg.flog_0 {
+        animation-name: flog0;
+    }
+
+    div.code-wrapper {
+        position: relative;
+        z-index: 1001;
+        width: 100vw;
+    }
+
+    div.mobile-w {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .sec3Title.w-s3t {
+        position: absolute;
+        transform: translate(-50%, -65%) scale(0.8);
+        left: 50%;
+        top: 50%;
+        font-family: Nunito;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sec3Title h2 {
+        white-space: nowrap;
+    }
+
+    .six.window-w {
+        display: none;
+    }
+
+    .homeSection h2:nth-of-type(1) {
+        margin-top: 0.5em;
+    }
+
+    .homeSection h2:nth-of-type(2) {
+        margin-bottom: 0.5em;
+    }
+
+    .white-tile.wt2 {
+        background-size: 60%;
+    }
+
+    .p2camp0 {
+        background-image: url(../assets/page2/mobile/0.png);
+    }
+
+    .p2camp1 {
+        z-index: 1;
+        background-image: url(../assets/page2/mobile/1.png);
+    }
+
+    .p2camp2 {
+        background-image: url(../assets/page2/mobile/2.png);
+    }
+
+    .p2camp3 {
+        background-image: url(../assets/page2/mobile/3.png);
+        z-index: 2;
+    }
+
+    .p2camp4 {
+        background-image: url(../assets/page2/mobile/4.png);
+    }
+
+    .p2camp5 {
+        background-image: url(../assets/page2/mobile/5.png);
+    }
+
+    .p2subtitlebox {
+        font-size: 1.1em;
+        position: absolute;
+    }
+
+    .p2sub0 {
+        top: 90%;
+        left: 70%;
+    }
+
+    .p2sub1 {
+        display: none;
+    }
+
+    .p2sub2 {
+        top: 90%;
+        left: 50%;
+    }
+
+    .p2sub3 {
+        top: -10%;
+        left: 10%;
+    }
+
+    .p2sub4 {
+        left: 10%;
+        top: 70%;
+    }
+
+    .p2sub5 {
+        top: 90%;
+        left: 20%;
+    }
+
+    .uniCampBox:hover .uniCamp {
+        animation: none;
+    }
+
+    .uniCampBox:hover .uniP2popup {
+        /* opacity: 1; */
+        animation: none;
+    }
+
+    .uniP2popup {
+        transform-origin: left top;
+        min-width: 70vw;
+        z-index: 3;
+        /* animation: op .5s 1 backwards; */
+    }
+
+    /* @keyframes op {
+        from{opacity: 0;}
+        to{opacity: 1;}
+    } */
+    div.uniP2popup.p2popup0 {
+        bottom: -60%;
+        left: -5%;
+        transform: scale(0.4);
+    }
+
+    @keyframes fadeInLeftMobile0 {
+        from {
+            opacity: 0;
+            margin-left: -20px;
+        }
+
+        to {
+            opacity: 1;
+            margin-left: 0;
+        }
+    }
+
+    @keyframes fadeInLeftMobile1 {
+        from {
+            opacity: 0;
+            margin-right: 20px;
+        }
+
+        to {
+            opacity: 1;
+            margin-right: 0;
+        }
+    }
+
+    .p2popup1 {
+        display: none;
+    }
+
+    .p2popup2 {
+        bottom: 50%;
+        right: -80%;
+        transform: scale(0.4);
+    }
+
+    .p2popup3 {
+        bottom: -55%;
+        right: -100%;
+        transform: scale(0.5);
+    }
+
+    .p2popup4 {
+        top: 30%;
+        left: -5%;
+        transform: scale(0.4);
+    }
+
+    .p2popup5 {
+        top: 120%;
+        left: 10%;
+        transform: scale(0.5);
+    }
+
+    .map {
+        background-size: 100% auto;
+        /* 窄屏高度大于宽度不能指定背景图片100%显示否则会被拉伸，所以这里做一下适配 */
+    }
+
+    .CampTitle {
+        margin-top: 50px;
+    }
+
+    .pagetitle {
+        font-size: 12vw;
+    }
+
+    .page1title {
+        font-size: 48px;
+        font-weight: 500;
+        color: white;
+    }
+
+    .page2title {
+        font-size: 8vw;
+
+    }
+
+    .page2titlebox p {
+        font-size: 4vw;
+        font-weight: 100;
+    }
+
+    .campus-image-fixed, .code-wrapper {
+        /* position: unset; */
+    }
+
+    .page1subtitle {
+        font-size: 1em;
+        color: white;
+        text-align: center;
+        font-family: Nunito !important;
+        white-space: nowrap;
+        position: relative;
+        z-index: 1000;
+    }
+    .page1subtitle.marginPitch{
+        /* margin-bottom: -3em!important; */
+    }
+    .header {
+        height: 15vw;
+        background-image: url(../assets/header-mobile.png);
+    }
+
+    .yingtanimg {
+        width: 45vw;
+        transform: scale(0.9);
+        margin-top: 10px;
+    }
+
+    .code-wrapper {
+        transform: translateY(-15%) scale(0.75);
+        /* margin-bottom: 30px; */
+    }
+
+    .campus-image {
+        width: 105%;
+        height: 105%;
+        margin: 1em 1em;
+
+    }
+
+    .greenboxes {
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .backClouds {
+        width: 37%;
+        height: 33%;
+    }
+
+    .cloud2 {
+        top: 22%;
+    }
+
+    .greenboxes {
+        border-width: 3px;
+    }
+
+    .greenEllipse {
+        left: 0;
+        width: 100vw;
+        height: 65vw;
+        border-width: 3px;
+        transform: rotate(-45deg);
+    }
+
+    .boxtitles {
+        transform: translate(-50%, -16vw);
+        z-index: 1001;
+    }
+
+    .box2 {
+        left: 15%;
+        top: 55%;
+    }
+
+    .box5 {
+        left: 90%;
+
+    }
+
+    .cloud3 {
+        top: 65%;
+    }
+
+    .backClouds {
+        background-size: 100%;
+    }
+
+    .lowerbox {
+        transform: translate(-50%, 12vw);
+    }
+
+    .boxtitles h2 {
+        font-size: 12px;
+    }
+
+    #er {
+        font-size: 10vw;
+    }
+
+    .day {
+        padding-top: 30vw;
+    }
+
+    .plane .title {
+        font-size: 10vw;
+    }
+
+    .four {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
+        height: 85%;
+    }
+
+    .campuWindow {
+
+        width: 60vw;
+        height: 40vw;
+    }
+
+    .campImage img {
+
+
+        width: 45vw;
+        height: 30vw;
+    }
+
+    .backbottom {
+        position: absolute;
+        bottom: 3vw;
+
+        height: 10vw;
+
+        font-size: 2vw;
+
+    }
+
+    .fourth {
+        display: none;
+    }
+
+    .sec3Title {
+        background-size: 90vw;
+        background-position: 50% 3vw;
+    }
+
+    #ew {
+        font-size: 12vw;
+
+    }
+
+    .secThreeHotWords {
+        transform-origin: center;
+    }
+
+    .page3engtitle {
+        font-size: 1.1em;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .page3features {
+        transform: translatey(-5vh);
+    }
+
+    .sec4Title {
+        height: 25vw;
+        position: relative;
+        margin: 0 auto;
+        background-image: url("../assets/share.png");
+        background-position: 5vw 1vw;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        z-index: 200;
+    }
+
+    .sec4Title {
+        margin-top: 100px;
+        height: 40vw;
+    }
+
+    .features {
+        line-height: 1.5;
+        margin-top: 50px;
+    }
+
+    .features p {
+        font-size: 0.8em;
+
+    }
+
+    .feaCap {
+        font-size: 1.5em;
+    }
+
+    .map {
+        /* background-position: 0 20vh; */
+        background-position: center;
+        margin-top: 0;
+    }
+
+    #p1, #p2, #p3, #p4, #p5, #p6, #p7, #p8, #p9, #p10, #p11, #p12, #p13, #p14, #p15, #p16, #p17, #p18 {
+        font-size: 6vw;
+    }
+
+    .white-tile {
+        width: 30%;
+        height: 100px;
+        background-size: 100% auto;
+    }
+
+    .footer {
+        padding: 0;
+    }
+
+    .partner-title {
+        width: 80vw;
+        height: auto;
+        padding: 2em 0;
+        justify-content: space-around;
+    }
+
+    .partner-title h1 {
+        height: auto;
+        font-size: 1.5em;
+    }
+
+    .bot-wrapper {
+        transform: scale(0.8);
+        transform-origin: left;
+        padding: 10px 0 10px 30px !important;
+        width: 60vw;
+        font-size: 0.5em;
+    }
+
+    .wtos6 {
+        transform: scale(0.9);
+        transform-origin: left;
+        line-height: 1.2;
+    }
+
+    .bot-wrapper div {
+        margin: 1px 0;
+    }
+
+    .onlyw {
+        display: none;
+    }
+
+    .open {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .open h2 {
+        width: min-content;
+        height: min-content;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .icp {
+        display: flex;
+        align-items: center;
+        margin-left: 0vw;
+        margin-top: 1px;
+    }
+
+    .allowance {
+        flex-direction: column;
+    }
+
+    .mbenowrap {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        margin-top: min(5rem,5vh);
+    }
+
+    .mbenowrap h1 {
+        display: inline-block;
+        font-size: 2em;
+        white-space: nowrap;
+        width: min-content;
+        height: min-content;
+    }
+
+    .mbenowrap div {
+        padding: 1em;
+    }
+
+    .allowance .benowrap .p {
+        display: block;
+    }
+
+    .benowrap {
+        white-space: pre-wrap;
+    }
+
+    .wideScreen {
+        display: none;
+    }
+
+    .mobile {
+        display: inherit;
+    }
+
+    .aboutUs {
+        flex-direction: column;
+        align-items: center;
+
+
+    }
+
+    .QRCode {
+        height: 16vw;
+        width: 16vw;
+    }
+
+    .QRCDes {
+        width: 30vw;
+        text-align: center;
+        margin: 0;
+
+    }
+
+    .bottom-frog {
+        right: 25vw;
+    }
+
+    .QRCDes h2 {
+        font-size: 0.6em;
+    }
+
+
+}

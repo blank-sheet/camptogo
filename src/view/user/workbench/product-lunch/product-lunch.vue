@@ -24,7 +24,21 @@
             <el-button :icon="Search" @click="handleSearch" />
           </template>
         </el-input>
-        <div class="buttons" style="margin-left: 40px">
+        <el-form class="form-inline" :inline="true" :model="formInline" label-width="auto" style="margin-left: 20px;">
+          <el-form-item label="商品类型：">
+            <el-select
+              v-model="targetedPromotion"
+              placeholder="请选择商品类型"
+              style="width: 160px"
+              @change="handleSearch"
+            >
+              <el-option label="全部" :value="null"/>
+              <el-option label="定制" :value="true"/>
+              <el-option label="公开" :value="false"/>
+            </el-select>
+          </el-form-item>
+        </el-form>
+        <div class="buttons">
           <el-button @click="keyword = ''">重置</el-button>
           <el-button type="primary" @click="handleSearch">查询</el-button>
           <el-button type="primary" @click="() => goPublishProduct()">发布商品</el-button>
@@ -33,14 +47,26 @@
       </div>
     </div>
     <div class="cards" v-if="producets.length">
-      <product-card v-for="p in producets" :key="p.productId" :desc="p.fullName" :price="p.priceSelling"
-        :start-time="p?.saleStartTime" :end-time="p?.saleEndTime" :area="p.activityLocation?.startLocationDetailed"
+      <product-card v-for="p in producets" :key="p.productId" :desc="p.fullName" :price="p.priceSelling" :create-time="p?.createTime"
+        :start-time="p?.saleStartTime" :end-time="p?.saleEndTime" :area="p.activityLocation?.startLocationDetailed" :targeted-promotion="p?.targetedPromotion"
         :lunch-status="p.productStatus" :image-url="p.horizontalShowsResourceList?.[0]?.url || 'xxx'" @go-to-detail="() => gotoDetail(p)"
-        @change-schedule="() => changeSchedule(p)" :period="p?.group_period || []" :status="p.productStatus">
+        @change-schedule="() => changeSchedule(p)" @add-insurance="() => addInsurance(p)" :period="p?.group_period || []" :status="p.productStatus" @del-product="() => delProduct(p.productId)">
       </product-card>
     </div>
     <p v-else class=" text-center">暂无数据</p>
     <CampPagination :total="totalPage" @change-page="handleCurrentChange" />
+
+    <el-dialog class="dialog" v-model="tipShow" title="特别提示" width="500" align-center :show-close="true">
+      <div>
+        您为非营探平台报名人员投保，须在提交投保信息后扫码缴费，营探平台无法为您代缴此部分保费
+      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="tipShow = false">取消</el-button>
+          <el-button type="primary" @click="verifyInsurance">确认</el-button>
+        </div>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -55,6 +81,7 @@ import { useRouter } from "vue-router";
 import { showStatusStr } from "../../../../utils/getStatus";
 import CampDataShow from "../../../../component/camp-data-show.vue";
 import CampPagination from '../../../../component/camp-pagination.vue'
+import { ElMessageBox } from 'element-plus'
 const router = useRouter();
 const activeTab = ref("");
 const keyword = ref("");
@@ -69,6 +96,9 @@ const DRAFT = ref(0)
 const ONLINE = ref(0)
 const WAIT_ONLINE = ref(0)
 const WAIT_REVIEW = ref(0)
+const tipShow = ref(false)
+const productItem = ref(null)
+const targetedPromotion = ref(null)
 const datas = computed(() => {
   return [
     {
@@ -97,6 +127,30 @@ const handleSearch = () => {
   handleCurrentChange(1);
 };
 
+const delProduct = (id) => {
+  console.log(id);
+  ElMessageBox.confirm(
+    '确定要删除该商品吗？',
+    '提示',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+    }
+  ).then(() => {
+    request.post(
+      userApi.deleteProduct,
+      { productId: id },
+      {
+        message: true
+      }
+    )
+    .then(() => {
+      handleCurrentChange(1);
+    })
+  }).catch(() => {})
+}
+
 const goPublishProduct = () => {
   router.push("/user/workbench/product/new");
 };
@@ -105,6 +159,17 @@ const gotoDetail = (p = 0) => {
 };
 const changeSchedule = (p = 0) => {
   router.push("/user/workbench/schedule/" + p.productId);
+}
+
+const verifyInsurance = () => {
+  tipShow.value = false
+  router.push('/user/workbench/addinsurance/' + productItem.value.productId)
+}
+
+const addInsurance = (p = 0) => {
+  // router.push("/user/workbench/addinsurance/" + p.productId)
+  productItem.value = p
+  tipShow.value = true
 }
 const tabChange = (name) => {
   let activeTabList = name == "" ? null : name.split("/")
@@ -121,7 +186,8 @@ const handleCurrentChange = (next = 1, pageSize = 10) => {
       statuses: selectStatus.value,
       currentPage: next,
       pageSize: pageSize,
-      keyword: keyword.value
+      keyword: keyword.value,
+      targetedPromotion: targetedPromotion.value
     })
     .then((res) => {
       producets.value = res.details?.list;
@@ -193,5 +259,12 @@ onMounted(() => {
   margin-top: 24px;
   margin-bottom: 16px;
   margin-left: 24px;
+}
+</style>
+<style lang="less">
+.form-inline {
+  .el-form-item {
+    margin-bottom: 0;
+  }
 }
 </style>

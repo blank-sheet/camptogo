@@ -1,13 +1,17 @@
 <template>
   <div class="product-card" @click="() => emits('goToDetail')">
     <div class="image">
+      <el-tag class="targeted-promotion" v-if="targetedPromotion" type="warning">定制</el-tag>
       <img :src="imageUrl" />
       <el-tag class="price" type="success">{{ getPrice(price) }}￥</el-tag>
     </div>
 
     <p class="desc">{{ desc }}</p>
     <div class="small">
-      <span v-if="!period?.length">{{ getTime(startTime) + '-' + getTime(endTime) }}</span>
+      <span v-if="!period?.length">
+        <!-- {{ getTime(startTime) + '-' + getTime(endTime) }} -->
+          {{ convertToBeijingTime(createTime) }}
+      </span>
       <div v-else style="display: flex; position: relative">
         <span>多团期商品</span>
         <span style="margin-left: auto" @click.stop="showPeriod = !showPeriod">查看团期</span>
@@ -24,10 +28,11 @@
               </div>
             </template>
             <div class="list">
-              <li v-for="i in period">
-                <span :key="i">{{
-    getTime(i.activity_start_time) + ' - ' + getTime(i.activity_end_time)
-  }}</span>
+              <li v-for="(i, index) in period" :key="index">
+                <span>
+                  {{ convertToBeijingTime(i.createTime) }}
+                  <!-- {{ getTime(i.activity_start_time) + ' - ' + getTime(i.activity_end_time) }} -->
+                </span>
               </li>
             </div>
           </el-card>
@@ -37,14 +42,20 @@
     <div class="small">{{ area }}</div>
     <div class="tags">
       <el-tag class="ml-2" type="warning">{{ getProductStatus(lunchStatus) }}</el-tag>
-      <el-popover popper-class="more-popover" placement="top-start" :width="60" trigger="hover">
+      <el-popover popper-class="more-popover" placement="top" :width="180" trigger="hover">
         <div class="list-box">
+          <div class="item-btn" v-if="lunchStatus != 'HALTED_SALES' && lunchStatus != 'ON_SALE'" @click.stop="() => emits('delProduct')">
+            <p>删除</p>
+          </div>
           <div class="item-btn" @click.stop="() => emits('changeSchedule')">
             <p>管理排期</p>
           </div>
+          <div class="item-btn" @click.stop="() => emits('addInsurance')">
+            <p>增加非营探人员投保</p>
+          </div>
         </div>
         <template #reference>
-          <el-button link>...</el-button>
+          <el-button link @click.stop>...</el-button>
         </template>
       </el-popover>
       <!-- <el-tooltip content="管理排期" placement="top">
@@ -71,6 +82,9 @@ defineProps({
   endTime: {
     default: ''
   },
+  createTime: {
+    default: ''
+  },
   area: {
     default: '地区'
   },
@@ -85,12 +99,45 @@ defineProps({
   },
   period: {
     default: []
+  },
+  targetedPromotion: {
+    default: false
   }
 })
 const getTime = (t = '2023-02-02T00:00:00Z') => t?.slice(0, 10).replace('-', '/')
 const getPrice = (p = 100) => p / 100
 const showPeriod = ref(false)
-const emits = defineEmits(['goToDetail', 'changeSchedule'])
+const emits = defineEmits(['goToDetail', 'changeSchedule', 'delProduct', 'addInsurance'])
+
+const convertToBeijingTime = (isoString) => {
+  // 解析 ISO 格式的日期时间字符串
+  const date = new Date(isoString);
+
+  // 获取 UTC 时间
+  const utcHour = date.getUTCHours();
+
+  // 将 UTC 时间转换为北京时间（东八区），需要加上 8 小时
+  let beijingHour = utcHour + 8;
+
+  // 调整小时，如果超过 24 小时则减去 24
+  if (beijingHour >= 24) {
+    beijingHour -= 24;
+  }
+
+  // 设置 Date 对象为北京时间
+  date.setHours(beijingHour);
+  
+  // 格式化日期时间为 YYYY-MM-DD HH:mm 格式
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  const hour = date.getHours().toString().padStart(2, '0');
+  const minute = date.getMinutes().toString().padStart(2, '0');
+
+  // 返回格式化后的字符串
+  return `${year}-${month}-${day} ${hour}:${minute}`;
+}
+
 const changeSchedule = () => {
 
 }
@@ -170,6 +217,12 @@ const changeSchedule = () => {
       height: 100%;
     }
 
+    .targeted-promotion {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
     .price {
       position: absolute;
       bottom: 0;
@@ -207,13 +260,15 @@ const changeSchedule = () => {
 
 .more-popover {
   padding: 0;
-  width: 84px !important;
-  min-width: 84px !important;
+  // padding: 0 10px;
+  width: 152px !important;
+  min-width: 152px !important;
   .list-box {
     >div {
       text-align: center;
       cursor: pointer;
       font-size: 14px;
+      margin: 3px 0;
     }
   }
 }

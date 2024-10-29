@@ -1,7 +1,8 @@
 <template>
   <div class="product-form">
     <header :id="id" v-view="fn">
-      &emsp;{{ title }}
+      <span>{{ title }}</span>
+      <slot name="header"></slot>
     </header>
     <div class="form">
       <slot name="form"></slot>
@@ -32,6 +33,7 @@ const fn = () => {
   padding: 56px 20px 16px 16px;
   position: relative;
   > header {
+    box-sizing: border-box;
     width: 100%;
     position: absolute;
     top: 0;
@@ -40,6 +42,10 @@ const fn = () => {
     line-height: 56px;
     border-bottom: 1px solid #e4dfdf;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
   }
   .el-radio__label {
     font-weight: 400;

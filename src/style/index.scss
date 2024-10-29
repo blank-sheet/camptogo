@@ -82,3 +82,18 @@ p {
   margin: 0;
   padding: 0;
 }
+
+.el-button--primary.is-link.is-disabled, 
+.el-button--primary.is-link.is-disabled:active, 
+.el-button--primary.is-link.is-disabled:focus, 
+.el-button--primary.is-link.is-disabled:hover, 
+.el-button--primary.is-plain.is-disabled, 
+.el-button--primary.is-plain.is-disabled:active, 
+.el-button--primary.is-plain.is-disabled:focus, 
+.el-button--primary.is-plain.is-disabled:hover, 
+.el-button--primary.is-text.is-disabled, 
+.el-button--primary.is-text.is-disabled:active, 
+.el-button--primary.is-text.is-disabled:focus, 
+.el-button--primary.is-text.is-disabled:hover {
+  color: rgba(191, 191, 191, 1);
+}

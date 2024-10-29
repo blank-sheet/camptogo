@@ -1,7 +1,7 @@
 <template>
   <el-table :data="tableData" style="width: 100%">
     <el-table-column prop="index" label="序号" width="70">
-      <template #default="scope"></template>
+      <template #default="scope">{{ scope.row.id }}</template>
     </el-table-column>
     <el-table-column prop="name" label="创建时间" width="180">
       <template #default="scope"> {{ scope.row.date }}</template> </el-table-column
@@ -38,21 +38,23 @@
 import { ref } from 'vue'
 const tableData = [
   {
-    date: '2016-05-03',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
+    id: '001',
+    date: '2024-08-03',
+    name: 'Ymmmy',
+    reason: 'No. 189, Grove St, Los Angeles'
   },
   {
-    date: '2016-05-02',
+    id: '002',
+    date: '2024-05-02',
     name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
+    reason: 'No. 189, Grove St, Los Angeles'
   }
 ]
 </script>
 
 <style lang="scss" scoped>
 .el-table {
-  --el-table-header-bg-color: #f5f5f5;
+  // --el-table-header-bg-color: #f5f5f5;
   margin-left: 24px;
 
   .cell {

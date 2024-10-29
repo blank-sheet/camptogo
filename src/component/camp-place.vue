@@ -35,6 +35,7 @@ watch(selectedOptions, () => {
       loc += CodeToText[selectedOptions.value[i]]
     }
   }
+  
   emits('update:location', loc.split('\/').filter(Boolean))
   // emits('update:location', isArr.value ? loc.split('\/').filter(Boolean) : loc.replace(/\//g, ''))
 })

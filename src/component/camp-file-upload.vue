@@ -14,15 +14,20 @@
     class="file-uploader"
     list-type="text"
     :on-remove="update"
+    :on-preview="handlePreview"
     :multiple="false"
   >
     <el-button type="primary">上传文件</el-button>
   </el-upload>
+
+  <el-dialog v-model="dialogVisible" width="1200">
+    <iframe v-if="dialogVisible" :src="fileUrl" style="width: 1160px; height: 660px;"></iframe>
+  </el-dialog>
 </template>
 
 <script setup>
 import { ElMessage } from 'element-plus'
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { authHeader } from '../api'
 import { userApi } from '../api/modules/user/user'
 
@@ -40,11 +45,20 @@ const props = defineProps({
   }
 })
 
+const dialogVisible = ref(false)
+
+onMounted(() => {
+  if (Array.isArray(props.files)) {
+    fileList.value = props.files
+  }
+})
+
 const isArr = computed(() => Array.isArray(props.files))
 const emits = defineEmits(['update:files'])
 
 const hasChange = ref(false)
 const fileList = ref([])
+const fileUrl = ref('')
 
 watch(
   () => props.files,
@@ -55,7 +69,8 @@ watch(
     } else {
       fileList.value = props.files
     }
-  }
+  },
+  { deep: true }
 )
 
 const handleSuccess = (r, f) => {
@@ -64,6 +79,11 @@ const handleSuccess = (r, f) => {
     type: 'success'
   })
   update()
+}
+
+const handlePreview = (file) => {
+  fileUrl.value = file?.response?.details?.image_url || file?.url
+  dialogVisible.value = true
 }
 
 const update = () => {

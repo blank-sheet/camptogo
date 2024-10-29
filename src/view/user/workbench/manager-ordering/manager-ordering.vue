@@ -85,6 +85,21 @@
           </el-tooltip>
         </template>
       </el-table-column>
+      <el-table-column prop="status" label="工单状态" width="100" align="center" filter-placement="bottom-end">
+        <template #default="scope">
+          <el-tooltip placement="bottom" effect="light" :raw-content="true"
+            :v-if="scope.row.operation === '' ? true : false">
+            <template #content>
+              <h3>未通过原因：</h3>
+              点击鼠标移入元素，弹出气泡式的卡片浮层。{{
+}}
+            </template>
+            <el-tag disable-transitions>
+              {{ getWorkorderTagName(scope.row.operation) }}
+            </el-tag>
+          </el-tooltip>
+        </template>
+      </el-table-column>
       <el-table-column prop="info" label="出行人信息" width="270">
         <template #default="scope">
           <div>
@@ -226,30 +241,11 @@ const formatPrice = (priceInCent) => {
 
 // 分页查询
 const handleCurrentChange = (next = 1, pageSize = 10) => {
-  // request
-  //   .post(userApi.ordersSearch, {
-  //     currentPage: next,
-  //     pageSize: pageSize,
-  //     // 商品ID
-  //     productId: selectTag == 2 ? searchWord.value : '',
-  //     // 订单编号,非必须
-  //     orderCode: selectTag == 1 ? searchWord.value : '',
-  //     providerId: store.providerId,
-  //     statuses: selectStatus.value,
-  //     sortParam: {
-  //       sort: "id",
-  //       sortOrder: "DESC"
-  //     },
-  //   })
-  //   .then(res => {
-  //     tableData.value = res.details.list
-  //     totalPage.value = res.details.total
-  //   })
   request
     .post(userApi.orderList, {
       currentPage: next,
       pageSize: pageSize,
-      userId: store.providerId,
+      userId: store.user.id,
       // 商品ID
       productId: selectTag == 2 ? searchWord.value : '',
       // 订单编号,非必须
@@ -330,6 +326,30 @@ const getorderStatus = status => {
       return 'warning'
   }
 }
+
+const getWorkorderTagName = status => {
+  switch (status) {
+    case 'CREATE_PRODUCT':
+      return '创建商品'
+    case 'UPDATE_PRODUCT':
+      return '更新商品'
+    case 'UNDERWRITING_REVIEW_PRODUCT':
+      return '待核保审核'
+    case 'ACTIVE_PRODUCT':
+      return '商品上架'
+    case 'CANCEL_PRODUCT':
+      return '取消活动'
+    case 'ORDER_CONFIRM':
+      return '报名表审核完成'
+    case 'ORDER_REFUND':
+      return '订单退款'
+    case 'PROVIDER_SETTLEMENT':
+      return '商家入驻审核中'
+    default:
+      return status
+  }
+}
+
 const getorderTagName = status => {
   switch (status) {
     case 'PAID':

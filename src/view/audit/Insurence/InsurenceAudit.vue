@@ -85,7 +85,7 @@
     </el-table>
     <reject-dialog v-model:show="dialogInfo.reject" @reset-table="updateList(pageNum)" />
     <approve-dialog v-model:show="dialogInfo.approve" @reset-table="updateList(pageNum)"
-      :product-id="currentTableRow.entityId" :work-ticket-id="currentTableRow.workTicketId" />
+      :product-id="currentTableRow.entityId" :work-ticket-id="currentTableRow.workTicketId" :productInsuranceInfo="currentTableRow?.snapshot?.productInsuranceInfo" />
     <reject-reason v-model:show="dialogInfo.reason" />
     <camp-pagination :total="total" @change-page="updateList" />
   </div>

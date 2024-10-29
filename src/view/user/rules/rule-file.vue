@@ -35,6 +35,9 @@
       <File213 v-if="index === '2-13'" />
       <File214 v-if="index === '2-14'" />
       <File215 v-if="index === '2-15'" />
+      <File216 v-if="index === '2-16'" />
+      <File217 v-if="index === '2-17'" />
+      <File218 v-if="index === '2-18'" />
       <File30 v-if="index === '3-0'" />
       <File31 v-if="index === '3-1'" />
       <File32 v-if="index === '3-2'" />
@@ -46,9 +49,6 @@
       <File38 v-if="index === '3-8'" />
       <File39 v-if="index === '3-9'" />
       <File310 v-if="index === '3-10'" />
-      <File311 v-if="index === '3-11'" />
-      <File312 v-if="index === '3-12'" />
-      <File313 v-if="index === '3-13'" />
     </div>
   </div>
 
@@ -114,9 +114,9 @@ import File37 from './components/File37.vue'
 import File38 from './components/File38.vue'
 import File39 from './components/File39.vue'
 import File310 from './components/File310.vue'
-import File311 from './components/File311.vue'
-import File312 from './components/File312.vue'
-import File313 from './components/File313.vue'
+import File216 from './components/File216.vue'
+import File217 from './components/File217.vue'
+import File218 from './components/File218.vue'
 
 const props = defineProps({
   index: {
@@ -180,8 +180,10 @@ watch(() => currentView.value, (newV) => {
 </script>
 <style lang="scss" scoped>
 .rule {
-  width: 100%;
+  width: calc(100% - 30px);
   background-color: #fff;
+  transform: translate(15px, 20px);
+  border-radius: 10px;
 
   .chapterArea {
     width: 89%;

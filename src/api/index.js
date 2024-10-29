@@ -14,9 +14,9 @@ const request = axios.create({
   timeoutErrorMessage: '请求超时'
 })
 const basicPost = request.post
-request.post = async (url, data, config = { message: false, loading: false }) => {
+request.post = async (url, data, config = { message: false, loading: false }, header) => {
   if (config.loading) useStore().setLoading(true)
-  return basicPost(url, data, config)
+  return basicPost(url, data, config, header)
     .then(response => {
       if (response.Code != '200') {
         ElMessage({

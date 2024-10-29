@@ -151,6 +151,7 @@ const route = useRoute()
 const router = useRouter()
 const handlerTostep5 = () => {
   const valid = validateForm(formRef.value)
+  router.push(`/settled/step5/${route.params.type}`)
   valid.then(res => {
     if (res) {
       //发送添加表单请求

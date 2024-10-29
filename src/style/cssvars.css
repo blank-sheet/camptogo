@@ -1,0 +1,7 @@
+:root{
+    /* 电脑端底部协议左右padding */
+    --padding-agreements-left:50px;
+    --padding-agreements-right:35px;
+    --padding-agreements-y-space:10px;
+    
+}

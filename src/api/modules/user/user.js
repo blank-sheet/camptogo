@@ -65,4 +65,14 @@ export const userApi = {
   getRegistrationFormAPI: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/application_form/query',
   // 获取退款信息详情
   getRefundInfo: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/order_refund_info/query',
+  // 第三方人员投保信息创建
+  createExternalInsurance: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/external_insurance/create',
+  // 第三方人员投保列表
+  getExternalInsurance: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/external_insurance/page',
+  // 价格确认页分页列表
+  getExternalInsurancePrice: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/external_insurance/page_price',
+  // 商户确认投保
+  comfirmExternalInsurance: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/external_insurance/comfirm',
+  // 支付回调
+  getPaymentStatus: '/api/e9b849a515a84327b424af7ccdbf2949/web/v1_0_0/product/external_insurance/payment_status'
 }

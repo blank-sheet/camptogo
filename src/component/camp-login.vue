@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { onMounted, reactive } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '../store'
 import { request } from '../api/index'
@@ -30,6 +30,8 @@ const loginData = reactive({
   username: '',
   password: ''
 })
+const response = ref(null)
+const role = ref(null)
 const showAuditButton =
   window.location.href.includes('127.0.0.1') || window.location.href.includes('localhost')
 const submitForm = () => {
@@ -44,15 +46,25 @@ const submitForm = () => {
       { message: true, loading: true }
     )
     .then(res => {
-      useStore().setUserInfo(res.details)
-      router.push(res.details.role == 'AUDITOR' ? '/audit' : res.details.role == 'INSURANCE_COMPANY' ? '/insurence/audit' : props.loginTo)
-      window.localStorage.setItem(
-        window.location.href,
-        JSON.stringify({
-          u: loginData.username,
-          p: loginData.password
-        })
-      )
+      if (res && res.Code == 200) {
+        response.value = res
+        useStore().setUserInfo(res.details)
+        window.localStorage.setItem(
+          window.location.href,
+          JSON.stringify({
+            u: loginData.username,
+            p: loginData.password
+          })
+        )
+      }
+    })
+    .catch(error => {
+      console.error('Request failed:', error);
+    })
+    .finally(() => {
+      if (response.value && response.value?.Code == 200) {
+        router.push(response.value.details.role == 'AUDITOR' ? '/audit' : response.value.details.role == 'INSURANCE_COMPANY' ? '/insurence/audit' : props.loginTo)
+      }
     })
 }
 onMounted(() => {

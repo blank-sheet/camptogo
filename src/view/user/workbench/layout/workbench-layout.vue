@@ -34,6 +34,11 @@ const navs = [
     name:'user-product-manage'
   },
   {
+    label: '保险管理',
+    navTo: '/user/workbench/insurance-manage',
+    name:'insurance-manage'
+  },
+  {
     label: '审核进度',
     navTo: '/user/workbench/progress',
     name:'user-progress'
